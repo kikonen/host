@@ -35,6 +35,14 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # NOTE KI assets precompile in development
+  if ENV['ASSETS'] == 'true'
+    config.assets.compress = true
+    config.assets.compile = false
+    config.assets.digest = true
+    config.assets.debug = false
+  end
+
   # Set the logging destination(s)
   config.log_to = %w[file]
 end
