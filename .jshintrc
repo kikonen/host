@@ -1,0 +1,12 @@
+{
+  "esnext": true,
+  "globalstrict": true,
+  "browser": true,
+  "devel": true,
+  "undef": true,
+  "unused": true,
+  "curly": true,
+  "newcap": true,
+  "eqnull": true,
+  "predef": [ "angular", "$", "jQuery", "_" ]
+}
