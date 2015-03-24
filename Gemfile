@@ -19,3 +19,6 @@ gem 'pry'
 gem 'awesome_print'
 gem 'oj'
 gem 'hashie'
+
+gem 'bower_vendor', git: 'git@github.com:kikonen/bower_vendor.git', branch: 'master'
+#gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'

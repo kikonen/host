@@ -2,8 +2,10 @@
   <%= javascript_include_tag 'test/module' %>
 <% end %>
 
-<div>
-  Hello there
+<div ng-init="name='foo'">
+  <input ng-model="name">
+  <hr>
+  Hello there {{ name }}
 </div>
 <div>
   <a href="/">Home</a>

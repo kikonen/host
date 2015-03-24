@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:kikonen/bower_vendor.git
+  revision: 576a3a3d72b8c1480da3184f918a39231c09c329
+  branch: master
+  specs:
+    bower_vendor (0.0.2)
+      awesome_print
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -121,6 +129,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bower_vendor!
   hashie
   logging-rails
   ngannotate-rails
