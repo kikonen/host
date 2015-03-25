@@ -1,3 +1,4 @@
+"use strict";
 import { Example } from 'test/example';
 
 class Test {
@@ -12,5 +13,6 @@ class Test {
 }
 console.log("loaded test module");
 
-new Test();
-new Example();
+let test = new Test(),
+    example = new Example(1, 2);
+console.log(example.concat());

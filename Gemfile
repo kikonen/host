@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'ngannotate-rails'
 gem 'therubyracer',  platforms: :ruby
-gem 'traceur-rails'
+gem 'sprockets-traceur'
 
 gem 'thin'
 
