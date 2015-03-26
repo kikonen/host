@@ -5,7 +5,15 @@
 <div ng-init="name='foo'">
   <input ng-model="name">
   <hr>
-  Hello there {{ name }}
+
+  <div class="input-group">
+    Hello there {{ name }}
+  </div>
+
+  <div class="input-group">
+    <button class="btn btn-default glyphicon glyphicon-user">Okey</button>
+    <button class="btn btn-danger" ng-click="name=''">Nope</button>
+  </div>
 </div>
 <div>
   <a href="/">Home</a>

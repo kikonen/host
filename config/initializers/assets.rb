@@ -10,6 +10,7 @@ Rails.application.config.assets.precompile += [
   '*.svg',
   '*.eot',
   '*.woff',
+  '*.woff2',
   '*.ttf',
   '**/module.js',
   '**/module.css',
