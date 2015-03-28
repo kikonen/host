@@ -44,14 +44,16 @@ mv "app/assets/javascripts/${ENGINE}/application.js" "app/assets/javascripts/${E
 
 mv "app/controllers/${ENGINE}/application_controller.rb" "app/controllers/${ENGINE}/engine_controller.rb"
 mv "app/helpers/${ENGINE}/application_helper.rb" "app/helpers/${ENGINE}/engine_helper.rb"
-mv "app/views/layouts/${ENGINE}/application.html.erb" "app/views/layouts/${ENGINE}/engine.html.erb"
+
+rm "app/views/layouts/${ENGINE}/application.html.erb"
+cp ../host/templates/engine.html.erb "app/views/layouts/${ENGINE}/engine.html.erb"
 
 sed -i "s/ActionController::Base/::BaseController/g" "app/controllers/${ENGINE}/engine_controller.rb"
 sed -i "s/Application/Engine/g" "app/controllers/${ENGINE}/engine_controller.rb"
 sed -i "s/Application/Engine/g" "app/helpers/${ENGINE}/engine_helper.rb"
 sed -i "s/application/engine/g" "app/assets/stylesheets/${ENGINE}/engine.css"
 sed -i "s/application/engine/g" "app/assets/javascripts/${ENGINE}/engine.js"
-sed -i "s/application/engine/g" "app/views/layouts/${ENGINE}/engine.html.erb"
+sed -i "s/ENGINE_NAME/${ENGINE}/g" "app/views/layouts/${ENGINE}/engine.html.erb"
 
 
 # setup ruby
