@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:kikonen/gi_test_engine.git
+  revision: 0ddbc217b982b168cb9f112a12da74144bfe47e9
+  branch: master
+  specs:
+    gi_test_engine (0.0.1)
+      rails (~> 4.1.10)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -126,6 +134,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bower_vendor
+  gi_test_engine!
   hashie
   logging-rails
   ngannotate-rails

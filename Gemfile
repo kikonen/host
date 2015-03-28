@@ -23,3 +23,7 @@ gem 'hashie'
 gem 'bower_vendor'
 #gem 'bower_vendor', git: 'git@github.com:kikonen/bower_vendor.git', branch: 'master'
 #gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
+
+
+gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
+#gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
