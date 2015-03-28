@@ -38,6 +38,22 @@ sed -i "s/README.rdoc/README.md/g" ${GEMSPEC}
 # setup mounting
 echo -e "\nclass GiTest::Engine\n  def self.mount_path\n    \"#{parent.name.underscore}\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
 
+# rename engine files for sensibility
+mv "app/assets/stylesheets/${ENGINE}/application.css" "app/assets/stylesheets/${ENGINE}/engine.css"
+mv "app/assets/javascripts/${ENGINE}/application.js" "app/assets/javascripts/${ENGINE}/engine.js"
+
+mv "app/controllers/${ENGINE}/application_controller.rb" "app/controllers/${ENGINE}/engine_controller.rb"
+mv "app/helpers/${ENGINE}/application_helper.rb" "app/helpers/${ENGINE}/engine_helper.rb"
+mv "app/views/layouts/${ENGINE}/application.html.erb" "app/views/layouts/${ENGINE}/engine.html.erb"
+
+sed -i "s/ActionController::Base/::BaseController/g" "app/controllers/${ENGINE}/engine_controller.rb"
+sed -i "s/Application/Engine/g" "app/controllers/${ENGINE}/engine_controller.rb"
+sed -i "s/Application/Engine/g" "app/helpers/${ENGINE}/engine_helper.rb"
+sed -i "s/application/engine/g" "app/assets/stylesheets/${ENGINE}/engine.css"
+sed -i "s/application/engine/g" "app/assets/javascripts/${ENGINE}/engine.js"
+sed -i "s/application/engine/g" "app/views/layouts/${ENGINE}/engine.html.erb"
+
+
 # setup ruby
 echo "2.1.5" > .ruby-version
 echo "host" > .ruby-gemset
