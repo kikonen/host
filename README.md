@@ -12,3 +12,13 @@ Cleanup
 ```bash
   bundle exec rake assets:clobber
 ```
+
+## Development
+
+### Create new engine
+
+[create_engine.sh](bin/create_engine.sh)
+
+```bash
+host/bin/create_engine.sh xxx
+```
