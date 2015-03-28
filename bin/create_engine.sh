@@ -27,6 +27,7 @@ git commit -m "INIT"
 mv ${ENGINE}.gemspec ${GEMSPEC}
 echo "require_relative '${ENGINE}'" > "lib/${FULL_ENGINE}.rb"
 
+# setup gemspec
 sed -i "s/\"${ENGINE}\"/\"${ENGINE}_engine\"/g" ${GEMSPEC}
 sed -i "s/TODO: Your name/${USER_NAME}/g" ${GEMSPEC}
 sed -i "s/TODO: Your email/${USER_EMAIL}/g" ${GEMSPEC}
@@ -34,6 +35,8 @@ sed -i "s/\"TODO\"/\"https:\/\/github.com\/${USER_GITHUB}\/${FULL_ENGINE}\"/g" $
 sed -i "s/\".*TODO.*\"/\"${FULL_ENGINE}\"/g" ${GEMSPEC}
 sed -i "s/README.rdoc/README.md/g" ${GEMSPEC}
 
+# setup mounting
+echo -e "\nclass GiTest::Engine\n  def self.mount_path\n    \"#{parent.name.underscore}\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
 
 # setup ruby
 echo "2.1.5" > .ruby-version
