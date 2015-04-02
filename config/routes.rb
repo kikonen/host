@@ -55,6 +55,12 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+end
 
+Rails.application.routes.draw do
   mount GiTest::Engine, at: GiTest::Engine.mount_path
+end
+
+Rails.application.routes.draw do
+  mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
 end

@@ -1,4 +1,12 @@
 GIT
+  remote: git@github.com:kikonen/gi_album_engine.git
+  revision: ec153987376728ab2cac54b3c7987a3f654adfe9
+  branch: master
+  specs:
+    gi_album_engine (0.0.1)
+      rails (~> 4.1.10)
+
+GIT
   remote: git@github.com:kikonen/gi_test_engine.git
   revision: 0ddbc217b982b168cb9f112a12da74144bfe47e9
   branch: master
@@ -134,6 +142,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bower_vendor
+  gi_album_engine!
   gi_test_engine!
   hashie
   logging-rails
