@@ -5,12 +5,14 @@ if [[ "$1" == "" ]]; then
 fi
 
 # create engine
-export ENGINE="gi_${1}"
+BASE_NAME=${1}
+export ENGINE="gi_${BASE_NAME}"
 export USER_GITHUB=kikonen
 export USER_NAME="Kari Ikonen"
 export USER_EMAIL="mr.kari.ikonen@gmail.com"
 export FULL_ENGINE="${ENGINE}_engine"
 export GEMSPEC="${FULL_ENGINE}.gemspec"
+export ENGINE_MODULE=`echo ${BASE_NAME} | ruby -e "puts 'Gi' + STDIN.read.split('_').map { |p| p[0].upcase + p[1, p.length]}.join('')"`
 
 rails plugin new ${ENGINE} --skip-bundle --skip-test-unit --dummy-path=spec/dummy --mountable
 mv ${ENGINE} ${FULL_ENGINE}
@@ -36,7 +38,7 @@ sed -i "s/\".*TODO.*\"/\"${FULL_ENGINE}\"/g" ${GEMSPEC}
 sed -i "s/README.rdoc/README.md/g" ${GEMSPEC}
 
 # setup mounting
-echo -e "\nclass GiTest::Engine\n  def self.mount_path\n    \"#{parent.name.underscore}\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
+echo -e "\nclass ${ENGINE_MODULE}::Engine\n  def self.mount_path\n    \"#{parent.name.underscore}\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
 
 # rename engine files for sensibility
 mv "app/assets/stylesheets/${ENGINE}/application.css" "app/assets/stylesheets/${ENGINE}/engine.css"
@@ -60,9 +62,41 @@ sed -i "s/ENGINE_NAME/${ENGINE}/g" "app/views/layouts/${ENGINE}/engine.html.erb"
 echo "2.1.5" > .ruby-version
 echo "host" > .ruby-gemset
 
+# show generated data
+echo ""
+echo "${FULL_ENGINE}.gemspec"
+echo "------------------------------"
 cat "${FULL_ENGINE}.gemspec"
+echo "------------------------------"
+
+# bind to host
+HOST_ROUTES="host/config/routes.rb"
+HOST_GEMFILE="host/Gemfile"
+cd ..
+
+echo "" >> ${HOST_ROUTES}
+echo "Rails.application.routes.draw do" >> ${HOST_ROUTES}
+echo "  mount ${ENGINE_MODULE}::Engine, at: ${ENGINE_MODULE}::Engine.mount_path" >> ${HOST_ROUTES}
+echo "end" >> ${HOST_ROUTES}
+
+echo "" >> ${HOST_GEMFILE}
+echo "gem '${FULL_ENGINE}', git: 'git@github.com:${USER_GITHUB}/${FULL_ENGINE}.git', branch: 'master'" >> ${HOST_GEMFILE}
+echo "#gem '${FULL_ENGINE}', path: '~/work/projects/ruby/${FULL_ENGINE}'" >> ${HOST_GEMFILE}
+
+# show generated data
+echo ""
+echo "host/Gemfile:"
+echo "------------------------------"
+tail -3 host/Gemfile
+echo "------------------------------"
+echo ""
+echo "host/config/routes.rb"
+echo "------------------------------"
+tail -4 host/config/routes.rb
+echo "------------------------------"
 
 # post setup
+echo ""
 echo "POST SETUP:"
 echo "cd ${FULL_ENGINE}"
 echo "rvm use ."
