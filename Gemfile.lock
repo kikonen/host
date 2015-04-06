@@ -1,9 +1,10 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: 5c17d478ef228e7cebb830d3f518615651d2a347
+  revision: 53ffd7f0ee9320d977ad3c92925c5638f35d6623
   branch: master
   specs:
     gi_album_engine (0.0.1)
+      bower_vendor
       celluloid (~> 0.16.0)
       rails (~> 4.1.10)
       rails_config (>= 0.5.0.beta1)

@@ -4,15 +4,22 @@ if [[ "$1" == "" ]]; then
   exit
 fi
 ROOT_DIR=/home/www/virtual/host.kari.dy.fi
-RELEASE=$1
+RELEASE="release_${1}"
 
 cd /home/www/virtual/host.kari.dy.fi
-git clone git@github.com:kikonen/host.git release_${RELEASE}
+git clone git@github.com:kikonen/host.git ${RELEASE}
 cd ${RELEASE}
 
 ln -s "${ROOT_DIR}/shared" shared
+
+rm -fr public/assets
+ln -s "${ROOT_DIR}/shared/public/assets" public/assets
+
 rm -fr log
 ln -s "${ROOT_DIR}/shared/log" log
+
+ls -l
+ls -l public
 
 . rvm reload
 bundle install
