@@ -1,9 +1,10 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: 5c17d478ef228e7cebb830d3f518615651d2a347
-  branch: master
+  revision: 504aec6c4d4c93a4814f537b5d67636415afce21
+  branch: smart_table
   specs:
     gi_album_engine (0.0.1)
+      bower_vendor
       celluloid (~> 0.16.0)
       rails (~> 4.1.10)
       rails_config (>= 0.5.0.beta1)

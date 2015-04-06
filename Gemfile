@@ -28,5 +28,5 @@ gem 'bower_vendor'
 gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
 
-gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'master'
+gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'smart_table'
 #gem 'gi_album_engine', path: '~/work/projects/ruby/gi_album_engine'
