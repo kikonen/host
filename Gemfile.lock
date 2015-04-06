@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: cb5a6794cce6ade882b3e15c538ebdb299b73e9a
+  revision: df48a454706a31e9831678322ac1879ac70d77b1
   branch: smart_table
   specs:
     gi_album_engine (0.0.1)
