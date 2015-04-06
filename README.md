@@ -25,6 +25,6 @@ host/bin/create_engine.sh xxx
 
 ## Demo
 
-Live demo running this server
+Live demo
 
 http://host.kari.dy.fi
