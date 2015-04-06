@@ -48,6 +48,9 @@ sed -i "s/README.rdoc/README.md/g" ${GEMSPEC}
 
 # module setup
 echo -e "\nmodule ${ENGINE_MODULE}\n  def self.gem_root_dir\n    File.expand_path('../..', __FILE__)\n  end\nend" >>  "lib/${ENGINE}.rb"
+echo -e "\nmodule ${ENGINE_MODULE}\n  def self.config\n    @config ||= RailsConfig.load_files(RailsConfig.setting_files(\"#{self.gem_root_dir}/config\", Rails.env))\n  end\nend" >>  "lib/${ENGINE}.rb"
+
+touch config/settings.yml
 
 # setup mounting
 cp ../host/.jshintrc .
