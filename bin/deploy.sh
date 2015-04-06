@@ -1,0 +1,2 @@
+. rvm reload
+bundle install
