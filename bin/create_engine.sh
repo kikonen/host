@@ -6,24 +6,33 @@ fi
 
 # create engine
 BASE_NAME=${1}
-export ENGINE="gi_${BASE_NAME}"
-export USER_GITHUB=kikonen
-export USER_NAME="Kari Ikonen"
-export USER_EMAIL="mr.kari.ikonen@gmail.com"
-export FULL_ENGINE="${ENGINE}_engine"
-export GEMSPEC="${FULL_ENGINE}.gemspec"
-export ENGINE_MODULE=`echo ${BASE_NAME} | ruby -e "puts 'Gi' + STDIN.read.split('_').map { |p| p[0].upcase + p[1, p.length]}.join('')"`
+RUBY_VERSION="2.1.5"
+RUBY_GEMSET="host"
+ENGINE="gi_${BASE_NAME}"
+USER_GITHUB=kikonen
+USER_NAME="Kari Ikonen"
+USER_EMAIL="mr.kari.ikonen@gmail.com"
+FULL_ENGINE="${ENGINE}_engine"
+GEMSPEC="${FULL_ENGINE}.gemspec"
+ENGINE_MODULE=`echo ${BASE_NAME} | ruby -e "puts 'Gi' + STDIN.read.split('_').map { |p| p[0].upcase + p[1, p.length]}.join('')"`
 
 rails plugin new ${ENGINE} --skip-bundle --skip-test-unit --dummy-path=spec/dummy --mountable
-mv ${ENGINE} ${FULL_ENGINE}
+
+# Avoid moving engine inside itself on refresh
+if [ ! -d ${FULL_ENGINE} ]; then
+  mv ${ENGINE} ${FULL_ENGINE}
+fi
+
 cd ${FULL_ENGINE}
 
 # INIT
-rm README.rdoc
-echo "# ${FULL_ENGINE}" > README.md
-git init
-git add README.md
-git commit -m "INIT"
+if [ ! -d '.git' ]; then
+  rm README.rdoc
+  echo "# ${FULL_ENGINE}" > README.md
+  git init
+  git add README.md
+  git commit -m "INIT"
+fi
 
 # Match repo & engine name
 mv ${ENGINE}.gemspec ${GEMSPEC}
@@ -37,8 +46,13 @@ sed -i "s/\"TODO\"/\"https:\/\/github.com\/${USER_GITHUB}\/${FULL_ENGINE}\"/g" $
 sed -i "s/\".*TODO.*\"/\"${FULL_ENGINE}\"/g" ${GEMSPEC}
 sed -i "s/README.rdoc/README.md/g" ${GEMSPEC}
 
+# module setup
+echo -e "\nmodule ${ENGINE_MODULE}\n  def self.gem_root_dir\n    File.expand_path('../..', __FILE__)\n  end\nend" >>  "lib/${ENGINE}.rb"
+
 # setup mounting
-echo -e "\nclass ${ENGINE_MODULE}::Engine\n  def self.mount_path\n    \"#{parent.name.underscore}\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
+cp ../host/.jshintrc .
+echo -e "\nclass ${ENGINE_MODULE}::Engine\n  def self.mount_path\n    \"/#{parent.name.underscore}\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
+echo -e "\nclass ${ENGINE_MODULE}::Engine\n  def self.base_href\n    \"#{mount_path}/\"\n  end\nend" >>  "lib/${ENGINE}/engine.rb"
 
 # rename engine files for sensibility
 mv "app/assets/stylesheets/${ENGINE}/application.css" "app/assets/stylesheets/${ENGINE}/engine.css"
@@ -57,10 +71,9 @@ sed -i "s/application/engine/g" "app/assets/stylesheets/${ENGINE}/engine.css"
 sed -i "s/application/engine/g" "app/assets/javascripts/${ENGINE}/engine.js"
 sed -i "s/ENGINE_NAME/${ENGINE}/g" "app/views/layouts/${ENGINE}/engine.html.erb"
 
-
 # setup ruby
-echo "2.1.5" > .ruby-version
-echo "host" > .ruby-gemset
+echo ${RUBY_VERSION} > .ruby-version
+echo ${RUBY_GEMSET} > .ruby-gemset
 
 # show generated data
 echo ""

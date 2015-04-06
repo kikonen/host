@@ -6,3 +6,11 @@
 //
 //= require angular-1.3.15/angular
 //
+//=require_tree .
+//=require_self
+"use strict";
+
+export default angular.module("shared", [])
+.config(($locationProvider) => {
+  $locationProvider.html5Mode(true);
+});

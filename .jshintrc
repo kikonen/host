@@ -8,5 +8,5 @@
   "curly": true,
   "newcap": true,
   "eqnull": true,
-  "predef": [ "angular", "$", "jQuery", "_" ]
+  "predef": [ "System", "angular", "$", "jQuery", "_" ]
 }
