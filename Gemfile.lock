@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: 53ffd7f0ee9320d977ad3c92925c5638f35d6623
+  revision: a2d1485ff3036e018f58295b6b0c93eae15d7fee
   branch: master
   specs:
     gi_album_engine (0.0.1)
@@ -9,6 +9,16 @@ GIT
       rails (~> 4.1.10)
       rails_config (>= 0.5.0.beta1)
       rmagick (~> 2.13.4)
+
+GIT
+  remote: git@github.com:kikonen/gi_raycaster_engine.git
+  revision: 0a648c07a3f4e6ff7cd95d8007b9e94a3724e82f
+  branch: master
+  specs:
+    gi_raycaster_engine (0.0.1)
+      bower_vendor
+      rails (~> 4.1.10)
+      rails_config (>= 0.5.0.beta1)
 
 GIT
   remote: git@github.com:kikonen/gi_test_engine.git
@@ -58,7 +68,7 @@ GEM
     daemons (1.2.2)
     erubis (2.7.0)
     eventmachine (1.0.7)
-    execjs (2.4.0)
+    execjs (2.5.0)
     hashie (3.4.1)
     hike (1.2.3)
     hitimes (1.2.2)
@@ -132,7 +142,7 @@ GEM
       sprockets (~> 2)
       traceur-rb (>= 0.0.2)
     sqlite3 (1.3.10)
-    therubyracer (0.12.1)
+    therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
     thin (1.6.3)
@@ -158,6 +168,7 @@ DEPENDENCIES
   awesome_print
   bower_vendor
   gi_album_engine!
+  gi_raycaster_engine!
   gi_test_engine!
   hashie
   jbuilder
