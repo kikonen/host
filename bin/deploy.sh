@@ -1,35 +1,127 @@
 if [[ "$1" == "" ]]; then
-  echo "USAGE"
-  echo "$0 [YYYYMMDD]"
-  exit
+    echo "USAGE"
+    echo "$0 [YYYYMMDD]"
+    exit
 fi
+
 ROOT_DIR=/home/www/virtual/host.kari.dy.fi
 RELEASE="release_${1}"
+BRANCH="master"
 
-cd /home/www/virtual/host.kari.dy.fi
-git clone git@github.com:kikonen/host.git ${RELEASE}
-cd ${RELEASE}
+if [[ "$2" != "" ]]; then
+    BRANCH=${2}
+fi
 
-ln -s "${ROOT_DIR}/shared" shared
+function checkExit {
+    if [[ $? != 0 ]]; then
+        echo "Failed"
+        exit
+    fi
+}
 
-rm -fr public/assets
-ln -s "${ROOT_DIR}/shared/public/assets" public/assets
+#
+# Run command
+#
+function run {
+    echo "RUN: ${1}"
+    ${1}
+    checkExit
+}
 
-rm -fr log
-ln -s "${ROOT_DIR}/shared/log" log
+#
+# clone and checkout branch
+#
+function checkoutRepository {
+    cd /home/www/virtual/host.kari.dy.fi
+    git clone git@github.com:kikonen/host.git ${RELEASE}
+    checkExit
 
-ls -l
-ls -l public
+    cd ${RELEASE}
+    checkExit
 
-. rvm reload
-bundle install
+    # checkout appropriate branch
+    git checkout $BRANCH
+    checkExit
 
-# OPTIONAL: cleanup old compiled assets (careful; breaks running "current" server)
-#RAILS_ENV=production bundle exec rake assets:clobber
-RAILS_ENV=production bundle exec rake assets:precompile
+    git fetch
+    checkExit
 
-cd ..
-rm "current"
-ln -sf ${RELEASE} "current"
+    git reset --hard "origin/${BRANCH}"
+    checkExit
+}
 
-sudo service apache2 restart
+#
+# setup symlinks
+#
+function setupSymlinks {
+    ln -s "${ROOT_DIR}/shared" shared
+    checkExit
+
+    rm -fr public/assets
+    ln -s "${ROOT_DIR}/shared/public/assets" public/assets
+    checkExit
+
+    rm -fr log
+    ln -s "${ROOT_DIR}/shared/log" log
+    checkExit
+
+    echo "----------------------------------------"
+    echo "root:"
+    ls -l
+    echo "----------------------------------------"
+    echo "public:"
+    ls -l public
+    echo "----------------------------------------"
+}
+
+function setupGems {
+    . rvm reload
+    . rvm use .
+    checkExit
+
+    ruby --version
+    rvm gemset list
+
+    bundle install
+    checkExit
+}
+
+function compileAssets {
+    # OPTIONAL: cleanup old compiled assets (careful; breaks running "current" server)
+    #RAILS_ENV=production bundle exec rake assets:clobber
+    RAILS_ENV=production bundle exec rake assets:precompile
+    checkExit
+}
+
+function switchCurrent {
+    cd ..
+
+    echo "----------------------------------------"
+    echo "OLD current:"
+    ls -l
+    echo "----------------------------------------"
+
+    rm current
+    checkExit
+
+    ln -sf ${RELEASE} "current"
+    checkExit
+
+    echo "----------------------------------------"
+    echo "NEW current:"
+    ls -l
+    echo "----------------------------------------"
+}
+
+function restartApache {
+    sudo service apache2 restart
+}
+
+echo "RELEASE: ${RELEASE} using ${BRANCH}"
+
+run "checkoutRepository"
+run "setupSymlinks"
+run "setupGems"
+run "compileAssets"
+run "switchCurrent"
+run "restartApache"
