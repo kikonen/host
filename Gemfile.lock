@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git@github.com:kikonen/gi_raycaster_engine.git
-  revision: 0a648c07a3f4e6ff7cd95d8007b9e94a3724e82f
+  revision: 979cfef5d4ef5c862236fb462ee69a2d9944653f
   branch: master
   specs:
     gi_raycaster_engine (0.0.1)
