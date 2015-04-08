@@ -7,6 +7,7 @@
   <%= stylesheet_link_tag    'ng/module', media: 'all' %>
   <%= yield :stylesheets %>
 
+  <%= include_js_env %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'ng/module' %>
   <%= yield :javascripts %>
