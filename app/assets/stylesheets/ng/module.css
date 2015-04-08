@@ -1,4 +1,6 @@
 /*
+ *= require shared/bootstrap_override
+ *
  *= require_tree .
  *= require_self
  */
