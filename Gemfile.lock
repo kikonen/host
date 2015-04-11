@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: 96e1cb8a47adb964d1c69fc267ef782e12bf23ef
+  revision: 6470985d7eefec610d09d724c4e4d20408e66a1c
   branch: cleanup_logic
   specs:
     gi_album_engine (0.0.1)
