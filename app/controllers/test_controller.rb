@@ -1,5 +1,5 @@
 class TestController < BaseController
   def show
-    @ng_app = 'app'
+    @ng_app = ''
   end
 end
