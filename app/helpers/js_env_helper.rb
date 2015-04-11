@@ -15,7 +15,8 @@ module JsEnvHelper
       env: Rails.env,
       development: Rails.env.development?,
       production: Rails.env.production?,
-      debug: Settings.ui.debug
+      debug: Settings.ui.debug,
+      strictId: @ng_strict_di,
     }
   end
 

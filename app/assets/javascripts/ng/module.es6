@@ -38,11 +38,4 @@ Rails) => {
 
   // Setup routing
   $locationProvider.html5Mode(true);
-  $urlRouterProvider
-    .otherwise(function($injector, $location) {
-      if (Rails.development) {
-        console.debug("Route Not found: " + $location.absUrl());
-      }
-      window.location = $location.absUrl();
-    });
 });
