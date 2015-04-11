@@ -7,6 +7,7 @@
   <%= stylesheet_link_tag    'ng/module', media: 'all' %>
   <%= yield :stylesheets %>
 
+  <%= include_js_env %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'ng/module' %>
   <%= yield :javascripts %>
@@ -17,14 +18,25 @@
   <% end %>
   <%= yield :head %>
 </head>
+
+<% if @ng_app %>
+<body ng-app="<%= @ng_app %>" <%= 'ng-strict-di' if @ng_strict_di %>>
+<% else %>
 <body>
+<% end %>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" data-target="#mainNavbar" data-toggle="collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" href="/">KI</a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div id="mainNavbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li><a href="/test">Test</a></li>
         <li><a href="/gi_test">Test Engine</a></li>

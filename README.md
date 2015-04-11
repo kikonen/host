@@ -4,7 +4,8 @@
 
 Test assets
 ```bash
-  ASSETS=true NG_FORCE=true RAILS_ENV=development bundle exec rake assets:clobber assets:precompile
+  bundle exec rake assets:clobber
+  ASSETS=true NG_FORCE=true RAILS_ENV=development bundle exec rake assets:precompile
   ASSETS=true rails s -p 3010
 ```
 
