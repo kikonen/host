@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: f6952f6dbd590719e5ed81d4d5e1f313faaa6b25
+  revision: 15039039ab552b42eae09d5d24d62bc00a7221bc
   branch: master
   specs:
     gi_album_engine (0.0.1)
