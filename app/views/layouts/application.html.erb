@@ -46,6 +46,7 @@
     </div>
   </div>
 </nav>
+<gi-breadcrumb></gi-breadcrumb>
 
 <%= yield %>
 
@@ -62,5 +63,7 @@
   ga('send', 'pageview');
 </script>
 <% end %>
+
+<%= ng_template_include 'ng' %>
 </body>
 </html>

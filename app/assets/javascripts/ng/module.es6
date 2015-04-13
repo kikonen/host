@@ -10,8 +10,8 @@
 //= require angular-1.3.15/angular
 //= require angular-ui-router-0.2.13/angular-ui-router
 //
-//=require_tree .
 //=require_self
+//=require_tree .
 "use strict";
 
 // NOTE KI cannot us "ng" as module name since it's used by angularjs itself
@@ -39,3 +39,5 @@ Rails) => {
   // Setup routing
   $locationProvider.html5Mode(true);
 });
+
+import {} from 'ng/breadcrumb_directive';
