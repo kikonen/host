@@ -2,6 +2,7 @@ class WebController < ApplicationController
   include JsEnvHelper
 
   helper JsEnvHelper
+  helper NgTemplate::TemplateHelper
 
   before_filter :require_ng_strict_di
 

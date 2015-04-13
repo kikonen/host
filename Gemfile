@@ -15,6 +15,10 @@ gem 'ngannotate-rails', git: 'git@github.com:kikonen/ngannotate-rails.git', tag:
 gem 'therubyracer',  platforms: :ruby
 gem 'sprockets-traceur'
 
+gem 'ng_template', '0.0.1'
+#gem 'ng_template', git: 'git@github.com:kikonen/ng_template.git', branch: 'master'
+#gem 'ng_template', path: '~/work/projects/ruby/ng_template'
+
 gem 'thin'
 
 gem 'logging-rails'

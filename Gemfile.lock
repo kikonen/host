@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: 15039039ab552b42eae09d5d24d62bc00a7221bc
+  revision: 4dfaf883455a065a6123e170817fc07f2dc13014
   branch: master
   specs:
     gi_album_engine (0.0.1)
@@ -99,6 +99,8 @@ GEM
     mime-types (2.4.3)
     minitest (5.5.1)
     multi_json (1.11.0)
+    ng_template (0.0.1)
+      rails (~> 4.1.10)
     oj (2.12.1)
     pg (0.18.1)
     pry (0.10.1)
@@ -179,6 +181,7 @@ DEPENDENCIES
   hashie
   jbuilder
   logging-rails
+  ng_template (= 0.0.1)
   ngannotate-rails!
   oj
   pg
