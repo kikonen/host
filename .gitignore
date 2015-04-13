@@ -16,3 +16,5 @@
 /tmp
 /shared
 /public/assets
+
+.emacs*
