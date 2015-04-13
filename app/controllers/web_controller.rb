@@ -10,6 +10,6 @@ class WebController < ApplicationController
   # Enforce strict dependency check if precompiled assets
   #
   def require_ng_strict_di
-    @ng_strict_di = !Rails.application.config.assets.compile
+    @ng_strict_di = ENV['NG_FORCE'] == 'true' || !Rails.application.config.assets.compile
   end
 end
