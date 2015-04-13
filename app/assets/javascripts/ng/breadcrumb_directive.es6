@@ -1,18 +1,12 @@
 "use strict";
 
-angular.module('base')
-.directive('giBreadcrumb', () => ({
-  scope: {},
-  templateUrl: 'ng/breadcrumb',
-  controller: class {
-    constructor(Breadcrumb) {
-      this.path = Breadcrumb.getPath();
-    }
-  },
-  bindToController: true,
-  controllerAs: 'ctrl'
-}))
-.service('Breadcrumb', class {
+class BreadcrumbController {
+  constructor(Breadcrumb) {
+    this.path = Breadcrumb.getPath();
+  }
+}
+
+class Breadcrumb {
   constructor() {
     this.path = [
       {
@@ -41,4 +35,14 @@ angular.module('base')
   removeElement(elem) {
     _.remove(this.path, elem);
   }
-});
+}
+
+angular.module('base')
+.directive('giBreadcrumb', () => ({
+  scope: {},
+  templateUrl: 'ng/breadcrumb',
+  controller: BreadcrumbController,
+  bindToController: true,
+  controllerAs: 'ctrl'
+}))
+.service('Breadcrumb', Breadcrumb);
