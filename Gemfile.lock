@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: 4dfaf883455a065a6123e170817fc07f2dc13014
+  revision: 57d7d2c416173bd0ad05d5bdf06c760a365b2229
   branch: master
   specs:
     gi_album_engine (0.0.1)
@@ -82,7 +82,7 @@ GEM
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.7.0)
-    jbuilder (2.2.12)
+    jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     json (1.8.2)
