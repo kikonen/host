@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: ac257a68659ea25cd11cf6dd5832d2775d0c9756
+  revision: 2226dd03589417dec8ba8d61da41df37d52f365b
   branch: master
   specs:
     gi_album_engine (0.0.1)
@@ -30,10 +30,10 @@ GIT
 
 GIT
   remote: git@github.com:kikonen/ngannotate-rails.git
-  revision: 85fc2d6e13ba7c11fdad0abcc466bfb2ee9402e0
-  tag: v0.15.4a
+  revision: 39b14e959891238dce594b2d57cef6c956b5f4ba
+  tag: v0.15.4.1b
   specs:
-    ngannotate-rails (0.15.4)
+    ngannotate-rails (0.15.4.1)
       execjs
       rails (>= 3.1)
 
@@ -97,11 +97,11 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
-    minitest (5.5.1)
+    minitest (5.6.0)
     multi_json (1.11.0)
     ng_template (0.0.1)
       rails (~> 4.1.10)
-    oj (2.12.1)
+    oj (2.12.2)
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
