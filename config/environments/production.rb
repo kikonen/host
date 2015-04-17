@@ -78,4 +78,6 @@ Rails.application.configure do
 
   # Set the logging destination(s)
   config.log_to = %w[file]
+
+  onfig.lograge.enabled = true
 end

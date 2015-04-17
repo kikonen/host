@@ -22,6 +22,7 @@ gem 'ng_template', '~> 0.1.0'
 gem 'thin'
 
 gem 'logging-rails'
+gem 'lograge'
 gem 'pry'
 gem 'awesome_print'
 gem 'oj'
