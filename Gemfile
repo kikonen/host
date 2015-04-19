@@ -9,8 +9,8 @@ gem 'sqlite3'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-#gem 'ngannotate-rails'
-gem 'ngannotate-rails', git: 'git@github.com:kikonen/ngannotate-rails.git', tag: 'v0.15.4.1b'
+gem 'ngannotate-rails'
+#gem 'ngannotate-rails', git: 'git@github.com:kikonen/ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 gem 'therubyracer',  platforms: :ruby
 gem 'sprockets-traceur'
