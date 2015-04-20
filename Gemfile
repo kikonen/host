@@ -28,6 +28,18 @@ gem 'awesome_print'
 gem 'oj'
 gem 'hashie'
 
+#
+# testing
+#
+gem 'webmock'
+gem 'capybara'
+gem 'capybara-ng'
+gem 'selenium-webdriver'
+gem 'poltergeist'
+gem 'capybara-webkit'
+gem 'rspec-rails'
+
+
 gem 'bower_vendor'
 #gem 'bower_vendor', git: 'git@github.com:kikonen/bower_vendor.git', branch: 'master'
 #gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'

@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.1.5
+sudo: false
+cache: bundler
+branches:
+  only:
+    - master
+
+script: bundle exec rspec
