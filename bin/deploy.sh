@@ -82,7 +82,7 @@ function setupGems {
     ruby --version
     rvm gemset list
 
-    bundle install
+    bundle install --without test
     checkExit
 }
 
