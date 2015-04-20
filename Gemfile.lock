@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/kikonen/gi_album_engine.git
+  revision: ce377165c22a2a76c7df353e0e5cd394862014f4
+  branch: master
+  specs:
+    gi_album_engine (0.0.1)
+      bower_vendor
+      celluloid (~> 0.16.0)
+      rails (~> 4.1.10)
+      rails_config (>= 0.5.0.beta1)
+      rmagick (~> 2.13.4)
+
+GIT
   remote: git://github.com/kikonen/gi_raycaster_engine.git
   revision: 979cfef5d4ef5c862236fb462ee69a2d9944653f
   branch: master
@@ -15,16 +27,6 @@ GIT
   specs:
     gi_test_engine (0.0.1)
       rails (~> 4.1.10)
-
-PATH
-  remote: ~/work/projects/ruby/gi_album_engine
-  specs:
-    gi_album_engine (0.0.1)
-      bower_vendor
-      celluloid (~> 0.16.0)
-      rails (~> 4.1.10)
-      rails_config (>= 0.5.0.beta1)
-      rmagick (~> 2.13.4)
 
 GEM
   remote: https://rubygems.org/

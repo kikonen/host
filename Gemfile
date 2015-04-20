@@ -31,13 +31,15 @@ gem 'hashie'
 #
 # testing
 #
-gem 'webmock'
-gem 'capybara'
-gem 'capybara-ng'
-gem 'selenium-webdriver'
-gem 'poltergeist'
-gem 'capybara-webkit'
-gem 'rspec-rails'
+group :test do
+  gem 'webmock'
+  gem 'capybara'
+  gem 'capybara-ng'
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'capybara-webkit'
+  gem 'rspec-rails'
+end
 
 # NOTE KI http://docs.travis-ci.com/user/build-configuration/
 # - MUST use travis compatible repository access
@@ -49,8 +51,8 @@ gem 'bower_vendor'
 gem 'gi_test_engine', git: 'git://github.com/kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
 
-#gem 'gi_album_engine', git: 'git://github.com/kikonen/gi_album_engine.git', branch: 'master'
-gem 'gi_album_engine', path: '~/work/projects/ruby/gi_album_engine'
+gem 'gi_album_engine', git: 'git://github.com/kikonen/gi_album_engine.git', branch: 'master'
+#gem 'gi_album_engine', path: '~/work/projects/ruby/gi_album_engine'
 
 gem 'gi_raycaster_engine', git: 'git://github.com/kikonen/gi_raycaster_engine.git', branch: 'master'
 #gem 'gi_raycaster_engine', path: '~/work/projects/ruby/gi_raycaster_engine'
