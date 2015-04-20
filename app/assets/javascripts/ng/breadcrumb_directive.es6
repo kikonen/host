@@ -40,6 +40,7 @@ class Breadcrumb {
 angular.module('base')
 .directive('giBreadcrumb', () => ({
   scope: {},
+  restrict: 'E',
   templateUrl: 'ng/breadcrumb',
   controller: BreadcrumbController,
   bindToController: true,
