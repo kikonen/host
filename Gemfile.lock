@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:kikonen/gi_album_engine.git
+  remote: git://github.com/kikonen/gi_album_engine.git
   revision: 418da02e76fc796b1585f565badf8ca651bcf647
   branch: master
   specs:
@@ -11,7 +11,7 @@ GIT
       rmagick (~> 2.13.4)
 
 GIT
-  remote: git@github.com:kikonen/gi_raycaster_engine.git
+  remote: git://github.com/kikonen/gi_raycaster_engine.git
   revision: 979cfef5d4ef5c862236fb462ee69a2d9944653f
   branch: master
   specs:
@@ -21,7 +21,7 @@ GIT
       rails_config (>= 0.5.0.beta1)
 
 GIT
-  remote: git@github.com:kikonen/gi_test_engine.git
+  remote: git://github.com/kikonen/gi_test_engine.git
   revision: 0ddbc217b982b168cb9f112a12da74144bfe47e9
   branch: master
   specs:
