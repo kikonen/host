@@ -95,8 +95,10 @@ echo "Rails.application.routes.draw do" >> ${HOST_ROUTES}
 echo "  mount ${ENGINE_MODULE}::Engine, at: ${ENGINE_MODULE}::Engine.mount_path" >> ${HOST_ROUTES}
 echo "end" >> ${HOST_ROUTES}
 
+# NOTE KI http://docs.travis-ci.com/user/build-configuration/
+# - MUST use travis compatible repository access
 echo "" >> ${HOST_GEMFILE}
-echo "gem '${FULL_ENGINE}', git: 'git@github.com:${USER_GITHUB}/${FULL_ENGINE}.git', branch: 'master'" >> ${HOST_GEMFILE}
+echo "gem '${FULL_ENGINE}', git: 'git://github.com/${USER_GITHUB}/${FULL_ENGINE}.git', branch: 'master'" >> ${HOST_GEMFILE}
 echo "#gem '${FULL_ENGINE}', path: '~/work/projects/ruby/${FULL_ENGINE}'" >> ${HOST_GEMFILE}
 
 # show generated data
