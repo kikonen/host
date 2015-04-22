@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: 2266f734a08862199b51661d0005c13a989d3961
+  revision: 18e1e83234a4f95c0c25cb3350db61b24953a278
   branch: filmstrip_effect
   specs:
     gi_album_engine (0.0.1)
