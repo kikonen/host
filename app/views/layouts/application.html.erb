@@ -26,6 +26,7 @@
 <body>
 <% end %>
 
+<% if @show_navbar %>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -47,6 +48,7 @@
     </div>
   </div>
 </nav>
+<% end %>
 <gi-breadcrumb></gi-breadcrumb>
 
 <%= yield %>

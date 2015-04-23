@@ -4,7 +4,14 @@ class WebController < ApplicationController
   helper JsEnvHelper
   helper NgTemplate::TemplateHelper
 
+  before_filter :require_basic_setup
+
   before_filter :require_ng_strict_di
+
+
+  def require_basic_setup
+    @show_navbar = true
+  end
 
   #
   # Enforce strict dependency check if precompiled assets
