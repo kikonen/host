@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: 84516e6acda9fb8bc53809d9028fd66c887238ec
+  revision: 81148d249a1926d4e748f246586204d79a275e47
   branch: filmstrip_effect
   specs:
     gi_album_engine (0.0.1)
@@ -110,7 +110,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.4.3)
+    mime-types (2.5)
     mini_portile (0.6.2)
     minitest (5.6.0)
     multi_json (1.11.0)
