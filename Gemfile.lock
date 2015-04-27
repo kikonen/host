@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: ce377165c22a2a76c7df353e0e5cd394862014f4
+  revision: f67a262ff3bca95d06fdb37461bdb0e3eab0e834
   branch: master
   specs:
     gi_album_engine (0.0.1)
@@ -110,7 +110,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.4.3)
+    mime-types (2.5)
     mini_portile (0.6.2)
     minitest (5.6.0)
     multi_json (1.11.0)
