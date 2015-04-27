@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: fe1c6714c0d5e38cfbfff935a283215894c08a6d
-  branch: filmstrip_effect
+  revision: f67a262ff3bca95d06fdb37461bdb0e3eab0e834
+  branch: master
   specs:
     gi_album_engine (0.0.1)
       bower_vendor
