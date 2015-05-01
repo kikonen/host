@@ -8,6 +8,8 @@ gem 'pg'
 gem 'sqlite3'
 
 gem 'sass-rails', '~> 4.0.3'
+gem 'autoprefixer-rails'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'ngannotate-rails'
 #gem 'ngannotate-rails', git: 'git://github.com/kikonen/ngannotate-rails.git', tag: 'v0.15.4.1b'
