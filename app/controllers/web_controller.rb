@@ -11,6 +11,7 @@ class WebController < ApplicationController
 
   def require_basic_setup
     @show_navbar = true
+    @show_breadcrumb = true
   end
 
   #
