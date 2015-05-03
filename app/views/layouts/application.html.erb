@@ -49,7 +49,9 @@
   </div>
 </nav>
 <% end %>
+<% if @show_breadcrumb %>
 <gi-breadcrumb></gi-breadcrumb>
+<% end %>
 
 <%= yield %>
 

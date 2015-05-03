@@ -2,6 +2,7 @@
 // Base initialization for angularjs based engines. Provides
 // common logic needed in all engines
 //
+//= require modernizr-min-2.8.3/modernizr.min
 //= require jquery-2.1.3/jquery
 //= require jquery-ujs-1.0.3/rails
 //= require lodash-3.0.0/lodash
