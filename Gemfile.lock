@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: 69357b76394f1df10efbaed6c37aef0cc105b901
-  branch: real_album
+  revision: 0328a330d09638272bcd0b6277ba6b0365ef41e4
+  branch: master
   specs:
     gi_album_engine (0.0.1)
       bower_vendor
