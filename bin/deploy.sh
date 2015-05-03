@@ -113,8 +113,9 @@ function switchCurrent {
     echo "----------------------------------------"
 }
 
-function restartApache {
-    sudo service apache2 restart
+function restartServer {
+#    sudo service apache2 restart
+    sudo service nginx restart
 }
 
 echo "RELEASE: ${RELEASE} using ${BRANCH}"
@@ -124,4 +125,4 @@ run "setupSymlinks"
 run "setupGems"
 run "compileAssets"
 run "switchCurrent"
-run "restartApache"
+run "restartServer"
