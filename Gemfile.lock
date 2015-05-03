@@ -11,6 +11,14 @@ GIT
       rmagick (~> 2.13.4)
 
 GIT
+  remote: git://github.com/kikonen/gi_paint_engine.git
+  revision: 6bcd00cdaaee68c8f9f4e33cbf2f802cf3bb4797
+  branch: master
+  specs:
+    gi_paint_engine (0.0.1)
+      rails (~> 4.1.10)
+
+GIT
   remote: git://github.com/kikonen/gi_raycaster_engine.git
   revision: 979cfef5d4ef5c862236fb462ee69a2d9944653f
   branch: master
@@ -241,6 +249,7 @@ DEPENDENCIES
   capybara-ng
   capybara-webkit
   gi_album_engine!
+  gi_paint_engine!
   gi_raycaster_engine!
   gi_test_engine!
   hashie
