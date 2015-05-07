@@ -12,8 +12,8 @@ GIT
 
 GIT
   remote: git://github.com/kikonen/gi_paint_engine.git
-  revision: 5f1ec27c6f29f17bb607c784c363041fdaa9627d
-  branch: master
+  revision: 88f52c1e15da09f3f61220780b0864bdbc0230d2
+  branch: painter
   specs:
     gi_paint_engine (0.0.1)
       rails (~> 4.1.10)
