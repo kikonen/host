@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/kikonen/gi_paint_engine.git
-  revision: 6bcd00cdaaee68c8f9f4e33cbf2f802cf3bb4797
+  revision: 5f1ec27c6f29f17bb607c784c363041fdaa9627d
   branch: master
   specs:
     gi_paint_engine (0.0.1)
@@ -143,7 +143,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.5.2)
+    rack (1.5.3)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.10)
