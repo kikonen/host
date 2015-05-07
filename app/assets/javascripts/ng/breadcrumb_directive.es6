@@ -8,16 +8,7 @@ class BreadcrumbController {
 
 class Breadcrumb {
   constructor() {
-    this.path = [
-      {
-        name: 'Home',
-        url: '/gi_album'
-      },
-      {
-        name: 'Timeline',
-        url: 'Timeline'
-      }
-    ];
+    this.path = [];
   }
 
   getPath() {

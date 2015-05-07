@@ -58,3 +58,6 @@ gem 'gi_album_engine', git: 'git://github.com/kikonen/gi_album_engine.git', bran
 
 gem 'gi_raycaster_engine', git: 'git://github.com/kikonen/gi_raycaster_engine.git', branch: 'master'
 #gem 'gi_raycaster_engine', path: '~/work/projects/ruby/gi_raycaster_engine'
+
+gem 'gi_paint_engine', git: 'git://github.com/kikonen/gi_paint_engine.git', branch: 'master'
+#gem 'gi_paint_engine', path: '~/work/projects/ruby/gi_paint_engine'
