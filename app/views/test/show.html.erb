@@ -2,19 +2,31 @@
   <%= javascript_include_tag 'test/module' %>
 <% end %>
 
-<div ng-init="name='foo'">
-  <input ng-model="name">
+<div ng-controller="TestController as ctrl">
+  <input ng-model="ctrl.name">
   <hr>
 
   <div class="input-group">
-    Hello there {{ name }}
+    Hello there {{ ctrl.name }}
   </div>
 
   <div class="input-group">
     <button class="btn btn-default glyphicon glyphicon-user">Okey</button>
     <button class="btn btn-danger" ng-click="name=''">Nope</button>
   </div>
+
+  <hr/>
+  <div class="input-group">
+    <button class="btn btn-warn" ng-click="ctrl.onPollute()">POLLUTE</button>
+  </div>
+  <div class="input-group">
+    {{ ctrl.pollute || 'missing'}}
+  </div>
+  <div id="pollute">
+    pollutes:
+  </div>
 </div>
+
 <div>
   <a href="/">Home</a>
 </div>

@@ -1,0 +1,7 @@
+console.log("Polluting global namespace...");
+var pollute = "<%= @pollute %>";
+console.log("pollute = " + pollute);
+
+var e = $("#pollute");
+e.append("<div>" + pollute + "</div>");
+console.log("check 'pollute' and 'e' in console!");
