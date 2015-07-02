@@ -7,6 +7,7 @@
 //= require jquery-ujs-1.0.3/rails
 //= require lodash-3.0.0/lodash
 //= require bootstrap-sass-3.3.4/bootstrap-sprockets
+//= require bootstrap-switch-3.3.2/bootstrap-switch
 //
 //= require angular-1.3.15/angular
 //= require angular-ui-router-0.2.13/angular-ui-router

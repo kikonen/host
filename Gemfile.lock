@@ -71,7 +71,7 @@ GEM
       execjs
       json
     awesome_print (1.6.1)
-    bower_vendor (0.0.6)
+    bower_vendor (0.0.7)
       awesome_print
     builder (3.2.2)
     capybara (2.4.4)

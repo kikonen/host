@@ -38,5 +38,10 @@ bootstrap-sass:
 bootswatch-scss:
   version: 3.2.0-3
   assets:
-   - cerulean:
-     - cerulean/*.scss
+  - cerulean:
+    - cerulean/*.scss
+bootstrap-switch:
+  version: 3.3.2
+  assets:
+  - dist/css/bootstrap3/bootstrap-switch.css
+  - dist/js/bootstrap-switch.js
