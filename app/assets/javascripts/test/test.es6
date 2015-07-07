@@ -61,6 +61,8 @@ function initDatetime() {
     showClose: true,
     sideBySide: true,
     calendarWeeks: true,
+    allowInputToggle: true,
+    focusOnShow: true,
     widgetPositioning: {
       horizontal: 'auto',
       vertical: 'auto'
@@ -76,6 +78,7 @@ function initDatetime() {
 
   var inlineOpt = _.assign({}, opt, {
     inline: true,
+    showClose: false,
     daysOfWeekDisabled: [6, 0],
   });
 
