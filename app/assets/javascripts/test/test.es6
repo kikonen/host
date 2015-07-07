@@ -65,7 +65,11 @@ function initDatetime() {
       horizontal: 'auto',
       vertical: 'auto'
     },
-    extraFormats: ['YYYY-MM-DD HH:mm', 'MM/DD/YY HH:mm', 'MM/DD/YYYY HH:mm'],
+    extraFormats: [
+      'YYYY-MM-DD HH:mm',
+      'MM/DD/YY HH:mm',
+      'MM/DD/YYYY HH:mm',
+    ],
   };
 
   $('.ki-js-datetime-input').datetimepicker(opt);
