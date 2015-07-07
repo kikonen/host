@@ -2,6 +2,13 @@ modernizr-min:
   version: 2.8.3
   assets:
   - modernizr.min.js
+moment:
+  version: 2.10.3
+  assets:
+  - moment.js
+  - locale:
+    - locale/fi.js
+####
 jquery:
   version: 2.1.3
   assets:
@@ -45,3 +52,8 @@ bootstrap-switch:
   assets:
   - dist/css/bootstrap3/bootstrap-switch.css
   - dist/js/bootstrap-switch.js
+eonasdan-bootstrap-datetimepicker:
+  version: 4.14.30
+  assets:
+  - build/css/bootstrap-datetimepicker.css
+  - build/js/bootstrap-datetimepicker.min.js

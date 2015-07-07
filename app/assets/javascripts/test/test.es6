@@ -22,7 +22,8 @@ angular.module('test', [])
 .controller('TestController', TestController);
 
 
-$(function() {
+
+function initToggle() {
   $.fn.bootstrapSwitch.defaults.onColor = 'success';
   $.fn.bootstrapSwitch.defaults.offColor = 'danger';
   $.fn.bootstrapSwitch.defaults.inverse = true;
@@ -49,4 +50,41 @@ $(function() {
   };
 
   $('.togglebutton').bootstrapSwitch(opt);
+}
+
+function initDatetime() {
+  var opt = {
+    useCurrent: false,
+    keepInvalid: true,
+    showTodayButton: true,
+    showClear: true,
+    showClose: true,
+    sideBySide: true,
+    calendarWeeks: true,
+    widgetPositioning: {
+      horizontal: 'auto',
+      vertical: 'auto'
+    },
+    extraFormats: ['YYYY-MM-DD HH:mm', 'MM/DD/YY HH:mm', 'MM/DD/YYYY HH:mm'],
+  };
+
+  $('.ki-js-datetime-input').datetimepicker(opt);
+
+  var inlineOpt = _.assign({}, opt, {
+    inline: true,
+    daysOfWeekDisabled: [6, 0],
+  });
+
+  $('.ki-js-inline-datetime-input').datetimepicker(inlineOpt);
+}
+
+function initMoment() {
+  moment.locale('fi');
+  console.log("moment locale: " + moment.locale());
+}
+
+$(function() {
+  initMoment();
+  initToggle();
+  initDatetime();
 });
