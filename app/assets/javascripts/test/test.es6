@@ -90,8 +90,42 @@ function initMoment() {
   console.log("moment locale: " + moment.locale());
 }
 
+function initBootstrapMultiSelect() {
+  $('#example-select').multiselect({
+    onChange: function(option, checked) {
+      console.log("selected: " + option + "=" + checked);
+    },
+    buttonText: function(options) {
+      if (options.length === 0) {
+        return 'None selected';
+      }
+      else if (options.length > 3) {
+        return options.length + ' selected';
+      }
+      else {
+        var selected = [];
+        options.each(function() {
+          selected.push([$(this).text(), $(this).data('order')]);
+        });
+
+        selected.sort(function(a, b) {
+          return a[1] - b[1];
+        });
+
+        var text = '';
+        for (var i = 0; i < selected.length; i++) {
+          text += selected[i][0] + ', ';
+        }
+
+        return text.substr(0, text.length -2);
+      }
+    }
+  });
+}
+
 $(function() {
   initMoment();
   initToggle();
   initDatetime();
+  initBootstrapMultiSelect();
 });

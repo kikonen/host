@@ -57,3 +57,11 @@ eonasdan-bootstrap-datetimepicker:
   assets:
   - build/css/bootstrap-datetimepicker.css
   - build/js/bootstrap-datetimepicker.min.js
+bootstrap-multiselect:
+  version: 0.9.13
+  git: git@github.com:davidstutz/bootstrap-multiselect.git
+  tag: v0.9.13
+  assets:
+  - dist/css/bootstrap-multiselect.css
+  - dist/js/bootstrap-multiselect.js
+  - dist/js/bootstrap-multiselect-collapsible-groups.js
