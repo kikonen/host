@@ -28,4 +28,4 @@ host/bin/create_engine.sh xxx
 
 Live demo
 
-http://host.kari.dy.fi
+http://host.ikari.fi
