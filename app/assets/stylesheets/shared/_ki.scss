@@ -1,0 +1,20 @@
+$ki-padding-size: 1em;
+
+.ki-padding-all {
+  padding: $ki-padding-size $ki-padding-size;
+}
+
+.ki-margin-all {
+  margin: $ki-padding-size $ki-padding-size;
+}
+
+.ki-border-all {
+  border: solid 1px;
+  border-color: $gray-light;
+}
+
+.ki-section {
+  @extend .ki-padding-all;
+  @extend .ki-margin-all;
+  @extend .ki-border-all;
+}
