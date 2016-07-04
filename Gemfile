@@ -21,14 +21,17 @@ gem 'ng_template', '~> 0.1.0'
 #gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'
 
-gem 'thin'
-
 gem 'logging-rails'
 gem 'lograge'
-gem 'pry'
-gem 'awesome_print'
+
+group :development do
+  gem 'thin'
+  gem 'pry'
+  gem 'awesome_print'
+end
+
 gem 'oj'
-gem 'hashie'
+#gem 'hashie'
 
 #
 # testing
