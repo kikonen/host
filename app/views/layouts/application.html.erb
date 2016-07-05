@@ -21,7 +21,7 @@
 </head>
 
 <% if @ng_app %>
-<body ng-app="<%= @ng_app %>" <%= 'ng-strict-di' if @ng_strict_di %>>
+  <body data-giapp <%= 'ng-strict-di' if @ng_strict_di %>>
 <% else %>
 <body>
 <% end %>

@@ -12,16 +12,17 @@ class Test {
   }
 
 }
-console.log("loaded test module");
 
-let test = new Test(),
-    example = new Example(1, 2);
-console.log(example.concat());
+function registerNg() {
+  angular.module('test', [])
+    .controller('TestController', TestController);
+}
 
-angular.module('test', [])
-.controller('TestController', TestController);
-
-
+function runExample() {
+  let test = new Test(),
+      example = new Example(1, 2);
+  console.log(example.concat());
+}
 
 function initToggle() {
   $.fn.bootstrapSwitch.defaults.onColor = 'success';
@@ -123,9 +124,11 @@ function initBootstrapMultiSelect() {
   });
 }
 
-$(function() {
+export function init() {
+  runExample();
   initMoment();
   initToggle();
   initDatetime();
   initBootstrapMultiSelect();
-});
+  registerNg();
+}
