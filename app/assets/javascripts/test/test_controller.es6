@@ -1,6 +1,8 @@
 "use strict";
 export class TestController {
   constructor($q) {
+    "ngInject";
+
     this.$q = $q;
     this.name = 'foo';
     this.pollute = "not executed";

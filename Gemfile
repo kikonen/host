@@ -19,17 +19,10 @@ gem 'ngannotate-rails'
 gem 'libv8', '~> 5.0'
 gem 'mini_racer', '~> 0.1.4'
 
-# ES6 transpiling
-#gem 'sprockets-traceur', '0.0.4'
-#gem 'traceur-rb', '0.0.4'
-
 #gem 'sprockets-babel', '0.0.6'
 # HACK KI due to "mini_racer"
 gem 'sprockets-babel', git: 'https://github.com/kikonen/sprockets-babel.git', tag: '0.0.6.2'
 #gem 'sprockets-babel', path: '~/work/projects/ruby/sprockets-babel'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'execjs',  platforms: :ruby
 
 gem 'ng_template', '~> 0.1.0'
 #gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
