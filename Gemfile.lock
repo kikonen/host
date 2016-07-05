@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git://github.com/kikonen/gi_raycaster_engine.git
-  revision: 979cfef5d4ef5c862236fb462ee69a2d9944653f
+  revision: 163509a77cf73f0aa02807348735de0b573983cb
   branch: master
   specs:
     gi_raycaster_engine (0.0.1)
@@ -259,7 +259,6 @@ DEPENDENCIES
   capybara
   capybara-ng
   capybara-webkit
-  execjs
   gi_album_engine!
   gi_paint_engine!
   gi_raycaster_engine!
