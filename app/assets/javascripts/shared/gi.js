@@ -39,11 +39,18 @@
     }
   }
 
+  function initNg(appName) {
+    // NOTE KI not using @ng_app due to dependency order cycle in es6 module logic
+    // => need to tune logic to avoid this
+    angular.bootstrap("[data-giapp]", [appName], { strictDi: Rails.strictId });
+  }
+
   window.gi = window.gi || {};
 
   _.assign(window.gi, {
     getModule: getModule,
     getModuleDefault: getModuleDefault,
     initModule: initModule,
+    initNg: initNg,
   });
 })();

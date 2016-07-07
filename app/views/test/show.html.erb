@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :javascripts do %>
-  <%= javascript_include_tag 'test/module' %>
+  <%= javascript_include_tag 'test/module', defer: true %>
 <% end %>
 
 <div class="ki-padding-all">
