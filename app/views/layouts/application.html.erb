@@ -8,8 +8,8 @@
   <%= yield :stylesheets %>
 
   <%= include_js_env %>
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'ng/module' %>
+  <%= javascript_include_tag 'application', defer: true %>
+  <%= javascript_include_tag 'ng/module', defer: true %>
   <%= yield :javascripts %>
 
   <%= csrf_meta_tags %>

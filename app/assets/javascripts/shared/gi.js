@@ -32,7 +32,10 @@
   function initModule(name) {
     var module = getModule(name);
     if (module.init) {
+      console.debug('INIT: '+ name);
       module.init();
+    } else {
+      console.warn('NO INIT: ' + name);
     }
   }
 
