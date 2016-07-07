@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/kikonen/gi_paint_engine.git
-  revision: 95f3bb316136f5c3c9aa57a609695985a7783858
+  revision: 2cddd8f19aea845e1591201e0ffcf1d01764da33
   branch: painter
   specs:
     gi_paint_engine (0.0.1)
