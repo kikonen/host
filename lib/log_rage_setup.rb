@@ -1,3 +1,4 @@
+if defined?(LogRageSetup)
 module LogRageSetup
   # @param config Rails app config
   def self.setup(config)
@@ -10,4 +11,5 @@ module LogRageSetup
       { "params" => params }
     end
   end
+end
 end

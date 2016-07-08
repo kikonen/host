@@ -76,8 +76,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.log_formatter = ::Logger::Formatter.new
+  config.log_level = :debug
+
   # Set the logging destination(s)
   config.log_to = %w[file]
 
-  config.lograge.enabled = true
+  if defined?(LogRageSetup)
+    config.lograge.enabled = true
+  end
 end

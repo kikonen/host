@@ -49,8 +49,13 @@ Rails.application.configure do
     config.assets.debug = false
   end
 
+  config.log_formatter = ::Logger::Formatter.new
+  config.log_level = :debug
+
   # Set the logging destination(s)
   config.log_to = %w[file]
 
-  config.lograge.enabled = false
+  if defined?(LogRageSetup)
+    config.lograge.enabled = false
+  end
 end

@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rake', '~> 10.4.2'
-gem 'rails', '~> 4.1.10'
+gem 'rails', '>= 4.2.0', '< 5.0'
 gem 'jbuilder'
 
 gem 'pg'
 gem 'sqlite3'
+
+gem 'config'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'autoprefixer-rails'
@@ -23,17 +25,22 @@ gem 'mini_racer', '~> 0.1.4'
 gem 'sprockets-babel-miniracer', '>= 0.0.7'
 #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
 
-gem 'ng_template', '~> 0.1.0'
+gem 'ng_template'
 #gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'
 
-gem 'logging-rails'
-gem 'lograge'
+#gem 'logging-rails'
+#gem 'lograge'
 
 group :development do
   gem 'thin'
   gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
   gem 'awesome_print'
+
+  gem 'brakeman', require: false
 end
 
 gem 'oj'
