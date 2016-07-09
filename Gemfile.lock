@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: a29023dc69557dc2a19ee306236f9faf0ea657c0
+  revision: 2344c4e387acd795eb5ec601328905eb42277caf
   branch: real_album
   specs:
     gi_album_engine (0.0.1)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/kikonen/gi_raycaster_engine.git
-  revision: 46ab4f7ed222fa992a2aec4060b57327385a66b7
+  revision: 93ff1769626ecb029b702693e79a173eef22490d
   branch: master
   specs:
     gi_raycaster_engine (0.0.1)
