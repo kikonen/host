@@ -9,10 +9,16 @@ gem 'sqlite3'
 
 gem 'config'
 
-gem 'sass-rails', '~> 4.0.3'
+#gem 'sass-rails', '~> 4.0.3'
+gem 'sassc-rails'
 gem 'autoprefixer-rails'
 
+# NOTE KI sass not working sprockets 4.0 beta
+gem 'sprockets', '< 4.0'
+
 gem 'uglifier', '>= 1.3.0'
+gem 'yui-compressor'
+
 gem 'ngannotate-rails'
 #gem 'ngannotate-rails', git: 'git://github.com/kikonen/ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
@@ -41,10 +47,30 @@ group :development do
   gem 'awesome_print'
 
   gem 'brakeman', require: false
+  gem 'scss_lint', require: false
+
+  # Updating assets is needed only in development mode
+  gem 'bower_vendor'
+#gem 'bower_vendor', git: 'git://github.com/kikonen/bower_vendor.git', branch: 'master'
+#gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 
 gem 'oj'
-#gem 'hashie'
+gem 'ice_nine'
+
+gem 'hamlit'
+
+
+# faster IO for dalli
+# Avoids "IO::EAGAINWaitReadable Resource temporarily unavailable - read would block"
+# occurring on every request
+gem 'dalli'
+gem 'kgio'
+
+# http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
+# => resque doesn't require thread safety
+gem 'resque'
+#gem 'resque-web', require: 'resque_web'
 
 #
 # testing
@@ -57,16 +83,18 @@ group :test do
   gem 'poltergeist'
   gem 'capybara-webkit'
   gem 'rspec-rails'
+  gem 'factory_girl'
 end
 
 # NOTE KI http://docs.travis-ci.com/user/build-configuration/
 # - MUST use travis compatible repository access
 
-group :development do
-  # Updating assets is needed only in development mode
-  gem 'bower_vendor'
-#gem 'bower_vendor', git: 'git://github.com/kikonen/bower_vendor.git', branch: 'master'
-#gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
+group :deploy do
+  gem 'capistrano-rails', '~> 1.1.3'
+  gem 'capistrano-bundler', '~> 1.1'
+  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano', '~> 3.5.0'
+  gem 'capistrano-resque', require: false
 end
 
 gem 'gi_test_engine', git: 'git://github.com/kikonen/gi_test_engine.git', branch: 'master'
