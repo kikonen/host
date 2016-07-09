@@ -13,6 +13,9 @@ set :deploy_to, '/home/www/virtual/host.kari.dy.fi'
 
 # Default value for :scm is :git
 # set :scm, :git
+set :scm, :none
+set :repository, "."
+set :deploy_via, :copy
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
