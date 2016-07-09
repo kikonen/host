@@ -6,7 +6,8 @@ set :rvm_ruby_string, '2.3.1@host'
 set :rvm_type, :user
 
 set :application, 'host'
-set :repo_url, 'git@github.com:kikonen/host.git'
+#set :repo_url, 'git@github.com:kikonen/host.git'
+set :repo_url, '/home/rails/deploy/host'
 set :user, 'rails'
 set :deploy_user, "rails"
 
