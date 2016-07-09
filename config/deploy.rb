@@ -2,7 +2,9 @@
 lock '3.5.0'
 
 set :application, 'host'
-set :repo_url, 'git@github.com:kikonen/host.git'
+#set :repo_url, 'git@github.com:kikonen/host.git'
+set :repository, "."
+set :deploy_via, :copy
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -13,9 +15,6 @@ set :deploy_to, '/home/www/virtual/host.kari.dy.fi'
 
 # Default value for :scm is :git
 # set :scm, :git
-set :scm, :none
-set :repository, "."
-set :deploy_via, :copy
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
