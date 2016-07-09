@@ -22,7 +22,7 @@ gem 'libv8', '~> 5.0'
 gem 'mini_racer', '~> 0.1.4'
 
 # HACK KI due to "mini_racer"
-gem 'sprockets-babel-miniracer', '>= 0.0.7'
+gem 'sprockets-babel-miniracer', '>= 0.0.9'
 #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
 
 gem 'ng_template'
