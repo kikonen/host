@@ -7,7 +7,21 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
+server 'localhost',
+  port: 23,
+  user: 'rails', roles: %w{app web db},
+  primary: true,
+  ssh_options: {
+    port: 23,
+    keys: %w(~/.ssh/id_rsa_gi_deploy),
+    auth_methods: %w(publickey),
+    forward_agent: true,
+  }
 
+set :branch, 'production'
+
+set :rails_env, :production
+set :stage, :production
 
 # role-based syntax
 # ==================
