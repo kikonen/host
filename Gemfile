@@ -94,6 +94,7 @@ group :deploy do
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano', '~> 3.5.0'
+  gem 'capistrano-ext'
   gem 'capistrano-resque', require: false
 end
 

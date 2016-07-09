@@ -5,6 +5,7 @@ set :application, 'host'
 set :repo_url, 'git@github.com:kikonen/host.git'
 set :repository, "."
 set :deploy_via, :copy
+set :user, 'rails'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
