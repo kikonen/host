@@ -2,7 +2,7 @@
 // Base initialization for angularjs based engines. Provides
 // common logic needed in all engines
 //
-//= require modernizr-min-2.8.3/modernizr.min
+// require modernizr-min-2.8.3/modernizr.min
 //= require lodash-3.0.0/lodash
 //= require moment-2.10.3/moment
 //= require moment-2.10.3/locale/fi

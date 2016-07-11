@@ -16,5 +16,6 @@
 /tmp
 /shared
 /public/assets
+node_modules/*
 
 .emacs*
