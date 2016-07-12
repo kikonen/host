@@ -1,3 +1,7 @@
+requirejs:
+  version: 2.2.0
+  assets:
+  - require.js
 system.js:
   version: 0.19.31
   assets:
@@ -13,6 +17,20 @@ moment:
   - moment.js
   - locale:
     - locale/fi.js
+es6-shim:
+  version: 0.35.1
+  assets:
+  - es6-shim.js
+rxjs:
+  version: 4.1.0
+  assets:
+  - dist/rx.all.js
+zone.js:
+  version: 0.6.11
+  git: https://github.com/angular/zone.js.git
+  tag: v0.6.11
+  assets:
+  - dist/zone.js
 ####
 jquery:
   version: 2.1.3

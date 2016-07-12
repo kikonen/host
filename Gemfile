@@ -31,6 +31,8 @@ gem 'mini_racer', '~> 0.1.4'
 gem 'sprockets-babel-miniracer', '>= 0.0.9'
 #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
 
+gem 'typescript-rails'
+
 gem 'ng_template'
 #gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'

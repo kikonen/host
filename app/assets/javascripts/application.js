@@ -13,3 +13,4 @@
 // require sprockets-babel-miniracer/define
 //= require system.js-0.19.31/system-polyfills.src
 //= require system.js-0.19.31/system.src
+//= require zone.js-0.6.11/zone
