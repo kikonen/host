@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/kikonen/gi_album_engine.git
-  revision: 2344c4e387acd795eb5ec601328905eb42277caf
+  revision: 75fdb3c9dcb3b6d8333539060e0cd57b5836321b
   branch: real_album
   specs:
     gi_album_engine (0.0.1)
@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/kikonen/gi_paint_engine.git
-  revision: 13abfcc12c1991f98d62f3f1232423c90f24b1df
+  revision: d34ec0a1d865b8b823164d3e73e5f8665a0c1b2f
   branch: painter
   specs:
     gi_paint_engine (0.0.1)
@@ -83,7 +83,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    bower_vendor (0.0.11)
+    bower_vendor (0.0.12)
     brakeman (3.3.2)
     builder (3.2.2)
     byebug (9.0.5)
@@ -156,7 +156,7 @@ GEM
     execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
-    ffi (1.9.13)
+    ffi (1.9.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hamlit (2.5.0)
@@ -205,7 +205,7 @@ GEM
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)

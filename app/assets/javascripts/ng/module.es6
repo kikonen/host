@@ -23,30 +23,33 @@
 //=require_tree .
 "use strict";
 
-// NOTE KI cannot us "ng" as module name since it's used by angularjs itself
-export default angular.module("base", [
-  'ui.router'
-])
-.constant('Rails', window.Rails)
-.config((
-$compileProvider,
-$locationProvider,
-$httpProvider,
-$urlRouterProvider,
-Rails) => {
-  // turn off debug into for performance
-  $compileProvider.debugInfoEnabled(Rails.debug);
+import * as breadcrumb from 'ng/breadcrumb_directive';
 
-  // setup HTTP defaults
-  _.forEach(document.getElementsByTagName('meta'), (e) => {
-    if (e.name === 'csrf-token') {
-      $httpProvider.defaults.headers.common['X-CSRF-Token'] = e.content;
-    }
-  });
-  $httpProvider.defaults.headers.common.Accept = 'application/json';
+export function init() {
+  // NOTE KI cannot us "ng" as module name since it's used by angularjs itself
+  angular.module("base", [
+    'ui.router'
+  ])
+    .constant('Rails', window.Rails)
+    .config((
+      $compileProvider,
+      $locationProvider,
+      $httpProvider,
+      $urlRouterProvider,
+      Rails) => {
+        // turn off debug into for performance
+        $compileProvider.debugInfoEnabled(Rails.debug);
 
-  // Setup routing
-  $locationProvider.html5Mode(true);
-});
+        // setup HTTP defaults
+        _.forEach(document.getElementsByTagName('meta'), (e) => {
+          if (e.name === 'csrf-token') {
+            $httpProvider.defaults.headers.common['X-CSRF-Token'] = e.content;
+          }
+        });
+        $httpProvider.defaults.headers.common.Accept = 'application/json';
 
-import {} from 'ng/breadcrumb_directive';
+        // Setup routing
+        $locationProvider.html5Mode(true);
+      });
+  breadcrumb.init();
+}

@@ -52,7 +52,6 @@ group :development do
 
   # Updating assets is needed only in development mode
   gem 'bower_vendor'
-#gem 'bower_vendor', git: 'git://github.com/kikonen/bower_vendor.git', branch: 'master'
 #gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 

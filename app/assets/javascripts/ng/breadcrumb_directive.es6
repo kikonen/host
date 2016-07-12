@@ -28,13 +28,15 @@ class Breadcrumb {
   }
 }
 
-angular.module('base')
-.directive('giBreadcrumb', () => ({
-  scope: {},
-  restrict: 'E',
-  templateUrl: 'ng/breadcrumb',
-  controller: BreadcrumbController,
-  bindToController: true,
-  controllerAs: 'ctrl'
-}))
-.service('Breadcrumb', Breadcrumb);
+export function init() {
+  angular.module('base')
+    .directive('giBreadcrumb', () => ({
+      scope: {},
+      restrict: 'E',
+      templateUrl: 'ng/breadcrumb',
+      controller: BreadcrumbController,
+      bindToController: true,
+      controllerAs: 'ctrl'
+    }))
+    .service('Breadcrumb', Breadcrumb);
+}
