@@ -49,7 +49,7 @@ group :development do
   gem 'thin'
   gem 'awesome_print'
 
-  gem 'brakeman', require: false
+#  gem 'brakeman', require: false
   gem 'scss_lint', require: false
 
   # Updating assets is needed only in development mode
