@@ -2,6 +2,7 @@
 
 class BreadcrumbController {
   constructor(Breadcrumb) {
+    "ngInject";
     this.path = Breadcrumb.getPath();
   }
 }
