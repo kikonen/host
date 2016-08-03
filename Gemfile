@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rake', '~> 10.4.2'
 gem 'rails', '>= 4.2.0', '< 5.0'
 gem 'jbuilder'
+gem 'string_buffer'
 
 gem 'pg'
 gem 'sqlite3'
@@ -14,7 +15,7 @@ gem 'sassc-rails'
 gem 'autoprefixer-rails'
 
 # NOTE KI sass not working sprockets 4.0 beta
-gem 'sprockets', '< 4.0'
+gem 'sprockets', '~> 3.2.0'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'yui-compressor'
