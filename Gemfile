@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake', '~> 10.4.2'
-gem 'rails', '>= 4.2.0', '< 5.0'
+gem 'rails', '5.0.0.1'
 gem 'jbuilder'
 
 gem 'pg'

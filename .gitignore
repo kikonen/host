@@ -18,3 +18,5 @@
 /public/assets
 
 .emacs*
+
+/node_modules
