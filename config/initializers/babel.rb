@@ -1,3 +1,3 @@
 Babel.options do |opt|
-  opt[:modules] = 'amd'
+  opt[:modules] = 'system'
 end

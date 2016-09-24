@@ -7,7 +7,7 @@
 //
 
 $(function() {
-  gi.initModule('test/test');
-
-  gi.initNg('test')
+  gi.initModule('test/test').then(function() {
+    gi.initNg('test');
+  });
 });

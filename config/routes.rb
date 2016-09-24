@@ -7,6 +7,11 @@ Rails.application.routes.draw do
 
   get '/test' => 'test#show'
   get '/test/pollute' => 'test#pollute'
+  get '/test/stream' => 'test#stream'
+  get '/test/stream_json' => 'test#stream_json'
+
+  get '/ts' => 'ts#hello'
+  get '/test_ng2' => 'test_ng2#hello'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

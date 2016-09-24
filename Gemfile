@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rake', '~> 10.4.2'
 gem 'rails', '5.0.0.1'
 gem 'jbuilder'
+gem 'string_buffer'
 
 gem 'pg'
 gem 'sqlite3'
@@ -14,7 +15,7 @@ gem 'sassc-rails'
 gem 'autoprefixer-rails'
 
 # NOTE KI sass not working sprockets 4.0 beta
-gem 'sprockets', '< 4.0'
+gem 'sprockets', '>= 3.2.0', '< 4.0'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'yui-compressor'
@@ -30,6 +31,8 @@ gem 'mini_racer', '~> 0.1.4'
 # HACK KI due to "mini_racer"
 gem 'sprockets-babel-miniracer', '>= 0.0.9'
 #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
+
+gem 'typescript-rails'
 
 gem 'ng_template'
 #gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
@@ -47,12 +50,11 @@ group :development do
   gem 'thin'
   gem 'awesome_print'
 
-  gem 'brakeman', require: false
+#  gem 'brakeman', require: false
   gem 'scss_lint', require: false
 
   # Updating assets is needed only in development mode
   gem 'bower_vendor'
-#gem 'bower_vendor', git: 'git://github.com/kikonen/bower_vendor.git', branch: 'master'
 #gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 

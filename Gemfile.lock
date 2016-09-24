@@ -86,7 +86,6 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bower_vendor (0.0.13)
-    brakeman (3.4.0)
     builder (3.2.2)
     byebug (9.0.5)
     capistrano (3.5.0)
@@ -318,6 +317,7 @@ GEM
     sshkit (1.11.3)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    string_buffer (0.0.2)
     temple (0.7.7)
     thin (1.7.0)
       daemons (~> 1.0, >= 1.0.9)
@@ -328,6 +328,13 @@ GEM
     tilt (2.0.5)
     timers (4.1.1)
       hitimes
+    typescript-node (1.6.2)
+      typescript-src (~> 1.6.2)
+    typescript-rails (0.6.2.4)
+      railties
+      tilt
+      typescript-node (>= 1.6.2)
+    typescript-src (1.6.2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.2)
@@ -354,7 +361,6 @@ DEPENDENCIES
   autoprefixer-rails
   awesome_print
   bower_vendor
-  brakeman
   capistrano (~> 3.5.0)
   capistrano-bundler (~> 1.1)
   capistrano-ext
@@ -393,10 +399,12 @@ DEPENDENCIES
   sassc-rails
   scss_lint
   selenium-webdriver
-  sprockets (< 4.0)
+  sprockets (>= 3.2.0, < 4.0)
   sprockets-babel-miniracer (>= 0.0.9)
   sqlite3
+  string_buffer
   thin
+  typescript-rails
   uglifier (>= 1.3.0)
   webmock
   yui-compressor

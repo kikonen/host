@@ -2,41 +2,64 @@
   'use strict';
 
   /**
-   * @return ES6 module
+   * HACK KI ES6 transpiler specific
+   *
+   * @return promise to get module
    */
-  function getModule(name) {
-    // HACK KI This logic is ES6 transpiler specific
-    var moduleName = '$__' + name.replace(/\//g, '2F') + '__';
-    var module = window[moduleName];
+  function importModule(name) {
+    return System
+      .import(name)
+      .catch(function(err) {
+        console.error("module not found: " + name);
 
-    if (!module) {
-      throw "module not found: " + name + " via " + moduleName;
-    }
+        console.log(err);
+        console.log(err.message);
+        console.log(err.stack);
 
-    // HACK KI ES6 transpiler specific
-    return module;
+        var err2 = err.originalErr;
+        if (err2) {
+          console.log(err2);
+          console.log(err2.message);
+          console.log(err2.stack);
+        }
+
+        throw err;
+      });
   }
 
   /**
-   * @return ES6 module's default export
-   */
-  function getModuleDefault(name) {
-    var module = getModule(name);
-    // HACK KI ES6 transpiler specific
-    return module.default || module;
-  }
-
-  /**
-   * Load and init ES6 module via document ready hook
+   * Asynchronouslyl load and init ES6 module via document ready hook
+   *
+   * @return module load promise
    */
   function initModule(name) {
-    var module = getModule(name);
-    if (module.init) {
-      console.debug('INIT: '+ name);
-      module.init();
-    } else {
-      console.warn('NO INIT: ' + name);
-    }
+    return importModule(name).then(function(module) {
+      if (module.init) {
+        console.debug('INIT: '+ name);
+        try {
+          module.init();
+        } catch (e) {
+          console.error("INIT FAILED: " + name);
+          console.error(e);
+          console.error(e.message);
+          console.error(e.stack);
+
+          var e2 = e.originalException;
+          if (e2) {
+            console.error(e2);
+            console.error(e2.message);
+            console.error(e2.stack);
+          }
+
+          throw e;
+        };
+      } else {
+        console.warn('NO INIT: ' + name);
+      }
+    });
+// .catch(function(err) {
+//       console.warn('INIT failed: ' + err.message);
+//     });
   }
 
   function initNg(appName) {
@@ -48,8 +71,7 @@
   window.gi = window.gi || {};
 
   _.assign(window.gi, {
-    getModule: getModule,
-    getModuleDefault: getModuleDefault,
+    importModule: importModule,
     initModule: initModule,
     initNg: initNg,
   });
