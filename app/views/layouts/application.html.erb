@@ -29,7 +29,7 @@
 </head>
 
 <% if @ng_app %>
-  <body data-giapp <%= 'ng-strict-di' if @ng_strict_di %>>
+  <body class="ng-cloak"  data-giapp <%= 'ng-strict-di' if @ng_strict_di %>>
 <% else %>
 <body>
 <% end %>
