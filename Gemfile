@@ -41,13 +41,15 @@ gem 'ng_template'
 #gem 'logging-rails'
 #gem 'lograge'
 
-gem 'pry'
-gem 'pry-rails'
-gem 'pry-doc'
-gem 'pry-byebug'
+group :development do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+end
 
 group :development do
-  gem 'thin'
+#  gem 'thin'
   gem 'awesome_print'
 
 #  gem 'brakeman', require: false
