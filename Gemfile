@@ -15,7 +15,7 @@ gem 'sassc-rails'
 gem 'autoprefixer-rails'
 
 # NOTE KI sass not working sprockets 4.0 beta
-gem 'sprockets', '>= 3.2.0', '< 4.0'
+gem 'sprockets' #, '>= 3.2.0', '< 4.0'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'yui-compressor'
