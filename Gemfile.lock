@@ -78,7 +78,7 @@ GEM
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.2)
-    autoprefixer-rails (6.4.1.1)
+    autoprefixer-rails (6.5.0.1)
       execjs
     awesome_print (1.7.0)
     babel-source (5.8.35)
@@ -352,14 +352,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  autoprefixer-rails
-  awesome_print
+  autoprefixer-rails (~> 6.5)
+  awesome_print (~> 1.7)
   bower_vendor
   capistrano (~> 3.5.0)
   capistrano-bundler (~> 1.1)
-  capistrano-ext
+  capistrano-ext (~> 1.2)
   capistrano-rails (~> 1.1.3)
-  capistrano-resque
+  capistrano-resque (~> 0.2)
   capistrano-rvm (~> 0.1.2)
   capybara
   capybara-ng
@@ -371,34 +371,35 @@ DEPENDENCIES
   gi_paint_engine!
   gi_raycaster_engine!
   gi_test_engine!
-  hamlit
+  hamlit (~> 2.7)
   ice_nine
   jbuilder
   kgio
   libv8 (~> 5.0)
   mini_racer (~> 0.1.4)
   ng_template
-  ngannotate-rails
-  oj
+  ngannotate-rails (>= 1.2.2)
+  oj (~> 2.17)
   pg
   poltergeist
-  pry
-  pry-byebug
-  pry-doc
-  pry-rails
+  pry (~> 0.10)
+  pry-byebug (~> 3.4)
+  pry-doc (~> 0.9)
+  pry-rails (~> 0.3)
+  rack (= 2.0.1)
   rails (= 5.0.0.1)
   rake (~> 10.4.2)
-  resque
+  resque (~> 1.26)
   rspec-rails
-  sassc-rails
+  sassc-rails (~> 1.3.0)
   scss_lint
   selenium-webdriver
-  sprockets
+  sprockets (>= 3.6, < 4.0)
   sprockets-babel-miniracer (>= 0.0.9)
   sqlite3
   string_buffer
-  typescript-rails
-  uglifier (>= 1.3.0)
+  typescript-rails (~> 0.6)
+  uglifier (~> 3.0)
   webmock
   yui-compressor
 

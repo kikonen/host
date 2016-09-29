@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake', '~> 10.4.2'
+gem 'rack', '2.0.1'
 gem 'rails', '5.0.0.1'
 gem 'jbuilder'
 gem 'string_buffer'
@@ -11,16 +12,16 @@ gem 'sqlite3'
 gem 'config'
 
 #gem 'sass-rails', '~> 4.0.3'
-gem 'sassc-rails'
-gem 'autoprefixer-rails'
+gem 'sassc-rails', '~> 1.3.0'
+gem 'autoprefixer-rails', '~> 6.5'
 
 # NOTE KI sass not working sprockets 4.0 beta
-gem 'sprockets' #, '>= 3.2.0', '< 4.0'
+gem 'sprockets', '>= 3.6', '< 4.0'
 
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 3.0'
 gem 'yui-compressor'
 
-gem 'ngannotate-rails'
+gem 'ngannotate-rails', '>= 1.2.2'
 #gem 'ngannotate-rails', git: 'git://github.com/kikonen/ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
@@ -32,7 +33,7 @@ gem 'mini_racer', '~> 0.1.4'
 gem 'sprockets-babel-miniracer', '>= 0.0.9'
 #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
 
-gem 'typescript-rails'
+gem 'typescript-rails', '~> 0.6'
 
 gem 'ng_template'
 #gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
@@ -42,28 +43,28 @@ gem 'ng_template'
 #gem 'lograge'
 
 group :development do
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-byebug'
+  gem 'pry', '~> 0.10'
+  gem 'pry-rails', '~> 0.3'
+  gem 'pry-doc', '~> 0.9'
+  gem 'pry-byebug', '~> 3.4'
 end
 
 group :development do
 #  gem 'thin'
-  gem 'awesome_print'
+  gem 'awesome_print', '~> 1.7'
 
 #  gem 'brakeman', require: false
   gem 'scss_lint', require: false
 
   # Updating assets is needed only in development mode
   gem 'bower_vendor'
-#gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
+#  gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 
-gem 'oj'
+gem 'oj', '~> 2.17'
 gem 'ice_nine'
 
-gem 'hamlit'
+gem 'hamlit', '~> 2.7'
 
 
 # faster IO for dalli
@@ -74,7 +75,7 @@ gem 'kgio'
 
 # http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
 # => resque doesn't require thread safety
-gem 'resque'
+gem 'resque', '~> 1.26'
 #gem 'resque-web', require: 'resque_web'
 
 #
@@ -99,8 +100,8 @@ group :deploy do
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano', '~> 3.5.0'
-  gem 'capistrano-ext'
-  gem 'capistrano-resque', require: false
+  gem 'capistrano-ext', '~> 1.2'
+  gem 'capistrano-resque', '~> 0.2', require: false
 end
 
 gem 'gi_test_engine', git: 'git://github.com/kikonen/gi_test_engine.git', branch: 'master'
