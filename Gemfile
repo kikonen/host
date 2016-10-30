@@ -22,7 +22,7 @@ gem 'uglifier', '~> 3.0'
 gem 'yui-compressor'
 
 gem 'ngannotate-rails', '>= 1.2.2'
-#gem 'ngannotate-rails', git: 'git://github.com/kikonen/ngannotate-rails.git', tag: 'v0.15.4.1b'
+#gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
 #gem 'therubyracer',  platforms: :ruby
@@ -36,7 +36,7 @@ gem 'sprockets-babel-miniracer', '>= 0.0.9'
 gem 'typescript-rails', '~> 0.6'
 
 gem 'ng_template'
-#gem 'ng_template', git: 'git://github.com/kikonen/ng_template.git', branch: 'master'
+#gem 'ng_template', git: 'git@github.com:kikonen//ng_template.git', branch: 'master'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'
 
 #gem 'logging-rails'
@@ -104,14 +104,14 @@ group :deploy do
   gem 'capistrano-resque', '~> 0.2', require: false
 end
 
-gem 'gi_test_engine', git: 'git://github.com/kikonen/gi_test_engine.git', branch: 'master'
+gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
 
-gem 'gi_album_engine', git: 'git://github.com/kikonen/gi_album_engine.git', branch: 'real_album'
+gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'real_album'
 #gem 'gi_album_engine', path: '~/work/projects/ruby/gi_album_engine'
 
-gem 'gi_raycaster_engine', git: 'git://github.com/kikonen/gi_raycaster_engine.git', branch: 'master'
+gem 'gi_raycaster_engine', git: 'git@github.com:kikonen/gi_raycaster_engine.git', branch: 'master'
 #gem 'gi_raycaster_engine', path: '~/work/projects/ruby/gi_raycaster_engine'
 
-gem 'gi_paint_engine', git: 'git://github.com/kikonen/gi_paint_engine.git', branch: 'painter'
+gem 'gi_paint_engine', git: 'git@github.com:kikonen/gi_paint_engine.git', branch: 'painter'
 #gem 'gi_paint_engine', path: '~/work/projects/ruby/gi_paint_engine'
