@@ -16,6 +16,11 @@ npm install typescript-node
 # NOTE KI notorious nokogiri workaround
 NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle
 ```
+## START
+
+```bash
+rails s -b 0.0.0.0 -p 3000
+```
 
 ## Assets
 
@@ -23,7 +28,7 @@ Test assets
 ```bash
   bundle exec rake assets:clobber
   ASSETS=true NG_FORCE=true RAILS_ENV=development bundle exec rake assets:precompile
-  ASSETS=true rails s -p 3010
+  ASSETS=true rails s -p 3000
 ```
 
 Cleanup
