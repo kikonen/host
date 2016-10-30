@@ -1,5 +1,22 @@
 # README
 
+## Setup
+
+- NVM expected
+** https://github.com/creationix/nvm
+
+- RVM required
+** https://rvm.io/rvm/install
+
+```bash
+nvm use
+npm install bower
+npm install typescript-node
+
+# NOTE KI notorious nokogiri workaround
+NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle
+```
+
 ## Assets
 
 Test assets
