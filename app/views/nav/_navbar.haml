@@ -1,0 +1,40 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{ type: 'button', data: { target: '#main_navbar', toggle: 'collapse' } }
+        %span.sr-only
+          Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{ href: "/" }
+        %span.glyphicon.glyphicon-home
+
+    .collapse.navbar-collapse#main_navbar
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{ href: "#", data: { toggle: "dropdown" } }
+            Test
+            %b.caret
+          %ul.dropdown-menu{ role: "menu" }
+            %li
+              %a{ href: "/test" }
+                Test
+            %li
+              %a{ href: "/ts" }
+                Typescript Test
+            %li
+              %a{ href: "/test_ng2" }
+                Test Angular 2
+            %li
+              %a{ href: "/gi_test" }
+                Test Engine
+        %li
+          %a{ href: "/gi_album" }
+            Album
+        %li
+          %a{ href: "/gi_raycaster" }
+            Raycast
+        %li
+          %a{ href: "/gi_paint" }
+            Paint
