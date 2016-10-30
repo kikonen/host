@@ -21,6 +21,9 @@ gem 'sprockets', '>= 3.6', '< 4.0'
 gem 'uglifier', '~> 3.0'
 gem 'yui-compressor'
 
+# NOTE KI nokogiri is notorious with library dependencies and horribly slow install
+gem 'nokogiri', '1.6.8'
+
 gem 'ngannotate-rails', '>= 1.2.2'
 #gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
@@ -85,9 +88,9 @@ group :test do
   gem 'webmock'
   gem 'capybara'
   gem 'capybara-ng'
-  gem 'selenium-webdriver'
+#  gem 'selenium-webdriver'
   gem 'poltergeist'
-  gem 'capybara-webkit'
+#  gem 'capybara-webkit'
   gem 'rspec-rails'
   gem 'factory_girl'
 end
