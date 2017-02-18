@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 10.4.2'
 gem 'rack', '2.0.1'
-gem 'rails', '5.0.0.1'
-gem 'jbuilder'
-gem 'string_buffer'
+gem 'rails', '5.0.1'
+#gem 'jbuilder'
 
 gem 'pg'
 gem 'sqlite3'
@@ -22,7 +21,7 @@ gem 'uglifier', '~> 3.0'
 gem 'yui-compressor'
 
 # NOTE KI nokogiri is notorious with library dependencies and horribly slow install
-gem 'nokogiri', '1.6.8'
+gem 'nokogiri', '~> 1.7.0'
 
 gem 'ngannotate-rails', '>= 1.2.2'
 #gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
@@ -41,9 +40,6 @@ gem 'typescript-rails', '~> 0.6'
 gem 'ng_template'
 #gem 'ng_template', git: 'git@github.com:kikonen//ng_template.git', branch: 'master'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'
-
-#gem 'logging-rails'
-#gem 'lograge'
 
 group :development do
   gem 'pry', '~> 0.10'
