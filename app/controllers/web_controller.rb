@@ -4,9 +4,9 @@ class WebController < ApplicationController
   helper JsEnvHelper
   helper NgTemplate::TemplateHelper
 
-  before_filter :require_basic_setup
+  before_action :require_basic_setup
 
-  before_filter :require_ng_strict_di
+  before_action :require_ng_strict_di
 
 
   def require_basic_setup
