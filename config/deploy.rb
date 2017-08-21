@@ -76,6 +76,30 @@ namespace :deploy do
     end
   end
 
+  desc 'assets:clobber'
+  task :assets_clobber do
+    on roles(:app) do
+      execute "cd #{release_path}; RAILS_ENV=#{fetch(:rails_env)} /opt/ecolane/rails/.rvm/bin/rvm #{fetch(:rvm_ruby_version)} do bundle exec rake assets:clobber"
+    end
+  end
+
+  # http://stackoverflow.com/questions/14915985/how-do-i-make-nginx-and-passenger-restart-automatically-after-a-deploy
+  desc 'deploy:restart'
+  task :restart do
+    puts "Trigger restart of passenger"
+    cmd = "touch #{release_path}/tmp/restart.txt"
+    system(cmd)
+  end
+
+  desc 'deploy:ping'
+  task :ping do
+    puts "Pinging the server to ensure Passenger has launched up."
+    cmd = "curl -k -L https://host.ikari.fi >/dev/null"
+    system(cmd)
+  end
+
+  after :publishing, 'deploy:restart'
+  after :publishing, 'deploy:ping'
 end
 
 before :deploy, "deploy:secrets"
