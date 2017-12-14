@@ -46,6 +46,3 @@ Cleanup
 host/bin/create_engine.sh xxx
 ```
 
-## Demo
-
-Live demo
