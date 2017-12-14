@@ -13,7 +13,7 @@ server 'localhost',
   primary: true,
   ssh_options: {
     port: 23,
-    keys: %w(/home/rails/.ssh/id_rsa_gi_deploy),
+    keys: %w(/home/rails/.ssh/id_rsa_koti_deploy),
     auth_methods: %w(publickey),
 #    forward_agent: true,
   }
