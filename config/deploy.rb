@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.5.0'
+lock '3.10.1'
 
 set :rvm_ruby_version, '2.4.1@host'
 # this is the money config, it defaults to :system

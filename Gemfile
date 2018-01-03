@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rake', '~> 10.4.2'
-gem 'rack', '2.0.1'
-gem 'rails', '5.1.3'
+gem 'rake', '~> 12.3.0'
+gem 'rack', '2.0.3'
+gem 'rails', '5.1.4'
 #gem 'jbuilder'
 
 gem 'pg'
@@ -13,24 +13,24 @@ gem 'jbuilder'
 
 #gem 'sass-rails', '~> 4.0.3'
 gem 'sassc-rails', '~> 1.3.0'
-gem 'autoprefixer-rails', '~> 6.5'
+gem 'autoprefixer-rails'#, '~> 6.5'
 
 # NOTE KI sass not working sprockets 4.0 beta
 gem 'sprockets', '>= 3.6', '< 4.0'
 
-gem 'uglifier', '~> 3.0'
+gem 'uglifier'#, '~> 3.0'
 gem 'yui-compressor'
 
 # NOTE KI nokogiri is notorious with library dependencies and horribly slow install
-gem 'nokogiri', '~> 1.7.0'
+gem 'nokogiri'#, '~> 1.7.0'
 
 gem 'ngannotate-rails', '>= 1.2.2'
 #gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
 #gem 'therubyracer',  platforms: :ruby
-gem 'libv8', '~> 5.0'
-gem 'mini_racer', '~> 0.1.4'
+gem 'libv8'#, '~> 5.0'
+gem 'mini_racer'#, '~> 0.1.4'
 
 # HACK KI due to "mini_racer"
 gem 'sprockets-babel-miniracer', '>= 0.0.9'
@@ -43,9 +43,9 @@ gem 'ng_template'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'
 
 group :development do
-  gem 'pry', '~> 0.10'
-  gem 'pry-rails', '~> 0.3'
-  gem 'pry-doc', '~> 0.9'
+#  gem 'pry', '~> 0.10'
+  gem 'pry-rails'#, '~> 0.3'
+#  gem 'pry-doc', '~> 0.9'
   gem 'pry-byebug', '~> 3.4'
 end
 
@@ -61,7 +61,7 @@ group :development do
 #  gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 
-gem 'oj', '~> 2.17'
+gem 'oj'#, '~> 2.17'
 gem 'ice_nine'
 
 gem 'hamlit', '~> 2.7'
@@ -96,10 +96,10 @@ end
 # - MUST use travis compatible repository access
 
 group :deploy do
-  gem 'capistrano-rails', '~> 1.1.3'
+  gem 'capistrano-rails'#, '~> 1.1.3'
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.2'
-  gem 'capistrano', '~> 3.5.0'
+  gem 'capistrano'#, '~> 3.5.0'
   gem 'capistrano-ext', '~> 1.2'
   gem 'capistrano-resque', '~> 0.2', require: false
 end
