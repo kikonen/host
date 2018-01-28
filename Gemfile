@@ -5,6 +5,8 @@ gem 'rack', '2.0.3'
 gem 'rails', '5.1.4'
 #gem 'jbuilder'
 
+gem 'tzinfo-data'
+
 gem 'pg'
 gem 'sqlite3'
 
