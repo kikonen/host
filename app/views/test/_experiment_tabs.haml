@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs{ role: "tablist" }
+  - active_tab = 'hello'
+  - %w(hello event pollution select toggle datetime button).each do |test|
+    - cls = test == active_tab ? 'active' : nil
+    %li.nav-item
+      %a{ class: "nav-link #{cls}", id: "#{test}_tab", href: "##{test}", role: "tab", data: { toggle: "tab" }, "aria-controls": test, "aria-selected": "true" }
+        = test.humanize

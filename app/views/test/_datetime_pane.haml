@@ -1,0 +1,26 @@
+.tab-pane.fade#datetime{ role: "tabpanel", "aria-labelledby": "datetime_tab" }
+
+  -####################
+  .container-fluid.ki-section
+    .row
+      .form-group.col-md-4.col-offset-md-4
+        %label
+          datetime selector
+        %input.ki-js-datetime-input.form-control{ type: "text" }
+
+  -####################
+  .container-fluid.ki-section
+    .row
+      .form-group.col-md-4.col-offset-md-4.has-feedback
+        %label.control-label
+          datetime selector 2
+        %input.ki-js-datetime-input.form-control{ type: "text" }
+        %span.fas.fa-calendar.alt.form-control-feedback
+
+  -####################
+  .container-fluid.ki-section
+    .row
+      .form-group.col-md-4.col-offset-md-4
+        %label
+          datetime selector 3
+        .ki-js-inline-datetime-input

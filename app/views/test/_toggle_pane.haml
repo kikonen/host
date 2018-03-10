@@ -1,0 +1,30 @@
+.tab-pane.fade#toggle{ role: "tabpanel", "aria-labelledby": "toggle_tab" }
+  -####################
+  .container-fluid.ki-section
+    .row
+      .form-group.col-md-4.col-offset-md-4
+        %label{ for: "test_toggle" }
+          toggle button
+
+        .input-group
+          %span.input-group-addon
+            prefix
+          %input{ type: "text", class: "form-control", style: "width: 4em;" }
+          %span.input-group-addon2
+            &nbsp;
+          %input.togglebutton.input-group-addon{ type: "checkbox",
+            id: "test_toggle",
+            name: "test_toggle",
+            value: "true",
+            data: { "on-icon": "fas fa-plus", "off-icon": "fas fa-minus" } }
+
+  -####################
+  .container-fluid.ki-section
+    .row
+      .form-group.col-md-4.col-offset-md-4
+        %label
+          toggle 2
+        %input.togglebutton.form-control#test_toggle_2{ type: "checkbox",
+          name: "test_toggle_2",
+          value: "true",
+          data: { "on-text": "foo", "off-text": "bar" } }

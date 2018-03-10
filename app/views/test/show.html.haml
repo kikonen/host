@@ -6,115 +6,16 @@
 
 .ki-padding-all
   %div{ "ng-controller": "TestController as ctrl" }
-    %input{ "ng-model": "ctrl.name" }
-    .ki-section
-      .input-group
-        Hello there {{ ctrl.name }}
+    = render partial: 'experiment_tabs'
 
-      .input-group
-        %button.btn.btn-default
-          %i.fas.fa-user
-          Okey
-        %button.btn.btn-danger{ "ng-click": "name=''" }
-          Nope
+    = render partial: 'hello_pane'
+    = render partial: 'event_pane'
+    = render partial: 'pollution_pane'
+    = render partial: 'select_pane'
+    = render partial: 'toggle_pane'
+    = render partial: 'datetime_pane'
+    = render partial: 'button_pane'
 
-    -####################
-    .ki-section
-      %button.btn.btn-success{ "ng-click": "ctrl.onEventStream()" }
-        Get Events
-
-      %div#event_data
-
-    -####################
-    .ki-section
-      .input-group
-        %button.btn.btn-warn{ "ng-click": "ctrl.onPollute()" }
-          POLLUTE
-
-      .input-group
-        {{ ctrl.pollute || 'missing'}}
-
-      #pollute
-        pollutes:
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4
-        %select#example_select{ multiple: "multiple" }
-          %option>
-            Option 1
-          %option
-            Option 2
-          %option
-            Option 3
-          %option
-            Option 4
-          %option
-            Option 5
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4
-        %label{ for: "test_toggle" }
-          toggle button
-
-        .input-group
-          %span.input-group-addon
-            prefix
-          %input{ type: "text", class: "form-control", style: "width: 4em;" }
-          %span.input-group-addon2
-            &nbsp;
-          %input.togglebutton.input-group-addon{ type: "checkbox",
-            id: "test_toggle",
-            name: "test_toggle",
-            value: "true",
-            data: { "on-icon": "fas fa-plus", "off-icon": "fas fa-minus" } }
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4
-        %label
-          toggle 2
-        %input.togglebutton.form-control#test_toggle_2{ type: "checkbox",
-          name: "test_toggle_2",
-          value: "true",
-          data: { "on-text": "foo", "off-text": "bar" } }
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4
-        %label
-          datetime selector
-        %input.ki-js-datetime-input.form-control{ type: "text" }
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4.has-feedback
-        %label.control-label
-          datetime selector 2
-        %input.ki-js-datetime-input.form-control{ type: "text" }
-        %span.fas.fa-calendar.alt.form-control-feedback
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4
-        %label
-          datetime selector 3
-        .ki-js-inline-datetime-input
-
-  -####################
-  .container-fluid.ki-section
-    .row
-      .form-group.col-md-4.col-offset-md-4
-        %button{ title: "Add foobar into zoo", "aria-label": "Give" }
-          Add
-
-  .ki-section
-    %a{ href: "/" }
-      Home
+.ki-section
+  %a{ href: "/" }
+    Home

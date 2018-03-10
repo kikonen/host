@@ -1,0 +1,12 @@
+.tab-pane.fade.show.active#hello{ role: "tabpanel", "aria-labelledby": "hello_tab" }
+  %input{ "ng-model": "ctrl.name" }
+  .ki-section
+    .input-group
+      Hello there {{ ctrl.name }}
+
+    .input-group
+      %button.btn.btn-default
+        %i.fas.fa-user
+        Okey
+      %button.btn.btn-danger{ "ng-click": "name=''" }
+        Nope
