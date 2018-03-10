@@ -1,90 +1,113 @@
-requirejs:
-  version: 2.2.0
+# requirejs:
+#   version: 2.2.0
+#   assets:
+#   - require.js
+
+systemjs:
+  yarn: true
   assets:
-  - require.js
-system.js:
-  version: 0.19.31
-  assets:
-  - dist/system-polyfills.src.js
-  - dist/system.src.js
-modernizr-min:
-  version: 2.8.3
-  assets:
-  - modernizr.min.js
+  - dist/system.js
+
+# modernizr-min:
+#   version: 2.8.3
+#   assets:
+#   - modernizr.min.js
+
 moment:
-  version: 2.10.3
+  yarn: true
   assets:
   - moment.js
   - locale:
     - locale/fi.js
-es6-shim:
-  version: 0.35.1
+
+moment-timezone:
+  yarn: true
   assets:
-  - es6-shim.js
-rxjs:
-  version: 4.1.0
-  assets:
-  - dist/rx.all.js
+  - moment*.js
+
+# es6-shim:
+#   version: 0.35.1
+#   assets:
+#   - es6-shim.js
+
+# rxjs:
+#   version: 4.1.0
+#   assets:
+#   - dist/rx.all.js
+
 zone.js:
-  version: 0.6.11
-  git: https://github.com/angular/zone.js.git
-  tag: v0.6.11
+  yarn:  true
   assets:
-  - dist/zone.js
+    - dist/zone.js
+
 ####
+
 jquery:
-  version: 2.1.3
+  yarn: true
   assets:
   - dist/jquery.js
+
 jquery-ujs:
-  version: 1.0.3
+  yarn: true
   assets:
   - src/rails.js
+
 lodash:
-  version: 3.0.0
+  yarn: true
   assets:
   - lodash.js
+
 angular:
-  version: 1.3.15
+  yarn: true
   assets:
   - angular.js
+
 angular-ui-router:
-  version: 0.2.13
+  yarn: true
   assets:
   - release/angular-ui-router.js
-bootstrap-sass:
-  version: 3.3.4
+
+popper.js:
+  yarn: true
   assets:
-  - assets/javascripts/bootstrap-sprockets.js
-  - bootstrap:
-    - assets/javascripts/bootstrap/*.js
-  - assets/stylesheets/_bootstrap.scss
-  - assets/stylesheets/_bootstrap-sprockets.scss
-  - bootstrap:
-    - assets/stylesheets/bootstrap/*.scss
+    - dist/umd/popper.js
+
+bootstrap:
+  yarn: true
+  assets:
+    - scss/*.scss
     - mixins:
-      - assets/stylesheets/bootstrap/mixins/*.scss
-  - assets/fonts/bootstrap/*
-bootswatch-scss:
-  version: 3.2.0-3
+        - scss/mixins/*.scss
+    - utilities:
+        - scss/utilities/*.scss
+    - js/dist/*.js
+
+"@fortawesome/fontawesome-free-webfonts":
+  yarn: true
   assets:
-  - cerulean:
-    - cerulean/*.scss
-bootstrap-switch:
-  version: 3.3.2
-  assets:
-  - dist/css/bootstrap3/bootstrap-switch.css
-  - dist/js/bootstrap-switch.js
-eonasdan-bootstrap-datetimepicker:
-  version: 4.14.30
-  assets:
-  - build/css/bootstrap-datetimepicker.css
-  - build/js/bootstrap-datetimepicker.min.js
-bootstrap-multiselect:
-  version: 0.9.13
-  git: git@github.com:davidstutz/bootstrap-multiselect.git
-  tag: v0.9.13
-  assets:
-  - dist/css/bootstrap-multiselect.css
-  - dist/js/bootstrap-multiselect.js
-  - dist/js/bootstrap-multiselect-collapsible-groups.js
+    - webfonts/fa-solid*.woff
+    - webfonts/fa-solid*.woff2
+    - webfonts/fa-regular*.woff
+    - webfonts/fa-regular*.woff2
+    - scss/*.scss
+
+# bootstrap-switch:
+#   version: 3.3.2
+#   assets:
+#   - dist/css/bootstrap3/bootstrap-switch.css
+#   - dist/js/bootstrap-switch.js
+
+# eonasdan-bootstrap-datetimepicker:
+#   version: 4.14.30
+#   assets:
+#   - build/css/bootstrap-datetimepicker.css
+#   - build/js/bootstrap-datetimepicker.min.js
+
+# bootstrap-multiselect:
+#   version: 0.9.13
+#   git: git@github.com:davidstutz/bootstrap-multiselect.git
+#   tag: v0.9.13
+#   assets:
+#   - dist/css/bootstrap-multiselect.css
+#   - dist/js/bootstrap-multiselect.js
+#   - dist/js/bootstrap-multiselect-collapsible-groups.js

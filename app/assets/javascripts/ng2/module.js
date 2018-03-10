@@ -1,8 +1,8 @@
 //
-//= require shared/gi
+//= require_tree .
 //
-//=require_self
-//=require_tree .
+//= require_self
+//
 (function() {
   System.config({
     map: {

@@ -2,18 +2,20 @@
 <html>
 <head>
   <title>Host</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+
   <%= stylesheet_link_tag    "themes/#{@theme_id}/module", media: 'all' %>
+  <%= stylesheet_link_tag    'module_vendor', media: 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
   <%= stylesheet_link_tag    'ng/module', media: 'all' %>
   <%= yield :stylesheets %>
 
   <%= include_js_env %>
+  <%= javascript_include_tag 'module_vendor', defer: true %>
   <%= javascript_include_tag 'application', defer: true %>
   <% if @ng_app %>
-    <%= javascript_include_tag 'ng/module_vendor', defer: true %>
     <%= javascript_include_tag 'ng/module', defer: true %>
   <% elsif @ng2_app %>
-    <%= javascript_include_tag 'ng2/module_vendor', defer: true %>
     <%= javascript_include_tag 'ng2/module', defer: true %>
   <% else %>
     <%= javascript_include_tag 'plain/module', defer: true %>

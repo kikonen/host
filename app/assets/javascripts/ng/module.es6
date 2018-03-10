@@ -1,8 +1,7 @@
 //
-//= require shared/gi
+//= require_tree .
+//= require_self
 //
-//=require_self
-//=require_tree .
 "use strict";
 
 import * as breadcrumb from 'ng/breadcrumb_directive';

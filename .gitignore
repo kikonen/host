@@ -21,3 +21,6 @@ node_modules/*
 .emacs*
 
 /node_modules
+
+package-lock.json
+yarn-error.log

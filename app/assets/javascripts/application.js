@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// require sprockets-babel-miniracer/define
-//= require system.js-0.19.31/system-polyfills.src
-//= require system.js-0.19.31/system.src
-//= require zone.js-0.6.11/zone
+//= require systemjs-0.21.0/system
+//
+//= require shared/gi
+//

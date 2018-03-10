@@ -127,8 +127,8 @@ function initBootstrapMultiSelect() {
 export function init() {
   runExample();
   initMoment();
-  initToggle();
-  initDatetime();
-  initBootstrapMultiSelect();
+//  initToggle();
+//  initDatetime();
+//  initBootstrapMultiSelect();
   registerNg();
 }

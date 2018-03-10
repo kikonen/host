@@ -20,4 +20,6 @@ Rails.application.config.assets.precompile += [
   '**/module.css',
   '**/module_*.js',
   '**/module_*.css',
+  'module_*.js',
+  'module_*.css',
 ]

@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :require_theme
 
   def require_theme
-    @theme_id = 'cerulean'
+    @theme_id = 'default'
   end
 end
