@@ -91,6 +91,18 @@ bootstrap:
     - webfonts/fa-regular*.woff2
     - scss/*.scss
 
+select2:
+  yarn: true
+  assets:
+    - dist/css/select2.css
+    - dist/js/select2.js
+
+selectize:
+  yarn: true
+  assets:
+    - dist/css/selectize.css
+    - dist/js/selectize.js
+
 # bootstrap-switch:
 #   version: 3.3.2
 #   assets:
