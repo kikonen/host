@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 12.3.0'
 gem 'rack', '2.0.4'
-gem 'rails', '5.1.5'
+gem 'rails', '5.1.6'
 #gem 'jbuilder'
 
 gem 'tzinfo-data'
