@@ -67,9 +67,9 @@ Rails.application.routes.draw do
   mount GiTest::Engine, at: GiTest::Engine.mount_path
 end
 
-Rails.application.routes.draw do
-  mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
-end
+#Rails.application.routes.draw do
+#  mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
+#end
 
 Rails.application.routes.draw do
   mount GiRaycaster::Engine, at: GiRaycaster::Engine.mount_path
