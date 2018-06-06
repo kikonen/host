@@ -110,7 +110,7 @@ gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
 
 # TODO KI rmagick gem doesn't compile any longer
-#gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'master'
+gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'master'
 #gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'real_album'
 #gem 'gi_album_engine', path: '~/work/projects/ruby/gi_album_engine'
 
