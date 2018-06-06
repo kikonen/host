@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rake', '~> 12.3.0'
-gem 'rack', '2.0.4'
-gem 'rails', '5.1.6'
+gem 'rack', '2.0.5'
+gem 'rails', '5.2.0'
 #gem 'jbuilder'
 
 gem 'tzinfo-data'
 
-gem 'pg'
+# TODO KI pg10 not working
+#gem 'pg'
 gem 'sqlite3'
 
 gem 'config'
@@ -108,7 +109,8 @@ end
 gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
 
-gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'master'
+# TODO KI rmagick gem doesn't compile any longer
+#gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'master'
 #gem 'gi_album_engine', git: 'git@github.com:kikonen/gi_album_engine.git', branch: 'real_album'
 #gem 'gi_album_engine', path: '~/work/projects/ruby/gi_album_engine'
 
