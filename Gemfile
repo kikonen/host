@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rake', '~> 12.3.0'
-gem 'rack', '2.0.5'
-gem 'rails', '5.2.0'
+gem 'rake', '~> 13.0.0'
+gem 'rack', '~> 2.0.5'
+gem 'rails', '6.0.1'
 #gem 'jbuilder'
+
+gem 'listen'
 
 gem 'tzinfo-data'
 
@@ -77,7 +79,7 @@ gem 'kgio'
 
 # http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
 # => resque doesn't require thread safety
-gem 'resque', '~> 1.26'
+gem 'resque', '~> 1.27.0'
 #gem 'resque-web', require: 'resque_web'
 
 #
