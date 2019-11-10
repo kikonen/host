@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   get '/ts' => 'ts#hello'
   get '/test_ng2' => 'test_ng2#hello'
 
+  resources :svelte_test, only: [] do
+    collection do
+      get :hello
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
