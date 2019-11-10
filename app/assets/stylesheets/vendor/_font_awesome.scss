@@ -1,11 +1,11 @@
 // NOTE KI asset-path in bower is setup in properly for rails
-$fa-font-path: "@fortawesome/fontawesome-free-webfonts-1.0.4";
+$fa-font-path: "@fortawesome/fontawesome-free-webfonts-1.0.9";
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/variables";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/mixins";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/variables";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/mixins";
 
 // NOTE KI path must be overridden fully; not just via including new definition in top of it
-//@import "@fortawesome/fontawesome-free-webfonts-1.0.4/path";
+//@import "@fortawesome/fontawesome-free-webfonts-1.0.9/path";
 /*
 @font-face {
   font-family: 'FontAwesome';
@@ -29,7 +29,7 @@ $fa-font-path: "@fortawesome/fontawesome-free-webfonts-1.0.4";
 }
 */
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/fa-regular";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/fa-regular";
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
@@ -38,7 +38,7 @@ $fa-font-path: "@fortawesome/fontawesome-free-webfonts-1.0.4";
   asset-url('#{$fa-font-path}/fa-regular-400.woff') format('woff');
 }
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/fa-solid";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/fa-solid";
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
@@ -47,13 +47,13 @@ $fa-font-path: "@fortawesome/fontawesome-free-webfonts-1.0.4";
   asset-url('#{$fa-font-path}/fa-solid-900.woff') format('woff');
 }
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/core";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/larger";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/fixed-width";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/list";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/bordered-pulled";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/animated";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/rotated-flipped";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/stacked";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/icons";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.4/screen-reader";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/core";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/larger";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/fixed-width";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/list";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/bordered-pulled";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/animated";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/rotated-flipped";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/stacked";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/icons";
+@import "@fortawesome/fontawesome-free-webfonts-1.0.9/screen-reader";
