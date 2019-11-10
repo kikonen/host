@@ -84,7 +84,7 @@ bootstrap:
         - scss/vendor/*.scss
     - js/dist/*.js
 
-"@fortawesome/fontawesome-free-webfonts":
+"@fortawesome/fontawesome-free":
   yarn: true
   assets:
     - webfonts/fa-solid*.woff

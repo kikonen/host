@@ -1,59 +1,37 @@
 // NOTE KI asset-path in bower is setup in properly for rails
-$fa-font-path: "@fortawesome/fontawesome-free-webfonts-1.0.9";
+$fa-font-path: "@fortawesome/fontawesome-free-5.11.2";
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/variables";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/mixins";
+@import "@fortawesome/fontawesome-free-5.11.2/variables";
+@import "@fortawesome/fontawesome-free-5.11.2/mixins";
 
 // NOTE KI path must be overridden fully; not just via including new definition in top of it
-//@import "@fortawesome/fontawesome-free-webfonts-1.0.9/path";
-/*
-@font-face {
-  font-family: 'FontAwesome';
-  src: asset-url('#{$fa-font-path}/fontawesome-webfont.eot');
-  src: asset-url('#{$fa-font-path}/fontawesome-webfont.eot') format('embedded-opentype'),
-    asset-url('#{$fa-font-path}/fontawesome-webfont.woff2') format('woff2'),
-    asset-url('#{$fa-font-path}/fontawesome-webfont.woff') format('woff'),
-    asset-url('#{$fa-font-path}/fontawesome-webfont.ttf') format('truetype'),
-    asset-url('#{$fa-font-path}/fontawesome-webfont.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-*/
-/*
-@font-face {
-  font-family: 'FontAwesome';
-  src: asset-url('#{$fa-font-path}/fa-solid-400.woff2') format('woff2'),
-    asset-url('#{$fa-font-path}/fa-solid-400.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-*/
-
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/fa-regular";
+@import "@fortawesome/fontawesome-free-5.11.2/regular";
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 400;
-  src: asset-url('#{$fa-font-path}/fa-regular-400.woff2') format('woff2'),
-  asset-url('#{$fa-font-path}/fa-regular-400.woff') format('woff');
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-regular-400.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-regular-400.woff') format('woff');
 }
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/fa-solid";
+@import "@fortawesome/fontawesome-free-5.11.2/solid";
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
-  src: asset-url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2'),
-  asset-url('#{$fa-font-path}/fa-solid-900.woff') format('woff');
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-solid-900.woff') format('woff');
 }
 
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/core";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/larger";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/fixed-width";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/list";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/bordered-pulled";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/animated";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/rotated-flipped";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/stacked";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/icons";
-@import "@fortawesome/fontawesome-free-webfonts-1.0.9/screen-reader";
+@import "@fortawesome/fontawesome-free-5.11.2/core";
+@import "@fortawesome/fontawesome-free-5.11.2/larger";
+@import "@fortawesome/fontawesome-free-5.11.2/fixed-width";
+@import "@fortawesome/fontawesome-free-5.11.2/list";
+@import "@fortawesome/fontawesome-free-5.11.2/bordered-pulled";
+@import "@fortawesome/fontawesome-free-5.11.2/animated";
+@import "@fortawesome/fontawesome-free-5.11.2/rotated-flipped";
+@import "@fortawesome/fontawesome-free-5.11.2/stacked";
+@import "@fortawesome/fontawesome-free-5.11.2/icons";
+@import "@fortawesome/fontawesome-free-5.11.2/screen-reader";
