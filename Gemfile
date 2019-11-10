@@ -105,7 +105,7 @@ group :deploy do
   gem 'capistrano-rails'
   gem 'capistrano-bundler', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.2'
-  gem 'capistrano-nvm'
+  gem 'capistrano-nvm', require: false
   gem 'capistrano'
   gem 'capistrano-ext', '~> 1.2'
   gem 'capistrano-resque', '~> 0.2', require: false
