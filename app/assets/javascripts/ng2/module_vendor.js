@@ -2,7 +2,7 @@
 // Base initialization for angularjs based engines. Provides
 // common logic needed in all engines
 //
-// require zone.js-0.8.20/zone
+// require zone.js-0.8.29/zone
 //
 // require es6-shim-0.35.1/es6-shim
 // require reflect-metadata-0.1.3/Reflect

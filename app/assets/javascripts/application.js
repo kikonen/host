@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require systemjs-0.21.0/system
+//= require systemjs-0.21.6/system
 //
 //= require shared/gi
 //
