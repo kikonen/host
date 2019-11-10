@@ -1,4 +1,4 @@
-class EnumIO < StringIO
+class EnumIo < StringIO
   def initialize(out)
     super('')
     @out = out
