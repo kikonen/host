@@ -5,7 +5,9 @@ gem 'rack', '~> 2.0.5'
 gem 'rails', '6.0.1'
 #gem 'jbuilder'
 
-gem 'webpacker'
+#gem 'webpacker'
+gem 'webpacker', git: 'https://github.com/rails/webpacker'
+
 gem 'puma'
 gem 'listen'
 
