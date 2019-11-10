@@ -16,5 +16,8 @@
     "selectize": "^0.12.4",
     "systemjs": "^0.21.0",
     "zone.js": "^0.8.20"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.9.0"
   }
 }
