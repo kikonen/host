@@ -6,7 +6,7 @@ set :rvm_ruby_version, '2.6.5@host'
 set :rvm_type, :user
 
 set :nvm_type, :user
-set :nvm_node, '12.13.0'
+set :nvm_node, 'v12.13.0'
 set :nvm_map_bins, %w{node npm yarn}
 
 set :application, 'host'
