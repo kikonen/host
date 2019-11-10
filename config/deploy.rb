@@ -43,7 +43,7 @@ set :linked_files, %w{config/secrets.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/assets', 'public/system', 'shared')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/assets', 'public/system', 'shared', 'node_modules')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -67,6 +67,15 @@ namespace :deploy do
           }
         }
         File.open(secrets_file, "w") { |f| f.write secrets.to_yaml }
+      end
+    end
+  end
+
+  desc "Run rake yarn install"
+  task :yarn_install do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
       end
     end
   end
@@ -106,4 +115,5 @@ namespace :deploy do
   after :publishing, 'deploy:ping'
 end
 
+before "deploy:assets:precompile", "deploy:yarn_install"
 before :deploy, "deploy:secrets"
