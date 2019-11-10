@@ -8,13 +8,14 @@
 import App from '../app.svelte'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new App({
-    target: document.body,
-    props: {
-      name: 'Svelte'
-    }
+  _.each(document.querySelectorAll('.svelte-hello'), function(el) {
+    const app = new App({
+      target: el,
+      props: {
+        name: 'Svelte',
+        message: el.dataset.msg
+      }
+    });
+    //  window.app = app;
   });
-
-  window.app = app;
-})
-
+});

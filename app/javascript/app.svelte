@@ -1,5 +1,6 @@
 <script>
   export let name;
+  export let message;
 </script>
 
 <style>
@@ -8,4 +9,4 @@
   }
 </style>
 
-<h1>Hello {name}!</h1>
+<h1>Hello me too {name} via {message}!</h1>
