@@ -9,7 +9,7 @@
 //= require jquery-ujs-1.0.3/rails
 //
 //= require eonasdan-bootstrap-datetimepicker-4.14.30/bootstrap-datetimepicker.min
-//= require popper.js-1.12.9/popper
+//= require popper.js-1.16.0/popper
 //
 //= require ./bootstrap
 //

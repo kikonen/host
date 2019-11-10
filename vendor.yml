@@ -80,6 +80,8 @@ bootstrap:
         - scss/mixins/*.scss
     - utilities:
         - scss/utilities/*.scss
+    - vendor:
+        - scss/vendor/*.scss
     - js/dist/*.js
 
 "@fortawesome/fontawesome-free-webfonts":

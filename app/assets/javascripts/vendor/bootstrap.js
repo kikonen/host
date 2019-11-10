@@ -1,12 +1,12 @@
-//= require bootstrap-4.0.0/util
+//= require bootstrap-4.3.1/util
 //
-//= require bootstrap-4.0.0/alert
-//= require bootstrap-4.0.0/button
-//= require bootstrap-4.0.0/carousel
-//= require bootstrap-4.0.0/collapse
-//= require bootstrap-4.0.0/dropdown
-//= require bootstrap-4.0.0/modal
-//= require bootstrap-4.0.0/scrollspy
-//= require bootstrap-4.0.0/tab
-//= require bootstrap-4.0.0/tooltip
-//= require bootstrap-4.0.0/popover
+//= require bootstrap-4.3.1/alert
+//= require bootstrap-4.3.1/button
+//= require bootstrap-4.3.1/carousel
+//= require bootstrap-4.3.1/collapse
+//= require bootstrap-4.3.1/dropdown
+//= require bootstrap-4.3.1/modal
+//= require bootstrap-4.3.1/scrollspy
+//= require bootstrap-4.3.1/tab
+//= require bootstrap-4.3.1/tooltip
+//= require bootstrap-4.3.1/popover
