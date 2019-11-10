@@ -5,6 +5,10 @@ set :rvm_ruby_version, '2.6.5@host'
 # this is the money config, it defaults to :system
 set :rvm_type, :user
 
+set :nvm_type, :user
+set :nvm_node, '12.13.0'
+set :nvm_map_bins, %w{node npm yarn}
+
 set :application, 'host'
 #set :repo_url, 'git@github.com:kikonen/host.git'
 set :repo_url, '/home/rails/deploy/host'
