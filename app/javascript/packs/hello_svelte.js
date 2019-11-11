@@ -6,6 +6,7 @@
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
 import App from '../app.svelte'
+import Typeahead from '../components/typeahead.svelte'
 
 document.addEventListener('DOMContentLoaded', () => {
   _.each(document.querySelectorAll('.svelte-hello'), function(el) {
@@ -16,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         message: el.dataset.msg
       }
     });
-    //  window.app = app;
   });
+
+  _.each(document.querySelectorAll('.js-typeahead'), function(el) {
+    console.log(el);
+    const app = new Typeahead({
+      target: el,
+      props: {
+        real: el.querySelector('input')
+      }
+    });
+  });
+
 });

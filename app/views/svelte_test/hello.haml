@@ -3,6 +3,31 @@
 
 <h1>hello</h2>
 
+.p-2
+  %form
+    .form-row
+      .form-group.col-3.js-typeahead
+        %label{ for: 'sf_quicksearch' }
+          Quicksearch
+        %input{ name: "sf_quicksearch",
+          id: "sf_quicksearch",
+          placeholder: 'quicksearch...',
+          class: 'js-search-field form-control',
+          value: 'foo' }
+      .form-group.col-3
+        %label
+          Foo
+        %input.form-control{ name: "sf_quicksearch2", id: "sf_quicksearch2" }
+      .form-group.col-3
+        %label
+          Bar
+        %input.form-control{ name: "foo2", id: "bar3" }
+      .form-group.col-3
+        %label
+          Zoo
+        %input.form-control{ name: "foo2", id: "bar4" }
+
+%hr
 Svelte hello appears here
 .svelte-hello{ data: { msg: 'hello 1' } }
 
