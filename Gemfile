@@ -6,8 +6,8 @@ gem 'rails', '6.0.1'
 #gem 'jbuilder'
 
 #gem 'webpacker'
-#gem 'webpacker', git: 'https://github.com/rails/webpacker'
-gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
+gem 'webpacker', git: 'https://github.com/rails/webpacker'
+#gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
 
 
 

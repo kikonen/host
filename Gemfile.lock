@@ -1,14 +1,4 @@
 GIT
-  remote: git@github.com:LuanGB/webpacker.git
-  revision: 0c7a9f750ddf3a4fd9a6ad9f91331c80b15c20fd
-  branch: webpacker-clean_with_hashes_on_manifest
-  specs:
-    webpacker (4.0.7)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
-
-GIT
   remote: git@github.com:kikonen/gi_album_engine.git
   revision: c8b1a98371b388774dbd8d160b26e99cda51c17f
   branch: master
@@ -43,6 +33,15 @@ GIT
   specs:
     gi_test_engine (0.0.1)
       rails (>= 6.0.0)
+
+GIT
+  remote: https://github.com/rails/webpacker
+  revision: 5da39a18e0bd1fa7041575aaba1d710f31ccfb17
+  specs:
+    webpacker (4.0.7)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
 
 GEM
   remote: https://rubygems.org/
@@ -244,7 +243,7 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    mini_racer (0.2.6)
+    mini_racer (0.2.8)
       libv8 (>= 6.9.411)
     minitest (5.13.0)
     mono_logger (1.1.0)
