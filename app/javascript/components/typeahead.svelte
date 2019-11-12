@@ -2,28 +2,16 @@
  import {onMount} from 'svelte';
 
  export let real;
- export let allResults = [
-     {
-         text: 'foo',
-         desc: 'hippo',
-     },
-     {
-         text: 'zoo',
-         desc: 'hippo',
-     },
-     {
-         text: 'boo',
-         desc: 'hippo',
-     },
-     {
-         text: 'bar really long entry here to check how sizing works EOF',
-         desc: 'hippo',
-     },
- ];
- export let results = allResults;
+ export let fetcher;
+
+ export let results = [];
  export let value = '';
- export let previousValue = '';
+
  export let popupVisible = false;
+
+ let previousValue = '';
+
+ export let currentFetch = null;
 
  function onSelectItem() {
      counter = counter + 1;
@@ -44,19 +32,32 @@
  }
 
  function filterResults() {
-     if (value !== previousValue) {
-         console.log("filter: " + value);
-         results = allResults.filter(function(item) {
-             return item == '' || item.text.includes(value);
-         });
-         reindexResults(results);
-         previousValue = value;
-         popupVisible = results.length > 0;
+     if (value === previousValue) {
+         return;
      }
+     console.log("filter: " + value);
+
+     let searchValue = value;
+     let fetch = fetcher(searchValue).then(function(entries) {
+         if (fetch === currentFetch) {
+             console.log("APPLY fetch: " + searchValue);
+             reindexResults(entries);
+             results = entries;
+             previousValue = searchValue;
+             popupVisible = results.length > 0;
+             currentFetch = null;
+         } else {
+             console.log("CANCEL fetch: " + searchValue);
+         }
+     }).catch(function(err) {
+         if (fetch === currentFetch) {
+             currentFetch = null;
+         }
+     });
+     currentFetch = fetch;
  }
 
  function handleKeyup(event) {
-     console.log(event);
      filterResults();
  }
 
@@ -64,15 +65,24 @@
      base: function(event) {
      },
      ArrowDown: function(event) {
-         getPopup().firstChild.focus();
+         let item = getPopup(event).querySelector('.js-item:first-child');
+         if (item) {
+             item.focus();
+         }
      },
      ArrowUp: function(event) {
-         getPopup().lastChild.focus();
+         let item = getPopup(event).querySelector('.js-item:last-child');
+         if (item) {
+             item.focus();
+         }
      },
+     Tab: function(event) {
+         popupVisible = false;
+         currentFetch = null;
+     }
  };
 
  function handleInputKeydown(event) {
-     console.log(event);
      let handler = inputKeydownHandlers[event.code] || inputKeydownHandlers.base;
      handler(event);
  }
@@ -85,7 +95,7 @@
          if (next) {
              next.focus();
          } else {
-             getInput().focus();
+             getInput(event).focus();
          }
      },
      ArrowUp: function(event) {
@@ -93,21 +103,24 @@
          if (next) {
              next.focus();
          } else {
-             getInput().focus();
+             getInput(event).focus();
          }
      },
-
+     Tab: function(event) {
+         popupVisible = false;
+         currentFetch = null;
+         getInput(event).focus();
+     },
      Enter: function(event) {
          let item = results[event.target.dataset.index];
          previousValue = item.text;
          value = previousValue;
          popupVisible = false;
-         getInput().focus();
-     }
+         getInput(event).focus();
+     },
  };
 
  function handleItemKeydown(event) {
-     console.log(event);
      let handler = itemKeydownHandlers[event.code] || itemKeydownHandlers.base;
      handler(event);
  }
@@ -116,12 +129,12 @@
      popupVisible = !popupVisible && results.length > 0;
  }
 
- function getInput() {
+ function getInput(event) {
      var container = event.target.closest('.js-typeahead-container');
      return container.querySelector('.js-input');
  }
 
- function getPopup() {
+ function getPopup(event) {
      var container = event.target.closest('.js-typeahead-container');
      return container.querySelector('.js-popup');
  }
@@ -148,14 +161,22 @@
   </div>
 
   <div class="js-popup dropdown-menu {popupVisible ? 'show' : ''}">
-    {#each results as item}
-    <div tabindex=0 class="dropdown-item"  data-index="{item.index}" on:keydown={handleItemKeydown}>
-      {item.text}
-      <div class="text-muted">
-        {item.desc}
+    {#if currentFetch}
+      <div tabindex=-1 class="dropdown-item">
+        Searching...
       </div>
-    </div>
-    {/each}
+    {/if}
+
+    {#if !currentFetch}
+      {#each results as item}
+        <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}" on:keydown={handleItemKeydown}>
+          {item.text}
+          <div class="text-muted">
+            {item.desc}
+          </div>
+        </div>
+      {/each}
+    {/if}
   </div>
 </div>
 

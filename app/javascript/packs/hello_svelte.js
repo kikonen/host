@@ -8,7 +8,8 @@
 import App from '../app.svelte'
 import Typeahead from '../components/typeahead.svelte'
 
-document.addEventListener('DOMContentLoaded', () => {
+
+function setupHello() {
   _.each(document.querySelectorAll('.svelte-hello'), function(el) {
     const app = new App({
       target: el,
@@ -18,17 +19,59 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+}
+
+function setupTypeahead() {
+  let results = [
+    {
+      text: 'foo',
+      desc: 'hippo',
+    },
+    {
+      text: 'zoo',
+      desc: 'hippo',
+    },
+    {
+      text: 'boo',
+      desc: 'hippo',
+    },
+    {
+      text: 'bar really long entry here to check how sizing works EOF',
+      desc: 'hippo',
+    },
+  ];
 
   _.each(document.querySelectorAll('.js-typeahead'), function(el) {
     console.log(el);
     var input = el.querySelector('input');
+
+    function fetcher (query) {
+      let promise = new Promise(function(resolve, reject) {
+        console.log("fetching...: " + query);
+        setTimeout(function() {
+          console.log("fetched...: " + query);
+          var fetched = results.filter(function(item) {
+            return item == '' || item.text.includes(query);
+          });
+          resolve(fetched);
+        }, 500);
+      });
+
+      return promise;
+    };
+
     const app = new Typeahead({
       target: el,
       props: {
         real: input,
-        value: input.value
+        value: input.value,
+        fetcher: fetcher,
       }
     });
   });
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+  setupHello();
+  setupTypeahead();
 });
