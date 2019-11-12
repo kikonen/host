@@ -21,10 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   _.each(document.querySelectorAll('.js-typeahead'), function(el) {
     console.log(el);
+    var input = el.querySelector('input');
     const app = new Typeahead({
       target: el,
       props: {
-        real: el.querySelector('input')
+        real: input,
+        value: input.value
       }
     });
   });
