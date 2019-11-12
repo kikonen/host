@@ -64,14 +64,10 @@
      base: function(event) {
      },
      ArrowDown: function(event) {
-         var container = event.target.closest('.js-typeahead-container');
-         var popup = container.querySelector('.js-popup');
-         popup.firstChild.focus();
+         getPopup().firstChild.focus();
      },
      ArrowUp: function(event) {
-         var container = event.target.closest('.js-typeahead-container');
-         var popup = container.querySelector('.js-popup');
-         popup.lastChild.focus();
+         getPopup().lastChild.focus();
      },
  };
 
@@ -86,20 +82,18 @@
      },
      ArrowDown: function(event) {
          let next = event.target.nextElementSibling;
-         if (!next) {
-             next = getInput();
-         }
          if (next) {
              next.focus();
+         } else {
+             getInput().focus();
          }
      },
      ArrowUp: function(event) {
          let next = event.target.previousElementSibling;
-         if (!next) {
-             next = getInput();
-         }
          if (next) {
              next.focus();
+         } else {
+             getInput().focus();
          }
      },
 
@@ -125,6 +119,11 @@
  function getInput() {
      var container = event.target.closest('.js-typeahead-container');
      return container.querySelector('.js-input');
+ }
+
+ function getPopup() {
+     var container = event.target.closest('.js-typeahead-container');
+     return container.querySelector('.js-popup');
  }
 
  $: real.setAttribute('value', value);
