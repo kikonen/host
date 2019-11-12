@@ -133,25 +133,6 @@
 .typeahead {
     position: relative;
 }
-
-.typeahead-popup {
-    position: absolute;
-    top: 35;
-    width: 400px;
-    height: 200px;
-    z-order: 3000;
-    background-color: white;
-    border: 1px solid blue;
-}
-
-.typehead-item {
-    display: block;
-}
-.typehead-item:focus {
-    outline: 1px dashed red;
-    background-color: lightgray;
-    color: black;
-}
 </style>
 
 <div class="input-group mb-3 typeahead js-typeahead-container">
