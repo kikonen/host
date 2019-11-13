@@ -134,6 +134,7 @@
      console.log("filter: " + value);
 
      let searchValue = value;
+     popupVisible = true;
      let fetch = fetcher(searchValue).then(function(entries) {
          if (fetch === currentFetch) {
              console.log("APPLY fetch: " + searchValue);
@@ -148,6 +149,7 @@
      }).catch(function(err) {
          if (fetch === currentFetch) {
              currentFetch = null;
+             popupVisible = false;
          }
      });
      currentFetch = fetch;
