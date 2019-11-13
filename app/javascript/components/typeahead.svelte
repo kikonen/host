@@ -209,7 +209,7 @@ a
          on:keyup={handleKeyup}
          on:click={handleInputClick}>
   <div class="input-group-append">
-    <span class="input-group-text"><i class="fas fa-clock"></i></span>
+    <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
   </div>
 
   <div class="js-popup dropdown-menu {popupVisible ? 'show' : ''}"
