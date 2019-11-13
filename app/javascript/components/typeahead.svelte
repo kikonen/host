@@ -8,20 +8,116 @@
  export let value = '';
 
  export let popupVisible = false;
+ export let currentFetch = null;
+
+ let input;
+ let popup;
 
  let previousValue = '';
 
- export let currentFetch = null;
+ let inputKeydownHandlers = {
+     base: function(event) {
+     },
+     ArrowDown: function(event) {
+         let item = popupVisible ? popup.querySelector('.js-item:first-child') : null;
+         if (item) {
+             item.focus();
+         } else if (value && !popupVisible) {
+             popupVisible = true;
+             fetchResults();
+         }
+     },
+     ArrowUp: function(event) {
+         let item = popupVisible ? popup.querySelector('.js-item:last-child') : null;
+         if (item) {
+             item.focus();
+         }
+     },
+     Tab: function(event) {
+         popupVisible = false;
+         currentFetch = null;
+     },
+     Escape: function(event) {
+         closePopup();
+     }
+ };
 
- function onSelectItem() {
-     counter = counter + 1;
+ let inputKeyupHandlers = {
+     base: function(event) {
+         fetchResults();
+     }
  }
 
- onMount(function() {
-     value = real.value;
-     real.classList.add('d-none');
-     filterResults();
- });
+ let inputClickHandlers = {
+     base: function(event) {
+     },
+     '0': function(event) {
+         fetchResults();
+     },
+ }
+
+ let itemKeydownHandlers = {
+     base: function(event) {
+     },
+     ArrowDown: function(event) {
+         let next = event.target.nextElementSibling;
+         if (next) {
+             next.focus();
+         } else {
+             input.focus();
+         }
+     },
+     ArrowUp: function(event) {
+         let next = event.target.previousElementSibling;
+         if (next) {
+             next.focus();
+         } else {
+             input.focus();
+         }
+     },
+     Tab: function(event) {
+         closePopup();
+     },
+     Enter: function(event) {
+         selectItem(event.target)
+     },
+     Escape: function(event) {
+         closePopup();
+     },
+ };
+
+ let itemClickHandlers = {
+     base: function(event) {
+     },
+     '0': function(event) {
+         selectItem(event.target)
+     },
+ }
+
+ function togglePopup() {
+     popupVisible = !popupVisible;
+     if (!popupVisible) {
+         currentFetch = null;
+         input.focus();
+     }
+ }
+
+ function closePopup() {
+     popupVisible = false;
+     currentFetch = null;
+     input.focus();
+ }
+
+ function selectItem(el) {
+     let item = results[el.dataset.index];
+     if (item) {
+         previousValue = item.text;
+         value = previousValue;
+         closePopup(event);
+     } else {
+         console.log("MISSING item", el);
+     }
+ }
 
  function reindexResults(results) {
      let index = 0;
@@ -31,7 +127,7 @@
      });
  }
 
- function filterResults() {
+ function fetchResults() {
      if (value === previousValue) {
          return;
      }
@@ -44,8 +140,8 @@
              reindexResults(entries);
              results = entries;
              previousValue = searchValue;
-             popupVisible = results.length > 0;
              currentFetch = null;
+             popupVisible = true;
          } else {
              console.log("CANCEL fetch: " + searchValue);
          }
@@ -57,121 +153,86 @@
      currentFetch = fetch;
  }
 
- function handleKeyup(event) {
-     filterResults();
+ ////////////////////////////////////////////////////////////
+ // HANDLERS
+ //
+ $: real.setAttribute('value', value);
+
+ onMount(function() {
+     value = real.value;
+     previousValue = value;
+     real.classList.add('d-none');
+ });
+
+ function handleEvent(code, handlers, event) {
+     let handler = handlers[code] || handlers.base;
+     handler(event);
  }
 
- let inputKeydownHandlers = {
-     base: function(event) {
-     },
-     ArrowDown: function(event) {
-         let item = getPopup(event).querySelector('.js-item:first-child');
-         if (item) {
-             item.focus();
-         }
-     },
-     ArrowUp: function(event) {
-         let item = getPopup(event).querySelector('.js-item:last-child');
-         if (item) {
-             item.focus();
-         }
-     },
-     Tab: function(event) {
-         popupVisible = false;
-         currentFetch = null;
-     }
- };
+ function handleKeyup(event) {
+     handleEvent(event.code, inputKeyupHandlers, event);
+ }
 
  function handleInputKeydown(event) {
-     let handler = inputKeydownHandlers[event.code] || inputKeydownHandlers.base;
-     handler(event);
+     handleEvent(event.code, inputKeydownHandlers, event);
  }
 
- let itemKeydownHandlers = {
-     base: function(event) {
-     },
-     ArrowDown: function(event) {
-         let next = event.target.nextElementSibling;
-         if (next) {
-             next.focus();
-         } else {
-             getInput(event).focus();
-         }
-     },
-     ArrowUp: function(event) {
-         let next = event.target.previousElementSibling;
-         if (next) {
-             next.focus();
-         } else {
-             getInput(event).focus();
-         }
-     },
-     Tab: function(event) {
-         popupVisible = false;
-         currentFetch = null;
-         getInput(event).focus();
-     },
-     Enter: function(event) {
-         let item = results[event.target.dataset.index];
-         previousValue = item.text;
-         value = previousValue;
-         popupVisible = false;
-         getInput(event).focus();
-     },
- };
+ function handleInputClick() {
+     handleEvent(event.button, inputClickHandlers, event);
+ }
 
  function handleItemKeydown(event) {
-     let handler = itemKeydownHandlers[event.code] || itemKeydownHandlers.base;
-     handler(event);
+     handleEvent(event.code, itemKeydownHandlers, event);
  }
 
- function handleTogglePopup() {
-     popupVisible = !popupVisible && results.length > 0;
+ function handleItemClick() {
+     handleEvent(event.button, itemClickHandlers, event);
  }
-
- function getInput(event) {
-     var container = event.target.closest('.js-typeahead-container');
-     return container.querySelector('.js-input');
- }
-
- function getPopup(event) {
-     var container = event.target.closest('.js-typeahead-container');
-     return container.querySelector('.js-popup');
- }
-
- $: real.setAttribute('value', value);
 </script>
 
 <style>
-.typeahead {
-    position: relative;
-}
+ .typeahead {
+     position: relative;
+ }
+ .no-click {
+     pointer-events: none;
+ }
 </style>
-
+a
 <div class="input-group mb-3 typeahead js-typeahead-container">
   <input class="js-input {real.getAttribute('class')}"
          data-target="{real.id}"
          placeholder="{real.placeholder}"
+         bind:this={input}
          bind:value
          on:keydown={handleInputKeydown}
          on:keyup={handleKeyup}
-         on:click={handleTogglePopup}>
+         on:click={handleInputClick}>
   <div class="input-group-append">
     <span class="input-group-text"><i class="fas fa-clock"></i></span>
   </div>
 
-  <div class="js-popup dropdown-menu {popupVisible ? 'show' : ''}">
+  <div class="js-popup dropdown-menu {popupVisible ? 'show' : ''}"
+       bind:this={popup} >
     {#if currentFetch}
-      <div tabindex=-1 class="dropdown-item">
+      <div tabindex=-1 class="dropdown-item text-muted">
         Searching...
       </div>
     {/if}
 
-    {#if !currentFetch}
+    {#if !currentFetch && results.length === 0 }
+      <div tabindex=-1 class="dropdown-item text-muted">
+        No results
+      </div>
+    {/if}
+
+    {#if !currentFetch && results.length > 0 }
       {#each results as item}
-        <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}" on:keydown={handleItemKeydown}>
-          {item.text}
-          <div class="text-muted">
+        <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}" on:click={handleItemClick} on:keydown={handleItemKeydown}>
+          <div class="no-click">
+            {item.text}
+          </div>
+          <div class="no-click text-muted">
             {item.desc}
           </div>
         </div>
@@ -179,22 +240,3 @@
     {/if}
   </div>
 </div>
-
-{value}
-
-<!--
-<div class="eco-w-search-quicksearch">
-  <input class=" w-100 form-control eco-js-search-field"
-         placeholder="Quick search"
-         data-eco-target="main"
-         data-eco-autofocus="true"
-         autocomplete="new-password"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"
-         type="text"
-         value="100"
-         name="run_status[sf_quicksearch]"
-         id="run_status_sf_quicksearch">
-</div>
--->

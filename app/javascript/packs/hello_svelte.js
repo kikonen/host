@@ -50,8 +50,9 @@ function setupTypeahead() {
         console.log("fetching...: " + query);
         setTimeout(function() {
           console.log("fetched...: " + query);
+          var queryStr = query.toUpperCase();
           var fetched = results.filter(function(item) {
-            return item == '' || item.text.includes(query);
+            return item == '' || item.text.toUpperCase().includes(queryStr);
           });
           resolve(fetched);
         }, 500);
