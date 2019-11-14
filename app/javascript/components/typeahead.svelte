@@ -150,7 +150,9 @@
  }
 
  let itemKeydownHandlers = {
-     base: nop,
+     base: function(event) {
+         input.focus();
+     },
      ArrowDown: function(event) {
          let next = event.target.nextElementSibling;
          if (next) {
