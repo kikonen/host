@@ -222,6 +222,7 @@
          next !== input &&
          next !== toggle) {
          closePopup(false);
+         previousValue = value;
      }
  }
 
