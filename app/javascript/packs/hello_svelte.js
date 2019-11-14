@@ -41,10 +41,7 @@ function setupTypeahead() {
     },
   ];
 
-  _.each(document.querySelectorAll('.js-typeahead'), function(el) {
-    console.log(el);
-    var input = el.querySelector('input');
-
+  _.each(document.querySelectorAll('.js-typeahead'), function(input) {
     function fetcher (query) {
       let promise = new Promise(function(resolve, reject) {
         console.log("fetching...: " + query);
@@ -62,7 +59,8 @@ function setupTypeahead() {
     };
 
     const app = new Typeahead({
-      target: el,
+      target: input.parentElement,
+      real: input,
       props: {
         real: input,
         value: input.value,

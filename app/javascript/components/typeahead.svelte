@@ -14,10 +14,108 @@
  let popup;
 
  let previousValue = '';
+ let resultFetched = false;
+
+ ////////////////////////////////////////////////////////////
+ //
+ function fetchResults() {
+     if (value === previousValue) {
+         return;
+     }
+     console.log("filter: " + value);
+
+     cancelFetch();
+
+     results = [];
+     resultFetched = false;
+
+     let searchValue = value;
+     popupVisible = true;
+
+     let fetch = fetcher(searchValue).then(function(entries) {
+         if (fetch === currentFetch) {
+             console.log("APPLY fetch: " + searchValue);
+             reindexResults(entries);
+             results = entries;
+             previousValue = searchValue;
+             currentFetch = null;
+             resultFetched = true;
+         } else {
+             console.log("CANCEL fetch: " + searchValue);
+         }
+     }).catch(function(err) {
+         if (fetch === currentFetch) {
+             currentFetch = null;
+             popupVisible = false;
+         }
+     });
+     currentFetch = fetch;
+
+     function reindexResults(results) {
+         let index = 0;
+         results.forEach(function(item) {
+             item.index = index;
+             index = index + 1;
+         });
+     }
+ }
+
+ function cancelFetch() {
+     if (currentFetch !== null) {
+         currentFetch = null;
+         // no result fetched; since it doesn't match input any longer
+         resultFetched = false;
+         previousValue = null;
+     }
+ }
+
+ function togglePopup(focusInput) {
+     if (popupVisible) {
+         closePopup(focusInput);
+     } else {
+         if (resultFetched) {
+             popupVisible = true;
+         } else {
+             previousValue = null;
+             fetchResults();
+         }
+     }
+ }
+
+ function closePopup(focusInput) {
+     cancelFetch();
+     popupVisible = false;
+     if (focusInput) {
+         input.focus();
+     }
+ }
+
+ function selectItem(el) {
+     let item = results[el.dataset.index];
+     if (item) {
+         previousValue = item.text;
+         value = previousValue;
+         closePopup(true);
+     } else {
+         console.log("MISSING item", el);
+     }
+ }
+
+ ////////////////////////////////////////////////////////////
+ // HANDLERS
+ //
+ $: real.setAttribute('value', value);
+
+ onMount(function() {
+     value = real.value;
+     previousValue = value;
+     real.classList.add('d-none');
+ });
+
+ function nop() {};
 
  let inputKeydownHandlers = {
-     base: function(event) {
-     },
+     base: nop,
      ArrowDown: function(event) {
          let item = popupVisible ? popup.querySelector('.js-item:first-child') : null;
          if (item) {
@@ -34,8 +132,7 @@
          }
      },
      Tab: function(event) {
-         popupVisible = false;
-         currentFetch = null;
+         closePopup(false);
      },
      Escape: function(event) {
          closePopup();
@@ -45,20 +142,15 @@
  let inputKeyupHandlers = {
      base: function(event) {
          fetchResults();
-     }
- }
-
- let inputClickHandlers = {
-     base: function(event) {
      },
-     '0': function(event) {
-         fetchResults();
-     },
+     ArrowDown: nop,
+     ArrowUp: nop,
+     Tab: nop,
+     Escape: nop,
  }
 
  let itemKeydownHandlers = {
-     base: function(event) {
-     },
+     base: nop,
      ArrowDown: function(event) {
          let next = event.target.nextElementSibling;
          if (next) {
@@ -76,95 +168,15 @@
          }
      },
      Tab: function(event) {
-         closePopup();
+         closePopup(true);
      },
      Enter: function(event) {
          selectItem(event.target)
      },
      Escape: function(event) {
-         closePopup();
+         closePopup(true);
      },
  };
-
- let itemClickHandlers = {
-     base: function(event) {
-     },
-     '0': function(event) {
-         selectItem(event.target)
-     },
- }
-
- function togglePopup() {
-     popupVisible = !popupVisible;
-     if (!popupVisible) {
-         currentFetch = null;
-         input.focus();
-     }
- }
-
- function closePopup() {
-     popupVisible = false;
-     currentFetch = null;
-     input.focus();
- }
-
- function selectItem(el) {
-     let item = results[el.dataset.index];
-     if (item) {
-         previousValue = item.text;
-         value = previousValue;
-         closePopup(event);
-     } else {
-         console.log("MISSING item", el);
-     }
- }
-
- function reindexResults(results) {
-     let index = 0;
-     results.forEach(function(item) {
-         item.index = index;
-         index = index + 1;
-     });
- }
-
- function fetchResults() {
-     if (value === previousValue) {
-         return;
-     }
-     console.log("filter: " + value);
-
-     let searchValue = value;
-     popupVisible = true;
-     let fetch = fetcher(searchValue).then(function(entries) {
-         if (fetch === currentFetch) {
-             console.log("APPLY fetch: " + searchValue);
-             reindexResults(entries);
-             results = entries;
-             previousValue = searchValue;
-             currentFetch = null;
-             popupVisible = true;
-         } else {
-             console.log("CANCEL fetch: " + searchValue);
-         }
-     }).catch(function(err) {
-         if (fetch === currentFetch) {
-             currentFetch = null;
-             popupVisible = false;
-         }
-     });
-     currentFetch = fetch;
- }
-
- ////////////////////////////////////////////////////////////
- // HANDLERS
- //
- $: real.setAttribute('value', value);
-
- onMount(function() {
-     value = real.value;
-     previousValue = value;
-     real.classList.add('d-none');
- });
 
  function handleEvent(code, handlers, event) {
      let handler = handlers[code] || handlers.base;
@@ -179,8 +191,16 @@
      handleEvent(event.code, inputKeydownHandlers, event);
  }
 
- function handleInputClick() {
-     handleEvent(event.button, inputClickHandlers, event);
+ function handleInputClick(event) {
+     if (event.button === 0 && !hasModifier(event)) {
+         fetchResults();
+     }
+ }
+
+ function handleToggleClick(event) {
+     if (event.button === 0 && !hasModifier(event)) {
+         togglePopup(false);
+     }
  }
 
  function handleItemKeydown(event) {
@@ -188,7 +208,13 @@
  }
 
  function handleItemClick() {
-     handleEvent(event.button, itemClickHandlers, event);
+     if (event.button === 0 && !hasModifier(event)) {
+         selectItem(event.target)
+     }
+ }
+
+ function hasModifier(event) {
+     return event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
  }
 </script>
 
@@ -200,7 +226,7 @@
      pointer-events: none;
  }
 </style>
-a
+
 <div class="input-group mb-3 typeahead js-typeahead-container">
   <input class="js-input {real.getAttribute('class')}"
          data-target="{real.id}"
@@ -211,7 +237,9 @@ a
          on:keyup={handleKeyup}
          on:click={handleInputClick}>
   <div class="input-group-append">
-    <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+    <button class="btn btn-outline-secondary" type="button" on:click={handleToggleClick}>
+      <i class="fas fa-caret-down"></i>
+    </button>
   </div>
 
   <div class="js-popup dropdown-menu {popupVisible ? 'show' : ''}"
