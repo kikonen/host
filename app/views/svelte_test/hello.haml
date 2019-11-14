@@ -15,10 +15,10 @@
           class: 'js-search-field form-control js-typeahead',
           value: '' }
       .form-group.col-12.col-sm-6.col-lg-3
-        %label{ for: 'sf_quicksearch' }
+        %label{ for: 'sf_quicksearch_2' }
           Search bar
-        %input{ name: "sf_quicksearch",
-          id: "sf_quicksearch",
+        %input{ name: "sf_quicksearch_2",
+          id: "sf_quicksearch_2",
           placeholder: 'bar...',
           class: 'js-search-field form-control js-typeahead',
           value: '' }
@@ -30,6 +30,22 @@
         %label
           Zoo
         %input.form-control{ name: "foo2", id: "bar4" }
+    .form-row
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label{ for: 'sf_select_1' }
+          Quicksearch
+        %select{ id: 'sf_select_1',
+          class: 'form-control' }
+          %option
+            Foo
+          %option
+            Aoo
+          %option
+            Boo
+          %option
+            Coo
+          %option
+            Doo
 
 %hr
 Svelte hello appears here

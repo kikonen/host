@@ -109,9 +109,13 @@
  function selectItem(el) {
      let item = entries[el.dataset.index];
      if (item) {
-         previousValue = item.text;
-         value = previousValue;
+         let changed = item.text !== value
+         value = item.text;
+         previousValue = value;
          closePopup(true);
+         if (changed) {
+             previousValue = null;
+         }
      } else {
          console.log("MISSING item", el);
      }
@@ -138,13 +142,17 @@
              item.focus();
          } else {
              openPopup();
+             fetchEntries();
          }
+         event.preventDefault();
      },
      ArrowUp: function(event) {
          let item = popupVisible ? popup.querySelector('.js-item:last-child') : null;
          if (item) {
-             item.focus();
+         // NOTE KI no focus to item; irritating behaviour
+//             item.focus();
          }
+         event.preventDefault();
      },
      Escape: function(event) {
          closePopup();
@@ -156,6 +164,7 @@
      ArrowDown: inputKeydownHandlers.ArrowDown,
      ArrowUp: function(event) {
          closePopup(false);
+         event.preventDefault();
      },
      Escape: inputKeydownHandlers.Escape,
  };
@@ -166,6 +175,7 @@
      },
      ArrowDown: nop,
      ArrowUp: nop,
+     Enter: nop,
      Escape: nop,
  }
 
@@ -178,8 +188,10 @@
          if (next) {
              next.focus();
          } else {
-             input.focus();
+             // NOTE KI no focus to input; irritating behaviour
+//             input.focus();
          }
+         event.preventDefault();
      },
      ArrowUp: function(event) {
          let next = event.target.previousElementSibling;
@@ -188,9 +200,11 @@
          } else {
              input.focus();
          }
+         event.preventDefault();
      },
      Enter: function(event) {
          selectItem(event.target)
+         event.preventDefault();
      },
      Escape: function(event) {
          closePopup(true);
@@ -231,7 +245,12 @@
 
  function handleToggleClick(event) {
      if (event.button === 0 && !hasModifier(event)) {
-         togglePopup(false);
+         if (popupVisible) {
+             closePopup(false);
+         } else {
+             openPopup();
+             fetchEntries();
+         }
      }
  }
 
