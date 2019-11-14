@@ -36,22 +36,39 @@ function setupTypeahead() {
       desc: 'hippo',
     },
     {
+      text: 'aoo',
+      desc: 'hippo',
+    },
+    {
+      text: 'boo',
+      desc: 'hippo',
+    },
+    {
+      text: 'coo',
+      desc: 'hippo',
+    },
+    {
+      text: 'doo',
+      desc: 'hippo',
+    },
+    {
       text: 'bar really long entry here to check how sizing works EOF',
       desc: 'hippo',
     },
   ];
 
   _.each(document.querySelectorAll('.js-typeahead'), function(input) {
-    function fetcher (query) {
+    function fetcher (offset, query) {
       let promise = new Promise(function(resolve, reject) {
-        console.log("fetching...: " + query);
+        var queryStr = query.toUpperCase().replace(/ /g, '');
         setTimeout(function() {
-          console.log("fetched...: " + query);
-          var queryStr = query.toUpperCase();
           var fetched = results.filter(function(item) {
             return item == '' || item.text.toUpperCase().includes(queryStr);
           });
-          resolve(fetched);
+          resolve({
+            entries: fetched,
+            more: false,
+          });
         }, 500);
       });
 
