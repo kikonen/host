@@ -80,7 +80,6 @@ function setupTypeahead() {
       real: input,
       props: {
         real: input,
-        value: input.value,
         fetcher: fetcher,
       }
     });

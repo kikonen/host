@@ -6,59 +6,65 @@
 
  export let hasMore = false;
  export let entries = [];
- export let value = '';
+ export let query = '';
 
  export let popupVisible = false;
- export let currentFetch = null;
+ export let activeFetch = null;
 
  let input;
  let toggle;
  let popup;
 
- let previousValue = '';
+ let previousQuery = null;
  let fetched = false;
  let fetchOffset = 0;
+ let selectedItem = null;
+ let downQuery = null;
+
+ let i18n = {
+     fetching: 'Searching..',
+     no_results: 'No results',
+ };
 
  ////////////////////////////////////////////////////////////
  //
  function fetchEntries() {
-     if (value === previousValue) {
+     if (query === previousQuery) {
          return;
      }
 
-     console.debug("START fetch: " + value);
+     console.debug("START fetch: " + query);
 
      cancelFetch();
+     openPopup();
 
      entries = [];
      hasMore = false;
      fetched = false;
      fetchOffset = 0;
 
-     let searchValue = value;
-     openPopup();
-     let fetch = fetcher(fetchOffset, searchValue).then(function(response) {
-         if (fetch === currentFetch) {
-             console.debug("APPLY fetch: " + value);
+     let currentQuery = query;
+     let currentFetch = fetcher(fetchOffset, currentQuery).then(function(response) {
+         if (currentFetch === activeFetch) {
+             console.debug("APPLY fetch: " + currentQuery);
 
              entries = response.entries || [];
              hasMore = response.hasMore;
 
              reindexEntries(entries);
 
-             previousValue = searchValue;
-             currentFetch = null;
+             previousQuery = currentQuery;
+             activeFetch = null;
              fetched = true;
          } else {
-             console.debug("ABORT fetch: " + value);
+             console.debug("ABORT fetch: " + currentQuery);
          }
      }).catch(function(err) {
-         if (fetch === currentFetch) {
-             currentFetch = null;
-             popupVisible = false;
+         if (currentFetch === activeFetch) {
+             closePopup(true);
          }
      });
-     currentFetch = fetch;
+     activeFetch = currentFetch;
 
      function reindexEntries(entries) {
          let index = 0;
@@ -70,28 +76,15 @@
  }
 
  function cancelFetch() {
-     if (currentFetch !== null) {
-         currentFetch = null;
+     if (activeFetch !== null) {
+         activeFetch = null;
          // no result fetched; since it doesn't match input any longer
          fetched = false;
-         previousValue = null;
-     }
- }
-
- function togglePopup(focusInput) {
-     if (popupVisible) {
-         closePopup(focusInput);
-     } else {
-         openPopup();
-         if (!fetched) {
-             previousValue = null;
-             fetchEntries();
-         }
+         previousQuery = null;
      }
  }
 
  function closePopup(focusInput) {
-     cancelFetch();
      popupVisible = false;
      if (focusInput) {
          input.focus();
@@ -109,33 +102,51 @@
  function selectItem(el) {
      let item = entries[el.dataset.index];
      if (item) {
-         let changed = item.text !== value
-         value = item.text;
-         previousValue = value;
+         selectedItem = item;
+         let changed = item.text !== query
+         query = item.text;
+         previousQuery = query;
          closePopup(true);
          if (changed) {
-             previousValue = null;
+             previousQuery = null;
          }
      } else {
          console.log("MISSING item", el);
      }
  }
 
+ function containsElement(el) {
+     return el === input || el === toggle || popup.contains(el);
+ }
+
+ function hasModifier(event) {
+     return event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
+ }
+
  ////////////////////////////////////////////////////////////
  // HANDLERS
  //
- $: real.setAttribute('value', value);
+ $: real.setAttribute('value', query);
 
  onMount(function() {
-     value = real.value;
-     previousValue = value;
+     query = real.value || '';
      real.classList.add('d-none');
  });
 
  function nop() {};
 
+ let inputKeypressHandlers = {
+     base: function(event) {
+//         console.log("PRESS: " + query);
+         selectedItem = false;
+     },
+ };
+
  let inputKeydownHandlers = {
-     base: nop,
+     base: function(event) {
+//         console.log("DOWN: " + query);
+         downQuery = query;
+     },
      ArrowDown: function(event) {
          let item = popupVisible ? popup.querySelector('.js-item:first-child') : null;
          if (item) {
@@ -147,17 +158,33 @@
          event.preventDefault();
      },
      ArrowUp: function(event) {
-         let item = popupVisible ? popup.querySelector('.js-item:last-child') : null;
-         if (item) {
-         // NOTE KI no focus to item; irritating behaviour
-//             item.focus();
-         }
          event.preventDefault();
      },
      Escape: function(event) {
-         closePopup();
-     }
+         cancelFetch();
+         closePopup(false);
+     },
+     Tab: nop,
  };
+
+ let inputKeyupHandlers = {
+     base: function(event) {
+//         console.log("UP: " + query);
+         if (query !== downQuery) {
+             openPopup();
+             fetchEntries();
+         }
+     },
+     ArrowDown: nop,
+     ArrowUp: nop,
+     Enter: nop,
+     Escape: nop,
+     ContextMenu: nop,
+     Control: nop,
+     Meta: nop,
+     Shift: nop,
+     Tab: nop,
+ }
 
  let toggleKeydownHandlers = {
      base: nop,
@@ -167,17 +194,8 @@
          event.preventDefault();
      },
      Escape: inputKeydownHandlers.Escape,
+     Tab: nop,
  };
-
- let inputKeyupHandlers = {
-     base: function(event) {
-         fetchEntries();
-     },
-     ArrowDown: nop,
-     ArrowUp: nop,
-     Enter: nop,
-     Escape: nop,
- }
 
  let itemKeydownHandlers = {
      base: function(event) {
@@ -187,9 +205,6 @@
          let next = event.target.nextElementSibling;
          if (next) {
              next.focus();
-         } else {
-             // NOTE KI no focus to input; irritating behaviour
-//             input.focus();
          }
          event.preventDefault();
      },
@@ -207,41 +222,41 @@
          event.preventDefault();
      },
      Escape: function(event) {
+         cancelFetch();
          closePopup(true);
      },
  };
 
  function handleEvent(code, handlers, event) {
+//     console.log(event);
      let handler = handlers[code] || handlers.base;
      handler(event);
  }
 
  function handleBlur(event) {
-     let next = event.relatedTarget;
-     if (!popup.contains(next) &&
-         next !== input &&
-         next !== toggle) {
+     if (!containsElement(event.relatedTarget)) {
+         cancelFetch();
          closePopup(false);
-         previousValue = value;
      }
  }
 
- function handleKeyup(event) {
-     handleEvent(event.code, inputKeyupHandlers, event);
+ function handleInputKeypress(event) {
+     handleEvent(event.key, inputKeypressHandlers, event);
  }
 
  function handleInputKeydown(event) {
-     handleEvent(event.code, inputKeydownHandlers, event);
+     handleEvent(event.key, inputKeydownHandlers, event);
+ }
+
+ function handleInputKeyup(event) {
+     handleEvent(event.key, inputKeyupHandlers, event);
  }
 
  function handleInputClick(event) {
-//     if (event.button === 0 && !hasModifier(event)) {
-//         fetchEntries();
-//     }
  }
 
  function handleToggleKeydown(event) {
-     handleEvent(event.code, toggleKeydownHandlers, event);
+     handleEvent(event.key, toggleKeydownHandlers, event);
  }
 
  function handleToggleClick(event) {
@@ -256,17 +271,13 @@
  }
 
  function handleItemKeydown(event) {
-     handleEvent(event.code, itemKeydownHandlers, event);
+     handleEvent(event.key, itemKeydownHandlers, event);
  }
 
  function handleItemClick() {
      if (event.button === 0 && !hasModifier(event)) {
          selectItem(event.target)
      }
- }
-
- function hasModifier(event) {
-     return event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
  }
 </script>
 
@@ -293,10 +304,11 @@
          data-target="{real.id}"
          placeholder="{real.placeholder}"
          bind:this={input}
-         bind:value
+         bind:value={query}
          on:blur={handleBlur}
+         on:keypress={handleInputKeypress}
          on:keydown={handleInputKeydown}
-         on:keyup={handleKeyup}
+         on:keyup={handleInputKeyup}
          on:click={handleInputClick}>
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button"
@@ -310,19 +322,19 @@
 
   <div class="js-popup dropdown-menu typeahead-popup {popupVisible ? 'show' : ''}"
        bind:this={popup} >
-    {#if currentFetch}
+    {#if activeFetch}
       <div tabindex=-1 class="dropdown-item text-muted">
-        Searching...
+        {i18n.fetching}
       </div>
     {/if}
 
-    {#if !currentFetch && entries.length === 0 }
+    {#if !activeFetch && entries.length === 0 }
       <div tabindex=-1 class="dropdown-item text-muted">
-        No entries
+        {i18n.no_results}
       </div>
     {/if}
 
-    {#if !currentFetch && entries.length > 0 }
+    {#if !activeFetch && entries.length > 0 }
       {#each entries as item}
         <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}"
              on:blur={handleBlur}
