@@ -22,7 +22,7 @@ function setupHello() {
 }
 
 function setupTypeahead() {
-  let results = [
+  let entries = [
     {
       text: 'foo',
       desc: 'hippo',
@@ -58,11 +58,16 @@ function setupTypeahead() {
   ];
 
   _.each(document.querySelectorAll('.js-typeahead'), function(input) {
-    function fetcher (offset, query) {
+    let ds = input.dataset;
+    let fetch_options = {
+      fetch_url: ds.kiFetchUrl,
+    };
+
+    function fetcherLocal(offset, query) {
       let promise = new Promise(function(resolve, reject) {
-        var queryStr = query.toUpperCase().replace(/ /g, '');
+        var queryStr = query.toUpperCase().trim();
         setTimeout(function() {
-          var fetched = results.filter(function(item) {
+          var fetched = entries.filter(function(item) {
             return item == '' || item.text.toUpperCase().includes(queryStr);
           });
           resolve({
@@ -74,6 +79,32 @@ function setupTypeahead() {
 
       return promise;
     };
+
+    function fetcherRest(offset, query) {
+      let token = document.head.querySelector('meta[name="csrf-token"]').content;
+      return fetch(
+        fetch_options.fetch_url,
+        { method: 'POST',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHTTPRequest',
+            'X-CSRF-Token': token,
+          }),
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            fetch_offset: offset,
+            fetch_query: query})
+        }).then(function(xhr) {
+          console.log(xhr);
+          return xhr.json();
+        });
+    }
+
+    let fetcher = fetcherLocal;
+    if (fetch_options.fetch_url) {
+      fetcher = fetcherRest;
+    }
 
     const app = new Typeahead({
       target: input.parentElement,
