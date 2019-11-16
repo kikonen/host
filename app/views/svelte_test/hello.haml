@@ -1,9 +1,10 @@
 = javascript_pack_tag 'hello_svelte'
 -#= stylesheet_pack_tag 'hello_svelte'
 
-<h1>hello</h2>
-
 .p-2
+  %h1
+    Hello
+
   %form
     .form-row
       .form-group.col-12.col-sm-6.col-lg-3
@@ -48,8 +49,9 @@
             Doo
 
 %hr
-Svelte hello appears here
-.svelte-hello{ data: { msg: 'hello 1' } }
+.p-2
+  Svelte hello appears here
+  .svelte-hello{ data: { msg: 'hello 1' } }
 
-and this is below it
-.svelte-hello{ data: { msg: 'hello 2' } }
+  and this is below it
+  .svelte-hello{ data: { msg: 'hello 2' } }
