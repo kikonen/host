@@ -66,7 +66,7 @@
      function callFetcher() {
          return fetcher(fetchOffset, currentQuery).then(function(response) {
              if (currentFetch === activeFetch) {
-                 console.debug("APPLY fetch: " + currentQuery);
+                 console.debug("APPLY fetch: " + currentQuery + ", size:" + response.entries.length);
 
                  entries = response.entries || [];
                  hasMore = response.hasMore;
