@@ -158,7 +158,8 @@
          event.preventDefault();
      },
      ArrowUp: function(event) {
-         closePopup(false);
+         // NOTE KI closing popup here is *irritating* i.e. if one is trying to select
+         // first entry in dropdown
          event.preventDefault();
      },
      Escape: function(event) {
