@@ -1,4 +1,4 @@
-class TestController < BaseController
+class TestController < ::WebController
 #  include ActionController::Live
 
   def show

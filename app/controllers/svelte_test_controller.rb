@@ -1,4 +1,4 @@
-class SvelteTestController < BaseController
+class SvelteTestController < ::WebController
 
   def hello
   end
