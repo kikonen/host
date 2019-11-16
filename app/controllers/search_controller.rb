@@ -5,6 +5,10 @@ class SearchController < ::RestController
 
     entries = [
       {
+        text: 'rest',
+        desc: 'hippo',
+      },
+      {
         text: 'foo',
         desc: 'hippo',
       },

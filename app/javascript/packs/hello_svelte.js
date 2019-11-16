@@ -24,6 +24,10 @@ function setupHello() {
 function setupTypeahead() {
   let entries = [
     {
+      text: 'local',
+      desc: 'hippo',
+    },
+    {
       text: 'foo',
       desc: 'hippo',
     },
