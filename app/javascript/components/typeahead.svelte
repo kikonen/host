@@ -158,6 +158,7 @@
          event.preventDefault();
      },
      ArrowUp: function(event) {
+         closePopup(false);
          event.preventDefault();
      },
      Escape: function(event) {
@@ -187,13 +188,19 @@
  }
 
  let toggleKeydownHandlers = {
-     base: nop,
+     base: function(event) {
+         input.focus();
+     },
      ArrowDown: inputKeydownHandlers.ArrowDown,
      ArrowUp: function(event) {
          closePopup(false);
          event.preventDefault();
      },
-     Escape: inputKeydownHandlers.Escape,
+     Escape: function(event) {
+         cancelFetch();
+         closePopup(false);
+         input.focus();
+     },
      Tab: nop,
  };
 
@@ -311,7 +318,7 @@
          on:keyup={handleInputKeyup}
          on:click={handleInputClick}>
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button"
+    <button class="btn btn-outline-secondary" type="button" tabindex="-1"
             bind:this={toggle}
             on:blur={handleBlur}
             on:keydown={handleToggleKeydown}
