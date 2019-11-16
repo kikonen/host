@@ -41,6 +41,7 @@ class SearchController < ::RestController
       desc: 'hippo',
     },
   ]
+  FAKE_LOCK = Mutex.new
 
   def search_xhr
     fetch_query = params[:fetch_query] || ''
@@ -67,7 +68,9 @@ class SearchController < ::RestController
   end
 
   def self.fake_entries
-    @fake_entries ||= create_fake_entries
+    FAKE_LOCK.synchronize {
+      @fake_entries ||= create_fake_entries
+    }
   end
 
   def self.create_fake_entries
