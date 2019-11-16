@@ -44,27 +44,47 @@
      fetchOffset = 0;
 
      let currentQuery = query;
-     let currentFetch = fetcher(fetchOffset, currentQuery).then(function(response) {
-         if (currentFetch === activeFetch) {
-             console.debug("APPLY fetch: " + currentQuery);
-
-             entries = response.entries || [];
-             hasMore = response.hasMore;
-
-             reindexEntries(entries);
-
-             previousQuery = currentQuery;
-             activeFetch = null;
-             fetched = true;
-         } else {
-             console.debug("ABORT fetch: " + currentQuery);
-         }
+     let currentFetch = new Promise(function(resolve, reject) {
+         console.debug("TIMER start: " + currentQuery);
+         setTimeout(function() {
+             if (currentFetch === activeFetch) {
+                 console.debug("TIMER hit: " + currentQuery);
+                 resolve(callFetcher());
+             } else {
+                 console.debug("TIMER reject: " + currentQuery);
+                 reject("cancel");
+             }
+         }, 300);
      }).catch(function(err) {
          if (currentFetch === activeFetch) {
              closePopup(true);
          }
      });
+
      activeFetch = currentFetch;
+
+     function callFetcher() {
+         return fetcher(fetchOffset, currentQuery).then(function(response) {
+             if (currentFetch === activeFetch) {
+                 console.debug("APPLY fetch: " + currentQuery);
+
+                 entries = response.entries || [];
+                 hasMore = response.hasMore;
+
+                 reindexEntries(entries);
+
+                 previousQuery = currentQuery;
+                 activeFetch = null;
+                 fetched = true;
+             } else {
+                 console.debug("ABORT fetch: " + currentQuery);
+             }
+         }).catch(function(err) {
+             if (currentFetch === activeFetch) {
+                 closePopup(true);
+             }
+         });
+     }
 
      function reindexEntries(entries) {
          let index = 0;
