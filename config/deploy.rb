@@ -71,9 +71,18 @@ namespace :deploy do
     end
   end
 
+  desc "Setup ruby"
+  task :setup_ruby do
+    on roles(:app) do
+      within release_path do
+        execute("cd #{release_path} && ln -sf /home/rails/.rvm/wrappers/ruby-#{fetch(:rvm_ruby_version)}/ruby ruby")
+      end
+    end
+  end
+
   desc "Run rake yarn install"
   task :yarn_install do
-    on roles(:web) do
+    on roles(:app) do
       within release_path do
         execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
       end
@@ -81,7 +90,7 @@ namespace :deploy do
   end
 
   after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    on roles(:app), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
@@ -117,3 +126,4 @@ end
 
 before "deploy:assets:precompile", "deploy:yarn_install"
 before :deploy, "deploy:secrets"
+before 'deploy:publishing', "deploy:setup_ruby"

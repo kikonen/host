@@ -15,8 +15,6 @@
   <%= javascript_include_tag 'application', defer: true %>
   <% if @ng_app %>
     <%= javascript_include_tag 'ng/module', defer: true %>
-  <% elsif @ng2_app %>
-    <%= javascript_include_tag 'ng2/module', defer: true %>
   <% else %>
     <%= javascript_include_tag 'plain/module', defer: true %>
   <% end %>

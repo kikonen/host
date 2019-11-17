@@ -35,10 +35,10 @@ moment-timezone:
 #   assets:
 #   - dist/rx.all.js
 
-zone.js:
-  yarn:  true
-  assets:
-    - dist/zone.js
+# zone.js:
+#   yarn:  true
+#   assets:
+#     - dist/zone.js
 
 ####
 

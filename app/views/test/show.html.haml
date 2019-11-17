@@ -8,14 +8,15 @@
   %div{ "ng-controller": "TestController as ctrl" }
     = render partial: 'experiment_tabs'
 
-    = render partial: 'hello_pane'
-    = render partial: 'event_pane'
-    = render partial: 'pollution_pane'
-    = render partial: 'select_pane'
-    = render partial: 'toggle_pane'
-    = render partial: 'datetime_pane'
-    = render partial: 'button_pane'
+    .tab-content.p-2
+      = render partial: 'hello_pane'
+      = render partial: 'event_pane'
+      = render partial: 'pollution_pane'
+      = render partial: 'select_pane'
+      = render partial: 'toggle_pane'
+      = render partial: 'datetime_pane'
+      = render partial: 'button_pane'
 
-.ki-section
+.ki-section.fixed-bottom.p-2
   %a{ href: "/" }
     Home

@@ -19,6 +19,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :search, only: [] do
+    collection do
+      post :search_xhr
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

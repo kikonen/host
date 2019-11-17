@@ -16,4 +16,4 @@
 
 <h1>Hello me too {name} via {message} - {counter}!</h1>
 
-<button on:click="{onClickCounter}">Click me</button>
+<button class="btn btn-primary" on:click="{onClickCounter}">Click me</button>

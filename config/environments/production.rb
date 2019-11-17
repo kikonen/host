@@ -91,10 +91,6 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  if defined?(LogRageSetup)
-    config.lograge.enabled = true
-  end
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
