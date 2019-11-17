@@ -27,14 +27,6 @@ GIT
       rails (>= 6.0.0)
 
 GIT
-  remote: git@github.com:kikonen/gi_test_engine.git
-  revision: 4645648f5804ef50263420907fc3cba580303577
-  branch: master
-  specs:
-    gi_test_engine (0.0.1)
-      rails (>= 6.0.0)
-
-GIT
   remote: https://github.com/rails/webpacker
   revision: d905149d8a33303a9c24002721bc872ef95a8b6f
   specs:
@@ -434,7 +426,6 @@ DEPENDENCIES
   gi_album_engine!
   gi_paint_engine!
   gi_raycaster_engine!
-  gi_test_engine!
   hamlit
   ice_nine
   jbuilder

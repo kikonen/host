@@ -116,7 +116,7 @@ group :deploy do
   gem 'capistrano-resque', '~> 0.2', require: false
 end
 
-gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
+#gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
 
 # TODO KI rmagick gem doesn't compile any longer

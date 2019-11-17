@@ -76,10 +76,6 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  mount GiTest::Engine, at: GiTest::Engine.mount_path
-end
-
-Rails.application.routes.draw do
   mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
 end
 
