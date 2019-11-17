@@ -70,14 +70,15 @@ function setupTypeahead() {
 
     function fetcherLocal(offset, query) {
       let promise = new Promise(function(resolve, reject) {
-        var queryStr = query.toUpperCase().trim();
+        let queryStr = query.toUpperCase().trim();
         setTimeout(function() {
-          var fetched = entries.filter(function(item) {
+          let fetched = entries.filter(function(item) {
             return item == '' || item.text.toUpperCase().includes(queryStr);
           });
+
           resolve({
-            entries: fetched,
-            more: false,
+            entries: JSON.parse(JSON.stringify(fetched)),
+            more: true,
           });
         }, 500);
       });

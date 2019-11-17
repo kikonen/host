@@ -2,11 +2,15 @@
  import {onMount} from 'svelte';
 
  export let real;
- export let fetcher;
 
- export let hasMore = false;
- export let entries = [];
  export let query = '';
+
+ export let entries = [];
+
+ export let fetcher;
+ export let hasMore = false;
+ export let fetchingMore = false;
+ export let fetchError = null;
 
  export let popupVisible = false;
  export let activeFetch = null;
@@ -17,71 +21,100 @@
 
  let previousQuery = null;
  let fetched = false;
- let fetchOffset = 0;
  let selectedItem = null;
  let downQuery = null;
+ let wasDown = false;
 
  let i18n = {
      fetching: 'Searching..',
      no_results: 'No results',
+     has_more: 'More...',
+     fetching_more: 'Searching more...',
  };
 
  ////////////////////////////////////////////////////////////
  //
- function fetchEntries() {
-     if (query === previousQuery) {
+ function fetchEntries(more) {
+     if (!more && !fetchingMore && query === previousQuery) {
          return;
      }
 
      console.debug("START fetch: " + query);
 
      cancelFetch();
-     openPopup();
 
-     entries = [];
-     hasMore = false;
-     fetched = false;
-     fetchOffset = 0;
+     let fetchOffset = 0;
+
+     if (more) {
+         fetchOffset = fetchOffset + entries.length
+         fetchingMore = true;
+     } else {
+         entries = [];
+         hasMore = false;
+         fetched = false;
+         fetchingMore = false;
+     }
+     fetchError = null;
 
      let currentQuery = query;
+     let currentFetchOffset = fetchOffset;
+     let currentFetchingMore = fetchingMore;
+
      let currentFetch = new Promise(function(resolve, reject) {
-         console.debug("TIMER start: " + currentQuery);
-         setTimeout(function() {
-             if (currentFetch === activeFetch) {
-                 console.debug("TIMER hit: " + currentQuery);
-                 resolve(callFetcher());
-             } else {
-                 console.debug("TIMER reject: " + currentQuery);
-                 reject("cancel");
-             }
-         }, 300);
+         if (currentFetchingMore) {
+             console.debug("MOR hit: " + currentQuery);
+             resolve(callFetcher());
+         } else {
+             console.debug("TIMER start: " + currentQuery);
+             setTimeout(function() {
+                 if (currentFetch === activeFetch) {
+                     console.debug("TIMER hit: " + currentQuery);
+                     resolve(callFetcher());
+                 } else {
+                     console.debug("TIMER reject: " + currentQuery);
+                     reject("cancel");
+                 }
+             }, 300);
+         }
      }).catch(function(err) {
          if (currentFetch === activeFetch) {
-             closePopup(true);
+             console.log(err);
+             fetchError = err;
+             entries = [];
+             hasMore = false;
+             activeFetch = null;
+             input.focus();
+             openPopup();
          }
      });
 
      activeFetch = currentFetch;
 
      function callFetcher() {
-         return fetcher(fetchOffset, currentQuery).then(function(response) {
+         return fetcher(currentFetchOffset, currentQuery).then(function(response) {
              if (currentFetch === activeFetch) {
-                 console.debug("APPLY fetch: " + currentQuery + ", size:" + response.entries.length);
+                 let newEntries = response.entries || [];
 
-                 entries = response.entries || [];
-                 hasMore = response.hasMore;
+                 console.debug("APPLY fetch: " + currentQuery + ", size:" + response.entries.length + ", isMore: " + currentFetchingMore + ", offset: " + currentFetchOffset + ", fetchSize: " + newEntries.length + ", oldSize: " + entries.length);
+
+                 let updateEntries;
+                 if (currentFetchingMore) {
+                     updateEntries = entries;
+                     updateEntries.push(...newEntries);
+                 } else {
+                     updateEntries = newEntries;
+                 }
+                 entries = updateEntries;
+                 hasMore = response.more;
 
                  reindexEntries(entries);
 
                  previousQuery = currentQuery;
                  activeFetch = null;
                  fetched = true;
+                 fetchingMore = false;
              } else {
                  console.debug("ABORT fetch: " + currentQuery);
-             }
-         }).catch(function(err) {
-             if (currentFetch === activeFetch) {
-                 closePopup(true);
              }
          });
      }
@@ -165,7 +198,7 @@
  let inputKeydownHandlers = {
      base: function(event) {
 //         console.log("DOWN: " + query);
-         downQuery = query;
+         wasDown = true;
      },
      ArrowDown: function(event) {
          let item = popupVisible ? popup.querySelector('.js-item:first-child') : null;
@@ -192,7 +225,7 @@
  let inputKeyupHandlers = {
      base: function(event) {
 //         console.log("UP: " + query);
-         if (query !== downQuery) {
+         if (wasDown) {
              openPopup();
              fetchEntries();
          }
@@ -240,6 +273,18 @@
      },
      ArrowDown: function(event) {
          let next = event.target.nextElementSibling;
+
+         if (next) {
+             if (next.classList.contains('js-more')) {
+                 if (!fetchingMore) {
+                     fetchEntries(true);
+                 }
+             }
+             if (!next.classList.contains('js-item')) {
+                 next = null;
+             }
+         }
+
          if (next) {
              next.focus();
          }
@@ -247,6 +292,13 @@
      },
      ArrowUp: function(event) {
          let next = event.target.previousElementSibling;
+
+         if (next) {
+             if (!next.classList.contains('js-item')) {
+                 next = null;
+             }
+         }
+
          if (next) {
              next.focus();
          } else {
@@ -332,7 +384,7 @@
  }
 
  function handleEvent(code, handlers, event) {
-     console.log(event);
+//     console.log(event);
      let handler = handlers[code] || handlers.base;
      handler(event);
  }
@@ -430,19 +482,25 @@
 
   <div class="js-popup dropdown-menu typeahead-popup {popupVisible ? 'show' : ''}"
        bind:this={popup} >
-    {#if activeFetch}
+    {#if fetchError }
+      <div tabindex=-1 class="dropdown-item text-danger">
+        {fetchError}
+      </div>
+    {/if}
+
+    {#if activeFetch && !fetchingMore }
       <div tabindex=-1 class="dropdown-item text-muted">
         {i18n.fetching}
       </div>
     {/if}
 
-    {#if !activeFetch && entries.length === 0 }
+    {#if !activeFetch && !fetchError && entries.length === 0 }
       <div tabindex=-1 class="dropdown-item text-muted">
         {i18n.no_results}
       </div>
     {/if}
 
-    {#if !activeFetch && entries.length > 0 }
+    {#if (!activeFetch  || fetchingMore) && entries.length > 0 }
       {#each entries as item}
         <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}"
              on:blur={handleBlur}
@@ -457,6 +515,12 @@
           </div>
         </div>
       {/each}
+    {/if}
+
+    {#if hasMore}
+      <div tabindex="-1" class="js-more dropdown-item text-muted">
+        {i18n.has_more}
+      </div>
     {/if}
   </div>
 </div>
