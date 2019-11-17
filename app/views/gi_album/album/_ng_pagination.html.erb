@@ -1,0 +1,23 @@
+<div ng-if="pages.length >= 1">
+  <div class="btn-group">
+    <span class="btn btn-default glyphicon glyphicon-fast-backward gi-btn-pagination"
+          ng-click="selectPage(1)">
+    </span>
+<!--
+    <button class="btn btn-default" ng-click="selectPage(currentPage - 1)">Previous</button>
+-->
+    <span
+        class="btn gi-btn-pagination glyphicon"
+        ng-class="{'btn-primary': currentPage === page, 'btn-default': currentPage !== page}"
+        ng-repeat="page in pages"
+        ng-click="selectPage(page)">
+      {{page}}
+    </span>
+<!--
+    <button class="btn btn-default" ng-click="selectPage(currentPage + 1)">Next</button>
+-->
+    <button class="btn btn-default glyphicon glyphicon-fast-forward gi-btn-pagination"
+          ng-click="selectPage(numPages)">
+    </button>
+  </ul>
+</div>

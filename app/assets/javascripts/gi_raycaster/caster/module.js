@@ -1,0 +1,10 @@
+//= require ./common
+//= require ./bitmap
+//= require ./resources
+//= require ./camera
+//= require ./controls
+//= require ./map
+//= require ./player
+//= require ./game_loop
+//= require ./game
+//= require_self

@@ -25,6 +25,28 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :gi_paint do
+    resources :ui, only: [] do
+      collection do
+        get '(*path)', to: 'ui#show', as: :ui
+      end
+    end
+
+    root 'ui#show'
+  end
+
+  namespace :gi_raycaster do
+    get '/', to: 'caster#show'
+  end
+
+  namespace :gi_album do
+    get '/thumb/:size/:path', to: 'thumb#show', constraints: { path: /.*/ }
+    get '/api/photo/index', to: 'photo#index'
+
+    #  get '/', to: redirect('ui/show'), as: :redirect_ui
+    get '(*path)', to: 'ui#show', as: :ui
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -73,20 +95,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
-
-Rails.application.routes.draw do
-  mount GiTest::Engine, at: GiTest::Engine.mount_path
-end
-
-Rails.application.routes.draw do
-  mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
-end
-
-Rails.application.routes.draw do
-  mount GiRaycaster::Engine, at: GiRaycaster::Engine.mount_path
-end
-
-Rails.application.routes.draw do
-  mount GiPaint::Engine, at: GiPaint::Engine.mount_path
 end

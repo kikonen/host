@@ -1,0 +1,2 @@
+module GiPaint::EngineHelper
+end

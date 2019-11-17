@@ -1,0 +1,23 @@
+<div class="gi-canvas-container">
+  <div>
+    {{ canvas.current.x }} x {{ canvas.current.y }}
+  </div>
+  <div id="gi-canvas-container">
+    <canvas class="gi-canvas"
+            id="gi-primary-canvas"
+            width="640"
+            height="480"
+            />
+
+    <canvas class="gi-canvas"
+            id="gi-draw-canvas"
+            width="640"
+            height="480"
+            gi-touchmove="canvas.currentTool.onTouchmove($event)"
+            gi-touchend="canvas.currentTool.onTouchend($event)"
+            ng-mousemove="canvas.currentTool.onMousemove($event)"
+            ng-mousedown="canvas.currentTool.onMousedown($event)"
+            ng-mouseup="canvas.currentTool.onMouseup($event)"
+            />
+  </div>
+</div>
