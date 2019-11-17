@@ -35,6 +35,10 @@ Rails.application.routes.draw do
     root 'ui#show'
   end
 
+  namespace :gi_raycaster do
+    get '/', to: 'caster#show'
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -87,8 +91,4 @@ end
 
 Rails.application.routes.draw do
   mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
-end
-
-Rails.application.routes.draw do
-  mount GiRaycaster::Engine, at: GiRaycaster::Engine.mount_path
 end

@@ -10,15 +10,6 @@ GIT
       rmagick (= 4.1.0.rc2)
 
 GIT
-  remote: git@github.com:kikonen/gi_raycaster_engine.git
-  revision: 3eaada4f68fb68d55cfd66879ef92e0fc3cd0e95
-  branch: master
-  specs:
-    gi_raycaster_engine (0.0.1)
-      bower_vendor
-      rails (>= 6.0.0)
-
-GIT
   remote: https://github.com/rails/webpacker
   revision: d905149d8a33303a9c24002721bc872ef95a8b6f
   specs:
@@ -416,7 +407,6 @@ DEPENDENCIES
   factory_girl
   faker
   gi_album_engine!
-  gi_raycaster_engine!
   hamlit
   ice_nine
   jbuilder
