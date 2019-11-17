@@ -60,7 +60,14 @@ class SearchController < ::RestController
 
     data = {
       entries: limited_entries,
-      more: fetch_offset + fetch_limit < total_size,
+      info: {
+        more: fetch_offset + fetch_limit < filtered_entries.length,
+        total_size: filtered_entries.length,
+        result_size: limited_entries.length,
+        fetch_query: fetch_query,
+        fetch_offset: fetch_offset,
+        fetch_limit: fetch_limit,
+      }
     }
 
     render json: data

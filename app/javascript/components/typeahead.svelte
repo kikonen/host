@@ -94,8 +94,10 @@
          return fetcher(currentFetchOffset, currentQuery).then(function(response) {
              if (currentFetch === activeFetch) {
                  let newEntries = response.entries || [];
+                 let info = response.info || {};
 
-                 console.debug("APPLY fetch: " + currentQuery + ", size:" + response.entries.length + ", isMore: " + currentFetchingMore + ", offset: " + currentFetchOffset + ", fetchSize: " + newEntries.length + ", oldSize: " + entries.length);
+                 console.debug("APPLY fetch: " + currentQuery + ", isMore: " + currentFetchingMore + ", offset: " + currentFetchOffset + ", resultSize: " + newEntries.length + ", oldSize: " + entries.length);
+                 console.debug(info);
 
                  let updateEntries;
                  if (currentFetchingMore) {
@@ -105,7 +107,7 @@
                      updateEntries = newEntries;
                  }
                  entries = updateEntries;
-                 hasMore = response.more;
+                 hasMore = info.more;
 
                  reindexEntries(entries);
 
