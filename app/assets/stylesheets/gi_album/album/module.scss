@@ -1,0 +1,313 @@
+/*
+ * HACK KI show scrollbar always to avoid jumping (not very optimal solution, but
+ * should temporarily fix flickering)
+ */
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow: scroll;
+}
+
+body {
+  background-color: #454545;
+  background: url(image_path('gi_album/album.jpg'));
+  background-repeat: repeat-y;
+}
+
+.breadcrumb {
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.gi-full-height {
+  height: 100%;
+}
+
+.gi-btn-pagination {
+  width: 3em;
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
+
+/**
+ * album
+ */
+.gi-album-container {
+  padding: 0;
+  position: relative;
+}
+
+#gi-album-table-container {
+  margin-left: 5px;
+  marging-right: 5px;
+}
+
+.gi-album-table {
+  margin-bottom: 0;
+}
+
+.gi-album-table > tbody > tr > td {
+  padding: 0;
+}
+
+/**
+ * thumbnail
+ */
+.gi-thumb-container {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.gi-thumb {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  padding-left: 5px;
+  width: 160px;
+  height: 140px;
+
+  color: black;
+  overflow: hidden;
+
+  transition-duration: 0.2s;
+}
+
+.gi-thumb-content-container {
+  position: relative;
+}
+
+.gi-thumb-info-container {
+  position: absolute;
+  display: block;
+  top: 26px;
+  left: 10px;
+  width: 80px;
+  height: 55px;
+
+  vertical-align: middle;
+}
+
+.gi-thumb-info {
+  font-size: 0.8em;
+  overflow: hidden;
+
+  cursor: pointer;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gi-thumb img {
+  height: 100px;
+}
+
+.gi-thumb-photo img {
+  box-shadow: 4px 4px 20px 4px rgba(0, 0, 0, 0.75);
+}
+
+/**
+ * ANIMATION
+ */
+
+.gi-thumb:hover {
+  background-color: rgba(172,234, 206, 0.5);
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/*
+ * 2d rotate
+ */
+@keyframes thumb-rotate {
+  0%   { transform: rotate( 0deg); }
+  15%  { transform: rotate(-2deg); }
+  50%  { transform: rotate( 0deg); }
+  70%  { transform: rotate( 2deg); }
+  100% { transform: rotate( 0deg); }
+}
+
+.gi-thumb:hover_NOPE {
+  transition-delay: 0.1s;
+  transition-duration: 0.2s;
+
+  transform: rotate(0deg) !important;
+  animation-name: thumb-rotate;
+  animation-delay: 0.3s;
+  animation-duration: 1.5s;
+  animation-iteration-count: 2;
+  animation-timing-function: linear;
+}
+
+/*
+ * 3d rotate
+ */
+@keyframes thumb-flip {
+  0%   { transform: rotateY(  0deg); }
+  25%  { transform: rotateY(-20deg); }
+  75%  { transform: rotateY( 20deg); }
+  100% { transform: rotateY(  0deg); }
+}
+
+.gi-thumb-container {
+  perspective: 800px;
+}
+
+.gi-thumb:hover {
+  transition-delay: 0.1s;
+  transition-duration: 0.2s;
+
+  transform: rotate(0deg) !important;
+
+  transform-style: preserve-3d;
+  animation-name: thumb-flip;
+  animation-delay: 0.3s;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+
+/**
+ * PHOTO PREVIEW
+ */
+.gi-photo-preview {
+  box-sizing: border-box;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  background: solid;
+  position: fixed;
+  display: block;
+  top: 5%;
+  left: 0.2%;
+  right: 0.2%;
+  bottom: 0.2%;
+  z-index: 1000;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-color: black;
+  border-style: solid;
+
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+.gi-photo-preview-img-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gi-photo-preview-img-slider {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.gi-photo-preview-img  {
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.gi-photo-preview-video  {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.gi-photo-preview-video img {
+  height: 100%;
+}
+
+.gi-photo-step {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  color: rgba(0, 0, 0, 0);
+}
+
+.gi-photo-step div {
+  position: absolute;
+  left: 50%;
+  margin-left: -50%;
+  top: 50%;
+  margin-top: -50%;
+  width: 100%;
+  height: 100%;
+}
+
+.gi-photo-step span {
+  /* TODO KI media query */
+  font-size: 3em;
+}
+
+html.no-touch .gi-photo-step:hover {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+html.touch .gi-photo-step:active {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.gi-photo-prev {
+  left: 0;
+}
+
+.gi-photo-next {
+  right: 0;
+}
+
+.gi-photo-preview a {
+  position: absolute;
+  left: 20%;
+  width: 60%;
+  background-color: rgba(200, 200, 200, 0.3);
+}
+
+/*
+ * swipe preview image
+ */
+@keyframes preview-slide-left {
+  0%   { left: 0; }
+  100% { left: -100% }
+}
+
+@keyframes preview-slide-right {
+  0%   { left: 0; }
+  100% { left: 100% }
+}
+
+.gi-slide-left {
+  animation-name: preview-slide-left;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.22, 0.51, 0.03, 0.9);
+  animation-fill-mode: forwards;
+}
+
+.gi-slide-right {
+  animation-name: preview-slide-right;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.22, 0.51, 0.03, 0.9);
+  animation-fill-mode: forwards;
+}

@@ -1,0 +1,15 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "gi_album/engine", media: "all" %>
+  <%= stylesheet_link_tag "gi_album/album/module", media: "all" %>
+<% end %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag  "gi_album/album/module_vendor", defer: true %>
+  <%= javascript_include_tag  "gi_album/album/module", defer: true %>
+  <%= javascript_include_tag  "gi_album/engine", defer: true %>
+<% end %>
+
+<% content_for :head do %>
+<% end %>
+
+<%= render template: "layouts/application" %>

@@ -1,0 +1,120 @@
+<div class="gi-full-height"
+     id="gi-album-table-container"
+     ng-click="index.setPhoto(null)"
+     ng-swipe-left="index.onSwipeLeft()"
+     ng-swipe-right="index.onSwipeRight()">
+  <gi-album-key keydown="index.onKeydown(event)"></gi-album-key>
+  <table
+      ng-click="index.setPhoto(null)"
+      st-table="displayedElements"
+      st-safe-src="index.elements"
+      class="table gi-album-table">
+    <thead>
+      <tr>
+	<td colspan="2" class="text-center">
+          <div gi-thumb=""
+               st-items-by-page="index.rows">
+          </div>
+	  <div st-pagination=""
+               st-items-by-page="index.rows"
+               st-displayed-pages="5"
+               st-template="gi_album/album/pagination"
+               >
+          </div>
+	</td>
+      </tr>
+    </thead>
+
+    <tr>
+      <td colspan="2">
+        <div class="gi-thumb-container"
+             ng-if="index.dir.length > 1">
+          <div class="gi-thumb"
+               ng-click="index.goUp(index.dir)">
+            <div class="gi-thumb-content-container">
+              <%= image_tag 'gi_album/material/keyboard-backspace.svg', class: 'gi-thumb-image' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="gi-thumb-container"
+             ng-repeat="elem in displayedElements track by elem.name">
+
+          <div class="gi-thumb"
+               ng-style="{transform: 'rotate(' + index.getRandomRotate(elem) + 'deg)'}"
+               ng-class="{'gi-thumb-photo':elem.photo || elem.video, 'gi-thumb-dir':elem.dir}">
+
+            <div class="gi-thumb-content-container">
+              <div ng-if="elem.dir"
+                   ng-click="index.goDir(elem.path)">
+                <%= image_tag 'gi_album/material/folder-photo.svg' %>
+
+                <div class="gi-thumb-info-container">
+                  <div class="gi-thumb-info">{{ elem.display_name }}</div>
+                </div>
+              </div>
+
+              <div ng-if="elem.photo"
+                   ng-click="index.setPhoto(elem, $event)">
+                <img ng-src="thumb/<%= GiAlbum::Photo::DEF_THUMB_SIZE %>/{{elem.path}}"/>
+              </div>
+
+              <div ng-if="elem.video"
+                   ng-click="index.setPhoto(elem, $event)">
+                <%= image_tag 'gi_album/material/movie.svg' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div
+    class="gi-photo-preview"
+    ng-if="index.photo"
+    ng-click="index.setPhoto(null, $event)"
+    ng-swipe-left="index.nextPhoto(1)"
+    ng-swipe-right="index.nextPhoto(-1)"
+    ondragstart="return false;"
+    >
+  <div class="gi-photo-preview-img-container">
+    <div class="gi-photo-preview-img-slider"
+         ng-class="{'gi-slide-left':index.slideLeft, 'gi-slide-right':index.slideRight}"
+         >
+      <div class="gi-photo-preview-img"
+           ng-if="index.photo.photo"
+           preview-img="thumb/400/{{index.photo.path}}">
+      </div>
+
+      <div class="gi-photo-preview-video"
+           ng-if="index.photo.video">
+        <%= image_tag 'gi_album/material/movie.svg' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="gi-photo-step gi-photo-prev"
+       ng-click="index.nextPhoto(-1, $event)">
+    <div>
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </div>
+  </div>
+  <div class="gi-photo-step gi-photo-next"
+       ng-click="index.nextPhoto(1, $event)">
+    <div>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </div>
+  </div>
+
+  <a ng-href="http://www.ikari.fi/album/{{index.photo.path}}" target="_blank">
+    <span class="label label-primary">
+      {{1 + index.photoIndex - index.firstPhotoIndex}}
+      /
+      {{index.elements.length - index.firstPhotoIndex}}
+    </span>
+    &nbsp;
+    Open Original
+  </a>
+</div>

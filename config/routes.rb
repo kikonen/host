@@ -39,6 +39,14 @@ Rails.application.routes.draw do
     get '/', to: 'caster#show'
   end
 
+  namespace :gi_album do
+    get '/thumb/:size/:path', to: 'thumb#show', constraints: { path: /.*/ }
+    get '/api/photo/index', to: 'photo#index'
+
+    #  get '/', to: redirect('ui/show'), as: :redirect_ui
+    get '(*path)', to: 'ui#show', as: :ui
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -87,8 +95,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
-
-Rails.application.routes.draw do
-  mount GiAlbum::Engine, at: GiAlbum::Engine.mount_path
 end

@@ -1,0 +1,2 @@
+module GiAlbum::EngineHelper
+end
