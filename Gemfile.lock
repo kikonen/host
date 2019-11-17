@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kikonen/gi_album_engine.git
-  revision: c8b1a98371b388774dbd8d160b26e99cda51c17f
+  revision: ce7ddcffaa5da09ad735296e0a6c592165c9a227
   branch: master
   specs:
     gi_album_engine (0.0.1)
@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git@github.com:kikonen/gi_paint_engine.git
-  revision: 34254eabaa75a794d55783e5414620bcc3698bb0
+  revision: b1a9d491df3ffccbc8a7877f0cc4a7a5618fc26a
   branch: master
   specs:
     gi_paint_engine (0.0.1)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git@github.com:kikonen/gi_raycaster_engine.git
-  revision: cd4cd223ecbe42f1056ed44070fdb86f0038f2b7
+  revision: 3eaada4f68fb68d55cfd66879ef92e0fc3cd0e95
   branch: master
   specs:
     gi_raycaster_engine (0.0.1)
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: git@github.com:kikonen/gi_test_engine.git
-  revision: c0220c3ea4e87de0ac9a298486cff4f40a835816
+  revision: 4645648f5804ef50263420907fc3cba580303577
   branch: master
   specs:
     gi_test_engine (0.0.1)
@@ -391,13 +391,6 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     timers (4.3.0)
-    typescript-node (1.6.2)
-      typescript-src (~> 1.6.2)
-    typescript-rails (0.6.2.4)
-      railties
-      tilt
-      typescript-node (>= 1.6.2)
-    typescript-src (1.6.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
@@ -467,7 +460,6 @@ DEPENDENCIES
   sprockets (>= 3.6, < 4.0)
   sprockets-babel-miniracer (>= 0.0.9)
   sqlite3
-  typescript-rails (~> 0.6)
   tzinfo-data
   uglifier
   webmock
