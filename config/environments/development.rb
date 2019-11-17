@@ -48,10 +48,6 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
   config.log_level = :debug
 
-  if defined?(LogRageSetup)
-    config.lograge.enabled = false
-  end
-
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
