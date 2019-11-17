@@ -229,7 +229,9 @@
          closePopup(false);
          input.focus();
      },
-     Tab: nop,
+     Tab: function(event) {
+         input.focus();
+     },
  };
 
  let itemKeydownHandlers = {
