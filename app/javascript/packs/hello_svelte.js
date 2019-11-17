@@ -65,6 +65,7 @@ function setupTypeahead() {
     let ds = input.dataset;
     let fetch_options = {
       fetch_url: ds.kiFetchUrl,
+      fetch_limit: ds.kiFetchLimit,
     };
 
     function fetcherLocal(offset, query) {
@@ -98,6 +99,7 @@ function setupTypeahead() {
           credentials: 'same-origin',
           body: JSON.stringify({
             fetch_offset: offset,
+            fetch_limit: fetch_options.fetch_limit,
             fetch_query: query})
         }).then(function(xhr) {
           console.log(xhr);
