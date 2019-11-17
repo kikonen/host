@@ -9,18 +9,18 @@
     .form-row
       .form-group.col-12.col-sm-6.col-lg-3
         %label{ for: 'sf_quicksearch' }
-          Quicksearch
+          Search local
         %input{ name: "sf_quicksearch",
           id: "sf_quicksearch",
-          placeholder: 'quicksearch...',
+          placeholder: 'type...',
           class: 'js-search-field form-control js-typeahead',
           value: '' }
       .form-group.col-12.col-sm-6.col-lg-3
         %label{ for: 'sf_quicksearch_2' }
-          Search bar
+          Search REST
         %input{ name: "sf_quicksearch_2",
           id: "sf_quicksearch_2",
-          placeholder: 'bar...',
+          placeholder: 'search...',
           class: 'js-search-field form-control js-typeahead',
           data: { ki_fetch_url: search_xhr_search_index_path },
           value: '' }

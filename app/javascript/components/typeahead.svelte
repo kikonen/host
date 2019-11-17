@@ -201,11 +201,17 @@
      ArrowUp: nop,
      Enter: nop,
      Escape: nop,
-     ContextMenu: nop,
+     // skip "meta" keys from triggering search
+     PageDown: nop,
+     PageUp: nop,
+     Home: nop,
+     End: nop,
+     // disallow modifier keys to trigger search
      Control: nop,
-     Meta: nop,
      Shift: nop,
-     Tab: nop,
+     AltGraph: nop,
+     Meta: nop,
+     ContextMenu: nop,
  }
 
  let toggleKeydownHandlers = {
@@ -253,10 +259,77 @@
          cancelFetch();
          closePopup(true);
      },
+     // allow "meta" keys to navigate in items
+     PageUp: nop,
+     PageDown: nop,
+     Home: nop,
+     End: nop,
+     // disallow modifier keys to trigger search
+     Control: nop,
+     Shift: nop,
+     AltGraph: nop,
+     Meta: nop,
+     ContextMenu: nop,
  };
 
+ let itemKeyupHandlers = {
+     base: nop,
+     // allow "meta" keys to navigate in items
+     PageUp: function(event) {
+         let scrollLeft = document.body.scrollLeft;
+         let scrollTop = document.body.scrollTop;
+
+         let rect = popup.getBoundingClientRect();
+         let item = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + 1);
+         if (!item) {
+             item = popup.querySelector('.js-item:first-child');
+         } else {
+             if (!item.classList.contains('js-item')) {
+                 item = popup.querySelector('.js-item:first-child');
+             }
+         }
+         if (item) {
+             item.focus();
+         }
+         event.preventDefault();
+     },
+     PageDown: function(event) {
+         let scrollLeft = document.body.scrollLeft;
+         let scrollTop = document.body.scrollTop;
+         let h = popup.offsetHeight;
+
+         let rect = popup.getBoundingClientRect();
+         let item = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + h - 10);
+         if (!item) {
+             item = popup.querySelector('.js-item:last-child');
+         } else {
+             if (!item.classList.contains('js-item')) {
+                 item = popup.querySelector('.js-item:last-child');
+             }
+         }
+         if (item) {
+             item.focus();
+         }
+         event.preventDefault();
+     },
+     Home: function(event) {
+         let item = popup.querySelector('.js-item:first-child');
+         if (item) {
+             item.focus();
+         }
+         event.preventDefault();
+     },
+     End: function(event) {
+         let item = popup.querySelector('.js-item:last-child');
+         if (item) {
+             item.focus();
+         }
+         event.preventDefault();
+     },
+ }
+
  function handleEvent(code, handlers, event) {
-//     console.log(event);
+     console.log(event);
      let handler = handlers[code] || handlers.base;
      handler(event);
  }
@@ -300,6 +373,10 @@
 
  function handleItemKeydown(event) {
      handleEvent(event.key, itemKeydownHandlers, event);
+ }
+
+ function handleItemKeyup(event) {
+     handleEvent(event.key, itemKeyupHandlers, event);
  }
 
  function handleItemClick() {
@@ -367,7 +444,8 @@
         <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}"
              on:blur={handleBlur}
              on:click={handleItemClick}
-             on:keydown={handleItemKeydown}>
+             on:keydown={handleItemKeydown}
+             on:keyup={handleItemKeyup}>
           <div class="no-click">
             {item.text}
           </div>
