@@ -201,6 +201,7 @@
      ArrowUp: nop,
      Enter: nop,
      Escape: nop,
+     Tab: nop,
      // skip "meta" keys from triggering search
      PageDown: nop,
      PageUp: nop,
