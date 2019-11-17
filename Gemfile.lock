@@ -10,14 +10,6 @@ GIT
       rmagick (= 4.1.0.rc2)
 
 GIT
-  remote: git@github.com:kikonen/gi_paint_engine.git
-  revision: b1a9d491df3ffccbc8a7877f0cc4a7a5618fc26a
-  branch: master
-  specs:
-    gi_paint_engine (0.0.1)
-      rails (>= 6.0.0)
-
-GIT
   remote: git@github.com:kikonen/gi_raycaster_engine.git
   revision: 3eaada4f68fb68d55cfd66879ef92e0fc3cd0e95
   branch: master
@@ -424,7 +416,6 @@ DEPENDENCIES
   factory_girl
   faker
   gi_album_engine!
-  gi_paint_engine!
   gi_raycaster_engine!
   hamlit
   ice_nine

@@ -1,0 +1,35 @@
+.gi-canvas-container {
+  background-color: lightgray;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 90%;
+}
+
+.gi-canvas-info {
+  background-color: #aceace;
+}
+
+#gi-canvas-container {
+  position: relative;
+  background-color: white;
+  width: 640px;
+  height: 480px;
+  border: 1px solid;
+}
+
+.gi-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#gi-primary-canvas {
+  z-index: 1;
+}
+
+#gi-draw-canvas {
+  z-index: 2;
+}

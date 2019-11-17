@@ -1,0 +1,9 @@
+<div class="btn-group">
+  <button
+    ng-repeat="tool in palette.state.tools"
+    class="btn"
+    ng-class="{'btn-default':palette.state.toolId !== $index, 'btn-active':palette.state.toolId === $index}"
+    ng-click="palette.selectTool($index)">
+    {{ tool.name }}
+  </button>
+</div>

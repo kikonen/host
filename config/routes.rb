@@ -25,6 +25,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :gi_paint do
+    resources :ui, only: [] do
+      collection do
+        get '(*path)', to: 'ui#show', as: :ui
+      end
+    end
+
+    root 'ui#show'
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -81,8 +91,4 @@ end
 
 Rails.application.routes.draw do
   mount GiRaycaster::Engine, at: GiRaycaster::Engine.mount_path
-end
-
-Rails.application.routes.draw do
-  mount GiPaint::Engine, at: GiPaint::Engine.mount_path
 end
