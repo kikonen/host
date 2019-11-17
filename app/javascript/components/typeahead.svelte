@@ -102,7 +102,9 @@
                  let updateEntries;
                  if (currentFetchingMore) {
                      updateEntries = entries;
-                     updateEntries.push(...newEntries);
+                     newEntries.forEach(function(item) {
+                         updateEntries.push(item);
+                     });
                  } else {
                      updateEntries = newEntries;
                  }
