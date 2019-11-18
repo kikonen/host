@@ -70,9 +70,12 @@
 
   window.gi = window.gi || {};
 
-  _.assign(window.gi, {
-    importModule: importModule,
-    initModule: initModule,
-    initNg: initNg,
-  });
+  Object.assign(
+    window.gi,
+    {
+      importModule: importModule,
+      initModule: initModule,
+      initNg: initNg,
+    });
+
 })();

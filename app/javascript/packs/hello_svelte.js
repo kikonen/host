@@ -10,7 +10,7 @@ import Typeahead from '../components/typeahead.svelte'
 
 
 function setupHello() {
-  _.each(document.querySelectorAll('.svelte-hello'), function(el) {
+  document.querySelectorAll('.svelte-hello').forEach(function(el) {
     const app = new App({
       target: el,
       props: {
@@ -61,7 +61,7 @@ function setupTypeahead() {
     },
   ];
 
-  _.each(document.querySelectorAll('.js-typeahead'), function(input) {
+  document.querySelectorAll('.js-typeahead').forEach(function(input) {
     let ds = input.dataset;
     let fetch_options = {
       fetch_url: ds.kiFetchUrl,
