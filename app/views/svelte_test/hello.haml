@@ -20,15 +20,23 @@
           Search REST
         %input{ name: "sf_quicksearch_2",
           id: "sf_quicksearch_2",
-          placeholder: 'search...',
+          placeholder: '0 char min...',
           class: 'js-search-field form-control js-typeahead',
           data: { ki_fetch_url: search_xhr_search_index_path,
-            ki_fetch_limit: 20 },
+            ki_fetch_limit: 20,
+            ki_fetch_query_min_len: 0 },
           value: '' }
       .form-group.col-12.col-sm-6.col-lg-3
-        %label
-          Bar
-        %input.form-control{ name: "foo2", id: "bar3" }
+        %label{ for: 'sf_quicksearch_3' }
+          Search REST Limit
+        %input{ name: "sf_quicksearch_3",
+          id: "sf_quicksearch_3",
+          placeholder: '2 char min...',
+          class: 'js-search-field form-control js-typeahead',
+          data: { ki_fetch_url: search_xhr_search_index_path,
+            ki_fetch_limit: 20,
+            ki_fetch_query_min_len: 2 },
+          value: '' }
       .form-group.col-12.col-sm-6.col-lg-3
         %label
           Zoo

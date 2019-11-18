@@ -4,12 +4,14 @@
  export let real;
 
  export let query = '';
+ export let queryMinLen = 1;
 
  export let entries = [];
 
  export let onSelected = function() {};
  export let fetcher;
  export let hasMore = false;
+ export let tooShort = false;
  export let fetchingMore = false;
  export let fetchError = null;
 
@@ -36,11 +38,16 @@
  ////////////////////////////////////////////////////////////
  //
  function fetchEntries(more) {
-     if (!more && !fetchingMore && query === previousQuery) {
+     let currentQuery = query.trim();
+     if (currentQuery.length > 0) {
+         currentQuery = query;
+     }
+
+     if (!more && !fetchingMore && currentQuery === previousQuery) {
          return;
      }
 
-     console.debug("START fetch: " + query);
+     console.debug("START fetch: " + currentQuery);
 
      cancelFetch();
 
@@ -57,72 +64,85 @@
      }
      fetchError = null;
 
-     let currentQuery = query;
      let currentFetchOffset = fetchOffset;
      let currentFetchingMore = fetchingMore;
 
      let currentFetch = new Promise(function(resolve, reject) {
          if (currentFetchingMore) {
              console.debug("MOR hit: " + currentQuery);
-             resolve(callFetcher());
+             resolve(fetcher(currentFetchOffset, currentQuery));
          } else {
-             console.debug("TIMER start: " + currentQuery);
-             setTimeout(function() {
-                 if (currentFetch === activeFetch) {
-                     console.debug("TIMER hit: " + currentQuery);
-                     resolve(callFetcher());
-                 } else {
-                     console.debug("TIMER reject: " + currentQuery);
-                     reject("cancel");
-                 }
-             }, 300);
+             if (currentQuery.length < queryMinLen) {
+                 console.debug("TOO_SHORT fetch: " + currentQuery + ", limit: " + queryMinLen);
+                 resolve({
+                     entries: [],
+                     info: {
+                         more: false,
+                         too_short: true,
+                     }
+                 });
+             } else {
+                 console.debug("TIMER start: " + currentQuery);
+                 setTimeout(function() {
+                     if (currentFetch === activeFetch) {
+                         console.debug("TIMER hit: " + currentQuery);
+                         resolve(fetcher(currentFetchOffset, currentQuery));
+                     } else {
+                         console.debug("TIMER reject: " + currentQuery);
+                         reject("cancel");
+                     }
+                 }, 300);
+             }
+         }
+     }).then(function(response) {
+         if (currentFetch === activeFetch) {
+             let newEntries = response.entries || [];
+             let info = response.info || {};
+
+             console.debug("APPLY fetch: " + currentQuery + ", isMore: " + currentFetchingMore + ", offset: " + currentFetchOffset + ", resultSize: " + newEntries.length + ", oldSize: " + entries.length);
+             console.debug(info);
+
+             let updateEntries;
+             if (currentFetchingMore) {
+                 updateEntries = entries;
+                 newEntries.forEach(function(item) {
+                     updateEntries.push(item);
+                 });
+             } else {
+                 updateEntries = newEntries;
+             }
+             entries = updateEntries;
+             reindexEntries(entries);
+
+             hasMore = info.more;
+             tooShort = info.too_short;
+
+             previousQuery = currentQuery;
+             activeFetch = null;
+             fetched = true;
+             fetchingMore = false;
+         } else {
+             console.debug("ABORT fetch: " + currentQuery);
          }
      }).catch(function(err) {
          if (currentFetch === activeFetch) {
              console.log(err);
+
              fetchError = err;
              entries = [];
              hasMore = false;
+             tooShort = false;
+             previousQuery = null;
              activeFetch = null;
+             fetched = false;
+             fetchingMode = false;
+
              input.focus();
              openPopup();
          }
      });
 
      activeFetch = currentFetch;
-
-     function callFetcher() {
-         return fetcher(currentFetchOffset, currentQuery).then(function(response) {
-             if (currentFetch === activeFetch) {
-                 let newEntries = response.entries || [];
-                 let info = response.info || {};
-
-                 console.debug("APPLY fetch: " + currentQuery + ", isMore: " + currentFetchingMore + ", offset: " + currentFetchOffset + ", resultSize: " + newEntries.length + ", oldSize: " + entries.length);
-                 console.debug(info);
-
-                 let updateEntries;
-                 if (currentFetchingMore) {
-                     updateEntries = entries;
-                     newEntries.forEach(function(item) {
-                         updateEntries.push(item);
-                     });
-                 } else {
-                     updateEntries = newEntries;
-                 }
-                 entries = updateEntries;
-                 hasMore = info.more;
-
-                 reindexEntries(entries);
-
-                 previousQuery = currentQuery;
-                 activeFetch = null;
-                 fetched = true;
-                 fetchingMore = false;
-             } else {
-                 console.debug("ABORT fetch: " + currentQuery);
-             }
-         });
-     }
 
      function reindexEntries(entries) {
          let index = 0;
@@ -163,7 +183,12 @@
          selectedItem = item;
          let changed = item.text !== query
          query = item.text;
-         previousQuery = query;
+
+         previousQuery = query.trim();
+         if (previousQuery.length > 0) {
+             previousQuery = query;
+         }
+
          closePopup(true);
          if (changed) {
              previousQuery = null;
@@ -493,18 +518,20 @@
       <div tabindex=-1 class="dropdown-item text-danger">
         {fetchError}
       </div>
-    {/if}
-
-    {#if activeFetch && !fetchingMore }
-      <div tabindex=-1 class="dropdown-item text-muted">
-        {i18n.fetching}
-      </div>
-    {/if}
-
-    {#if !activeFetch && !fetchError && entries.length === 0 }
-      <div tabindex=-1 class="dropdown-item text-muted">
-        {i18n.no_results}
-      </div>
+    {:else}
+      {#if activeFetch }
+        {#if !fetchingMore }
+          <div tabindex=-1 class="dropdown-item text-muted">
+            {i18n.fetching}
+          </div>
+        {/if}
+      {:else}
+        {#if !tooShort && entries.length === 0 }
+          <div tabindex=-1 class="dropdown-item text-muted">
+            {i18n.no_results}
+          </div>
+        {/if}
+      {/if}
     {/if}
 
     {#if (!activeFetch  || fetchingMore) && entries.length > 0 }

@@ -66,6 +66,7 @@ function setupTypeahead() {
     let fetch_options = {
       fetch_url: ds.kiFetchUrl,
       fetch_limit: ds.kiFetchLimit,
+      fetch_query_min_len: parseInt(ds.kiFetchQueryMinLen || 0, 10),
     };
 
     function fetcherLocal(offset, query) {
@@ -123,6 +124,7 @@ function setupTypeahead() {
       props: {
         real: input,
         fetcher: fetcher,
+        queryMinLen: fetch_options.fetch_query_min_len,
         onSelected: handleSelected
       }
     });
