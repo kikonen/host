@@ -77,6 +77,8 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bower_vendor (0.1.19)
+    bugsnag (6.12.2)
+      concurrent-ruby (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
     capistrano (3.11.2)
@@ -363,6 +365,7 @@ DEPENDENCIES
   autoprefixer-rails
   awesome_print
   bower_vendor
+  bugsnag
   capistrano
   capistrano-bundler (~> 1.1)
   capistrano-ext (~> 1.2)
