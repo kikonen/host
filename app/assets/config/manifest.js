@@ -4,5 +4,3 @@
 //
 //= link_directory ../stylesheets .css
 //
-//= link ../stylesheets/themes/default/module.css
-//
