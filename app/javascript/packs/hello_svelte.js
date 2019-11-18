@@ -108,6 +108,10 @@ function setupTypeahead() {
         });
     }
 
+    function handleSelected(item) {
+      console.log("SELECTED", item);
+    }
+
     let fetcher = fetcherLocal;
     if (fetch_options.fetch_url) {
       fetcher = fetcherRest;
@@ -119,6 +123,7 @@ function setupTypeahead() {
       props: {
         real: input,
         fetcher: fetcher,
+        onSelected: handleSelected
       }
     });
   });

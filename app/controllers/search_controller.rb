@@ -56,7 +56,15 @@ class SearchController < ::RestController
       query.empty? || item[:up_text].include?(query) || item[:up_desc].include?(query)
     end
 
-    limited_entries = filtered_entries[fetch_offset, fetch_limit]
+    limited_entries = filtered_entries[fetch_offset, fetch_limit].map do |item|
+      {
+        text: item[:text],
+        desc: item[:desc],
+        data: {
+          foo: item[:text],
+        }
+      }
+    end
 
     data = {
       entries: limited_entries,
