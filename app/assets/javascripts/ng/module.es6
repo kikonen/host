@@ -1,7 +1,3 @@
-//
-//= require_tree .
-//= require_self
-//
 "use strict";
 
 import * as breadcrumb from 'ng/breadcrumb_directive';

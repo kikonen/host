@@ -1,8 +1,8 @@
 - content_for :stylesheets do
-  = stylesheet_link_tag    'test/module', media: 'all'
+  = stylesheet_link_tag    'module_test', media: 'all'
 
 - content_for :javascripts do
-  = javascript_include_tag 'test/module', defer: true
+  = javascript_include_tag 'module_test', defer: true
 
 .ki-padding-all
   %div{ "ng-controller": "TestController as ctrl" }

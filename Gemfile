@@ -28,7 +28,8 @@ gem 'sassc-rails'
 gem 'autoprefixer-rails'
 
 # NOTE KI sass not working sprockets 4.0 beta
-gem 'sprockets', '>= 3.6', '< 4.0'
+gem 'sprockets', '~> 4.0'
+gem 'babel-transpiler'
 
 gem 'uglifier'
 gem 'yui-compressor'
@@ -47,7 +48,7 @@ gem 'libv8'#, '~> 5.0'
 gem 'mini_racer'#, '~> 0.1.4'
 
 # HACK KI due to "mini_racer"
-gem 'sprockets-babel-miniracer', '>= 0.0.9'
+#gem 'sprockets-babel-miniracer', '>= 0.0.9'
 #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
 
 gem 'ng_template'

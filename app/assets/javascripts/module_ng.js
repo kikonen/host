@@ -1,3 +1,4 @@
+//
 // Base initialization for angularjs based engines. Provides
 // common logic needed in all engines
 //
@@ -7,4 +8,7 @@
 //
 //= require angular-1.3.15/angular
 //= require angular-ui-router-0.2.13/angular-ui-router
+//
+//= require_tree ./ng
+//= require_self
 //

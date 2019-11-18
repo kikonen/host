@@ -1,7 +1,7 @@
 /*
  *= require shared/bootstrap_override
  *
- *= require_tree .
+ *= require_tree ./ng
  *= require_self
  */
 
