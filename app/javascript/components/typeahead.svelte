@@ -31,6 +31,7 @@
  let i18n = {
      fetching: 'Searching..',
      no_results: 'No results',
+     too_short: 'Too short',
      has_more: 'More...',
      fetching_more: 'Searching more...',
  };
@@ -526,9 +527,13 @@
           </div>
         {/if}
       {:else}
-        {#if !tooShort && entries.length === 0 }
+        {#if entries.length === 0 }
           <div tabindex=-1 class="dropdown-item text-muted">
-            {i18n.no_results}
+            {#if tooShort }
+              {i18n.too_short}
+            {:else}
+              {i18n.no_results}
+            {/if}
           </div>
         {/if}
       {/if}
