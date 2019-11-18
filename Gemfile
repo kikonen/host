@@ -33,6 +33,8 @@ gem 'sprockets', '>= 3.6', '< 4.0'
 gem 'uglifier'
 gem 'yui-compressor'
 
+gem 'bugsnag'
+
 # NOTE KI nokogiri is notorious with library dependencies and horribly slow install
 gem 'nokogiri'
 

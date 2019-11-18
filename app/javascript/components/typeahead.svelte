@@ -7,6 +7,7 @@
 
  export let entries = [];
 
+ export let onSelected = function() {};
  export let fetcher;
  export let hasMore = false;
  export let fetchingMore = false;
@@ -167,6 +168,8 @@
          if (changed) {
              previousQuery = null;
          }
+
+         onSelected(item);
      } else {
          console.log("MISSING item", el);
      }
