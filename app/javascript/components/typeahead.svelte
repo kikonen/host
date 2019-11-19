@@ -128,7 +128,7 @@
          }
      }).catch(function(err) {
          if (currentFetch === activeFetch) {
-             console.log(err);
+             console.error(err);
 
              fetchError = err;
              entries = [];
@@ -158,8 +158,8 @@
 
  function fetchMoreIfneeded() {
      if (hasMore && !fetchingMore) {
-         // console.log({scrollTop: popup.scrollTop, clientHeight: popup.clientHeight, scrollHeight: popup.scrollHeight, moreHeight: more.clientHeight});
-         // console.log(popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.height);
+         // console.debug({scrollTop: popup.scrollTop, clientHeight: popup.clientHeight, scrollHeight: popup.scrollHeight, moreHeight: more.clientHeight});
+         // console.debug(popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.height);
 
          if (popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.clientHeight * 2 - 2) {
              fetchEntries(true);
@@ -201,7 +201,7 @@
 
          onSelected(item);
 //     } else {
-//         console.log("MISSING item", el);
+//         console.debug("MISSING item", el);
      }
  }
 
