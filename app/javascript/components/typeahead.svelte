@@ -290,10 +290,7 @@
          input.focus();
      },
      ArrowDown: inputKeydownHandlers.ArrowDown,
-     ArrowUp: function(event) {
-         closePopup(false);
-         event.preventDefault();
-     },
+     ArrowUp: inputKeydownHandlers.ArrowDown,
      Escape: function(event) {
          cancelFetch();
          closePopup(false);
@@ -473,7 +470,7 @@
      }
  }
 
- function handleItemScroll(event) {
+ function handlePopupScroll(event) {
      fetchMoreIfneeded();
  }
 </script>
@@ -519,7 +516,7 @@
 
   <div class="js-popup dropdown-menu typeahead-popup {popupVisible ? 'show' : ''}"
        bind:this={popup}
-       on:scroll|passive={handleItemScroll}>
+       on:scroll|passive={handlePopupScroll}>
     {#if fetchError }
       <div tabindex=-1 class="dropdown-item text-danger">
         {fetchError}
