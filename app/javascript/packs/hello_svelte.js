@@ -111,6 +111,20 @@ function setupTypeahead() {
 
     function handleSelected(item) {
       console.log("SELECTED", item);
+      console.log(input.value);
+      var el = document.querySelector('#foo2');
+      if (el) {
+        el.value = item.desc;
+      }
+
+      var el2 = document.querySelector('#sf_quicksearch_3');
+      if (el2) {
+        el2.setAttribute('value', item.text);
+
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent("change", false, true);
+        el2.dispatchEvent(evt);
+      }
     }
 
     let fetcher = fetcherLocal;

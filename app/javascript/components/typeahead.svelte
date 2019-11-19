@@ -2,21 +2,21 @@
  import {onMount} from 'svelte';
 
  export let real;
-
- export let query = '';
- export let queryMinLen = 1;
-
- export let entries = [];
-
- export let onSelected = function() {};
  export let fetcher;
- export let hasMore = false;
- export let tooShort = false;
- export let fetchingMore = false;
- export let fetchError = null;
+ export let queryMinLen = 1;
+ export let onSelected = function() {};
 
- export let popupVisible = false;
- export let activeFetch = null;
+ let query = '';
+
+ let entries = [];
+
+ let hasMore = false;
+ let tooShort = false;
+ let fetchingMore = false;
+ let fetchError = null;
+
+ let popupVisible = false;
+ let activeFetch = null;
 
  let input;
  let toggle;
@@ -50,7 +50,7 @@
          return;
      }
 
-     console.debug("START fetch: " + currentQuery);
+//     console.debug("START fetch: " + currentQuery);
 
      cancelFetch();
 
@@ -72,11 +72,11 @@
 
      let currentFetch = new Promise(function(resolve, reject) {
          if (currentFetchingMore) {
-             console.debug("MOR hit: " + currentQuery);
+//             console.debug("MOR hit: " + currentQuery);
              resolve(fetcher(currentFetchOffset, currentQuery));
          } else {
              if (currentQuery.length < queryMinLen) {
-                 console.debug("TOO_SHORT fetch: " + currentQuery + ", limit: " + queryMinLen);
+//                 console.debug("TOO_SHORT fetch: " + currentQuery + ", limit: " + queryMinLen);
                  resolve({
                      entries: [],
                      info: {
@@ -85,13 +85,13 @@
                      }
                  });
              } else {
-                 console.debug("TIMER start: " + currentQuery);
+//                 console.debug("TIMER start: " + currentQuery);
                  setTimeout(function() {
                      if (currentFetch === activeFetch) {
-                         console.debug("TIMER hit: " + currentQuery);
+//                         console.debug("TIMER hit: " + currentQuery);
                          resolve(fetcher(currentFetchOffset, currentQuery));
                      } else {
-                         console.debug("TIMER reject: " + currentQuery);
+//                         console.debug("TIMER reject: " + currentQuery);
                          reject("cancel");
                      }
                  }, 300);
@@ -123,12 +123,12 @@
              activeFetch = null;
              fetched = true;
              fetchingMore = false;
-         } else {
-             console.debug("ABORT fetch: " + currentQuery);
+//         } else {
+//             console.debug("ABORT fetch: " + currentQuery);
          }
      }).catch(function(err) {
          if (currentFetch === activeFetch) {
-             console.log(err);
+             console.error(err);
 
              fetchError = err;
              entries = [];
@@ -158,8 +158,8 @@
 
  function fetchMoreIfneeded() {
      if (hasMore && !fetchingMore) {
-         // console.log({scrollTop: popup.scrollTop, clientHeight: popup.clientHeight, scrollHeight: popup.scrollHeight, moreHeight: more.clientHeight});
-         // console.log(popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.height);
+         // console.debug({scrollTop: popup.scrollTop, clientHeight: popup.clientHeight, scrollHeight: popup.scrollHeight, moreHeight: more.clientHeight});
+         // console.debug(popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.height);
 
          if (popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.clientHeight * 2 - 2) {
              fetchEntries(true);
@@ -199,9 +199,10 @@
              previousQuery = null;
          }
 
+         real.setAttribute('value', query);
          onSelected(item);
-     } else {
-         console.log("MISSING item", el);
+//     } else {
+//         console.debug("MISSING item", el);
      }
  }
 
@@ -221,20 +222,25 @@
  onMount(function() {
      query = real.value || '';
      real.classList.add('d-none');
+     real.addEventListener('change', function() {
+         var realValue = real.getAttribute('value');
+         if (realValue !== query) {
+             console.debug("Changed: " + realValue);
+             query = realValue;
+         }
+     });
  });
 
  function nop() {};
 
  let inputKeypressHandlers = {
      base: function(event) {
-//         console.log("PRESS: " + query);
          selectedItem = false;
      },
  };
 
  let inputKeydownHandlers = {
      base: function(event) {
-//         console.log("DOWN: " + query);
          wasDown = true;
      },
      ArrowDown: function(event) {
@@ -261,18 +267,19 @@
 
  let inputKeyupHandlers = {
      base: function(event) {
-//         console.log("UP: " + query);
          if (wasDown) {
              openPopup();
              fetchEntries();
          }
      },
-     ArrowDown: nop,
-     ArrowUp: nop,
      Enter: nop,
      Escape: nop,
      Tab: nop,
      // skip "meta" keys from triggering search
+     ArrowDown: nop,
+     ArrowUp: nop,
+     ArrowLeft: nop,
+     ArrowRight: nop,
      PageDown: nop,
      PageUp: nop,
      Home: nop,
@@ -414,7 +421,6 @@
  }
 
  function handleEvent(code, handlers, event) {
-//     console.log(event);
      let handler = handlers[code] || handlers.base;
      handler(event);
  }
