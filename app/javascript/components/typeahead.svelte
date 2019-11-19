@@ -21,6 +21,7 @@
  let input;
  let toggle;
  let popup;
+ let more;
 
  let previousQuery = null;
  let fetched = false;
@@ -35,6 +36,7 @@
      has_more: 'More...',
      fetching_more: 'Searching more...',
  };
+
 
  ////////////////////////////////////////////////////////////
  //
@@ -151,6 +153,17 @@
          // no result fetched; since it doesn't match input any longer
          fetched = false;
          previousQuery = null;
+     }
+ }
+
+ function fetchMoreIfneeded() {
+     if (hasMore && !fetchingMore) {
+         // console.log({scrollTop: popup.scrollTop, clientHeight: popup.clientHeight, scrollHeight: popup.scrollHeight, moreHeight: more.clientHeight});
+         // console.log(popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.height);
+
+         if (popup.scrollTop + popup.clientHeight >= popup.scrollHeight - more.clientHeight * 2 - 2) {
+             fetchEntries(true);
+         }
      }
  }
 
@@ -299,11 +312,6 @@
          let next = event.target.nextElementSibling;
 
          if (next) {
-             if (next.classList.contains('js-more')) {
-                 if (!fetchingMore) {
-                     fetchEntries(true);
-                 }
-             }
              if (!next.classList.contains('js-item')) {
                  next = null;
              }
@@ -389,6 +397,7 @@
          if (item) {
              item.focus();
          }
+
          event.preventDefault();
      },
      Home: function(event) {
@@ -463,6 +472,10 @@
          selectItem(event.target)
      }
  }
+
+ function handleItemScroll(event) {
+     fetchMoreIfneeded();
+ }
 </script>
 
 <!-- ------------------------------------------------------------ -->
@@ -505,7 +518,8 @@
   </div>
 
   <div class="js-popup dropdown-menu typeahead-popup {popupVisible ? 'show' : ''}"
-       bind:this={popup} >
+       bind:this={popup}
+       on:scroll|passive={handleItemScroll}>
     {#if fetchError }
       <div tabindex=-1 class="dropdown-item text-danger">
         {fetchError}
@@ -548,7 +562,9 @@
     {/if}
 
     {#if hasMore}
-      <div tabindex="-1" class="js-more dropdown-item text-muted">
+      <div tabindex="-1"
+           class="js-more dropdown-item text-muted"
+           bind:this={more}>
         {i18n.has_more}
       </div>
     {/if}
