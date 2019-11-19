@@ -113,7 +113,6 @@
                  updateEntries = newEntries;
              }
              entries = updateEntries;
-             reindexEntries(entries);
 
              hasMore = info.more;
              tooShort = info.too_short;
@@ -144,14 +143,6 @@
      });
 
      activeFetch = currentFetch;
-
-     function reindexEntries(entries) {
-         let index = 0;
-         entries.forEach(function(item) {
-             item.index = index;
-             index = index + 1;
-         });
-     }
  }
 
  function cancelFetch() {
@@ -540,8 +531,8 @@
     {/if}
 
     {#if (!activeFetch  || fetchingMore) && entries.length > 0 }
-      {#each entries as item}
-        <div tabindex=1 class="js-item dropdown-item"  data-index="{item.index}"
+      {#each entries as item, index}
+        <div tabindex=1 class="js-item dropdown-item"  data-index="{index}"
              on:blur={handleBlur}
              on:click={handleItemClick}
              on:keydown={handleItemKeydown}
