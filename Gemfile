@@ -89,7 +89,7 @@ gem 'kgio'
 
 # http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
 # => resque doesn't require thread safety
-gem 'resque', '~> 1.27.0'
+gem 'resque', '~> 2.0.0'
 #gem 'resque-web', require: 'resque_web'
 
 #
