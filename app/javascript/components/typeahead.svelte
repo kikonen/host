@@ -199,6 +199,7 @@
              previousQuery = null;
          }
 
+         real.setAttribute('value', query);
          onSelected(item);
 //     } else {
 //         console.debug("MISSING item", el);
@@ -221,6 +222,13 @@
  onMount(function() {
      query = real.value || '';
      real.classList.add('d-none');
+     real.addEventListener('change', function() {
+         var realValue = real.getAttribute('value');
+         if (realValue !== query) {
+             console.debug("Changed: " + realValue);
+             query = realValue;
+         }
+     });
  });
 
  function nop() {};
@@ -264,12 +272,14 @@
              fetchEntries();
          }
      },
-     ArrowDown: nop,
-     ArrowUp: nop,
      Enter: nop,
      Escape: nop,
      Tab: nop,
      // skip "meta" keys from triggering search
+     ArrowDown: nop,
+     ArrowUp: nop,
+     ArrowLeft: nop,
+     ArrowRight: nop,
      PageDown: nop,
      PageUp: nop,
      Home: nop,
