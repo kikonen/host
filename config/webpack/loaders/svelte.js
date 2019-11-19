@@ -4,7 +4,6 @@ module.exports = {
     loader: 'svelte-loader',
     options: {
       hotReload: true,
-      dev: true,
     }
   }],
 }
