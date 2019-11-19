@@ -50,7 +50,7 @@
          return;
      }
 
-     console.debug("START fetch: " + currentQuery);
+//     console.debug("START fetch: " + currentQuery);
 
      cancelFetch();
 
@@ -72,11 +72,11 @@
 
      let currentFetch = new Promise(function(resolve, reject) {
          if (currentFetchingMore) {
-             console.debug("MOR hit: " + currentQuery);
+//             console.debug("MOR hit: " + currentQuery);
              resolve(fetcher(currentFetchOffset, currentQuery));
          } else {
              if (currentQuery.length < queryMinLen) {
-                 console.debug("TOO_SHORT fetch: " + currentQuery + ", limit: " + queryMinLen);
+//                 console.debug("TOO_SHORT fetch: " + currentQuery + ", limit: " + queryMinLen);
                  resolve({
                      entries: [],
                      info: {
@@ -85,13 +85,13 @@
                      }
                  });
              } else {
-                 console.debug("TIMER start: " + currentQuery);
+//                 console.debug("TIMER start: " + currentQuery);
                  setTimeout(function() {
                      if (currentFetch === activeFetch) {
-                         console.debug("TIMER hit: " + currentQuery);
+//                         console.debug("TIMER hit: " + currentQuery);
                          resolve(fetcher(currentFetchOffset, currentQuery));
                      } else {
-                         console.debug("TIMER reject: " + currentQuery);
+//                         console.debug("TIMER reject: " + currentQuery);
                          reject("cancel");
                      }
                  }, 300);
@@ -123,8 +123,8 @@
              activeFetch = null;
              fetched = true;
              fetchingMore = false;
-         } else {
-             console.debug("ABORT fetch: " + currentQuery);
+//         } else {
+//             console.debug("ABORT fetch: " + currentQuery);
          }
      }).catch(function(err) {
          if (currentFetch === activeFetch) {
@@ -200,8 +200,8 @@
          }
 
          onSelected(item);
-     } else {
-         console.log("MISSING item", el);
+//     } else {
+//         console.log("MISSING item", el);
      }
  }
 
@@ -227,14 +227,12 @@
 
  let inputKeypressHandlers = {
      base: function(event) {
-//         console.log("PRESS: " + query);
          selectedItem = false;
      },
  };
 
  let inputKeydownHandlers = {
      base: function(event) {
-//         console.log("DOWN: " + query);
          wasDown = true;
      },
      ArrowDown: function(event) {
@@ -261,7 +259,6 @@
 
  let inputKeyupHandlers = {
      base: function(event) {
-//         console.log("UP: " + query);
          if (wasDown) {
              openPopup();
              fetchEntries();
@@ -414,7 +411,6 @@
  }
 
  function handleEvent(code, handlers, event) {
-//     console.log(event);
      let handler = handlers[code] || handlers.base;
      handler(event);
  }
