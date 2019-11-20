@@ -696,6 +696,11 @@
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
 
+"@kikonen/typeahead_svelte@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.0.4.tgz#5025259685a28b8b959275b1d1af2b6aafb1bd17"
+  integrity sha512-RMJEbJU6lmGUH8JmWZcWkYAUBh7uivBScWMwwJCN8gDjme0k5JVcLbz2JderZF3UHpGpVr5mkvkqLoEpSKVcnw==
+
 "@rails/webpacker@^4.0.7":
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.7.tgz#268571bf974e78ce57eca9fa478f5bd97fd5182c"
