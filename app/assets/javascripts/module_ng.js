@@ -6,8 +6,8 @@
 // require bootstrap-multiselect-0.9.13/bootstrap-multiselect
 // require bootstrap-multiselect-0.9.13/bootstrap-multiselect-collapsible-groups
 //
-//= require angular-1.3.15/angular
-//= require angular-ui-router-0.2.13/angular-ui-router
+//= require angular-1.7.9/angular
+//= require angular-ui-router-1.0.23/angular-ui-router
 //
 //= require_tree ./ng
 //= require_self
