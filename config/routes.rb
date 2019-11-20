@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :svelte_test, only: [] do
     collection do
       get :hello
+      get :typeahead
     end
   end
 
