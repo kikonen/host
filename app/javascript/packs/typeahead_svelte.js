@@ -120,6 +120,15 @@ function setupTypeahead() {
       fetcher = fetcherRest;
     }
 
+
+    const translations = {
+      fetching: 'Etsitään..',
+      no_results: 'Ei tuloksia',
+      too_short: 'Too short',
+      has_more: 'Lisää...',
+      fetching_more: 'Etsitään lisää...',
+    };
+
     const app = new Typeahead({
       target: input.parentElement,
       real: input,
@@ -127,6 +136,7 @@ function setupTypeahead() {
         real: input,
         fetcher: fetcher,
         queryMinLen: fetch_options.fetch_query_min_len,
+        translations: translations,
         onSelected: handleSelected
       }
     });
