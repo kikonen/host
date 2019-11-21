@@ -6,7 +6,7 @@
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
 //import Typeahead from '../components/typeahead.svelte'
-import Typeahead from '@kikonen/typeahead_svelte/src/components/typeahead.svelte';
+import Typeahead from '@kikonen/typeahead_svelte/src/typeahead.svelte';
 
 
 function setupTypeahead() {
