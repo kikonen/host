@@ -1,3 +1,12 @@
+const TRANSLATIONS = {
+  fetching: 'Etsitään..',
+  no_results: 'Ei tuloksia',
+  too_short: 'Too short',
+  has_more: 'Lisää...',
+  fetching_more: 'Etsitään lisää...',
+};
+
+
 export class TypeaheadSvelteInit {
   init() {
     this.setupTypeahead();
@@ -121,7 +130,8 @@ export class TypeaheadSvelteInit {
           real: input,
           fetcher: fetcher,
           queryMinLen: fetch_options.fetch_query_min_len,
-          onSelected: handleSelected
+          onSelected: handleSelected,
+          translations: TRANSLATIONS,
         }
       });
     });
