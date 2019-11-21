@@ -1,4 +1,6 @@
 /*
+ *= require @kikonen/typeahead_svelte-0.0.9/typeahead.css
+ *
  *= require_tree ./test
  *= require_self
  */

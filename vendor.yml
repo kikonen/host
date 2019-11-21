@@ -105,6 +105,12 @@ selectize:
     - dist/css/selectize.css
     - dist/js/selectize.js
 
+"@kikonen/typeahead_svelte":
+  yarn: true
+  assets:
+  - dist/*.js
+  - dist/*.css
+
 # bootstrap-switch:
 #   version: 3.3.2
 #   assets:

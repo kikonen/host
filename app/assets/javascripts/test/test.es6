@@ -1,6 +1,7 @@
 "use strict";
 import { Example } from 'test/example';
 import { TestController } from 'test/test_controller';
+import { TypeaheadSvelteInit } from 'test/typeahead_svelte_init';
 
 class Test {
   constructor() {
@@ -124,6 +125,10 @@ function initBootstrapMultiSelect() {
   });
 }
 
+function initTypeahead() {
+  new TypeaheadSvelteInit().init();
+}
+
 export function init() {
   runExample();
   initMoment();
@@ -131,4 +136,6 @@ export function init() {
 //  initDatetime();
 //  initBootstrapMultiSelect();
   registerNg();
+
+  initTypeahead();
 }
