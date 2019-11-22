@@ -134,6 +134,7 @@ function setupTypeahead() {
       real: input,
       props: {
         real: input,
+        query: input.getAttribute('value'),
         fetcher: fetcher,
         queryMinLen: fetch_options.fetch_query_min_len,
         translations: translations,
