@@ -108,7 +108,7 @@ selectize:
 "@kikonen/typeahead_svelte":
   yarn: true
   assets:
-  - dist/*.js
+  - dist/*.es6
   - dist/*.css
 
 # bootstrap-switch:

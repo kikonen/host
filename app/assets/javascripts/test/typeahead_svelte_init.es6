@@ -1,3 +1,5 @@
+import Typeahead from '@kikonen/typeahead_svelte/typeahead_svelte';
+
 const TRANSLATIONS = {
   fetching: 'Etsitään..',
   no_results: 'Ei tuloksia',
@@ -13,44 +15,64 @@ export class TypeaheadSvelteInit {
   }
 
   setupTypeahead() {
-    let entries = [
-      {
-        text: 'local',
-        desc: 'hippo',
-      },
-      {
-        text: 'foo',
-        desc: 'hippo',
-      },
-      {
-        text: 'zoo',
-        desc: 'hippo',
-      },
-      {
-        text: 'boo',
-        desc: 'hippo',
-      },
-      {
-        text: 'aoo',
-        desc: 'hippo',
-      },
-      {
-        text: 'boo',
-        desc: 'hippo',
-      },
-      {
-        text: 'coo',
-        desc: 'hippo',
-      },
-      {
-        text: 'doo',
-        desc: 'hippo',
-      },
-      {
-        text: 'bar really long entry here to check how sizing works EOF',
-        desc: 'hippo',
-      },
-    ];
+  let entries = [
+    {
+      text: 'local',
+      desc: 'hippo',
+    },
+    {
+      text: 'foo',
+      desc: 'hippo',
+    },
+    {
+      separator: true,
+    },
+    {
+      text: 'No results 1',
+      disabled: true,
+    },
+    {
+      text: 'No results 2',
+      disabled: true,
+    },
+    {
+      separator: true,
+    },
+    {
+      text: 'zoo',
+      desc: 'hippo',
+    },
+    {
+      text: 'boo',
+      desc: 'hippo',
+    },
+    {
+      separator: true,
+    },
+    {
+      text: 'aoo',
+      desc: 'hippo',
+    },
+    {
+      text: 'boo',
+      desc: 'hippo',
+    },
+    {
+      text: 'coo',
+      desc: 'hippo',
+    },
+    {
+      separator: true,
+    },
+    {
+      text: 'doo',
+      desc: 'hippo',
+    },
+    {
+      text: 'bar really long entry here to check how sizing works EOF',
+      desc: 'hippo',
+    },
+  ];
 
     document.querySelectorAll('.js-typeahead').forEach(function(input) {
       let ds = input.dataset;
@@ -65,7 +87,7 @@ export class TypeaheadSvelteInit {
           let queryStr = query.toUpperCase().trim();
           setTimeout(function() {
             let fetched = entries.filter(function(item) {
-              return item == '' || item.text.toUpperCase().includes(queryStr);
+              return item.separator || item.disabled || item == '' || item.text.toUpperCase().includes(queryStr);
             });
 
             resolve({

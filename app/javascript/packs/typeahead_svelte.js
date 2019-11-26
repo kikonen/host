@@ -20,12 +20,29 @@ function setupTypeahead() {
       desc: 'hippo',
     },
     {
+      separator: true,
+    },
+    {
+      text: 'No results 1',
+      disabled: true,
+    },
+    {
+      text: 'No results 2',
+      disabled: true,
+    },
+    {
+      separator: true,
+    },
+    {
       text: 'zoo',
       desc: 'hippo',
     },
     {
       text: 'boo',
       desc: 'hippo',
+    },
+    {
+      separator: true,
     },
     {
       text: 'aoo',
@@ -38,6 +55,9 @@ function setupTypeahead() {
     {
       text: 'coo',
       desc: 'hippo',
+    },
+    {
+      separator: true,
     },
     {
       text: 'doo',
@@ -62,7 +82,7 @@ function setupTypeahead() {
         let queryStr = query.toUpperCase().trim();
         setTimeout(function() {
           let fetched = entries.filter(function(item) {
-            return item == '' || item.text.toUpperCase().includes(queryStr);
+            return item.separator || item.disabled || item == '' || item.text.toUpperCase().includes(queryStr);
           });
 
           resolve({
