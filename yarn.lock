@@ -696,10 +696,10 @@
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
 
-"@kikonen/typeahead_svelte@^0.0.24":
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.0.24.tgz#3da0fb543f9aad295de2a536638c8082bfa97585"
-  integrity sha512-zzBTgaT6QPyO6/9bQhlRprLOCA9QfuLtmFUMZvR3tcePkrYZ+85mYJuNvSe+VqY/bbRntuBsW4biRLKGxZ2EIQ==
+"@kikonen/typeahead_svelte@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.0.25.tgz#0f29d1bebaa1fdc8492e712323d76cf5d5fa00ce"
+  integrity sha512-WOvMY/TILeS/2l5M0F3hGFLHkF/ZcE2DGBaVGczFKc+h/oyFXiT8Iil6XG5+YSCTU7euRlnpr2bHeMAz5Tq9Jw==
   dependencies:
     core-js "^3.4.1"
 
@@ -1823,9 +1823,9 @@ core-js@^3.1.3:
   integrity sha512-lQxb4HScV71YugF/X28LtePZj9AB7WqOpcB+YztYxusvhrgZiQXPmCYfPC5LHsw/+ScEtDbXU3xbqH3CjBRmYA==
 
 core-js@^3.4.1:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.3.tgz#09ea102412a368d5f73d24f082e41ac90c633a49"
-  integrity sha512-BVvHidX8uAmLCYPfLpXTEex7jz1uZJ1mW+shhIsBdA716O8Fg6TOwSgenSyO/bvEtnGdOTpKRZPSh4bSVI1k9w==
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.4.tgz#e3d422f8a51adc4cae2bfa04cef26a5ccc046d29"
+  integrity sha512-vKea1DrcLA80Hrfc7AQgfoGvEaByfR5mH08t+zuWOWY94TFBmabdEL56mUbcijvadG9RxsXR2gUUFrfj4/iTcA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"

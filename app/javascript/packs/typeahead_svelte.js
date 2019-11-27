@@ -27,8 +27,8 @@ function setupTypeahead() {
       disabled: true,
     },
     {
-      text: 'No results 2',
-      disabled: true,
+      text: 'placeholder',
+      placeholder: true,
     },
     {
       separator: true,
@@ -82,7 +82,7 @@ function setupTypeahead() {
         let queryStr = query.toUpperCase().trim();
         setTimeout(function() {
           let fetched = entries.filter(function(item) {
-            return item.separator || item.disabled || item == '' || item.text.toUpperCase().includes(queryStr);
+            return item.separator || item.placeholder || item.disabled || item == '' || item.text.toUpperCase().includes(queryStr);
           });
 
           resolve({
