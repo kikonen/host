@@ -27,8 +27,8 @@ function setupTypeahead() {
       disabled: true,
     },
     {
-      text: 'placeholder',
-      placeholder: true,
+      text: 'No results 2',
+      disabled: true,
     },
     {
       separator: true,
@@ -68,6 +68,7 @@ function setupTypeahead() {
       desc: 'hippo',
     },
   ];
+
 
   document.querySelectorAll('.js-typeahead').forEach(function(input) {
     let ds = input.dataset;
@@ -117,7 +118,9 @@ function setupTypeahead() {
         });
     }
 
-    function handleSelected(item) {
+    function handleSelect(event) {
+      let item = event.detail;
+
       console.log("SELECTED", item);
       console.log(input.value);
       var el = document.querySelector('#foo2');
@@ -127,12 +130,14 @@ function setupTypeahead() {
 
       var el2 = document.querySelector('#sf_quicksearch_3');
       if (el2) {
-        el2.setAttribute('value', item.text);
+        el2.value = item.text;
 
-        var evt = document.createEvent("HTMLEvents");
-        evt.initEvent("change", false, true);
-        el2.dispatchEvent(evt);
+        el2.dispatchEvent(new Event('change'));
       }
+    }
+
+    function handleChange(event) {
+      console.log("CHANGE: [" + event.target.value + "]");
     }
 
     let fetcher = fetcherLocal;
@@ -149,16 +154,19 @@ function setupTypeahead() {
       fetching_more: 'Etsitään lisää...',
     };
 
+    input.addEventListener('change', handleChange);
+    input.addEventListener('typeahead-select', handleSelect);
+
     const app = new Typeahead({
       target: input.parentElement,
       real: input,
       props: {
         real: input,
-        query: input.getAttribute('value'),
+        query: input.value,
         fetcher: fetcher,
         queryMinLen: fetch_options.fetch_query_min_len,
         translations: translations,
-        onSelected: handleSelected
+        extraClass: 'js-marker-test'
       }
     });
   });

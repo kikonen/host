@@ -122,7 +122,9 @@ export class TypeaheadSvelteInit {
           });
       }
 
-      function handleSelected(item) {
+      function handleSelect(event) {
+        let item = event.detail;
+
         console.log("SELECTED", item);
         console.log(input.value);
         var el = document.querySelector('#foo2');
@@ -145,6 +147,8 @@ export class TypeaheadSvelteInit {
         fetcher = fetcherRest;
       }
 
+      input.addEventListener('typeahead-select', handleSelect);
+
       const app = new Typeahead({
         target: input.parentElement,
         real: input,
@@ -153,7 +157,6 @@ export class TypeaheadSvelteInit {
           query: input.getAttribute('value'),
           fetcher: fetcher,
           queryMinLen: fetch_options.fetch_query_min_len,
-          onSelected: handleSelected,
           translations: TRANSLATIONS,
         }
       });

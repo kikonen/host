@@ -696,10 +696,10 @@
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
 
-"@kikonen/typeahead_svelte@^0.0.25":
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.0.25.tgz#0f29d1bebaa1fdc8492e712323d76cf5d5fa00ce"
-  integrity sha512-WOvMY/TILeS/2l5M0F3hGFLHkF/ZcE2DGBaVGczFKc+h/oyFXiT8Iil6XG5+YSCTU7euRlnpr2bHeMAz5Tq9Jw==
+"@kikonen/typeahead_svelte@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.1.0.tgz#91826683fa4bc66b6dfa2b3067b6a091af960720"
+  integrity sha512-bMWG8PzCZFVZqC1OACmvVLm6EAKtchctgpQLiUg7IEXVrgQZVgNAv1stvZ/1RWeJZBf3kca1PCqa5mPdTg+nHw==
   dependencies:
     core-js "^3.4.1"
 

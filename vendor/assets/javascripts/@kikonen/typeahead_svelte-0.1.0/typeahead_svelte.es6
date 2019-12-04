@@ -259,8 +259,8 @@ const { document: document_1 } = globals;
 
 function add_css() {
 	var style = element("style");
-	style.id = "svelte-2ap05h-style";
-	style.textContent = ".typeahead.svelte-2ap05h{position:relative}.typeahead-popup.svelte-2ap05h{max-height:15rem;max-width:90vw;overflow-y:auto}.no-click.svelte-2ap05h{pointer-events:none}";
+	style.id = "svelte-1k67s1s-style";
+	style.textContent = ".ki-typeahead.svelte-1k67s1s{position:relative}.ki-typeahead-popup.svelte-1k67s1s{max-height:15rem;max-width:90vw;overflow-y:auto}.ki-no-click.svelte-1k67s1s{pointer-events:none}";
 	append(document_1.head, style);
 }
 
@@ -271,13 +271,69 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (557:8) {#if entries.length === 0 }
-function create_if_block_9(ctx) {
+// (601:4) {:else}
+function create_else_block_1(ctx) {
+	let each_1_anchor;
+	let each_value = ctx.entries;
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	}
+
+	return {
+		c() {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			each_1_anchor = empty();
+		},
+		m(target, anchor) {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(target, anchor);
+			}
+
+			insert(target, each_1_anchor, anchor);
+		},
+		p(changed, ctx) {
+			if (changed.entries || changed.handleItemKeydown || changed.handleBlur || changed.handleItemClick || changed.handleItemKeyup) {
+				each_value = ctx.entries;
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(changed, child_ctx);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+		},
+		d(detaching) {
+			destroy_each(each_blocks, detaching);
+			if (detaching) detach(each_1_anchor);
+		}
+	};
+}
+
+// (593:33) 
+function create_if_block_3(ctx) {
 	let div;
 
 	function select_block_type_1(changed, ctx) {
-		if (ctx.tooShort) return create_if_block_10;
-		return create_else_block_1;
+		if (ctx.tooShort) return create_if_block_4;
+		return create_else_block;
 	}
 
 	let current_block_type = select_block_type_1(null, ctx);
@@ -314,43 +370,29 @@ function create_if_block_9(ctx) {
 	};
 }
 
-// (550:6) {#if activeFetch }
-function create_if_block_7(ctx) {
-	let if_block_anchor;
-	let if_block = !ctx.fetchingMore && create_if_block_8(ctx);
+// (589:43) 
+function create_if_block_2(ctx) {
+	let div;
 
 	return {
 		c() {
-			if (if_block) if_block.c();
-			if_block_anchor = empty();
+			div = element("div");
+			div.textContent = `${ctx.translate("fetching")}`;
+			attr(div, "tabindex", "-1");
+			attr(div, "class", "dropdown-item text-muted");
 		},
 		m(target, anchor) {
-			if (if_block) if_block.m(target, anchor);
-			insert(target, if_block_anchor, anchor);
+			insert(target, div, anchor);
 		},
-		p(changed, ctx) {
-			if (!ctx.fetchingMore) {
-				if (if_block) {
-					if_block.p(changed, ctx);
-				} else {
-					if_block = create_if_block_8(ctx);
-					if_block.c();
-					if_block.m(if_block_anchor.parentNode, if_block_anchor);
-				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
-			}
-		},
+		p: noop,
 		d(detaching) {
-			if (if_block) if_block.d(detaching);
-			if (detaching) detach(if_block_anchor);
+			if (detaching) detach(div);
 		}
 	};
 }
 
-// (545:4) {#if fetchError }
-function create_if_block_6(ctx) {
+// (585:4) {#if fetchError}
+function create_if_block_1(ctx) {
 	let div;
 	let t;
 
@@ -374,134 +416,17 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (561:12) {:else}
-function create_else_block_1(ctx) {
-	let t_value = ctx.translate("no_results") + "";
-	let t;
-
-	return {
-		c() {
-			t = text(t_value);
-		},
-		m(target, anchor) {
-			insert(target, t, anchor);
-		},
-		p: noop,
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (559:12) {#if tooShort }
-function create_if_block_10(ctx) {
-	let t_value = ctx.translate("too_short") + "";
-	let t;
-
-	return {
-		c() {
-			t = text(t_value);
-		},
-		m(target, anchor) {
-			insert(target, t, anchor);
-		},
-		p: noop,
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (551:8) {#if !fetchingMore }
-function create_if_block_8(ctx) {
-	let div;
-
-	return {
-		c() {
-			div = element("div");
-			div.textContent = `${ctx.translate("fetching")}`;
-			attr(div, "tabindex", "-1");
-			attr(div, "class", "dropdown-item text-muted");
-		},
-		m(target, anchor) {
-			insert(target, div, anchor);
-		},
-		p: noop,
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
-}
-
-// (569:4) {#if (!activeFetch  || fetchingMore) && entries.length > 0 }
-function create_if_block_1(ctx) {
-	let each_1_anchor;
-	let each_value = ctx.entries;
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
-	}
-
-	return {
-		c() {
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			each_1_anchor = empty();
-		},
-		m(target, anchor) {
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(target, anchor);
-			}
-
-			insert(target, each_1_anchor, anchor);
-		},
-		p(changed, ctx) {
-			if (changed.entries || changed.handleBlur || changed.handleItemClick || changed.handleItemKeydown || changed.handleItemKeyup) {
-				each_value = ctx.entries;
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(changed, child_ctx);
-					} else {
-						each_blocks[i] = create_each_block(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value.length;
-			}
-		},
-		d(detaching) {
-			destroy_each(each_blocks, detaching);
-			if (detaching) detach(each_1_anchor);
-		}
-	};
-}
-
-// (584:8) {:else}
-function create_else_block(ctx) {
+// (621:8) {:else}
+function create_else_block_2(ctx) {
 	let div1;
 	let div0;
 	let t0_value = (ctx.item.display_text || ctx.item.text) + "";
 	let t0;
 	let t1;
 	let t2;
-	let div1_tabindex_value;
-	let div1_class_value;
 	let div1_data_index_value;
 	let dispose;
-	let if_block = ctx.item.desc && create_if_block_5(ctx);
+	let if_block = ctx.item.desc && create_if_block_8(ctx);
 
 	return {
 		c() {
@@ -511,13 +436,9 @@ function create_else_block(ctx) {
 			t1 = space();
 			if (if_block) if_block.c();
 			t2 = space();
-			attr(div0, "class", "no-click svelte-2ap05h");
-			attr(div1, "tabindex", div1_tabindex_value = ctx.item.separator ? -1 : 1);
-
-			attr(div1, "class", div1_class_value = ctx.item.separator
-			? "dropdown-divider js-separator"
-			: "js-item  dropdown-item");
-
+			attr(div0, "class", "ki-no-click svelte-1k67s1s");
+			attr(div1, "tabindex", "1");
+			attr(div1, "class", "ki-js-item dropdown-item");
 			attr(div1, "data-index", div1_data_index_value = ctx.index);
 
 			dispose = [
@@ -542,23 +463,13 @@ function create_else_block(ctx) {
 				if (if_block) {
 					if_block.p(changed, ctx);
 				} else {
-					if_block = create_if_block_5(ctx);
+					if_block = create_if_block_8(ctx);
 					if_block.c();
 					if_block.m(div1, t2);
 				}
 			} else if (if_block) {
 				if_block.d(1);
 				if_block = null;
-			}
-
-			if (changed.entries && div1_tabindex_value !== (div1_tabindex_value = ctx.item.separator ? -1 : 1)) {
-				attr(div1, "tabindex", div1_tabindex_value);
-			}
-
-			if (changed.entries && div1_class_value !== (div1_class_value = ctx.item.separator
-			? "dropdown-divider js-separator"
-			: "js-item  dropdown-item")) {
-				attr(div1, "class", div1_class_value);
 			}
 		},
 		d(detaching) {
@@ -569,15 +480,16 @@ function create_else_block(ctx) {
 	};
 }
 
-// (573:32) 
-function create_if_block_3(ctx) {
+// (609:52) 
+function create_if_block_6(ctx) {
 	let div1;
 	let div0;
 	let t0_value = (ctx.item.display_text || ctx.item.text) + "";
 	let t0;
 	let t1;
 	let t2;
-	let if_block = ctx.item.desc && create_if_block_4(ctx);
+	let dispose;
+	let if_block = ctx.item.desc && create_if_block_7(ctx);
 
 	return {
 		c() {
@@ -587,9 +499,10 @@ function create_if_block_3(ctx) {
 			t1 = space();
 			if (if_block) if_block.c();
 			t2 = space();
-			attr(div0, "class", "no-click svelte-2ap05h");
+			attr(div0, "class", "ki-no-click svelte-1k67s1s");
 			attr(div1, "tabindex", "-1");
-			attr(div1, "class", "dropdown-divider js-separator");
+			attr(div1, "class", "dropdown-item text-muted ki-js-blank");
+			dispose = listen(div1, "keydown", ctx.handleItemKeydown);
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -606,7 +519,7 @@ function create_if_block_3(ctx) {
 				if (if_block) {
 					if_block.p(changed, ctx);
 				} else {
-					if_block = create_if_block_4(ctx);
+					if_block = create_if_block_7(ctx);
 					if_block.c();
 					if_block.m(div1, t2);
 				}
@@ -618,19 +531,24 @@ function create_if_block_3(ctx) {
 		d(detaching) {
 			if (detaching) detach(div1);
 			if (if_block) if_block.d();
+			dispose();
 		}
 	};
 }
 
-// (571:8) {#if item.separator}
-function create_if_block_2(ctx) {
+// (603:8) {#if item.separator}
+function create_if_block_5(ctx) {
 	let div;
+	let div_data_index_value;
+	let dispose;
 
 	return {
 		c() {
 			div = element("div");
 			attr(div, "tabindex", "-1");
-			attr(div, "class", "dropdown-divider js-separator");
+			attr(div, "class", "dropdown-divider ki-js-blank");
+			attr(div, "data-index", div_data_index_value = ctx.index);
+			dispose = listen(div, "keydown", ctx.handleItemKeydown);
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -638,12 +556,13 @@ function create_if_block_2(ctx) {
 		p: noop,
 		d(detaching) {
 			if (detaching) detach(div);
+			dispose();
 		}
 	};
 }
 
-// (594:12) {#if item.desc}
-function create_if_block_5(ctx) {
+// (631:12) {#if item.desc}
+function create_if_block_8(ctx) {
 	let div;
 	let t_value = ctx.item.desc + "";
 	let t;
@@ -652,7 +571,7 @@ function create_if_block_5(ctx) {
 		c() {
 			div = element("div");
 			t = text(t_value);
-			attr(div, "class", "no-click text-muted svelte-2ap05h");
+			attr(div, "class", "ki-no-click text-muted svelte-1k67s1s");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -667,8 +586,8 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (578:12) {#if item.desc}
-function create_if_block_4(ctx) {
+// (615:12) {#if item.desc}
+function create_if_block_7(ctx) {
 	let div;
 	let t_value = ctx.item.desc + "";
 	let t;
@@ -677,7 +596,7 @@ function create_if_block_4(ctx) {
 		c() {
 			div = element("div");
 			t = text(t_value);
-			attr(div, "class", "no-click text-muted svelte-2ap05h");
+			attr(div, "class", "ki-no-click text-muted svelte-1k67s1s");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -692,14 +611,14 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (570:6) {#each entries as item, index}
+// (602:6) {#each entries as item, index}
 function create_each_block(ctx) {
 	let if_block_anchor;
 
 	function select_block_type_2(changed, ctx) {
-		if (ctx.item.separator) return create_if_block_2;
-		if (ctx.item.disabled) return create_if_block_3;
-		return create_else_block;
+		if (ctx.item.separator) return create_if_block_5;
+		if (ctx.item.disabled || ctx.item.placeholder) return create_if_block_6;
+		return create_else_block_2;
 	}
 
 	let current_block_type = select_block_type_2(null, ctx);
@@ -734,7 +653,45 @@ function create_each_block(ctx) {
 	};
 }
 
-// (604:4) {#if hasMore}
+// (597:8) {:else}
+function create_else_block(ctx) {
+	let t_value = ctx.translate("no_results") + "";
+	let t;
+
+	return {
+		c() {
+			t = text(t_value);
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (595:8) {#if tooShort }
+function create_if_block_4(ctx) {
+	let t_value = ctx.translate("too_short") + "";
+	let t;
+
+	return {
+		c() {
+			t = text(t_value);
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (641:4) {#if hasMore}
 function create_if_block(ctx) {
 	let div;
 
@@ -743,7 +700,7 @@ function create_if_block(ctx) {
 			div = element("div");
 			div.textContent = `${ctx.translate("has_more")}`;
 			attr(div, "tabindex", "-1");
-			attr(div, "class", "js-more dropdown-item text-muted");
+			attr(div, "class", "dropdown-item text-muted");
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -769,20 +726,19 @@ function create_fragment(ctx) {
 	let t1;
 	let div1;
 	let t2;
-	let t3;
 	let div1_class_value;
 	let dispose;
 
 	function select_block_type(changed, ctx) {
-		if (ctx.fetchError) return create_if_block_6;
-		if (ctx.activeFetch) return create_if_block_7;
-		if (ctx.entries.length === 0) return create_if_block_9;
+		if (ctx.fetchError) return create_if_block_1;
+		if (ctx.activeFetch && !ctx.fetchingMore) return create_if_block_2;
+		if (ctx.displayCount === 0) return create_if_block_3;
+		return create_else_block_1;
 	}
 
 	let current_block_type = select_block_type(null, ctx);
-	let if_block0 = current_block_type && current_block_type(ctx);
-	let if_block1 = (!ctx.activeFetch || ctx.fetchingMore) && ctx.entries.length > 0 && create_if_block_1(ctx);
-	let if_block2 = ctx.hasMore && create_if_block(ctx);
+	let if_block0 = current_block_type(ctx);
+	let if_block1 = ctx.hasMore && create_if_block(ctx);
 
 	return {
 		c() {
@@ -794,32 +750,29 @@ function create_fragment(ctx) {
 			button.innerHTML = `<i class="text-dark fas fa-caret-down"></i>`;
 			t1 = space();
 			div1 = element("div");
-			if (if_block0) if_block0.c();
+			if_block0.c();
 			t2 = space();
 			if (if_block1) if_block1.c();
-			t3 = space();
-			if (if_block2) if_block2.c();
-			attr(input_1, "class", input_1_class_value = "js-input " + ctx.real.getAttribute("class") + " svelte-2ap05h");
+			attr(input_1, "class", input_1_class_value = "" + (ctx.real.getAttribute("class") + " " + ctx.extraClass + " svelte-1k67s1s"));
+			attr(input_1, "autocomplete", "new-password");
 			attr(input_1, "autocorrect", "off");
 			attr(input_1, "autocapitalize", "off");
 			attr(input_1, "spellcheck", "off");
 			attr(input_1, "data-target", input_1_data_target_value = ctx.real.id);
 			attr(input_1, "placeholder", input_1_placeholder_value = ctx.real.placeholder);
-			attr(input_1, "autocomplete", "new-password");
 			attr(button, "class", "btn btn-outline-secondary");
 			attr(button, "type", "button");
 			attr(button, "tabindex", "-1");
 			attr(div0, "class", "input-group-append");
-			attr(div1, "class", div1_class_value = "js-popup dropdown-menu typeahead-popup " + (ctx.popupVisible ? "show" : "") + " svelte-2ap05h");
-			attr(div2, "class", "input-group typeahead js-typeahead-container svelte-2ap05h");
+			attr(div1, "class", div1_class_value = "dropdown-menu ki-typeahead-popup " + (ctx.popupVisible ? "show" : "") + " svelte-1k67s1s");
+			attr(div2, "class", "input-group ki-typeahead svelte-1k67s1s");
 
 			dispose = [
 				listen(input_1, "input", ctx.input_1_input_handler),
-				listen(input_1, "click", handleInputClick),
-				listen(input_1, "keyup", ctx.handleInputKeyup),
 				listen(input_1, "blur", ctx.handleBlur),
 				listen(input_1, "keypress", ctx.handleInputKeypress),
 				listen(input_1, "keydown", ctx.handleInputKeydown),
+				listen(input_1, "keyup", ctx.handleInputKeyup),
 				listen(button, "blur", ctx.handleBlur),
 				listen(button, "keydown", ctx.handleToggleKeydown),
 				listen(button, "click", ctx.handleToggleClick),
@@ -837,15 +790,13 @@ function create_fragment(ctx) {
 			ctx.button_binding(button);
 			append(div2, t1);
 			append(div2, div1);
-			if (if_block0) if_block0.m(div1, null);
+			if_block0.m(div1, null);
 			append(div1, t2);
 			if (if_block1) if_block1.m(div1, null);
-			append(div1, t3);
-			if (if_block2) if_block2.m(div1, null);
 			ctx.div1_binding(div1);
 		},
 		p(changed, ctx) {
-			if (changed.real && input_1_class_value !== (input_1_class_value = "js-input " + ctx.real.getAttribute("class") + " svelte-2ap05h")) {
+			if ((changed.real || changed.extraClass) && input_1_class_value !== (input_1_class_value = "" + (ctx.real.getAttribute("class") + " " + ctx.extraClass + " svelte-1k67s1s"))) {
 				attr(input_1, "class", input_1_class_value);
 			}
 
@@ -864,8 +815,8 @@ function create_fragment(ctx) {
 			if (current_block_type === (current_block_type = select_block_type(changed, ctx)) && if_block0) {
 				if_block0.p(changed, ctx);
 			} else {
-				if (if_block0) if_block0.d(1);
-				if_block0 = current_block_type && current_block_type(ctx);
+				if_block0.d(1);
+				if_block0 = current_block_type(ctx);
 
 				if (if_block0) {
 					if_block0.c();
@@ -873,33 +824,20 @@ function create_fragment(ctx) {
 				}
 			}
 
-			if ((!ctx.activeFetch || ctx.fetchingMore) && ctx.entries.length > 0) {
+			if (ctx.hasMore) {
 				if (if_block1) {
 					if_block1.p(changed, ctx);
 				} else {
-					if_block1 = create_if_block_1(ctx);
+					if_block1 = create_if_block(ctx);
 					if_block1.c();
-					if_block1.m(div1, t3);
+					if_block1.m(div1, null);
 				}
 			} else if (if_block1) {
 				if_block1.d(1);
 				if_block1 = null;
 			}
 
-			if (ctx.hasMore) {
-				if (if_block2) {
-					if_block2.p(changed, ctx);
-				} else {
-					if_block2 = create_if_block(ctx);
-					if_block2.c();
-					if_block2.m(div1, null);
-				}
-			} else if (if_block2) {
-				if_block2.d(1);
-				if_block2 = null;
-			}
-
-			if (changed.popupVisible && div1_class_value !== (div1_class_value = "js-popup dropdown-menu typeahead-popup " + (ctx.popupVisible ? "show" : "") + " svelte-2ap05h")) {
+			if (changed.popupVisible && div1_class_value !== (div1_class_value = "dropdown-menu ki-typeahead-popup " + (ctx.popupVisible ? "show" : "") + " svelte-1k67s1s")) {
 				attr(div1, "class", div1_class_value);
 			}
 		},
@@ -909,34 +847,24 @@ function create_fragment(ctx) {
 			if (detaching) detach(div2);
 			ctx.input_1_binding(null);
 			ctx.button_binding(null);
-
-			if (if_block0) {
-				if_block0.d();
-			}
-
+			if_block0.d();
 			if (if_block1) if_block1.d();
-			if (if_block2) if_block2.d();
 			ctx.div1_binding(null);
 			run_all(dispose);
 		}
 	};
 }
 
-function hasModifier(event) {
-	return event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
-}
-
 function nop() {
 	
 }
 
-function handleEvent(code, handlers, event) {
-	let handler = handlers[code] || handlers.base;
-	handler(event);
+function hasModifier(event) {
+	return event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
 }
 
-function handleInputClick(event) {
-	
+function handleEvent(code, handlers, event) {
+	(handlers[code] || handlers.base)(event);
 }
 
 function instance($$self, $$props, $$invalidate) {
@@ -951,27 +879,26 @@ function instance($$self, $$props, $$invalidate) {
 	let { real } = $$props;
 	let { fetcher } = $$props;
 	let { queryMinLen = 1 } = $$props;
-
-	let { onSelected = function () {
-		
-	} } = $$props;
-
 	let { translations = I18N_DEFAULTS } = $$props;
 	let { query } = $$props;
 	let { delay = 250 } = $$props;
+	let { extraClass = "" } = $$props;
+	let input;
+	let toggle;
+	let popup;
+	let more;
 	let entries = [];
+	let offsetCount = 0;
+	let displayCount = 0;
 	let hasMore = false;
 	let tooShort = false;
 	let fetchingMore = false;
 	let fetchError = null;
 	let popupVisible = false;
 	let activeFetch = null;
-	let input;
-	let toggle;
-	let popup;
-	let more;
 	let previousQuery = null;
 	let wasDown = false;
+	
 
 	function fetchEntries(more) {
 		let currentQuery = query.trim();
@@ -988,10 +915,12 @@ function instance($$self, $$props, $$invalidate) {
 		let fetchOffset = 0;
 
 		if (more) {
-			fetchOffset = fetchOffset + entries.length;
+			fetchOffset = offsetCount;
 			$$invalidate("fetchingMore", fetchingMore = true);
 		} else {
 			$$invalidate("entries", entries = []);
+			offsetCount = 0;
+			$$invalidate("displayCount", displayCount = 0);
 			$$invalidate("hasMore", hasMore = false);
 			$$invalidate("fetchingMore", fetchingMore = false);
 		}
@@ -1039,7 +968,8 @@ function instance($$self, $$props, $$invalidate) {
 				}
 
 				$$invalidate("entries", entries = updateEntries);
-				$$invalidate("hasMore", hasMore = info.more && entries.length > 0);
+				updateCounts(entries);
+				$$invalidate("hasMore", hasMore = info.more && offsetCount > 0);
 				$$invalidate("tooShort", tooShort = info.too_short);
 				previousQuery = currentQuery;
 				$$invalidate("activeFetch", activeFetch = null);
@@ -1050,6 +980,8 @@ function instance($$self, $$props, $$invalidate) {
 				console.error(err);
 				$$invalidate("fetchError", fetchError = err);
 				$$invalidate("entries", entries = []);
+				offsetCount = 0;
+				$$invalidate("displayCount", displayCount = 0);
 				$$invalidate("hasMore", hasMore = false);
 				$$invalidate("tooShort", tooShort = false);
 				previousQuery = null;
@@ -1061,6 +993,23 @@ function instance($$self, $$props, $$invalidate) {
 		});
 
 		$$invalidate("activeFetch", activeFetch = currentFetch);
+	}
+
+	function updateCounts(entries) {
+		let off = 0;
+		let disp = 0;
+
+		entries.forEach(function (item) {
+			if (item.separator) ; else if (item.placeholder) {
+				disp += 1;
+			} else {
+				off += 1;
+				disp += 1;
+			}
+		});
+
+		offsetCount = off;
+		$$invalidate("displayCount", displayCount = disp);
 	}
 
 	function cancelFetch() {
@@ -1094,6 +1043,13 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	}
 
+	function updateRealInput(query) {
+		if (real.value !== query) {
+			real.setAttribute("value", query);
+			real.dispatchEvent(new Event("change"));
+		}
+	}
+
 	function selectItem(el) {
 		let item = entries[el.dataset.index];
 
@@ -1112,8 +1068,8 @@ function instance($$self, $$props, $$invalidate) {
 				previousQuery = null;
 			}
 
-			real.setAttribute("value", query);
-			onSelected(item);
+			updateRealInput(query);
+			real.dispatchEvent(new CustomEvent("typeahead-select", { detail: item }));
 		}
 	}
 
@@ -1126,19 +1082,17 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	onMount(function () {
-		$$invalidate("query", query = real.getAttribute("value") || "");
+		$$invalidate("query", query = real.value || "");
 		real.classList.add("d-none");
 
 		real.addEventListener("change", function () {
-			var realValue = real.getAttribute("value");
+			let realValue = real.value;
 
 			if (realValue !== query) {
 				$$invalidate("query", query = realValue);
 			}
 		});
 	});
-
-	
 
 	let inputKeypressHandlers = {
 		base(event) {
@@ -1151,11 +1105,11 @@ function instance($$self, $$props, $$invalidate) {
 		},
 		ArrowDown(event) {
 			let item = popupVisible
-			? popup.querySelectorAll(".js-item")[0]
+			? popup.querySelectorAll(".ki-js-item")[0]
 			: null;
 
 			if (item) {
-				while (item && item.classList.contains("js-separator")) {
+				while (item && item.classList.contains("ki-js-blank")) {
 					item = item.nextElementSibling;
 				}
 
@@ -1226,11 +1180,11 @@ function instance($$self, $$props, $$invalidate) {
 			let next = event.target.nextElementSibling;
 
 			if (next) {
-				while (next && next.classList.contains("js-separator")) {
+				while (next && next.classList.contains("ki-js-blank")) {
 					next = next.nextElementSibling;
 				}
 
-				if (next && !next.classList.contains("js-item")) {
+				if (next && !next.classList.contains("ki-js-item")) {
 					next = null;
 				}
 			}
@@ -1245,11 +1199,11 @@ function instance($$self, $$props, $$invalidate) {
 			let next = event.target.previousElementSibling;
 
 			if (next) {
-				while (next && next.classList.contains("js-separator")) {
+				while (next && next.classList.contains("ki-js-blank")) {
 					next = next.previousElementSibling;
 				}
 
-				if (next && !next.classList.contains("js-item")) {
+				if (next && !next.classList.contains("ki-js-item")) {
 					next = null;
 				}
 			}
@@ -1290,10 +1244,10 @@ function instance($$self, $$props, $$invalidate) {
 			let item = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + 1);
 
 			if (!item) {
-				item = popup.querySelector(".js-item:first-child");
+				item = popup.querySelector(".ki-js-item:first-child");
 			} else {
-				if (!item.classList.contains("js-item")) {
-					item = popup.querySelector(".js-item:first-child");
+				if (!item.classList.contains("ki-js-item")) {
+					item = popup.querySelector(".ki-js-item:first-child");
 				}
 			}
 
@@ -1311,10 +1265,10 @@ function instance($$self, $$props, $$invalidate) {
 			let item = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + h - 10);
 
 			if (!item) {
-				item = popup.querySelector(".js-item:last-child");
+				item = popup.querySelector(".ki-js-item:last-child");
 			} else {
-				if (!item.classList.contains("js-item")) {
-					item = popup.querySelector(".js-item:last-child");
+				if (!item.classList.contains("ki-js-item")) {
+					item = popup.querySelector(".ki-js-item:last-child");
 				}
 			}
 
@@ -1325,7 +1279,7 @@ function instance($$self, $$props, $$invalidate) {
 			event.preventDefault();
 		},
 		Home(event) {
-			let item = popup.querySelector(".js-item:first-child");
+			let item = popup.querySelector(".ki-js-item:first-child");
 
 			if (item) {
 				item.focus();
@@ -1334,7 +1288,7 @@ function instance($$self, $$props, $$invalidate) {
 			event.preventDefault();
 		},
 		End(event) {
-			let item = popup.querySelector(".js-item:last-child");
+			let item = popup.querySelector(".ki-js-item:last-child");
 
 			if (item) {
 				item.focus();
@@ -1386,7 +1340,7 @@ function instance($$self, $$props, $$invalidate) {
 		handleEvent(event.key, itemKeyupHandlers, event);
 	}
 
-	function handleItemClick() {
+	function handleItemClick(event) {
 		if (event.button === 0 && !hasModifier(event)) {
 			selectItem(event.target);
 		}
@@ -1429,15 +1383,15 @@ function instance($$self, $$props, $$invalidate) {
 		if ("real" in $$props) $$invalidate("real", real = $$props.real);
 		if ("fetcher" in $$props) $$invalidate("fetcher", fetcher = $$props.fetcher);
 		if ("queryMinLen" in $$props) $$invalidate("queryMinLen", queryMinLen = $$props.queryMinLen);
-		if ("onSelected" in $$props) $$invalidate("onSelected", onSelected = $$props.onSelected);
 		if ("translations" in $$props) $$invalidate("translations", translations = $$props.translations);
 		if ("query" in $$props) $$invalidate("query", query = $$props.query);
 		if ("delay" in $$props) $$invalidate("delay", delay = $$props.delay);
+		if ("extraClass" in $$props) $$invalidate("extraClass", extraClass = $$props.extraClass);
 	};
 
-	$$self.$$.update = (changed = { real: 1, query: 1 }) => {
-		if (changed.real || changed.query) {
-			 real.setAttribute("value", query);
+	$$self.$$.update = (changed = { query: 1 }) => {
+		if (changed.query) {
+			 updateRealInput(query);
 		}
 	};
 
@@ -1445,21 +1399,22 @@ function instance($$self, $$props, $$invalidate) {
 		real,
 		fetcher,
 		queryMinLen,
-		onSelected,
 		translations,
 		query,
 		delay,
+		extraClass,
+		input,
+		toggle,
+		popup,
+		more,
 		entries,
+		displayCount,
 		hasMore,
 		tooShort,
 		fetchingMore,
 		fetchError,
 		popupVisible,
 		activeFetch,
-		input,
-		toggle,
-		popup,
-		more,
 		translate,
 		handleBlur,
 		handleInputKeypress,
@@ -1482,16 +1437,16 @@ function instance($$self, $$props, $$invalidate) {
 class Typeahead extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document_1.getElementById("svelte-2ap05h-style")) add_css();
+		if (!document_1.getElementById("svelte-1k67s1s-style")) add_css();
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			real: 0,
 			fetcher: 0,
 			queryMinLen: 0,
-			onSelected: 0,
 			translations: 0,
 			query: 0,
-			delay: 0
+			delay: 0,
+			extraClass: 0
 		});
 	}
 }
