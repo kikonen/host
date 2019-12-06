@@ -6,7 +6,7 @@ export class SelectSvelteInit {
   }
 
   setupSelect() {
-    document.querySelectorAll('select').forEach(function(input) {
+    document.querySelectorAll('.js-svelte-select').forEach(function(input) {
       function handleSelect(event) {
         console.log("SELECTED", event.detail);
 

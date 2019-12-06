@@ -8,7 +8,7 @@
         %label{ for: 'sf_select_1' }
           Brand
         %select{ id: 'sf_select_1',
-          class: 'form-control',
+          class: 'js-svelte-select form-control',
           data: { typeahead: true } }
           %option.text-muted{ selected: true, value: '' }
             Select...
@@ -27,7 +27,7 @@
         %label{ for: 'sf_select_2' }
           Style
         %select{ id: 'sf_select_2',
-          class: 'form-control',
+          class: 'js-svelte-select form-control',
           data: { typeahead: true } }
           %option.text-muted{ selected: true, value: '' }
             Optional
@@ -46,7 +46,7 @@
         %label{ for: 'sf_select_3' }
           Style 2
         %select{ id: 'sf_select_3',
-          class: 'form-control',
+          class: 'js-svelte-select form-control',
           multiple: true,
           data: { typeahead: true } }
           %option.text-muted{ selected: true, value: '' }
@@ -76,7 +76,7 @@
         %label{ for: 'sf_select_2' }
           Enabled
         %select{ id: 'sf_enabled',
-          class: 'form-control' }
+          class: 'js-svelte-select form-control' }
           %option{ selected: true, value: 'true' }
             Yes
           %option{ value: 'false' }
@@ -96,3 +96,17 @@
             Foo, bar
           %span
             %i.text-dark.fas.fa-caret-down
+
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label{ for: 'sf_select_5' }
+          Enabled
+        %select{ id: 'sf_select_5',
+          class: 'form-control' }
+          %option{ selected: true, value: 'true' }
+            Yes
+          %option{ value: 'false' }
+            No
+          %option{ value: 'maybe' }
+            Maybe
+          %option{ value: 'fish' }
+            Fish

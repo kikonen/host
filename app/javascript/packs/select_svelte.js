@@ -9,7 +9,7 @@ import Select from '@kikonen/select_svelte/src/select.svelte';
 
 
 function setupSelect() {
-  document.querySelectorAll('select').forEach(function(input) {
+  document.querySelectorAll('.js-svelte-select').forEach(function(input) {
     let ds = input.dataset;
 
     function handleSelect(event) {

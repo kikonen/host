@@ -8,7 +8,7 @@
 //= require jquery/jquery
 //= require jquery-ujs/rails
 //
-//= require eonasdan-bootstrap-datetimepicker/bootstrap-datetimepicker.min
+//= require eonasdan-bootstrap-datetimepicker-4.14.30/bootstrap-datetimepicker.min
 //= require popper.js/popper
 //
 //= require vendor/bootstrap
