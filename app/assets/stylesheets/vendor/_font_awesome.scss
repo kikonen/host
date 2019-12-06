@@ -1,11 +1,11 @@
 // NOTE KI asset-path in bower is setup in properly for rails
-$fa-font-path: "@fortawesome/fontawesome-free-5.11.2";
+$fa-font-path: "@fortawesome/fontawesome-free";
 
-@import "@fortawesome/fontawesome-free-5.11.2/variables";
-@import "@fortawesome/fontawesome-free-5.11.2/mixins";
+@import "@fortawesome/fontawesome-free/variables";
+@import "@fortawesome/fontawesome-free/mixins";
 
 // NOTE KI path must be overridden fully; not just via including new definition in top of it
-@import "@fortawesome/fontawesome-free-5.11.2/regular";
+@import "@fortawesome/fontawesome-free/regular";
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
@@ -15,7 +15,7 @@ $fa-font-path: "@fortawesome/fontawesome-free-5.11.2";
   asset-url('#{$fa-font-path}/fa-regular-400.woff') format('woff');
 }
 
-@import "@fortawesome/fontawesome-free-5.11.2/solid";
+@import "@fortawesome/fontawesome-free/solid";
 @font-face {
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
@@ -25,13 +25,13 @@ $fa-font-path: "@fortawesome/fontawesome-free-5.11.2";
   asset-url('#{$fa-font-path}/fa-solid-900.woff') format('woff');
 }
 
-@import "@fortawesome/fontawesome-free-5.11.2/core";
-@import "@fortawesome/fontawesome-free-5.11.2/larger";
-@import "@fortawesome/fontawesome-free-5.11.2/fixed-width";
-@import "@fortawesome/fontawesome-free-5.11.2/list";
-@import "@fortawesome/fontawesome-free-5.11.2/bordered-pulled";
-@import "@fortawesome/fontawesome-free-5.11.2/animated";
-@import "@fortawesome/fontawesome-free-5.11.2/rotated-flipped";
-@import "@fortawesome/fontawesome-free-5.11.2/stacked";
-@import "@fortawesome/fontawesome-free-5.11.2/icons";
-@import "@fortawesome/fontawesome-free-5.11.2/screen-reader";
+@import "@fortawesome/fontawesome-free/core";
+@import "@fortawesome/fontawesome-free/larger";
+@import "@fortawesome/fontawesome-free/fixed-width";
+@import "@fortawesome/fontawesome-free/list";
+@import "@fortawesome/fontawesome-free/bordered-pulled";
+@import "@fortawesome/fontawesome-free/animated";
+@import "@fortawesome/fontawesome-free/rotated-flipped";
+@import "@fortawesome/fontawesome-free/stacked";
+@import "@fortawesome/fontawesome-free/icons";
+@import "@fortawesome/fontawesome-free/screen-reader";

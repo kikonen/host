@@ -1,4 +1,4 @@
-//= require angular-touch-1.7.9/angular-touch
+//= require angular-touch/angular-touch
 //
 //= require_tree ./gi_paint
 //
