@@ -696,10 +696,10 @@
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.11.2.tgz#8644bc25b19475779a7b7c1fc104bc0a794f4465"
 
-"@kikonen/select_svelte@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.0.2.tgz#3632a7abbc63ddbbd8f9bbb09b33d608d60f045c"
-  integrity sha512-l7hfUW3Hln0oG4weNMtmymD3UI2eB0y+c5/hzIulMNnvs/3DmTrHI7nVjPEa0gXLFTfrQWd8/Rd7b4hXFnJYQg==
+"@kikonen/select_svelte@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.0.3.tgz#0dbc12f1d8cdaf1de4f89e553f95d02c4bf5b718"
+  integrity sha512-UD/eJ6Lxcph2PwE1vGHGhrO0RgpxQez3gLuOjyhvmuo5Mw1UJ4lFV0tyRnOwUpRBGsxjHhKwXoQpE7MxVAkyVw==
   dependencies:
     core-js "^3.4.1"
 
@@ -1830,9 +1830,9 @@ core-js@^3.1.3:
   integrity sha512-lQxb4HScV71YugF/X28LtePZj9AB7WqOpcB+YztYxusvhrgZiQXPmCYfPC5LHsw/+ScEtDbXU3xbqH3CjBRmYA==
 
 core-js@^3.4.1:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.4.tgz#e3d422f8a51adc4cae2bfa04cef26a5ccc046d29"
-  integrity sha512-vKea1DrcLA80Hrfc7AQgfoGvEaByfR5mH08t+zuWOWY94TFBmabdEL56mUbcijvadG9RxsXR2gUUFrfj4/iTcA==
+  version "3.4.7"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.7.tgz#57c35937da80fe494fbc3adcf9cf3dc00eb86b34"
+  integrity sha512-qaPVGw30J1wQ0GR3GvoPqlGf9GZfKKF4kFC7kiHlcsPTqH3txrs9crCp3ZiMAXuSenhz89Jnl4GZs/67S5VOSg==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"

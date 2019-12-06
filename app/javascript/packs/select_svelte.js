@@ -10,6 +10,8 @@ import Select from '@kikonen/select_svelte/src/select.svelte';
 
 function setupSelect() {
   document.querySelectorAll('select').forEach(function(input) {
+    let ds = input.dataset;
+
     function handleSelect(event) {
       console.log("SELECTED", event.detail);
 
@@ -24,12 +26,16 @@ function setupSelect() {
       console.log("CHANGE_VIA_SELECTOR", selectedOption);
 
       let select2 = document.querySelector('#sf_select_2');
-      let option2 = select2.querySelector('option[value="' + selectedOption.value + '"]');
+      let selectedOptions2 = select2.querySelectorAll('option[selected]');
+      console.log(selectedOptions2);
+
+      let styleId = selectedOption.value ? 'style_' + selectedOption.value : '';
+      let option2 = select2.querySelector('option[value="' + styleId + '"]');
       option2.setAttribute('selected', true);
       select2.dispatchEvent(new Event('change'));
     }
 
-    if (input.id == 'sf_select_1') {
+    if (input.id === 'sf_select_1') {
       input.addEventListener('change', handleChange);
     }
     input.addEventListener('select-select', handleSelect);
@@ -37,7 +43,8 @@ function setupSelect() {
     const app = new Select({
       target: input.parentElement,
       props: {
-        real: input
+        real: input,
+        typeahead: ds.typeahead === 'true'
       }
     });
   });

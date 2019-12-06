@@ -8,42 +8,93 @@
     .form-row
       .form-group.col-12.col-sm-6.col-lg-3
         %label{ for: 'sf_select_1' }
-          Quicksearch
+          Brand
         %select{ id: 'sf_select_1',
-          class: 'form-control' }
-          %option.text-muted{ value: '' }
+          class: 'form-control',
+          data: { typeahead: true } }
+          %option.text-muted{ selected: true, value: '' }
             Select...
-          %option{ selected: true, value: 1, data: { desc: 'jippo 1' } }
-            Foo
-          %option{ value: 2, data: { desc: 'jippo 2' } }
-            Aoo
-          %option{ value: 3, data: { desc: 'jippo 3' } }
-            Boo
-          %option{ value: 4, data: { desc: 'jippo 4' } }
-            Coo
-          %option{ value: 5, data: { desc: 'jippo 5' } }
-            Doo
+          %option{ value: 1, data: { desc: 'jippo 1' } }
+            Dickmish
+          %option{ value: 2, data: { desc: 'Shut up!' } }
+            Mashmish
+          %option{ value: 3, data: { desc: 'WE are IT' } }
+            EColish
+          %option{ value: 4, data: { desc: 'Yours truly' } }
+            KamaSura
+          %option{ value: 5, data: { desc: 'Not for everyone' } }
+            Uberline
 
       .form-group.col-12.col-sm-6.col-lg-3
         %label{ for: 'sf_select_2' }
-          Quicksearch
+          Style
         %select{ id: 'sf_select_2',
+          class: 'form-control',
+          data: { typeahead: true } }
+          %option.text-muted{ selected: true, value: '' }
+            Optional
+          %option{ value: 'style_1', data: { desc: 'Smooth' } }
+            Yinky
+          %option{ value: 'style_2', data: { desc: 'squeek, squeek' } }
+            Skueeky
+          %option{ value: 'style_3', data: { desc: 'For brave' } }
+            Bold
+          %option{ value: 'style_4', data: { desc: 'For mantzurian' } }
+            Bald
+          %option{ value: 'style_5', data: { desc: 'Bland' } }
+            Hairy
+
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label{ for: 'sf_select_3' }
+          Style 2
+        %select{ id: 'sf_select_3',
+          class: 'form-control',
+          multiple: true,
+          data: { typeahead: true } }
+          %option.text-muted{ selected: true, value: '' }
+            Optional
+          %option{ value: 'style_1', data: { desc: 'Smooth' } }
+            Yinky
+          %option{ value: 'style_2', data: { desc: 'squeek, squeek' } }
+            Skueeky
+          %option{ value: 'style_3', data: { desc: 'For brave' } }
+            Bold
+          %option{ value: 'style_4', data: { desc: 'For mantzurian' } }
+            Bald
+          %option{ value: 'style_5', data: { desc: 'Bland' } }
+            Hairy 1
+          %option{ value: 'style_6', data: { desc: 'Bland' } }
+            Hairy 2
+          %option{ value: 'style_7', data: { desc: 'Bland' } }
+            Hairy 3
+          %option{ value: 'style_8', data: { desc: 'Bland' } }
+            Hairy 4
+          %option{ value: 'style_9', data: { desc: 'Bland' } }
+            Hairy 5
+          %option{ value: 'style_10', data: { desc: 'Bland' } }
+            Hairy 6
+
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label{ for: 'sf_select_2' }
+          Enabled
+        %select{ id: 'sf_enabled',
           class: 'form-control' }
-          %option.text-muted{ value: '' }
-            Select...
-          %option{ selected: true, value: 1, data: { desc: 'jippo 1' } }
-            Foo
-          %option{ value: 2, data: { desc: 'jippo 2' } }
-            Aoo
-          %option{ value: 3, data: { desc: 'jippo 3' } }
-            Boo
-          %option{ value: 4, data: { desc: 'jippo 4' } }
-            Coo
-          %option{ value: 5, data: { desc: 'jippo 5' } }
-            Doo
+          %option{ selected: true, value: 'true' }
+            Yes
+          %option{ value: 'false' }
+            No
 
     .form-row
       .form-group.col-12.col-sm-6.col-lg-3
         %label
           Zoo
-        %input.form-control{ name: "foo2", id: "foo2" }
+        %input.form-control{ name: "foo2", id: "foo3" }
+
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label
+          Zoo
+        %button.form-control.d-flex{ type: 'button', name: "foo2", id: "foo4" }
+          %span.mr-auto
+            Foo, bar
+          %span
+            %i.text-dark.fas.fa-caret-down

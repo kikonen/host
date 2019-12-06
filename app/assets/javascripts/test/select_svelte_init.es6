@@ -21,7 +21,10 @@ export class SelectSvelteInit {
         console.log("CHANGE_VIA_SELECTOR", selectedOption);
 
         let select2 = document.querySelector('#sf_select_2');
-        let option2 = select2.querySelector('option[value="' + selectedOption.value + '"]');
+        let selectedOptions2 = select2.querySelectorAll('option[selected]');
+        console.log(selectedOptions2);
+
+        let option2 = select2.querySelector('option[value="select_' + selectedOption.value + '"]');
         option2.setAttribute('selected', true);
         select2.dispatchEvent(new Event('change'));
       }
