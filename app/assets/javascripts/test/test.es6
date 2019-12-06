@@ -2,6 +2,7 @@
 import { Example } from 'test/example';
 import { TestController } from 'test/test_controller';
 import { TypeaheadSvelteInit } from 'test/typeahead_svelte_init';
+import { SelectSvelteInit } from 'test/select_svelte_init';
 
 class Test {
   constructor() {
@@ -125,8 +126,12 @@ function initBootstrapMultiSelect() {
   });
 }
 
-function initTypeahead() {
+function initTypeaheadSvelte() {
   new TypeaheadSvelteInit().init();
+}
+
+function initSelectSvelte() {
+  new SelectSvelteInit().init();
 }
 
 export function init() {
@@ -137,5 +142,6 @@ export function init() {
 //  initBootstrapMultiSelect();
   registerNg();
 
-  initTypeahead();
+  initTypeaheadSvelte();
+  initSelectSvelte();
 }

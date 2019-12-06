@@ -159,7 +159,6 @@ function setupTypeahead() {
 
     const app = new Typeahead({
       target: input.parentElement,
-      real: input,
       props: {
         real: input,
         query: input.value,

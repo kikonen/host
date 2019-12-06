@@ -1,6 +1,8 @@
 //
 //= require_tree ./test
+//
 //= require @kikonen/typeahead_svelte/typeahead_svelte
+//= require @kikonen/select_svelte/select_svelte
 //
 //= require_self
 //

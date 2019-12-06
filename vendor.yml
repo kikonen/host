@@ -111,6 +111,12 @@ selectize:
   - dist/*.es6
   - dist/*.css
 
+"@kikonen/select_svelte":
+  yarn: true
+  assets:
+  - dist/*.es6
+  - dist/*.css
+
 # bootstrap-switch:
 #   version: 3.3.2
 #   assets:

@@ -1,0 +1,47 @@
+.tab-pane.fade#select_svelte{ role: "tabpanel", "aria-labelledby": "select_svelte_tab" }
+  %h1
+    Select test with Svelte es5
+
+  %form
+    .form-row
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label{ for: 'sf_select_1' }
+          Quicksearch
+        %select{ id: 'sf_select_1',
+          class: 'form-control' }
+          %option.text-muted{ value: '' }
+            Select...
+          %option{ selected: true, value: 1, data: { desc: 'jippo 1' } }
+            Foo
+          %option{ value: 2, data: { desc: 'jippo 2' } }
+            Aoo
+          %option{ value: 3, data: { desc: 'jippo 3' } }
+            Boo
+          %option{ value: 4, data: { desc: 'jippo 4' } }
+            Coo
+          %option{ value: 5, data: { desc: 'jippo 5' } }
+            Doo
+
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label{ for: 'sf_select_2' }
+          Quicksearch
+        %select{ id: 'sf_select_2',
+          class: 'form-control' }
+          %option.text-muted{ value: '' }
+            Select...
+          %option{ selected: true, value: 1, data: { desc: 'jippo 1' } }
+            Foo
+          %option{ value: 2, data: { desc: 'jippo 2' } }
+            Aoo
+          %option{ value: 3, data: { desc: 'jippo 3' } }
+            Boo
+          %option{ value: 4, data: { desc: 'jippo 4' } }
+            Coo
+          %option{ value: 5, data: { desc: 'jippo 5' } }
+            Doo
+
+    .form-row
+      .form-group.col-12.col-sm-6.col-lg-3
+        %label
+          Zoo
+        %input.form-control{ name: "foo2", id: "foo2" }
