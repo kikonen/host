@@ -1,3 +1,3 @@
 yarn link @kikonen/$1 && \
   rake vendor:all && \
-  rm -fr tmp/cache
+  rm -fr tmp/cache/webpacker
