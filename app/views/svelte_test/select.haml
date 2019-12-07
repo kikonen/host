@@ -11,7 +11,7 @@
           Brand
         %select{ id: 'sf_select_1',
           class: 'js-svelte-select form-control',
-          data: { typeahead: true } }
+          data: { typeahead: 'true' } }
           %option.text-muted{ selected: true, value: '' }
             Select...
           %option{ value: 1, data: { desc: 'jippo 1' } }
@@ -30,7 +30,7 @@
           Style
         %select{ id: 'sf_select_2',
           class: 'js-svelte-select form-control',
-          data: { typeahead: true } }
+          data: { typeahead: 'true' } }
           %option.text-muted{ selected: true, value: '' }
             Optional
           %option{ value: 'style_1', data: { desc: 'Smooth' } }
@@ -50,7 +50,7 @@
         %select{ id: 'sf_select_3',
           class: 'js-svelte-select form-control',
           multiple: true,
-          data: { typeahead: true } }
+          data: { typeahead: 'true' } }
           %option.text-muted{ selected: true, value: '' }
             Optional
           %option{ value: 'style_1', data: { desc: 'Smooth' } }
