@@ -5,7 +5,7 @@
         Brand
       %select{ id: 'sf_select_1',
         class: 'js-svelte-select form-control',
-        data: { typeahead: 'true' } }
+        data: { ki_typeahead: 'true' } }
         %option.text-muted{ selected: true, value: '' }
           Select...
         %option{ value: 1, data: { desc: 'jippo 1' } }
@@ -24,7 +24,7 @@
         Style
       %select{ id: 'sf_select_2',
         class: 'js-svelte-select form-control',
-        data: { typeahead: 'true' } }
+        data: { ki_typeahead: 'true' } }
         %option.text-muted{ selected: true, value: '' }
           Optional
         %option{ value: 'style_1', data: { desc: 'Smooth' } }
@@ -44,7 +44,7 @@
       %select{ id: 'sf_select_3',
         class: 'js-svelte-select form-control',
         multiple: true,
-        data: { typeahead: 'true' } }
+        data: { ki_typeahead: 'true' } }
         %option.text-muted{ selected: true, value: '' }
           Optional
         %option{ value: 'style_1', data: { desc: 'Smooth' } }
@@ -79,6 +79,20 @@
           No
 
   .form-row
+    .form-group.col-12.col-sm-6.col-lg-3
+      %label{ for: 'sf_rest_1' }
+        REST
+      %select{ id: 'sf_rest_1',
+        class: 'js-svelte-select form-control',
+        data: { ki_fetch_url: search_xhr_search_index_path,
+          ki_fetch_limit: 20,
+          ki_fetch_query_min_len: 0,
+          ki_typeahead: 'true' } }
+        %option{ value: '' }
+          Optional
+        %option{ value: 'false' }
+          No
+
     .form-group.col-12.col-sm-6.col-lg-3
       %label
         Zoo

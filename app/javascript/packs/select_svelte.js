@@ -12,6 +12,37 @@ function setupSelect() {
   document.querySelectorAll('.js-svelte-select').forEach(function(input) {
     let ds = input.dataset;
 
+    let fetch_options = {
+      fetch_url: ds.kiFetchUrl,
+      fetch_limit: ds.kiFetchLimit,
+      fetch_query_min_len: parseInt(ds.kiFetchQueryMinLen || 0, 10),
+    };
+
+    function fetcherRest(offset, query, fetchId) {
+      console.log("fetchId=" + fetchId);
+
+      let token = document.head.querySelector('meta[name="csrf-token"]').content;
+      return fetch(
+        fetch_options.fetch_url,
+        { method: 'POST',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHTTPRequest',
+            'X-CSRF-Token': token,
+          }),
+          credentials: 'same-origin',
+          body: JSON.stringify({
+            fetch_offset: offset,
+            fetch_limit: fetch_options.fetch_limit,
+            fetch_query: query,
+            fetch_id: fetchId})
+        }).then(function(xhr) {
+          console.log(xhr);
+          return xhr.json();
+        });
+    }
+
     function handleSelect(event) {
       console.log("SELECTED", event.detail);
 
@@ -45,13 +76,26 @@ function setupSelect() {
     }
 //    input.addEventListener('select-select', handleSelect);
 
+    let fetcher = null;
+    if (fetch_options.fetch_url) {
+      fetcher = fetcherRest;
+    }
+
     const app = new Select({
       target: input.parentElement,
       props: {
         real: input,
-        typeahead: ds.typeahead === 'true'
+        typeahead: ds.kiTypeahead === 'true',
+        fetcher: fetcher,
+        remote: fetcher !== null
       }
     });
+    if (input.id === 'sf_select_1') {
+      app.selectItem(3);
+    }
+    if (false && input.id === 'sf_rest_1') {
+      app.selectItem(1000);
+    }
   });
 }
 
