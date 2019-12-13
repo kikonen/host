@@ -1,4 +1,4 @@
-import Select, {config } from '@kikonen/select_svelte/src/select.svelte';
+import Select, {config } from '@kikonen/select_svelte/select.svelte';
 
 config.trnslations = {
   fetching: 'Etsitään..',
