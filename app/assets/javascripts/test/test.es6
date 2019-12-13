@@ -2,7 +2,7 @@
 import { Example } from 'test/example';
 import { TestController } from 'test/test_controller';
 import { TypeaheadSvelteInit } from 'test/typeahead_svelte_init';
-//import { SelectSvelteInit } from 'test/select_svelte_init';
+import { SelectSvelteInit } from 'test/select_svelte_init';
 
 class Test {
   constructor() {
@@ -143,5 +143,5 @@ export function init() {
   registerNg();
 
   initTypeaheadSvelte();
-//  initSelectSvelte();
+  initSelectSvelte();
 }
