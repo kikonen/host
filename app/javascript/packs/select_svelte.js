@@ -5,7 +5,15 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
-import Select from '@kikonen/select_svelte/src/select.svelte';
+import Select, {config } from '@kikonen/select_svelte/src/select.svelte';
+
+config.trnslations = {
+  fetching: 'Etsitään..',
+  no_results: 'Ei tuloksia',
+  too_short: 'Too short',
+  has_more: 'Lisää...',
+  fetching_more: 'Etsitään lisää...',
+};
 
 
 function setupSelect() {

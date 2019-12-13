@@ -1,4 +1,12 @@
-import Select from '@kikonen/select_svelte/select_svelte';
+import Select, {config } from '@kikonen/select_svelte/src/select.svelte';
+
+config.trnslations = {
+  fetching: 'Etsitään..',
+  no_results: 'Ei tuloksia',
+  too_short: 'Too short',
+  has_more: 'Lisää...',
+  fetching_more: 'Etsitään lisää...',
+};
 
 function setupSelect() {
   document.querySelectorAll('.js-svelte-select').forEach(function(input) {

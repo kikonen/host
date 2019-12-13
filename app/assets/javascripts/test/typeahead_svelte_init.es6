@@ -1,4 +1,4 @@
-import Typeahead from '@kikonen/typeahead_svelte/typeahead_svelte';
+import Typeahead, { config} from '@kikonen/typeahead_svelte/typeahead_svelte';
 
 const TRANSLATIONS = {
   fetching: 'Etsitään..',
@@ -8,6 +8,7 @@ const TRANSLATIONS = {
   fetching_more: 'Etsitään lisää...',
 };
 
+config.translations = TRANSLATIONS;
 
 export class TypeaheadSvelteInit {
   init() {
@@ -156,8 +157,7 @@ export class TypeaheadSvelteInit {
           real: input,
           query: input.getAttribute('value'),
           fetcher: fetcher,
-          queryMinLen: fetch_options.fetch_query_min_len,
-          translations: TRANSLATIONS,
+          queryMinLen: fetch_options.fetch_query_min_len
         }
       });
     });

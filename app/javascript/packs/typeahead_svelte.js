@@ -6,7 +6,15 @@
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
 //import Typeahead from '../components/typeahead.svelte'
-import Typeahead from '@kikonen/typeahead_svelte/src/typeahead.svelte';
+import Typeahead, { config } from '@kikonen/typeahead_svelte/src/typeahead.svelte';
+
+config.translations = {
+  fetching: 'Etsitään..',
+  no_results: 'Ei tuloksia',
+  too_short: 'Too short',
+  has_more: 'Lisää...',
+  fetching_more: 'Etsitään lisää...',
+};
 
 
 function setupTypeahead() {
@@ -145,15 +153,6 @@ function setupTypeahead() {
       fetcher = fetcherRest;
     }
 
-
-    const translations = {
-      fetching: 'Etsitään..',
-      no_results: 'Ei tuloksia',
-      too_short: 'Too short',
-      has_more: 'Lisää...',
-      fetching_more: 'Etsitään lisää...',
-    };
-
     input.addEventListener('change', handleChange);
     input.addEventListener('typeahead-select', handleSelect);
 
@@ -164,7 +163,6 @@ function setupTypeahead() {
         query: input.value,
         fetcher: fetcher,
         queryMinLen: fetch_options.fetch_query_min_len,
-        translations: translations,
         extraClass: 'js-marker-test'
       }
     });
