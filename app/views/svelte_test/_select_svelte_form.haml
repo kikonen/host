@@ -84,6 +84,8 @@
 
   .form-row
     .form-group.col-12.col-sm-6.col-lg-3
+      - selected = SearchController.fake_entries[20]
+
       %label{ for: 'select_rest_1' }
         REST
       %select{ id: 'select_rest_1',
@@ -97,6 +99,9 @@
           Optional
         %option{ value: 'false', data: { select_fixed: true } }
           No
+        %option{ selected: true, value: selected[:id], data: { select_desc: selected[:desc] } }
+          = selected[:text]
+
 
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_foo' }
