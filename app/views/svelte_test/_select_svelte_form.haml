@@ -1,77 +1,81 @@
-%form
+= form_with(url: local_assigns[:submit_url] ? submit_url : '', method: :post, local: true) do
   .form-row
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'sf_select_1' }
+      %label{ for: 'select_1' }
         Brand
-      %select{ id: 'sf_select_1',
+      %select{ id: 'select_1',
+        name: 'select_1',
         class: 'js-svelte-select form-control',
         data: { ki_typeahead: 'true' } }
         %option.text-muted{ selected: true, value: '' }
           Select...
-        %option{ value: 1, data: { desc: 'jippo 1' } }
+        %option{ value: 1, data: { select_desc: 'jippo 1' } }
           Dickmish
-        %option{ value: 2, data: { desc: 'Shut up!' } }
+        %option{ value: 2, data: { select_desc: 'Shut up!' } }
           Mashmish
-        %option{ value: 3, data: { desc: 'WE are IT' } }
+        %option{ value: 3, data: { select_desc: 'WE are IT' } }
           EColish
-        %option{ value: 4, data: { desc: 'Yours truly' } }
+        %option{ value: 4, data: { select_desc: 'Yours truly' } }
           KamaSura
-        %option{ value: 5, data: { desc: 'Not for everyone' } }
+        %option{ value: 5, data: { select_desc: 'Not for everyone' } }
           Uberline
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'sf_select_2' }
+      %label{ for: 'select_2' }
         Style
-      %select{ id: 'sf_select_2',
+      %select{ id: 'select_2',
+        name: 'select_2',
         class: 'js-svelte-select form-control',
         data: { ki_typeahead: 'true' } }
         %option.text-muted{ selected: true, value: '' }
           Optional
-        %option{ value: 'style_1', data: { desc: 'Smooth' } }
+        %option{ value: 'style_1', data: { select_desc: 'Smooth' } }
           Yinky
-        %option{ value: 'style_2', data: { desc: 'squeek, squeek' } }
+        %option{ value: 'style_2', data: { select_desc: 'squeek, squeek' } }
           Skueeky
-        %option{ value: 'style_3', data: { desc: 'For brave' } }
+        %option{ value: 'style_3', data: { select_desc: 'For brave' } }
           Bold
-        %option{ value: 'style_4', data: { desc: 'For mantzurian' } }
+        %option{ value: 'style_4', data: { select_desc: 'For mantzurian' } }
           Bald
-        %option{ value: 'style_5', data: { desc: 'Bland' } }
+        %option{ value: 'style_5', data: { select_desc: 'Bland' } }
           Hairy
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'sf_select_3' }
+      %label{ for: 'select_multi_1' }
         Style 2
-      %select{ id: 'sf_select_3',
+      %select{ id: 'select_multi_1',
+        name: 'select_multi_1[]',
         class: 'js-svelte-select form-control',
         multiple: true,
         data: { ki_typeahead: 'true' } }
         %option.text-muted{ selected: true, value: '' }
           Optional
-        %option{ value: 'style_1', data: { desc: 'Smooth' } }
+        %option{ value: 'style_1', data: { select_desc: 'Smooth' } }
           Yinky
-        %option{ value: 'style_2', data: { desc: 'squeek, squeek' } }
+        %option{ value: 'style_2', data: { select_desc: 'squeek, squeek' } }
           Skueeky
-        %option{ value: 'style_3', data: { desc: 'For brave' } }
+        %option{ value: 'style_3', data: { select_desc: 'For brave' } }
           Bold
-        %option{ value: 'style_4', data: { desc: 'For mantzurian' } }
+        %option{ value: 'style_4', data: { select_desc: 'For mantzurian' } }
           Bald
-        %option{ value: 'style_5', data: { desc: 'Bland' } }
+        %option{ value: 'style_5', data: { select_desc: 'Bland' } }
           Hairy 1
-        %option{ value: 'style_6', data: { desc: 'Bland' } }
+        %option{ value: 'style_6', data: { select_desc: 'Bland' } }
           Hairy 2
-        %option{ value: 'style_7', data: { desc: 'Bland' } }
+        %option{ value: 'style_7', data: { select_desc: 'Bland' } }
           Hairy 3
-        %option{ value: 'style_8', data: { desc: 'Bland' } }
+        %option{ value: 'style_8', data: { select_desc: 'Bland' } }
           Hairy 4
-        %option{ value: 'style_9', data: { desc: 'Bland' } }
+        %option{ value: 'style_9', data: { select_desc: 'Bland' } }
           Hairy 5
-        %option{ value: 'style_10', data: { desc: 'Bland' } }
+        %option{ value: 'style_10', data: { select_desc: 'Bland' } }
           Hairy 6
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'sf_select_2' }
+      %label{ for: 'select_enabled' }
         Enabled
-      %select{ id: 'sf_enabled',
+      %select{ id: 'select_enabled',
+        name: 'select_enabled',
         class: 'js-svelte-select form-control' }
         %option{ selected: true, value: 'true' }
           Yes
@@ -80,37 +84,39 @@
 
   .form-row
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'sf_rest_1' }
+      %label{ for: 'select_rest_1' }
         REST
-      %select{ id: 'sf_rest_1',
+      %select{ id: 'select_rest_1',
+        name: 'select_rest_1',
         class: 'js-svelte-select form-control',
         data: { ki_fetch_url: search_xhr_search_index_path,
           ki_fetch_limit: 20,
           ki_fetch_query_min_len: 0,
           ki_typeahead: 'true' } }
-        %option{ value: '' }
+        %option{ value: '', data: { select_fixed: true } }
           Optional
-        %option{ value: 'false' }
+        %option{ value: 'false', data: { select_fixed: true } }
           No
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label
+      %label{ for: 'select_foo' }
         Zoo
-      %input.form-control{ name: "foo2", id: "foo3" }
+      %input.form-control{ id: 'select_foo', name: "select_foo" }
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label
+      %label{ for: 'select_foo_2' }
         Zoo
-      %button.form-control.d-flex{ type: 'button', name: "foo2", id: "foo4" }
+      %button.form-control.d-flex{ type: 'button', id: "select_foo_2", name: 'select_foo_2' }
         %span.mr-auto
           Foo, bar
         %span
           %i.text-dark.fas.fa-caret-down
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'sf_select_5' }
+      %label{ for: 'select_system' }
         Enabled
-      %select{ id: 'sf_select_5',
+      %select{ id: 'select_system',
+        name: 'select_system',
         class: 'form-control' }
         %option{ selected: true, value: 'true' }
           Yes
@@ -120,3 +126,12 @@
           Maybe
         %option{ value: 'fish' }
           Fish
+
+  - if local_assigns[:submit_url]
+    %button.btn.btn-primary
+      Submit
+
+- if local_assigns[:submit_url]
+  %hr
+  %pre
+    = Oj.dump(params.permit!.to_h, indent: 2, mode: :compat)

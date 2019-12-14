@@ -7,7 +7,7 @@
 
 import Select, {config } from '@kikonen/select_svelte/src/select.svelte';
 
-config.trnslations = {
+config.translations = {
   fetching: 'Etsitään..',
   no_results: 'Ei tuloksia',
   too_short: 'Too short',

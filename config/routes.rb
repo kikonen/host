@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get :hello
       get :typeahead
       get :select
+      post :select, as: :post_select
     end
   end
 
