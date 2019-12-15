@@ -61,6 +61,11 @@ function setupSelect() {
     function handleChange(event) {
       console.log("CHANGE", event);
 
+      let check = document.querySelector('#select_brand_sync');
+      if (!check || !check.checked) {
+        return;
+      }
+
       let selection = {};
       let selectedOptions = input.selectedOptions;
       for (let i = selectedOptions.length - 1; i >= 0; i--) {
@@ -69,7 +74,7 @@ function setupSelect() {
         selection[styleId] = true;
       }
 
-      let target = document.querySelector('#sf_select_2');
+      let target = document.querySelector('#select_style');
       let targetOptions = target.options;
       for (let i = targetOptions.length - 1; i >= 0; i--) {
         let el = targetOptions[i];
@@ -79,7 +84,7 @@ function setupSelect() {
       target.dispatchEvent(new Event('change'));
     }
 
-    if (input.id === 'sf_select_1') {
+    if (input.id === 'select_brand') {
       input.addEventListener('change', handleChange);
     }
 //    input.addEventListener('select-select', handleSelect);
@@ -98,10 +103,10 @@ function setupSelect() {
         remote: fetcher !== null
       }
     });
-    if (input.id === 'sf_select_1') {
+    if (input.id === 'select_brand') {
       app.selectItem(3);
     }
-    if (false && input.id === 'sf_rest_1') {
+    if (false && input.id === 'select_rest_1') {
       app.selectItem(1000);
     }
   });
