@@ -9,6 +9,7 @@ class SearchController < ::RestController
     query = fetch_query.upcase.strip
 
 #    ap params.permit!
+#    sleep 2
 
     if fetch_id > 0
       matcher = ->(item) {
