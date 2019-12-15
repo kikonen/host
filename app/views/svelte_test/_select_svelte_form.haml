@@ -3,22 +3,26 @@
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_1' }
         Brand
-      %select{ id: 'select_1',
-        name: 'select_1',
-        class: 'js-svelte-select form-control',
-        data: { ki_typeahead: 'true' } }
-        %option.text-muted{ selected: true, value: '' }
-          Select...
-        %option{ value: 1, data: { select_desc: 'jippo 1' } }
-          Dickmish
-        %option{ value: 2, data: { select_desc: 'Shut up!' } }
-          Mashmish
-        %option{ value: 3, data: { select_desc: 'WE are IT' } }
-          EColish
-        %option{ value: 4, data: { select_desc: 'Yours truly' } }
-          KamaSura
-        %option{ value: 5, data: { select_desc: 'Not for everyone' } }
-          Uberline
+      .input-group
+        .input-group-prepend
+          .input-group-text
+            %input{ type: "checkbox" }
+        %select{ id: 'select_1',
+          name: 'select_1',
+          class: 'js-svelte-select form-control',
+          data: { ki_typeahead: 'true' } }
+          %option.text-muted{ selected: true, value: '' }
+            Select...
+          %option{ value: 1, data: { select_desc: 'jippo 1' } }
+            Dickmish
+          %option{ value: 2, data: { select_desc: 'Shut up!' } }
+            Mashmish
+          %option{ value: 3, data: { select_desc: 'WE are IT' } }
+            EColish
+          %option{ value: 4, data: { select_desc: 'Yours truly' } }
+            KamaSura
+          %option{ value: 5, data: { select_desc: 'Not for everyone' } }
+            Uberline
 
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_2' }
