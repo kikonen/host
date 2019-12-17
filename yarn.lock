@@ -704,10 +704,10 @@
   dependencies:
     core-js "^3.4.1"
 
-"@kikonen/typeahead_svelte@^0.1.4":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.1.5.tgz#bfa856a8315b09ce0e3e29f74afedbf5a343a08e"
-  integrity sha512-ImQ7G0zTB3bxXzdju1xcpv2RIvQUjrF+OvjCPR8JayhEYBPM8QoqHoj4IOUlA/wL6aOeD5fO3uJd1QFKphSEow==
+"@kikonen/typeahead_svelte@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.2.0.tgz#b61453a5bc7b4750670c7397665c58a51c0eaa50"
+  integrity sha512-kV0ZZrtGi6K0hsjj0/IyFiofcIeNAROsG5X5DRjOqnRdCZN+bo5yFoL+OHt3tC2huLgkUofYxXWObnnw5vfJ7A==
 
 "@rails/webpacker@^4.0.7":
   version "4.2.2"

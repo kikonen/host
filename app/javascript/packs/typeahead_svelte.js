@@ -18,7 +18,7 @@ config.translations = {
 
 
 function setupTypeahead() {
-  let entries = [
+  let items = [
     {
       text: 'local',
       desc: 'hippo',
@@ -90,12 +90,12 @@ function setupTypeahead() {
       let promise = new Promise(function(resolve, reject) {
         let queryStr = query.toUpperCase().trim();
         setTimeout(function() {
-          let fetched = entries.filter(function(item) {
+          let fetched = items.filter(function(item) {
             return item.separator || item.placeholder || item.disabled || item == '' || item.text.toUpperCase().includes(queryStr);
           });
 
           resolve({
-            entries: JSON.parse(JSON.stringify(fetched)),
+            items: JSON.parse(JSON.stringify(fetched)),
             more: true,
           });
         }, 500);

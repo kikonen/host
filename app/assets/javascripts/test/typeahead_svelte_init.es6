@@ -16,7 +16,7 @@ export class TypeaheadSvelteInit {
   }
 
   setupTypeahead() {
-  let entries = [
+  let items = [
     {
       text: 'local',
       desc: 'hippo',
@@ -87,12 +87,12 @@ export class TypeaheadSvelteInit {
         let promise = new Promise(function(resolve, reject) {
           let queryStr = query.toUpperCase().trim();
           setTimeout(function() {
-            let fetched = entries.filter(function(item) {
+            let fetched = items.filter(function(item) {
               return item.separator || item.disabled || item == '' || item.text.toUpperCase().includes(queryStr);
             });
 
             resolve({
-              entries: JSON.parse(JSON.stringify(fetched)),
+              items: JSON.parse(JSON.stringify(fetched)),
               more: true,
             });
           }, 500);
