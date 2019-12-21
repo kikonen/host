@@ -334,287 +334,37 @@ const { document: document_1 } = globals;
 
 function add_css() {
 	var style = element("style");
-	style.id = "svelte-1dukacc-style";
-	style.textContent = ".ss-container{position:relative}.ss-selection{width:100%;height:100%}.ss-selected-item{white-space:nowrap;overflow:hidden;word-break:break-all;text-overflow:ellipsis}.ss-popup{padding-top:0;max-height:50vh;max-width:90vw;overflow-y:auto}.ss-item{padding-left:0.5rem;padding-right:0.5rem}.ss-no-click{pointer-events:none}";
+	style.id = "svelte-pb1fqv-style";
+	style.textContent = ".ss-container{position:relative}.ss-selection{width:100%;height:100%}.ss-selected-item{white-space:nowrap;overflow:hidden;word-break:break-all;text-overflow:ellipsis}.ss-popup{padding-top:0;max-height:50vh;max-width:90vw;overflow-y:auto}.ss-input{width:100%;position:sticky;top:0}.ss-item{padding-left:0.5rem;padding-right:0.5rem}.ss-no-click{pointer-events:none}";
 	append(document_1.head, style);
 }
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[83] = list[i];
+	child_ctx[74] = list[i];
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[83] = list[i];
-	child_ctx[87] = i;
-	return child_ctx;
-}
-
-function get_each_context_3(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[83] = list[i];
-	child_ctx[87] = i;
+	child_ctx[74] = list[i];
+	child_ctx[78] = i;
 	return child_ctx;
 }
 
 function get_each_context_2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[83] = list[i];
-	child_ctx[87] = i;
+	child_ctx[74] = list[i];
+	child_ctx[78] = i;
 	return child_ctx;
 }
 
-// (1189:2) {:else}
-function create_else_block_4(ctx) {
-	let button;
-	let span1;
-	let each_blocks = [];
-	let each_1_lookup = new Map();
-	let t;
-	let span0;
-	let i;
-	let i_class_value;
-	let dispose;
-	let each_value_3 = /*selectionItems*/ ctx[14];
-	const get_key = ctx => /*item*/ ctx[83].id;
-
-	for (let i = 0; i < each_value_3.length; i += 1) {
-		let child_ctx = get_each_context_3(ctx, each_value_3, i);
-		let key = get_key(child_ctx);
-		each_1_lookup.set(key, each_blocks[i] = create_each_block_3(key, child_ctx));
-	}
-
-	return {
-		c() {
-			button = element("button");
-			span1 = element("span");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t = space();
-			span0 = element("span");
-			i = element("i");
-			attr(i, "class", i_class_value = "text-dark " + (/*showFetching*/ ctx[15] ? CARET_FETCHING : CARET_DOWN));
-			attr(span0, "class", "ml-auto");
-			attr(span1, "class", "ss-no-click ss-selection text-dark d-flex");
-			attr(button, "class", "form-control d-flex");
-			attr(button, "type", "button");
-			attr(button, "tabindex", "0");
-
-			dispose = [
-				listen(button, "blur", /*handleBlur*/ ctx[22]),
-				listen(button, "keydown", /*handleToggleKeydown*/ ctx[29]),
-				listen(button, "click", /*handleToggleClick*/ ctx[30])
-			];
-		},
-		m(target, anchor) {
-			insert(target, button, anchor);
-			append(button, span1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(span1, null);
-			}
-
-			append(span1, t);
-			append(span1, span0);
-			append(span0, i);
-			/*button_binding_1*/ ctx[79](button);
-		},
-		p(ctx, dirty) {
-			const each_value_3 = /*selectionItems*/ ctx[14];
-			each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_3, each_1_lookup, span1, destroy_block, create_each_block_3, t, get_each_context_3);
-
-			if (dirty[0] & /*showFetching*/ 32768 && i_class_value !== (i_class_value = "text-dark " + (/*showFetching*/ ctx[15] ? CARET_FETCHING : CARET_DOWN))) {
-				attr(i, "class", i_class_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(button);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].d();
-			}
-
-			/*button_binding_1*/ ctx[79](null);
-			run_all(dispose);
-		}
-	};
-}
-
-// (1147:2) {#if typeahead}
-function create_if_block_18(ctx) {
-	let div2;
-	let input;
-	let input_class_value;
-	let t0;
-	let div0;
-	let span;
-	let each_blocks = [];
-	let each_1_lookup = new Map();
-	let div0_class_value;
-	let t1;
-	let div1;
-	let button;
-	let i;
-	let i_class_value;
-	let dispose;
-	let each_value_2 = /*selectionItems*/ ctx[14];
-	const get_key = ctx => /*item*/ ctx[83].id;
-
-	for (let i = 0; i < each_value_2.length; i += 1) {
-		let child_ctx = get_each_context_2(ctx, each_value_2, i);
-		let key = get_key(child_ctx);
-		each_1_lookup.set(key, each_blocks[i] = create_each_block_2(key, child_ctx));
-	}
-
-	return {
-		c() {
-			div2 = element("div");
-			input = element("input");
-			t0 = space();
-			div0 = element("div");
-			span = element("span");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t1 = space();
-			div1 = element("div");
-			button = element("button");
-			i = element("i");
-			attr(input, "class", input_class_value = "ss-input form-control " + (/*inputVisible*/ ctx[18] ? "" : "d-none"));
-			attr(input, "autocomplete", "new-password");
-			attr(input, "autocorrect", "off");
-			attr(input, "autocapitalize", "off");
-			attr(input, "spellcheck", "off");
-			attr(span, "class", "ss-no-click ss-selection text-dark d-flex");
-			attr(div0, "class", div0_class_value = "form-control " + (/*inputVisible*/ ctx[18] ? "d-none" : ""));
-			attr(div0, "tabindex", "0");
-			attr(i, "class", i_class_value = "text-dark " + (/*showFetching*/ ctx[15] ? CARET_FETCHING : CARET_DOWN));
-			attr(button, "class", "btn btn-outline-secondary");
-			attr(button, "type", "button");
-			attr(button, "tabindex", "-1");
-			attr(div1, "class", "input-group-append");
-			attr(div2, "class", "input-group");
-
-			dispose = [
-				listen(input, "input", /*input_input_handler*/ ctx[75]),
-				listen(input, "blur", /*handleInputBlur*/ ctx[23]),
-				listen(input, "keypress", /*handleInputKeypress*/ ctx[24]),
-				listen(input, "keydown", /*handleInputKeydown*/ ctx[25]),
-				listen(input, "keyup", /*handleInputKeyup*/ ctx[26]),
-				listen(div0, "blur", /*handleBlur*/ ctx[22]),
-				listen(div0, "keydown", /*handleSelectionKeydown*/ ctx[27]),
-				listen(div0, "click", /*handleSelectionClick*/ ctx[28]),
-				listen(button, "blur", /*handleBlur*/ ctx[22]),
-				listen(button, "keydown", /*handleToggleKeydown*/ ctx[29]),
-				listen(button, "click", /*handleToggleClick*/ ctx[30])
-			];
-		},
-		m(target, anchor) {
-			insert(target, div2, anchor);
-			append(div2, input);
-			set_input_value(input, /*query*/ ctx[8]);
-			/*input_binding*/ ctx[76](input);
-			append(div2, t0);
-			append(div2, div0);
-			append(div0, span);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].m(span, null);
-			}
-
-			/*div0_binding*/ ctx[77](div0);
-			append(div2, t1);
-			append(div2, div1);
-			append(div1, button);
-			append(button, i);
-			/*button_binding*/ ctx[78](button);
-		},
-		p(ctx, dirty) {
-			if (dirty[0] & /*inputVisible*/ 262144 && input_class_value !== (input_class_value = "ss-input form-control " + (/*inputVisible*/ ctx[18] ? "" : "d-none"))) {
-				attr(input, "class", input_class_value);
-			}
-
-			if (dirty[0] & /*query*/ 256 && input.value !== /*query*/ ctx[8]) {
-				set_input_value(input, /*query*/ ctx[8]);
-			}
-
-			const each_value_2 = /*selectionItems*/ ctx[14];
-			each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_2, each_1_lookup, span, destroy_block, create_each_block_2, null, get_each_context_2);
-
-			if (dirty[0] & /*inputVisible*/ 262144 && div0_class_value !== (div0_class_value = "form-control " + (/*inputVisible*/ ctx[18] ? "d-none" : ""))) {
-				attr(div0, "class", div0_class_value);
-			}
-
-			if (dirty[0] & /*showFetching*/ 32768 && i_class_value !== (i_class_value = "text-dark " + (/*showFetching*/ ctx[15] ? CARET_FETCHING : CARET_DOWN))) {
-				attr(i, "class", i_class_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(div2);
-			/*input_binding*/ ctx[76](null);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].d();
-			}
-
-			/*div0_binding*/ ctx[77](null);
-			/*button_binding*/ ctx[78](null);
-			run_all(dispose);
-		}
-	};
-}
-
-// (1199:8) {#each selectionItems as item, index (item.id)}
-function create_each_block_3(key_1, ctx) {
-	let span;
-	let t0_value = (/*index*/ ctx[87] > 0 ? ", " : "") + "";
-	let t0;
-	let t1_value = /*item*/ ctx[83].text + "";
-	let t1;
-	let span_class_value;
-
-	return {
-		key: key_1,
-		first: null,
-		c() {
-			span = element("span");
-			t0 = text(t0_value);
-			t1 = text(t1_value);
-			attr(span, "class", span_class_value = "ss-no-click ss-selected-item " + /*item*/ ctx[83].itemClass + " " + (/*item*/ ctx[83].id ? "" : "text-muted"));
-			this.first = span;
-		},
-		m(target, anchor) {
-			insert(target, span, anchor);
-			append(span, t0);
-			append(span, t1);
-		},
-		p(ctx, dirty) {
-			if (dirty[0] & /*selectionItems*/ 16384 && t0_value !== (t0_value = (/*index*/ ctx[87] > 0 ? ", " : "") + "")) set_data(t0, t0_value);
-			if (dirty[0] & /*selectionItems*/ 16384 && t1_value !== (t1_value = /*item*/ ctx[83].text + "")) set_data(t1, t1_value);
-
-			if (dirty[0] & /*selectionItems*/ 16384 && span_class_value !== (span_class_value = "ss-no-click ss-selected-item " + /*item*/ ctx[83].itemClass + " " + (/*item*/ ctx[83].id ? "" : "text-muted"))) {
-				attr(span, "class", span_class_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(span);
-		}
-	};
-}
-
-// (1170:10) {#each selectionItems as item, index (item.id)}
+// (1061:6) {#each selectionItems as item, index (item.id)}
 function create_each_block_2(key_1, ctx) {
 	let span;
-	let t0_value = (/*index*/ ctx[87] > 0 ? ", " : "") + "";
+	let t0_value = (/*index*/ ctx[78] > 0 ? ", " : "") + "";
 	let t0;
-	let t1_value = /*item*/ ctx[83].text + "";
+	let t1_value = /*item*/ ctx[74].text + "";
 	let t1;
 	let span_class_value;
 
@@ -625,7 +375,7 @@ function create_each_block_2(key_1, ctx) {
 			span = element("span");
 			t0 = text(t0_value);
 			t1 = text(t1_value);
-			attr(span, "class", span_class_value = "ss-no-click ss-selected-item " + /*item*/ ctx[83].itemClass + " " + (/*item*/ ctx[83].id ? "" : "text-muted"));
+			attr(span, "class", span_class_value = "ss-no-click ss-selected-item " + /*item*/ ctx[74].itemClass + " " + (/*item*/ ctx[74].id ? "" : "text-muted"));
 			this.first = span;
 		},
 		m(target, anchor) {
@@ -634,10 +384,10 @@ function create_each_block_2(key_1, ctx) {
 			append(span, t1);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*selectionItems*/ 16384 && t0_value !== (t0_value = (/*index*/ ctx[87] > 0 ? ", " : "") + "")) set_data(t0, t0_value);
-			if (dirty[0] & /*selectionItems*/ 16384 && t1_value !== (t1_value = /*item*/ ctx[83].text + "")) set_data(t1, t1_value);
+			if (dirty[0] & /*selectionItems*/ 8192 && t0_value !== (t0_value = (/*index*/ ctx[78] > 0 ? ", " : "") + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*selectionItems*/ 8192 && t1_value !== (t1_value = /*item*/ ctx[74].text + "")) set_data(t1, t1_value);
 
-			if (dirty[0] & /*selectionItems*/ 16384 && span_class_value !== (span_class_value = "ss-no-click ss-selected-item " + /*item*/ ctx[83].itemClass + " " + (/*item*/ ctx[83].id ? "" : "text-muted"))) {
+			if (dirty[0] & /*selectionItems*/ 8192 && span_class_value !== (span_class_value = "ss-no-click ss-selected-item " + /*item*/ ctx[74].itemClass + " " + (/*item*/ ctx[74].id ? "" : "text-muted"))) {
 				attr(span, "class", span_class_value);
 			}
 		},
@@ -647,20 +397,15 @@ function create_each_block_2(key_1, ctx) {
 	};
 }
 
-// (1217:43) 
+// (1073:4) {#if fetchError}
 function create_if_block_17(ctx) {
-	return { c: noop, m: noop, p: noop, d: noop };
-}
-
-// (1212:4) {#if fetchError}
-function create_if_block_16(ctx) {
 	let div;
 	let t;
 
 	return {
 		c() {
 			div = element("div");
-			t = text(/*fetchError*/ ctx[17]);
+			t = text(/*fetchError*/ ctx[16]);
 			attr(div, "tabindex", "-1");
 			attr(div, "class", "dropdown-item text-danger ss-item");
 		},
@@ -669,7 +414,7 @@ function create_if_block_16(ctx) {
 			append(div, t);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*fetchError*/ 131072) set_data(t, /*fetchError*/ ctx[17]);
+			if (dirty[0] & /*fetchError*/ 65536) set_data(t, /*fetchError*/ ctx[16]);
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -677,15 +422,17 @@ function create_if_block_16(ctx) {
 	};
 }
 
-// (1225:4) {#if typeahead}
+// (1079:4) {#if typeahead}
 function create_if_block_10(ctx) {
+	let input;
+	let t0;
 	let each_blocks = [];
 	let each_1_lookup = new Map();
-	let t;
-	let div;
+	let t1;
+	let if_block_anchor;
 	let dispose;
-	let each_value_1 = /*selectionItems*/ ctx[14];
-	const get_key = ctx => /*item*/ ctx[83].id;
+	let each_value_1 = /*selectionDropdownItems*/ ctx[14];
+	const get_key = ctx => /*item*/ ctx[74].id;
 
 	for (let i = 0; i < each_value_1.length; i += 1) {
 		let child_ctx = get_each_context_1(ctx, each_value_1, i);
@@ -693,44 +440,89 @@ function create_if_block_10(ctx) {
 		each_1_lookup.set(key, each_blocks[i] = create_each_block_1(key, child_ctx));
 	}
 
+	let if_block = (/*selectionDropdownItems*/ ctx[14].length > 1 || /*selectionDropdownItems*/ ctx[14].length == 1 && /*selectionDropdownItems*/ ctx[14][0].id) && create_if_block_11(ctx);
+
 	return {
 		c() {
+			input = element("input");
+			t0 = space();
+
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			t = space();
-			div = element("div");
-			attr(div, "tabindex", "-1");
-			attr(div, "class", "dropdown-divider ki-js-blank");
-			dispose = listen(div, "keydown", /*handleItemKeydown*/ ctx[31]);
+			t1 = space();
+			if (if_block) if_block.c();
+			if_block_anchor = empty();
+			attr(input, "class", "ss-input ss-item");
+			attr(input, "tabindex", "1");
+			attr(input, "autocomplete", "new-password");
+			attr(input, "autocorrect", "off");
+			attr(input, "autocapitalize", "off");
+			attr(input, "spellcheck", "off");
+
+			dispose = [
+				listen(input, "input", /*input_input_handler*/ ctx[69]),
+				listen(input, "blur", /*handleInputBlur*/ ctx[20]),
+				listen(input, "keypress", /*handleInputKeypress*/ ctx[21]),
+				listen(input, "keydown", /*handleInputKeydown*/ ctx[22]),
+				listen(input, "keyup", /*handleInputKeyup*/ ctx[23])
+			];
 		},
 		m(target, anchor) {
+			insert(target, input, anchor);
+			set_input_value(input, /*query*/ ctx[7]);
+			/*input_binding*/ ctx[70](input);
+			insert(target, t0, anchor);
+
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].m(target, anchor);
 			}
 
-			insert(target, t, anchor);
-			insert(target, div, anchor);
+			insert(target, t1, anchor);
+			if (if_block) if_block.m(target, anchor);
+			insert(target, if_block_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			const each_value_1 = /*selectionItems*/ ctx[14];
-			each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, t.parentNode, destroy_block, create_each_block_1, t, get_each_context_1);
+			if (dirty[0] & /*query*/ 128 && input.value !== /*query*/ ctx[7]) {
+				set_input_value(input, /*query*/ ctx[7]);
+			}
+
+			const each_value_1 = /*selectionDropdownItems*/ ctx[14];
+			each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, t1.parentNode, destroy_block, create_each_block_1, t1, get_each_context_1);
+
+			if (/*selectionDropdownItems*/ ctx[14].length > 1 || /*selectionDropdownItems*/ ctx[14].length == 1 && /*selectionDropdownItems*/ ctx[14][0].id) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block_11(ctx);
+					if_block.c();
+					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
 		},
 		d(detaching) {
+			if (detaching) detach(input);
+			/*input_binding*/ ctx[70](null);
+			if (detaching) detach(t0);
+
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].d(detaching);
 			}
 
-			if (detaching) detach(t);
-			if (detaching) detach(div);
-			dispose();
+			if (detaching) detach(t1);
+			if (if_block) if_block.d(detaching);
+			if (detaching) detach(if_block_anchor);
+			run_all(dispose);
 		}
 	};
 }
 
-// (1227:8) {#if item.id}
-function create_if_block_11(ctx) {
+// (1095:8) {#if item.id}
+function create_if_block_12(ctx) {
 	let div3;
 	let div2;
 	let t0;
@@ -740,16 +532,16 @@ function create_if_block_11(ctx) {
 	let t1;
 	let div3_data_id_value;
 	let dispose;
-	let if_block0 = /*multiple*/ ctx[21] && create_if_block_14(ctx);
+	let if_block0 = /*multiple*/ ctx[18] && create_if_block_15(ctx);
 
-	function select_block_type_2(ctx, dirty) {
-		if (/*item*/ ctx[83].id) return create_if_block_13;
+	function select_block_type(ctx, dirty) {
+		if (/*item*/ ctx[74].id) return create_if_block_14;
 		return create_else_block_3;
 	}
 
-	let current_block_type = select_block_type_2(ctx);
+	let current_block_type = select_block_type(ctx);
 	let if_block1 = current_block_type(ctx);
-	let if_block2 = /*item*/ ctx[83].desc && create_if_block_12(ctx);
+	let if_block2 = /*item*/ ctx[74].desc && create_if_block_13(ctx);
 
 	return {
 		c() {
@@ -762,19 +554,19 @@ function create_if_block_11(ctx) {
 			if_block1.c();
 			t1 = space();
 			if (if_block2) if_block2.c();
-			attr(div0, "class", div0_class_value = "ss-no-click " + /*item*/ ctx[83].itemClass);
+			attr(div0, "class", div0_class_value = "ss-no-click " + /*item*/ ctx[74].itemClass);
 			attr(div1, "class", "d-inline-block");
 			attr(div2, "class", "ss-no-click");
 			attr(div3, "tabindex", "1");
 			attr(div3, "class", "ki-js-item dropdown-item ss-item");
-			attr(div3, "data-id", div3_data_id_value = /*item*/ ctx[83].id);
-			attr(div3, "data-selection", "true");
+			attr(div3, "data-id", div3_data_id_value = /*item*/ ctx[74].id);
+			attr(div3, "data-selected", "true");
 
 			dispose = [
-				listen(div3, "blur", /*handleBlur*/ ctx[22]),
-				listen(div3, "click", /*handleItemClick*/ ctx[33]),
-				listen(div3, "keydown", /*handleItemKeydown*/ ctx[31]),
-				listen(div3, "keyup", /*handleItemKeyup*/ ctx[32])
+				listen(div3, "blur", /*handleBlur*/ ctx[19]),
+				listen(div3, "click", /*handleItemClick*/ ctx[29]),
+				listen(div3, "keydown", /*handleItemKeydown*/ ctx[27]),
+				listen(div3, "keyup", /*handleItemKeyup*/ ctx[28])
 			];
 		},
 		m(target, anchor) {
@@ -789,11 +581,326 @@ function create_if_block_11(ctx) {
 			if (if_block2) if_block2.m(div1, null);
 		},
 		p(ctx, dirty) {
-			if (/*multiple*/ ctx[21]) {
+			if (/*multiple*/ ctx[18]) {
 				if (if_block0) {
 					if_block0.p(ctx, dirty);
 				} else {
-					if_block0 = create_if_block_14(ctx);
+					if_block0 = create_if_block_15(ctx);
+					if_block0.c();
+					if_block0.m(div2, t0);
+				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
+			}
+
+			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block1) {
+				if_block1.p(ctx, dirty);
+			} else {
+				if_block1.d(1);
+				if_block1 = current_block_type(ctx);
+
+				if (if_block1) {
+					if_block1.c();
+					if_block1.m(div0, null);
+				}
+			}
+
+			if (dirty[0] & /*selectionDropdownItems*/ 16384 && div0_class_value !== (div0_class_value = "ss-no-click " + /*item*/ ctx[74].itemClass)) {
+				attr(div0, "class", div0_class_value);
+			}
+
+			if (/*item*/ ctx[74].desc) {
+				if (if_block2) {
+					if_block2.p(ctx, dirty);
+				} else {
+					if_block2 = create_if_block_13(ctx);
+					if_block2.c();
+					if_block2.m(div1, null);
+				}
+			} else if (if_block2) {
+				if_block2.d(1);
+				if_block2 = null;
+			}
+
+			if (dirty[0] & /*selectionDropdownItems*/ 16384 && div3_data_id_value !== (div3_data_id_value = /*item*/ ctx[74].id)) {
+				attr(div3, "data-id", div3_data_id_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div3);
+			if (if_block0) if_block0.d();
+			if_block1.d();
+			if (if_block2) if_block2.d();
+			run_all(dispose);
+		}
+	};
+}
+
+// (1106:14) {#if multiple}
+function create_if_block_15(ctx) {
+	let div;
+	let if_block = /*item*/ ctx[74].id && create_if_block_16(ctx);
+
+	return {
+		c() {
+			div = element("div");
+			if (if_block) if_block.c();
+			attr(div, "class", "d-inline-block align-top");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+			if (if_block) if_block.m(div, null);
+		},
+		p(ctx, dirty) {
+			if (/*item*/ ctx[74].id) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block_16(ctx);
+					if_block.c();
+					if_block.m(div, null);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+			if (if_block) if_block.d();
+		}
+	};
+}
+
+// (1108:18) {#if item.id}
+function create_if_block_16(ctx) {
+	let i;
+	let i_class_value;
+
+	return {
+		c() {
+			i = element("i");
+
+			attr(i, "class", i_class_value = "far " + (/*selectionById*/ ctx[12][/*item*/ ctx[74].id]
+			? "fa-check-square"
+			: "fa-square"));
+		},
+		m(target, anchor) {
+			insert(target, i, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectionById, selectionDropdownItems*/ 20480 && i_class_value !== (i_class_value = "far " + (/*selectionById*/ ctx[12][/*item*/ ctx[74].id]
+			? "fa-check-square"
+			: "fa-square"))) {
+				attr(i, "class", i_class_value);
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(i);
+		}
+	};
+}
+
+// (1118:18) {:else}
+function create_else_block_3(ctx) {
+	let t_value = translate("clear") + "";
+	let t;
+
+	return {
+		c() {
+			t = text(t_value);
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (1116:18) {#if item.id}
+function create_if_block_14(ctx) {
+	let t_value = /*item*/ ctx[74].text + "";
+	let t;
+
+	return {
+		c() {
+			t = text(t_value);
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectionDropdownItems*/ 16384 && t_value !== (t_value = /*item*/ ctx[74].text + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (1123:16) {#if item.desc}
+function create_if_block_13(ctx) {
+	let div;
+	let t_value = /*item*/ ctx[74].desc + "";
+	let t;
+
+	return {
+		c() {
+			div = element("div");
+			t = text(t_value);
+			attr(div, "class", "ss-no-click text-muted");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+			append(div, t);
+		},
+		p(ctx, dirty) {
+			if (dirty[0] & /*selectionDropdownItems*/ 16384 && t_value !== (t_value = /*item*/ ctx[74].desc + "")) set_data(t, t_value);
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+		}
+	};
+}
+
+// (1094:6) {#each selectionDropdownItems as item, index (item.id)}
+function create_each_block_1(key_1, ctx) {
+	let first;
+	let if_block_anchor;
+	let if_block = /*item*/ ctx[74].id && create_if_block_12(ctx);
+
+	return {
+		key: key_1,
+		first: null,
+		c() {
+			first = empty();
+			if (if_block) if_block.c();
+			if_block_anchor = empty();
+			this.first = first;
+		},
+		m(target, anchor) {
+			insert(target, first, anchor);
+			if (if_block) if_block.m(target, anchor);
+			insert(target, if_block_anchor, anchor);
+		},
+		p(ctx, dirty) {
+			if (/*item*/ ctx[74].id) {
+				if (if_block) {
+					if_block.p(ctx, dirty);
+				} else {
+					if_block = create_if_block_12(ctx);
+					if_block.c();
+					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+				}
+			} else if (if_block) {
+				if_block.d(1);
+				if_block = null;
+			}
+		},
+		d(detaching) {
+			if (detaching) detach(first);
+			if (if_block) if_block.d(detaching);
+			if (detaching) detach(if_block_anchor);
+		}
+	};
+}
+
+// (1134:6) {#if selectionDropdownItems.length > 1 || (selectionDropdownItems.length == 1 && selectionDropdownItems[0].id)}
+function create_if_block_11(ctx) {
+	let div;
+	let dispose;
+
+	return {
+		c() {
+			div = element("div");
+			attr(div, "tabindex", "-1");
+			attr(div, "class", "dropdown-divider ki-js-blank");
+			dispose = listen(div, "keydown", /*handleItemKeydown*/ ctx[27]);
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(div);
+			dispose();
+		}
+	};
+}
+
+// (1163:6) {:else}
+function create_else_block_1(ctx) {
+	let div3;
+	let div2;
+	let t0;
+	let div1;
+	let div0;
+	let div0_class_value;
+	let t1;
+	let div3_class_value;
+	let div3_data_id_value;
+	let dispose;
+	let if_block0 = /*multiple*/ ctx[18] && create_if_block_8(ctx);
+
+	function select_block_type_2(ctx, dirty) {
+		if (/*item*/ ctx[74].id) return create_if_block_7;
+		return create_else_block_2;
+	}
+
+	let current_block_type = select_block_type_2(ctx);
+	let if_block1 = current_block_type(ctx);
+	let if_block2 = /*item*/ ctx[74].desc && create_if_block_6(ctx);
+
+	return {
+		c() {
+			div3 = element("div");
+			div2 = element("div");
+			if (if_block0) if_block0.c();
+			t0 = space();
+			div1 = element("div");
+			div0 = element("div");
+			if_block1.c();
+			t1 = space();
+			if (if_block2) if_block2.c();
+			attr(div0, "class", div0_class_value = "ss-no-click " + /*item*/ ctx[74].itemClass);
+			attr(div1, "class", "d-inline-block");
+			attr(div2, "class", "ss-no-click");
+			attr(div3, "tabindex", "1");
+
+			attr(div3, "class", div3_class_value = "ki-js-item dropdown-item ss-item " + (!/*item*/ ctx[74].id ? "text-muted" : "") + " " + (/*selectionById*/ ctx[12][/*item*/ ctx[74].id]
+			? "alert-primary"
+			: ""));
+
+			attr(div3, "data-id", div3_data_id_value = /*item*/ ctx[74].id);
+
+			dispose = [
+				listen(div3, "blur", /*handleBlur*/ ctx[19]),
+				listen(div3, "click", /*handleItemClick*/ ctx[29]),
+				listen(div3, "keydown", /*handleItemKeydown*/ ctx[27]),
+				listen(div3, "keyup", /*handleItemKeyup*/ ctx[28])
+			];
+		},
+		m(target, anchor) {
+			insert(target, div3, anchor);
+			append(div3, div2);
+			if (if_block0) if_block0.m(div2, null);
+			append(div2, t0);
+			append(div2, div1);
+			append(div1, div0);
+			if_block1.m(div0, null);
+			append(div1, t1);
+			if (if_block2) if_block2.m(div1, null);
+		},
+		p(ctx, dirty) {
+			if (/*multiple*/ ctx[18]) {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
+				} else {
+					if_block0 = create_if_block_8(ctx);
 					if_block0.c();
 					if_block0.m(div2, t0);
 				}
@@ -814,290 +921,11 @@ function create_if_block_11(ctx) {
 				}
 			}
 
-			if (dirty[0] & /*selectionItems*/ 16384 && div0_class_value !== (div0_class_value = "ss-no-click " + /*item*/ ctx[83].itemClass)) {
+			if (dirty[0] & /*displayItems*/ 256 && div0_class_value !== (div0_class_value = "ss-no-click " + /*item*/ ctx[74].itemClass)) {
 				attr(div0, "class", div0_class_value);
 			}
 
-			if (/*item*/ ctx[83].desc) {
-				if (if_block2) {
-					if_block2.p(ctx, dirty);
-				} else {
-					if_block2 = create_if_block_12(ctx);
-					if_block2.c();
-					if_block2.m(div1, null);
-				}
-			} else if (if_block2) {
-				if_block2.d(1);
-				if_block2 = null;
-			}
-
-			if (dirty[0] & /*selectionItems*/ 16384 && div3_data_id_value !== (div3_data_id_value = /*item*/ ctx[83].id)) {
-				attr(div3, "data-id", div3_data_id_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(div3);
-			if (if_block0) if_block0.d();
-			if_block1.d();
-			if (if_block2) if_block2.d();
-			run_all(dispose);
-		}
-	};
-}
-
-// (1238:14) {#if multiple}
-function create_if_block_14(ctx) {
-	let div;
-	let if_block = /*item*/ ctx[83].id && create_if_block_15();
-
-	return {
-		c() {
-			div = element("div");
-			if (if_block) if_block.c();
-			attr(div, "class", "d-inline-block align-top");
-		},
-		m(target, anchor) {
-			insert(target, div, anchor);
-			if (if_block) if_block.m(div, null);
-		},
-		p(ctx, dirty) {
-			if (/*item*/ ctx[83].id) {
-				if (!if_block) {
-					if_block = create_if_block_15();
-					if_block.c();
-					if_block.m(div, null);
-				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(div);
-			if (if_block) if_block.d();
-		}
-	};
-}
-
-// (1240:18) {#if item.id}
-function create_if_block_15(ctx) {
-	let i;
-
-	return {
-		c() {
-			i = element("i");
-			attr(i, "class", "far fa-check-square");
-		},
-		m(target, anchor) {
-			insert(target, i, anchor);
-		},
-		d(detaching) {
-			if (detaching) detach(i);
-		}
-	};
-}
-
-// (1250:18) {:else}
-function create_else_block_3(ctx) {
-	let t_value = translate("clear") + "";
-	let t;
-
-	return {
-		c() {
-			t = text(t_value);
-		},
-		m(target, anchor) {
-			insert(target, t, anchor);
-		},
-		p: noop,
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (1248:18) {#if item.id}
-function create_if_block_13(ctx) {
-	let t_value = /*item*/ ctx[83].text + "";
-	let t;
-
-	return {
-		c() {
-			t = text(t_value);
-		},
-		m(target, anchor) {
-			insert(target, t, anchor);
-		},
-		p(ctx, dirty) {
-			if (dirty[0] & /*selectionItems*/ 16384 && t_value !== (t_value = /*item*/ ctx[83].text + "")) set_data(t, t_value);
-		},
-		d(detaching) {
-			if (detaching) detach(t);
-		}
-	};
-}
-
-// (1255:16) {#if item.desc}
-function create_if_block_12(ctx) {
-	let div;
-	let t_value = /*item*/ ctx[83].desc + "";
-	let t;
-
-	return {
-		c() {
-			div = element("div");
-			t = text(t_value);
-			attr(div, "class", "ss-no-click text-muted");
-		},
-		m(target, anchor) {
-			insert(target, div, anchor);
-			append(div, t);
-		},
-		p(ctx, dirty) {
-			if (dirty[0] & /*selectionItems*/ 16384 && t_value !== (t_value = /*item*/ ctx[83].desc + "")) set_data(t, t_value);
-		},
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
-}
-
-// (1226:6) {#each selectionItems as item, index (item.id)}
-function create_each_block_1(key_1, ctx) {
-	let first;
-	let if_block_anchor;
-	let if_block = /*item*/ ctx[83].id && create_if_block_11(ctx);
-
-	return {
-		key: key_1,
-		first: null,
-		c() {
-			first = empty();
-			if (if_block) if_block.c();
-			if_block_anchor = empty();
-			this.first = first;
-		},
-		m(target, anchor) {
-			insert(target, first, anchor);
-			if (if_block) if_block.m(target, anchor);
-			insert(target, if_block_anchor, anchor);
-		},
-		p(ctx, dirty) {
-			if (/*item*/ ctx[83].id) {
-				if (if_block) {
-					if_block.p(ctx, dirty);
-				} else {
-					if_block = create_if_block_11(ctx);
-					if_block.c();
-					if_block.m(if_block_anchor.parentNode, if_block_anchor);
-				}
-			} else if (if_block) {
-				if_block.d(1);
-				if_block = null;
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(first);
-			if (if_block) if_block.d(detaching);
-			if (detaching) detach(if_block_anchor);
-		}
-	};
-}
-
-// (1293:6) {:else}
-function create_else_block_1(ctx) {
-	let div3;
-	let div2;
-	let t0;
-	let div1;
-	let div0;
-	let div0_class_value;
-	let t1;
-	let div3_class_value;
-	let div3_data_id_value;
-	let dispose;
-	let if_block0 = /*multiple*/ ctx[21] && create_if_block_8(ctx);
-
-	function select_block_type_4(ctx, dirty) {
-		if (/*item*/ ctx[83].id) return create_if_block_7;
-		return create_else_block_2;
-	}
-
-	let current_block_type = select_block_type_4(ctx);
-	let if_block1 = current_block_type(ctx);
-	let if_block2 = /*item*/ ctx[83].desc && create_if_block_6(ctx);
-
-	return {
-		c() {
-			div3 = element("div");
-			div2 = element("div");
-			if (if_block0) if_block0.c();
-			t0 = space();
-			div1 = element("div");
-			div0 = element("div");
-			if_block1.c();
-			t1 = space();
-			if (if_block2) if_block2.c();
-			attr(div0, "class", div0_class_value = "ss-no-click " + /*item*/ ctx[83].itemClass);
-			attr(div1, "class", "d-inline-block");
-			attr(div2, "class", "ss-no-click");
-			attr(div3, "tabindex", "1");
-
-			attr(div3, "class", div3_class_value = "ki-js-item dropdown-item ss-item " + (!/*item*/ ctx[83].id ? "text-muted" : "") + " " + (/*selectionById*/ ctx[13][/*item*/ ctx[83].id]
-			? "alert-primary"
-			: ""));
-
-			attr(div3, "data-id", div3_data_id_value = /*item*/ ctx[83].id);
-
-			dispose = [
-				listen(div3, "blur", /*handleBlur*/ ctx[22]),
-				listen(div3, "click", /*handleItemClick*/ ctx[33]),
-				listen(div3, "keydown", /*handleItemKeydown*/ ctx[31]),
-				listen(div3, "keyup", /*handleItemKeyup*/ ctx[32])
-			];
-		},
-		m(target, anchor) {
-			insert(target, div3, anchor);
-			append(div3, div2);
-			if (if_block0) if_block0.m(div2, null);
-			append(div2, t0);
-			append(div2, div1);
-			append(div1, div0);
-			if_block1.m(div0, null);
-			append(div1, t1);
-			if (if_block2) if_block2.m(div1, null);
-		},
-		p(ctx, dirty) {
-			if (/*multiple*/ ctx[21]) {
-				if (if_block0) {
-					if_block0.p(ctx, dirty);
-				} else {
-					if_block0 = create_if_block_8(ctx);
-					if_block0.c();
-					if_block0.m(div2, t0);
-				}
-			} else if (if_block0) {
-				if_block0.d(1);
-				if_block0 = null;
-			}
-
-			if (current_block_type === (current_block_type = select_block_type_4(ctx)) && if_block1) {
-				if_block1.p(ctx, dirty);
-			} else {
-				if_block1.d(1);
-				if_block1 = current_block_type(ctx);
-
-				if (if_block1) {
-					if_block1.c();
-					if_block1.m(div0, null);
-				}
-			}
-
-			if (dirty[0] & /*displayItems*/ 512 && div0_class_value !== (div0_class_value = "ss-no-click " + /*item*/ ctx[83].itemClass)) {
-				attr(div0, "class", div0_class_value);
-			}
-
-			if (/*item*/ ctx[83].desc) {
+			if (/*item*/ ctx[74].desc) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
@@ -1110,13 +938,13 @@ function create_else_block_1(ctx) {
 				if_block2 = null;
 			}
 
-			if (dirty[0] & /*displayItems, selectionById*/ 8704 && div3_class_value !== (div3_class_value = "ki-js-item dropdown-item ss-item " + (!/*item*/ ctx[83].id ? "text-muted" : "") + " " + (/*selectionById*/ ctx[13][/*item*/ ctx[83].id]
+			if (dirty[0] & /*displayItems, selectionById*/ 4352 && div3_class_value !== (div3_class_value = "ki-js-item dropdown-item ss-item " + (!/*item*/ ctx[74].id ? "text-muted" : "") + " " + (/*selectionById*/ ctx[12][/*item*/ ctx[74].id]
 			? "alert-primary"
 			: ""))) {
 				attr(div3, "class", div3_class_value);
 			}
 
-			if (dirty[0] & /*displayItems*/ 512 && div3_data_id_value !== (div3_data_id_value = /*item*/ ctx[83].id)) {
+			if (dirty[0] & /*displayItems*/ 256 && div3_data_id_value !== (div3_data_id_value = /*item*/ ctx[74].id)) {
 				attr(div3, "data-id", div3_data_id_value);
 			}
 		},
@@ -1130,16 +958,16 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (1279:50) 
+// (1149:50) 
 function create_if_block_4(ctx) {
 	let div1;
 	let div0;
-	let t0_value = (/*item*/ ctx[83].display_text || /*item*/ ctx[83].text) + "";
+	let t0_value = (/*item*/ ctx[74].display_text || /*item*/ ctx[74].text) + "";
 	let t0;
 	let div0_class_value;
 	let t1;
 	let dispose;
-	let if_block = /*item*/ ctx[83].desc && create_if_block_5(ctx);
+	let if_block = /*item*/ ctx[74].desc && create_if_block_5(ctx);
 
 	return {
 		c() {
@@ -1148,10 +976,10 @@ function create_if_block_4(ctx) {
 			t0 = text(t0_value);
 			t1 = space();
 			if (if_block) if_block.c();
-			attr(div0, "class", div0_class_value = "ss-no-click " + /*item*/ ctx[83].itemClass);
+			attr(div0, "class", div0_class_value = "ss-no-click " + /*item*/ ctx[74].itemClass);
 			attr(div1, "tabindex", "-1");
 			attr(div1, "class", "dropdown-item text-muted ki-js-blank");
-			dispose = listen(div1, "keydown", /*handleItemKeydown*/ ctx[31]);
+			dispose = listen(div1, "keydown", /*handleItemKeydown*/ ctx[27]);
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
@@ -1161,13 +989,13 @@ function create_if_block_4(ctx) {
 			if (if_block) if_block.m(div1, null);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*displayItems*/ 512 && t0_value !== (t0_value = (/*item*/ ctx[83].display_text || /*item*/ ctx[83].text) + "")) set_data(t0, t0_value);
+			if (dirty[0] & /*displayItems*/ 256 && t0_value !== (t0_value = (/*item*/ ctx[74].display_text || /*item*/ ctx[74].text) + "")) set_data(t0, t0_value);
 
-			if (dirty[0] & /*displayItems*/ 512 && div0_class_value !== (div0_class_value = "ss-no-click " + /*item*/ ctx[83].itemClass)) {
+			if (dirty[0] & /*displayItems*/ 256 && div0_class_value !== (div0_class_value = "ss-no-click " + /*item*/ ctx[74].itemClass)) {
 				attr(div0, "class", div0_class_value);
 			}
 
-			if (/*item*/ ctx[83].desc) {
+			if (/*item*/ ctx[74].desc) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -1188,7 +1016,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (1273:6) {#if item.separator}
+// (1143:6) {#if item.separator}
 function create_if_block_3(ctx) {
 	let div;
 	let dispose;
@@ -1198,7 +1026,7 @@ function create_if_block_3(ctx) {
 			div = element("div");
 			attr(div, "tabindex", "-1");
 			attr(div, "class", "dropdown-divider ki-js-blank");
-			dispose = listen(div, "keydown", /*handleItemKeydown*/ ctx[31]);
+			dispose = listen(div, "keydown", /*handleItemKeydown*/ ctx[27]);
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
@@ -1211,10 +1039,10 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (1303:12) {#if multiple}
+// (1173:12) {#if multiple}
 function create_if_block_8(ctx) {
 	let div;
-	let if_block = /*item*/ ctx[83].id && create_if_block_9(ctx);
+	let if_block = /*item*/ ctx[74].id && create_if_block_9(ctx);
 
 	return {
 		c() {
@@ -1227,7 +1055,7 @@ function create_if_block_8(ctx) {
 			if (if_block) if_block.m(div, null);
 		},
 		p(ctx, dirty) {
-			if (/*item*/ ctx[83].id) {
+			if (/*item*/ ctx[74].id) {
 				if (if_block) {
 					if_block.p(ctx, dirty);
 				} else {
@@ -1247,7 +1075,7 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (1305:16) {#if item.id}
+// (1175:16) {#if item.id}
 function create_if_block_9(ctx) {
 	let i;
 	let i_class_value;
@@ -1256,7 +1084,7 @@ function create_if_block_9(ctx) {
 		c() {
 			i = element("i");
 
-			attr(i, "class", i_class_value = "far " + (/*selectionById*/ ctx[13][/*item*/ ctx[83].id]
+			attr(i, "class", i_class_value = "far " + (/*selectionById*/ ctx[12][/*item*/ ctx[74].id]
 			? "fa-check-square"
 			: "fa-square"));
 		},
@@ -1264,7 +1092,7 @@ function create_if_block_9(ctx) {
 			insert(target, i, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*selectionById, displayItems*/ 8704 && i_class_value !== (i_class_value = "far " + (/*selectionById*/ ctx[13][/*item*/ ctx[83].id]
+			if (dirty[0] & /*selectionById, displayItems*/ 4352 && i_class_value !== (i_class_value = "far " + (/*selectionById*/ ctx[12][/*item*/ ctx[74].id]
 			? "fa-check-square"
 			: "fa-square"))) {
 				attr(i, "class", i_class_value);
@@ -1276,7 +1104,7 @@ function create_if_block_9(ctx) {
 	};
 }
 
-// (1315:16) {:else}
+// (1185:16) {:else}
 function create_else_block_2(ctx) {
 	let t_value = translate("clear") + "";
 	let t;
@@ -1295,9 +1123,9 @@ function create_else_block_2(ctx) {
 	};
 }
 
-// (1313:16) {#if item.id}
+// (1183:16) {#if item.id}
 function create_if_block_7(ctx) {
-	let t_value = /*item*/ ctx[83].text + "";
+	let t_value = /*item*/ ctx[74].text + "";
 	let t;
 
 	return {
@@ -1308,7 +1136,7 @@ function create_if_block_7(ctx) {
 			insert(target, t, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*displayItems*/ 512 && t_value !== (t_value = /*item*/ ctx[83].text + "")) set_data(t, t_value);
+			if (dirty[0] & /*displayItems*/ 256 && t_value !== (t_value = /*item*/ ctx[74].text + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(t);
@@ -1316,10 +1144,10 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (1320:14) {#if item.desc}
+// (1190:14) {#if item.desc}
 function create_if_block_6(ctx) {
 	let div;
-	let t_value = /*item*/ ctx[83].desc + "";
+	let t_value = /*item*/ ctx[74].desc + "";
 	let t;
 
 	return {
@@ -1333,7 +1161,7 @@ function create_if_block_6(ctx) {
 			append(div, t);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*displayItems*/ 512 && t_value !== (t_value = /*item*/ ctx[83].desc + "")) set_data(t, t_value);
+			if (dirty[0] & /*displayItems*/ 256 && t_value !== (t_value = /*item*/ ctx[74].desc + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -1341,10 +1169,10 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (1286:10) {#if item.desc}
+// (1156:10) {#if item.desc}
 function create_if_block_5(ctx) {
 	let div;
-	let t_value = /*item*/ ctx[83].desc + "";
+	let t_value = /*item*/ ctx[74].desc + "";
 	let t;
 
 	return {
@@ -1358,7 +1186,7 @@ function create_if_block_5(ctx) {
 			append(div, t);
 		},
 		p(ctx, dirty) {
-			if (dirty[0] & /*displayItems*/ 512 && t_value !== (t_value = /*item*/ ctx[83].desc + "")) set_data(t, t_value);
+			if (dirty[0] & /*displayItems*/ 256 && t_value !== (t_value = /*item*/ ctx[74].desc + "")) set_data(t, t_value);
 		},
 		d(detaching) {
 			if (detaching) detach(div);
@@ -1366,18 +1194,18 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (1272:4) {#each displayItems as item (item.id)}
+// (1142:4) {#each displayItems as item (item.id)}
 function create_each_block(key_1, ctx) {
 	let first;
 	let if_block_anchor;
 
-	function select_block_type_3(ctx, dirty) {
-		if (/*item*/ ctx[83].separator) return create_if_block_3;
-		if (/*item*/ ctx[83].disabled || /*item*/ ctx[83].placeholder) return create_if_block_4;
+	function select_block_type_1(ctx, dirty) {
+		if (/*item*/ ctx[74].separator) return create_if_block_3;
+		if (/*item*/ ctx[74].disabled || /*item*/ ctx[74].placeholder) return create_if_block_4;
 		return create_else_block_1;
 	}
 
-	let current_block_type = select_block_type_3(ctx);
+	let current_block_type = select_block_type_1(ctx);
 	let if_block = current_block_type(ctx);
 
 	return {
@@ -1395,7 +1223,7 @@ function create_each_block(key_1, ctx) {
 			insert(target, if_block_anchor, anchor);
 		},
 		p(ctx, dirty) {
-			if (current_block_type === (current_block_type = select_block_type_3(ctx)) && if_block) {
+			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block) {
 				if_block.p(ctx, dirty);
 			} else {
 				if_block.d(1);
@@ -1415,7 +1243,7 @@ function create_each_block(key_1, ctx) {
 	};
 }
 
-// (1331:4) {#if hasMore}
+// (1201:4) {#if hasMore}
 function create_if_block_2(ctx) {
 	let div;
 
@@ -1428,26 +1256,26 @@ function create_if_block_2(ctx) {
 		},
 		m(target, anchor) {
 			insert(target, div, anchor);
-			/*div_binding*/ ctx[80](div);
+			/*div_binding*/ ctx[71](div);
 		},
 		p: noop,
 		d(detaching) {
 			if (detaching) detach(div);
-			/*div_binding*/ ctx[80](null);
+			/*div_binding*/ ctx[71](null);
 		}
 	};
 }
 
-// (1338:4) {#if actualCount === 0}
+// (1208:4) {#if actualCount === 0}
 function create_if_block(ctx) {
 	let div;
 
-	function select_block_type_5(ctx, dirty) {
-		if (/*tooShort*/ ctx[11]) return create_if_block_1;
+	function select_block_type_3(ctx, dirty) {
+		if (/*tooShort*/ ctx[10]) return create_if_block_1;
 		return create_else_block;
 	}
 
-	let current_block_type = select_block_type_5(ctx);
+	let current_block_type = select_block_type_3(ctx);
 	let if_block = current_block_type(ctx);
 
 	return {
@@ -1462,7 +1290,7 @@ function create_if_block(ctx) {
 			if_block.m(div, null);
 		},
 		p(ctx, dirty) {
-			if (current_block_type === (current_block_type = select_block_type_5(ctx)) && if_block) {
+			if (current_block_type === (current_block_type = select_block_type_3(ctx)) && if_block) {
 				if_block.p(ctx, dirty);
 			} else {
 				if_block.d(1);
@@ -1481,7 +1309,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (1342:8) {:else}
+// (1212:8) {:else}
 function create_else_block(ctx) {
 	let t_value = translate("no_results") + "";
 	let t;
@@ -1500,7 +1328,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (1340:8) {#if tooShort }
+// (1210:8) {#if tooShort }
 function create_if_block_1(ctx) {
 	let t_value = translate("too_short") + "";
 	let t;
@@ -1521,158 +1349,188 @@ function create_if_block_1(ctx) {
 
 function create_fragment(ctx) {
 	let div1;
+	let button;
+	let span1;
+	let each_blocks_1 = [];
+	let each0_lookup = new Map();
 	let t0;
-	let div0;
+	let span0;
+	let i;
+	let i_class_value;
 	let t1;
+	let div0;
 	let t2;
-	let each_blocks = [];
-	let each_1_lookup = new Map();
 	let t3;
+	let each_blocks = [];
+	let each1_lookup = new Map();
 	let t4;
+	let t5;
 	let div0_class_value;
 	let div1_class_value;
 	let dispose;
+	let each_value_2 = /*selectionItems*/ ctx[13];
+	const get_key = ctx => /*item*/ ctx[74].id;
 
-	function select_block_type(ctx, dirty) {
-		if (/*typeahead*/ ctx[1]) return create_if_block_18;
-		return create_else_block_4;
+	for (let i = 0; i < each_value_2.length; i += 1) {
+		let child_ctx = get_each_context_2(ctx, each_value_2, i);
+		let key = get_key(child_ctx);
+		each0_lookup.set(key, each_blocks_1[i] = create_each_block_2(key, child_ctx));
 	}
 
-	let current_block_type = select_block_type(ctx);
-	let if_block0 = current_block_type(ctx);
-
-	function select_block_type_1(ctx, dirty) {
-		if (/*fetchError*/ ctx[17]) return create_if_block_16;
-		if (/*activeFetch*/ ctx[20] && !/*fetchingMore*/ ctx[16]) return create_if_block_17;
-	}
-
-	let current_block_type_1 = select_block_type_1(ctx);
-	let if_block1 = current_block_type_1 && current_block_type_1(ctx);
-	let if_block2 = /*typeahead*/ ctx[1] && create_if_block_10(ctx);
-	let each_value = /*displayItems*/ ctx[9];
-	const get_key = ctx => /*item*/ ctx[83].id;
+	let if_block0 = /*fetchError*/ ctx[16] && create_if_block_17(ctx);
+	let if_block1 = /*typeahead*/ ctx[1] && create_if_block_10(ctx);
+	let each_value = /*displayItems*/ ctx[8];
+	const get_key_1 = ctx => /*item*/ ctx[74].id;
 
 	for (let i = 0; i < each_value.length; i += 1) {
 		let child_ctx = get_each_context(ctx, each_value, i);
-		let key = get_key(child_ctx);
-		each_1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
+		let key = get_key_1(child_ctx);
+		each1_lookup.set(key, each_blocks[i] = create_each_block(key, child_ctx));
 	}
 
-	let if_block3 = /*hasMore*/ ctx[12] && create_if_block_2(ctx);
-	let if_block4 = /*actualCount*/ ctx[10] === 0 && create_if_block(ctx);
+	let if_block2 = /*hasMore*/ ctx[11] && create_if_block_2(ctx);
+	let if_block3 = /*actualCount*/ ctx[9] === 0 && create_if_block(ctx);
 
 	return {
 		c() {
 			div1 = element("div");
-			if_block0.c();
+			button = element("button");
+			span1 = element("span");
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].c();
+			}
+
 			t0 = space();
-			div0 = element("div");
-			if (if_block1) if_block1.c();
+			span0 = element("span");
+			i = element("i");
 			t1 = space();
-			if (if_block2) if_block2.c();
+			div0 = element("div");
+			if (if_block0) if_block0.c();
 			t2 = space();
+			if (if_block1) if_block1.c();
+			t3 = space();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
-			t3 = space();
-			if (if_block3) if_block3.c();
 			t4 = space();
-			if (if_block4) if_block4.c();
-			attr(div0, "class", div0_class_value = "dropdown-menu ss-popup " + (/*popupVisible*/ ctx[19] ? "show" : ""));
+			if (if_block2) if_block2.c();
+			t5 = space();
+			if (if_block3) if_block3.c();
+			attr(i, "class", i_class_value = "text-dark " + (/*showFetching*/ ctx[15] ? CARET_FETCHING : CARET_DOWN));
+			attr(span0, "class", "ml-auto");
+			attr(span1, "class", "ss-no-click ss-selection text-dark d-flex");
+			attr(button, "class", "form-control d-flex");
+			attr(button, "type", "button");
+			attr(button, "tabindex", "0");
+			attr(div0, "class", div0_class_value = "dropdown-menu ss-popup " + (/*popupVisible*/ ctx[17] ? "show" : ""));
 			attr(div1, "class", div1_class_value = "ss-container form-control p-0 border-0 " + /*extraClass*/ ctx[0]);
-			dispose = listen(div0, "scroll", /*handlePopupScroll*/ ctx[34]);
+
+			dispose = [
+				listen(button, "blur", /*handleBlur*/ ctx[19]),
+				listen(button, "keydown", /*handleToggleKeydown*/ ctx[24]),
+				listen(button, "keyup", /*handleToggleKeyup*/ ctx[25]),
+				listen(button, "click", /*handleToggleClick*/ ctx[26]),
+				listen(div0, "scroll", /*handlePopupScroll*/ ctx[30])
+			];
 		},
 		m(target, anchor) {
 			insert(target, div1, anchor);
-			if_block0.m(div1, null);
-			append(div1, t0);
+			append(div1, button);
+			append(button, span1);
+
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].m(span1, null);
+			}
+
+			append(span1, t0);
+			append(span1, span0);
+			append(span0, i);
+			/*button_binding*/ ctx[68](button);
+			append(div1, t1);
 			append(div1, div0);
-			if (if_block1) if_block1.m(div0, null);
-			append(div0, t1);
-			if (if_block2) if_block2.m(div0, null);
+			if (if_block0) if_block0.m(div0, null);
 			append(div0, t2);
+			if (if_block1) if_block1.m(div0, null);
+			append(div0, t3);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].m(div0, null);
 			}
 
-			append(div0, t3);
-			if (if_block3) if_block3.m(div0, null);
 			append(div0, t4);
-			if (if_block4) if_block4.m(div0, null);
-			/*div0_binding_1*/ ctx[81](div0);
-			/*div1_binding*/ ctx[82](div1);
+			if (if_block2) if_block2.m(div0, null);
+			append(div0, t5);
+			if (if_block3) if_block3.m(div0, null);
+			/*div0_binding*/ ctx[72](div0);
+			/*div1_binding*/ ctx[73](div1);
 		},
 		p(ctx, dirty) {
-			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
-				if_block0.p(ctx, dirty);
-			} else {
-				if_block0.d(1);
-				if_block0 = current_block_type(ctx);
+			const each_value_2 = /*selectionItems*/ ctx[13];
+			each_blocks_1 = update_keyed_each(each_blocks_1, dirty, get_key, 1, ctx, each_value_2, each0_lookup, span1, destroy_block, create_each_block_2, t0, get_each_context_2);
 
-				if (if_block0) {
-					if_block0.c();
-					if_block0.m(div1, t0);
-				}
+			if (dirty[0] & /*showFetching*/ 32768 && i_class_value !== (i_class_value = "text-dark " + (/*showFetching*/ ctx[15] ? CARET_FETCHING : CARET_DOWN))) {
+				attr(i, "class", i_class_value);
 			}
 
-			if (current_block_type_1 === (current_block_type_1 = select_block_type_1(ctx)) && if_block1) {
-				if_block1.p(ctx, dirty);
-			} else {
-				if (if_block1) if_block1.d(1);
-				if_block1 = current_block_type_1 && current_block_type_1(ctx);
-
-				if (if_block1) {
-					if_block1.c();
-					if_block1.m(div0, t1);
+			if (/*fetchError*/ ctx[16]) {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
+				} else {
+					if_block0 = create_if_block_17(ctx);
+					if_block0.c();
+					if_block0.m(div0, t2);
 				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
 			}
 
 			if (/*typeahead*/ ctx[1]) {
+				if (if_block1) {
+					if_block1.p(ctx, dirty);
+				} else {
+					if_block1 = create_if_block_10(ctx);
+					if_block1.c();
+					if_block1.m(div0, t3);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
+			}
+
+			const each_value = /*displayItems*/ ctx[8];
+			each_blocks = update_keyed_each(each_blocks, dirty, get_key_1, 1, ctx, each_value, each1_lookup, div0, destroy_block, create_each_block, t4, get_each_context);
+
+			if (/*hasMore*/ ctx[11]) {
 				if (if_block2) {
 					if_block2.p(ctx, dirty);
 				} else {
-					if_block2 = create_if_block_10(ctx);
+					if_block2 = create_if_block_2(ctx);
 					if_block2.c();
-					if_block2.m(div0, t2);
+					if_block2.m(div0, t5);
 				}
 			} else if (if_block2) {
 				if_block2.d(1);
 				if_block2 = null;
 			}
 
-			const each_value = /*displayItems*/ ctx[9];
-			each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div0, destroy_block, create_each_block, t3, get_each_context);
-
-			if (/*hasMore*/ ctx[12]) {
+			if (/*actualCount*/ ctx[9] === 0) {
 				if (if_block3) {
 					if_block3.p(ctx, dirty);
 				} else {
-					if_block3 = create_if_block_2(ctx);
+					if_block3 = create_if_block(ctx);
 					if_block3.c();
-					if_block3.m(div0, t4);
+					if_block3.m(div0, null);
 				}
 			} else if (if_block3) {
 				if_block3.d(1);
 				if_block3 = null;
 			}
 
-			if (/*actualCount*/ ctx[10] === 0) {
-				if (if_block4) {
-					if_block4.p(ctx, dirty);
-				} else {
-					if_block4 = create_if_block(ctx);
-					if_block4.c();
-					if_block4.m(div0, null);
-				}
-			} else if (if_block4) {
-				if_block4.d(1);
-				if_block4 = null;
-			}
-
-			if (dirty[0] & /*popupVisible*/ 524288 && div0_class_value !== (div0_class_value = "dropdown-menu ss-popup " + (/*popupVisible*/ ctx[19] ? "show" : ""))) {
+			if (dirty[0] & /*popupVisible*/ 131072 && div0_class_value !== (div0_class_value = "dropdown-menu ss-popup " + (/*popupVisible*/ ctx[17] ? "show" : ""))) {
 				attr(div0, "class", div0_class_value);
 			}
 
@@ -1684,23 +1542,24 @@ function create_fragment(ctx) {
 		o: noop,
 		d(detaching) {
 			if (detaching) detach(div1);
-			if_block0.d();
 
-			if (if_block1) {
-				if_block1.d();
+			for (let i = 0; i < each_blocks_1.length; i += 1) {
+				each_blocks_1[i].d();
 			}
 
-			if (if_block2) if_block2.d();
+			/*button_binding*/ ctx[68](null);
+			if (if_block0) if_block0.d();
+			if (if_block1) if_block1.d();
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].d();
 			}
 
+			if (if_block2) if_block2.d();
 			if (if_block3) if_block3.d();
-			if (if_block4) if_block4.d();
-			/*div0_binding_1*/ ctx[81](null);
-			/*div1_binding*/ ctx[82](null);
-			dispose();
+			/*div0_binding*/ ctx[72](null);
+			/*div1_binding*/ ctx[73](null);
+			run_all(dispose);
 		}
 	};
 }
@@ -1717,29 +1576,7 @@ const I18N_DEFAULTS = {
 const FETCH_INDICATOR_DELAY = 150;
 const CARET_DOWN = "fas fa-caret-down";
 const CARET_FETCHING = "far fa-hourglass";
-
-const META_KEYS = {
-	Control: true,
-	Shift: true,
-	Alt: true,
-	AltGraph: true,
-	Meta: true,
-	ContextMenu: true,
-	PrintScreen: true,
-	Pause: true,
-	CapsLock: true,
-	F1: true,
-	F2: true,
-	F3: true,
-	F4: true,
-	F5: true,
-	F6: true,
-	F7: true,
-	F8: true,
-	F9: true,
-	F10: true,
-	F11: true
-};
+const BLANK_ITEM = { id: "", text: "" };
 
 const config = { translations: I18N_DEFAULTS };
 
@@ -1755,10 +1592,6 @@ function translate(key) {
 
 function hasModifier(event) {
 	return event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
-}
-
-function isValidKey(event) {
-	return !(META_KEYS[event.key] || META_KEYS[event.code]);
 }
 
 function createItemFromOption(el) {
@@ -1836,6 +1669,7 @@ function createResult(data) {
 	let tooShort = data.tooShort === true;
 
 	return {
+		blankItem: byId[""] || null,
 		byId,
 		displayItems: items,
 		fetchedItems: data.fetchedItems,
@@ -1887,7 +1721,6 @@ function focusNextItem(el) {
 }
 
 function handleEvent(code, handlers, event) {
-	console.debug(event);
 	(handlers[code] || handlers.base)(event);
 }
 
@@ -1901,7 +1734,6 @@ function instance($$self, $$props, $$invalidate) {
 	let { typeahead = false } = $$props;
 	let containerEl;
 	let inputEl;
-	let selectionEl;
 	let toggleEl;
 	let popupEl;
 	let moreEl;
@@ -1913,13 +1745,12 @@ function instance($$self, $$props, $$invalidate) {
 	let actualCount = 0;
 	let tooShort = false;
 	let hasMore = false;
-	let selection = { byId: {}, items: [] };
 	let selectionById = {};
 	let selectionItems = [];
+	let selectionDropdownItems = [];
 	let showFetching = false;
 	let fetchingMore = false;
 	let fetchError = null;
-	let inputVisible = false;
 	let popupVisible = false;
 	let activeFetch = null;
 	let fetched = false;
@@ -1930,7 +1761,6 @@ function instance($$self, $$props, $$invalidate) {
 	let isSyncToReal = false;
 
 	function inlineFetcher(offset, query) {
-		console.log("INLINE_SELECT_FETCH: " + query);
 
 		let promise = new Promise(function (resolve, reject) {
 				let items = [];
@@ -1976,13 +1806,13 @@ function instance($$self, $$props, $$invalidate) {
 		if (fetchMore) {
 			currentFetchOffset = result.offsetCount;
 		} else {
-			$$invalidate(11, tooShort = false);
-			$$invalidate(12, hasMore = false);
+			$$invalidate(10, tooShort = false);
+			$$invalidate(11, hasMore = false);
 			fetched = false;
 		}
 
-		$$invalidate(16, fetchingMore = fetchMore);
-		$$invalidate(17, fetchError = null);
+		fetchingMore = fetchMore;
+		$$invalidate(16, fetchError = null);
 		$$invalidate(15, showFetching = false);
 		let currentFetchingMore = fetchingMore;
 
@@ -2030,10 +1860,10 @@ function instance($$self, $$props, $$invalidate) {
 					tooShort: info.too_short === true
 				});
 
-				$$invalidate(9, displayItems = result.displayItems);
-				$$invalidate(10, actualCount = result.actualCount);
-				$$invalidate(11, tooShort = result.tooShort);
-				$$invalidate(12, hasMore = result.more);
+				$$invalidate(8, displayItems = result.displayItems);
+				$$invalidate(9, actualCount = result.actualCount);
+				$$invalidate(10, tooShort = result.tooShort);
+				$$invalidate(11, hasMore = result.more);
 
 				if (fetchId) {
 					previousQuery = null;
@@ -2042,9 +1872,9 @@ function instance($$self, $$props, $$invalidate) {
 				}
 
 				previousFetch = currentFetch;
-				$$invalidate(20, activeFetch = null);
+				activeFetch = null;
 				fetched = true;
-				$$invalidate(16, fetchingMore = false);
+				fetchingMore = false;
 				$$invalidate(15, showFetching = false);
 
 				setTimeout(function () {
@@ -2054,25 +1884,19 @@ function instance($$self, $$props, $$invalidate) {
 		}).catch(function (err) {
 			if (currentFetch === activeFetch) {
 				console.error(err);
-				$$invalidate(17, fetchError = err);
+				$$invalidate(16, fetchError = err);
 				let result = createResult({ fixedItems });
-				$$invalidate(9, displayItems = result.displayItems);
-				$$invalidate(10, actualCount = result.actualCount);
-				$$invalidate(11, tooShort = result.tooShort);
-				$$invalidate(12, hasMore = result.more);
+				$$invalidate(8, displayItems = result.displayItems);
+				$$invalidate(9, actualCount = result.actualCount);
+				$$invalidate(10, tooShort = result.tooShort);
+				$$invalidate(11, hasMore = result.more);
 				previousQuery = null;
 				previousFetch = currentFetch;
-				$$invalidate(20, activeFetch = null);
+				activeFetch = null;
 				fetched = false;
-				$$invalidate(16, fetchingMore = false);
+				fetchingMore = false;
 				$$invalidate(15, showFetching = false);
-
-				if (inputVisible) {
-					inputEl.focus();
-				} else {
-					selectinDisplay.focus();
-				}
-
+				toggleEl.focus();
 				openPopup();
 			}
 		});
@@ -2080,21 +1904,20 @@ function instance($$self, $$props, $$invalidate) {
 		setTimeout(
 			function () {
 				if (activeFetch === currentFetch) {
-					console.log("fetching...");
 					$$invalidate(15, showFetching = true);
 				}
 			},
 			FETCH_INDICATOR_DELAY
 		);
 
-		$$invalidate(20, activeFetch = currentFetch);
+		activeFetch = currentFetch;
 		previousFetch = null;
 		return currentFetch;
 	}
 
 	function cancelFetch() {
 		if (activeFetch !== null) {
-			$$invalidate(20, activeFetch = null);
+			activeFetch = null;
 			fetched = false;
 			previousQuery = null;
 		}
@@ -2109,110 +1932,49 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function clearQuery() {
-		$$invalidate(8, query = "");
+		$$invalidate(7, query = "");
 		previousQuery = null;
-	}
-
-	let activeFocusRequest = null;
-	let passEvents = null;
-
-	function focusTarget(target) {
-		console.trace("request_Focus", target);
-		activeFocusRequest = null;
-
-		let handler = function () {
-			console.log("HANDLE: request_Focus", target, activeFocusRequest);
-
-			if (activeFocusRequest === handler) {
-				console.log("HANDLE_HIT: request_Focus", target);
-				activeFocusRequest = null;
-				target.focus();
-			} else {
-				console.log("HANDLE_MISS: request_Focus", target);
-			}
-		};
-
-		setTimeout(handler);
-		activeFocusRequest = handler;
-	}
-
-	function openInput(focus, passEvent) {
-		if (!typeahead) {
-			return;
-		}
-
-		let wasVisible = inputVisible;
-		$$invalidate(18, inputVisible = true);
-
-		if (!focus) {
-			return;
-		}
-
-		focusTarget(inputEl);
-
-		if (!wasVisible) {
-			if (passEvent) {
-				passEvents = passEvents || [];
-				passEvent.preventDefault();
-				passEvents.push(passEvent);
-			}
-		}
-	}
-
-	function closeInput(focusToggle) {
-		console.trace("CLOSE_INPUT", focusToggle);
-
-		if (!typeahead) {
-			return;
-		}
-
-		let wasVisible = inputVisible;
-
-		if (wasVisible) {
-			activeFocusRequest = null;
-			$$invalidate(18, inputVisible = false);
-		}
-
-		if (focusToggle) {
-			focusTarget(selectionEl || toggleEl);
-		}
 	}
 
 	function openPopup() {
 		if (!popupVisible) {
-			$$invalidate(19, popupVisible = true);
+			$$invalidate(17, popupVisible = true);
 			let w = containerEl.offsetWidth;
-			$$invalidate(6, popupEl.style.minWidth = w + "px", popupEl);
+			$$invalidate(5, popupEl.style.minWidth = w + "px", popupEl);
 		}
 	}
 
 	function closePopup(focusToggle) {
-		$$invalidate(19, popupVisible = false);
+		$$invalidate(14, selectionDropdownItems = selectionItems);
+		$$invalidate(17, popupVisible = false);
 
 		if (focusToggle) {
-			focusTarget(selectionEl || toggleEl);
+			toggleEl.focus();
 		}
 	}
 
 	function selectItemImpl(id) {
 		id = id.toString();
-
-		let item = result.byId[id] || selection.byId[id];
+		let item = result.byId[id] || selectionById[id];
 
 		if (!item) {
 			console.error("MISSING item=" + id);
 			return;
 		}
 
-		let byId = selection.byId;
+		let blankItem = result.blankItem;
+		let byId = selectionById;
 
 		if (multiple) {
 			if (item.id) {
-				delete byId[""];
-
 				if (byId[item.id]) {
 					delete byId[item.id];
+
+					if (!blankItem) {
+						blankItem = BLANK_ITEM;
+					}
 				} else {
+					delete byId[blankItem.id];
 					byId[item.id] = item;
 				}
 			} else {
@@ -2220,16 +1982,24 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		} else {
 			byId = { [item.id]: item };
-			clearQuery();
-			closeInput(false);
-			closePopup(true);
+			closePopup(containsElement(document.activeElement));
 		}
 
-		$$invalidate(44, selection = { byId, items: Object.values(byId) });
-		$$invalidate(13, selectionById = selection.byId);
-		$$invalidate(14, selectionItems = selection.items);
-		syncToReal(selection);
-		real.dispatchEvent(new CustomEvent("select-select", { detail: selection }));
+		let items = Object.values(byId);
+
+		if (items.length == 0 && blankItem) {
+			byId = { [blankItem.id]: blankItem };
+			items = [blankItem];
+		}
+
+		$$invalidate(12, selectionById = byId);
+
+		$$invalidate(13, selectionItems = items.sort(function (a, b) {
+			return a.text.localeCompare(b.text);
+		}));
+
+		syncToReal();
+		real.dispatchEvent(new CustomEvent("select-select", { detail: selectionItems }));
 	}
 
 	function selectItem(id) {
@@ -2241,15 +2011,13 @@ function instance($$self, $$props, $$invalidate) {
 	function selectElement(el) {
 		selectItemImpl(el.dataset.id);
 
-		if (el.dataset.selection) {
-			if (!focusNextItem(el)) {
-				focusPreviousItem(el);
-			}
+		if (el.dataset.selected) {
+			$$invalidate(14, selectionDropdownItems);
 		}
 	}
 
 	function containsElement(el) {
-		return el === inputEl || el === toggleEl || el === selectionEl || popupEl.contains(el);
+		return containerEl.contains(el) || popupEl.contains(el);
 	}
 
 	function syncFromReal() {
@@ -2257,25 +2025,34 @@ function instance($$self, $$props, $$invalidate) {
 			return;
 		}
 
+		let oldById = selectionById;
 		let byId = {};
 		let options = real.selectedOptions;
 
 		for (let i = options.length - 1; i >= 0; i--) {
-			let item = createItemFromOption(options[i]);
+			let el = options[i];
+			let item = oldById[el.value || ""];
+
+			if (!item) {
+				item = createItemFromOption(el);
+			}
+
 			byId[item.id] = item;
 		}
 
-		$$invalidate(44, selection = { byId, items: Object.values(byId) });
-		$$invalidate(13, selectionById = selection.byId);
-		$$invalidate(14, selectionItems = selection.items);
+		$$invalidate(12, selectionById = byId);
+
+		$$invalidate(13, selectionItems = Object.values(byId).sort(function (a, b) {
+			return a.text.localeCompare(b.text);
+		}));
 	}
 
-	function syncToReal(selection) {
+	function syncToReal() {
 		let changed = false;
 
 		if (remote) {
-			selection.items.forEach(function (item) {
-				let el = real.querySelector("option[value=\"" + item.id.trim() + "\"]");
+			selectionItems.forEach(function (item) {
+				let el = real.querySelector("option[value=\"" + item.id + "\"]");
 
 				if (!el) {
 					el = createOptionFromItem(item);
@@ -2288,7 +2065,7 @@ function instance($$self, $$props, $$invalidate) {
 
 		for (let i = options.length - 1; i >= 0; i--) {
 			let el = options[i];
-			let curr = !!selection.byId[el.value];
+			let curr = !!selectionById[el.value];
 
 			if (el.selected !== curr) {
 				changed = true;
@@ -2327,12 +2104,12 @@ function instance($$self, $$props, $$invalidate) {
 
 	onMount(function () {
 		real.classList.add("d-none");
-		$$invalidate(21, multiple = real.multiple);
+		$$invalidate(18, multiple = real.multiple);
 
 		if (remote) {
 			setupRemote();
 		} else {
-			$$invalidate(35, fetcher = inlineFetcher);
+			$$invalidate(31, fetcher = inlineFetcher);
 		}
 
 		syncFromReal();
@@ -2340,87 +2117,39 @@ function instance($$self, $$props, $$invalidate) {
 		real.addEventListener("change", function () {
 			if (!isSyncToReal) {
 				syncFromReal();
-				console.log("FROM_REAL", selection);
 			}
 		});
 
-		$$invalidate(41, mounted = true);
+		$$invalidate(37, mounted = true);
 	});
-
-	let inputKeypressHandlers = {
-		base(event) {
-			
-		}
-	};
-
-	let inputKeydownHandlers = {
-		base(event) {
-			wasDown = true;
-			openInput(true);
-		},
-		ArrowDown(event) {
-			let el = popupVisible
-			? popupEl.querySelectorAll(".ki-js-item")[0]
-			: null;
-
-			if (el) {
-				while (el && el.classList.contains("ki-js-blank")) {
-					el = el.nextElementSibling;
-				}
-
-				el.focus();
-			} else {
-				openPopup();
-				fetchItems(false);
-			}
-
-			event.preventDefault();
-		},
-		ArrowUp(event) {
-			event.preventDefault();
-		},
-		Escape(event) {
-			cancelFetch();
-			clearQuery();
-			closePopup(true);
-			closeInput(true);
-		},
-		Tab: nop
-	};
-
-	let inputKeyupHandlers = {
-		base(event) {
-			if (wasDown) {
-				openPopup();
-				fetchItems(false);
-			}
-		},
-		Enter: nop,
-		Escape: nop,
-		Tab: nop,
-		ArrowDown: nop,
-		ArrowUp: nop,
-		ArrowLeft: nop,
-		ArrowRight: nop,
-		PageDown: nop,
-		PageUp: nop,
-		Home: nop,
-		End: nop,
-		Control: nop,
-		Shift: nop,
-		AltGraph: nop,
-		Meta: nop,
-		ContextMenu: nop
-	};
 
 	let toggleKeydownHandlers = {
 		base(event) {
-			if (isValidKey(event)) {
-				openInput(true, event);
+			if (typeahead && popupVisible) {
+				inputEl.focus();
 			}
 		},
-		ArrowDown: inputKeydownHandlers.ArrowDown,
-		ArrowUp: inputKeydownHandlers.ArrowDown,
+		ArrowDown(event) {
+			openPopup();
+			fetchItems();
+
+			if (typeahead) {
+				inputEl.focus();
+			} else {
+				let next = popupEl.querySelectorAll(".ki-js-item")[0];
+
+				while (next && next.classList.contains("ki-js-blank")) {
+					next = next.nextElementSibling;
+				}
+
+				if (next) {
+					next.focus();
+				}
+			}
+
+			event.preventDefault();
+		},
+		ArrowUp: nop,
 		Enter(event) {
 			openPopup();
 			fetchItems(false);
@@ -2435,9 +2164,60 @@ function instance($$self, $$props, $$invalidate) {
 			cancelFetch();
 			clearQuery();
 			closePopup(false);
-			closeInput(true);
 		},
+		Tab: nop
+	};
+
+	let toggleKeyupHandlers = { base: nop, Tab: nop };
+
+	let inputKeypressHandlers = {
+		base(event) {
+			
+		}
+	};
+
+	let inputKeydownHandlers = {
+		base(event) {
+			wasDown = true;
+		},
+		ArrowDown(event) {
+			let next = popupEl.querySelectorAll(".ki-js-item")[0];
+
+			while (next && next.classList.contains("ki-js-blank")) {
+				next = next.nextElementSibling;
+			}
+
+			if (next) {
+				next.focus();
+			}
+
+			event.preventDefault();
+		},
+		ArrowUp(event) {
+			event.preventDefault();
+		},
+		Escape(event) {
+			cancelFetch();
+			clearQuery();
+			closePopup(true);
+		},
+		Tab(event) {
+			toggleEl.focus();
+			event.preventDefault();
+		}
+	};
+
+	let inputKeyupHandlers = {
+		base(event) {
+			if (wasDown) {
+				fetchItems();
+			}
+		},
+		Enter: nop,
+		Escape: nop,
 		Tab: nop,
+		ArrowDown: nop,
+		ArrowUp: nop,
 		ArrowLeft: nop,
 		ArrowRight: nop,
 		PageDown: nop,
@@ -2465,7 +2245,7 @@ function instance($$self, $$props, $$invalidate) {
 		}
 
 		if (!next) {
-			next = inputVisible ? inputEl : selectionEl || toggleEl;
+			next = typeahead ? inputEl : toggleEl;
 		}
 
 		if (next) {
@@ -2477,8 +2257,8 @@ function instance($$self, $$props, $$invalidate) {
 
 	let itemKeydownHandlers = {
 		base(event) {
-			if (isValidKey(event)) {
-				openInput(true, event);
+			if (typeahead) {
+				inputEl.focus();
 			}
 		},
 		ArrowDown(event) {
@@ -2496,7 +2276,13 @@ function instance($$self, $$props, $$invalidate) {
 			}
 		},
 		Space(event) {
-			if (!hasModifier(event)) {
+			if (hasModifier(event)) {
+				return;
+			}
+
+			if (typeahead) {
+				inputEl.focus();
+			} else {
 				selectElement(event.target);
 				event.preventDefault();
 			}
@@ -2505,19 +2291,13 @@ function instance($$self, $$props, $$invalidate) {
 			cancelFetch();
 			clearQuery();
 			closePopup(true);
-			closeInput(true);
 		},
 		PageUp: nop,
 		PageDown: nop,
 		Home: nop,
 		End: nop,
 		Tab(event) {
-			if (inputVisible) {
-				inputEl.focus();
-			} else {
-				(selectionEl || toggleEl).focus();
-			}
-
+			toggleEl.focus();
 			event.preventDefault();
 		},
 		Control: nop,
@@ -2533,18 +2313,18 @@ function instance($$self, $$props, $$invalidate) {
 			let scrollLeft = document.body.scrollLeft;
 			let scrollTop = document.body.scrollTop;
 			let rect = popupEl.getBoundingClientRect();
-			let item = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + 1);
+			let next = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + 1);
 
-			if (!item) {
-				item = popupEl.querySelector(".ki-js-item:first-child");
+			if (!next) {
+				next = popupEl.querySelector(".ki-js-item:first-child");
 			} else {
-				if (!item.classList.contains("ki-js-item")) {
-					item = popupEl.querySelector(".ki-js-item:first-child");
+				if (!next.classList.contains("ki-js-item")) {
+					next = popupEl.querySelector(".ki-js-item:first-child");
 				}
 			}
 
-			if (item) {
-				item.focus();
+			if (next) {
+				next.focus();
 			}
 
 			event.preventDefault();
@@ -2554,36 +2334,36 @@ function instance($$self, $$props, $$invalidate) {
 			let scrollTop = document.body.scrollTop;
 			let h = popupEl.offsetHeight;
 			let rect = popupEl.getBoundingClientRect();
-			let item = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + h - 10);
+			let next = document.elementFromPoint(scrollLeft + rect.x + 10, scrollTop + rect.top + h - 10);
 
-			if (!item) {
-				item = popupEl.querySelector(".ki-js-item:last-child");
+			if (!next) {
+				next = popupEl.querySelector(".ki-js-item:last-child");
 			} else {
-				if (!item.classList.contains("ki-js-item")) {
-					item = popupEl.querySelector(".ki-js-item:last-child");
+				if (!next.classList.contains("ki-js-item")) {
+					next = popupEl.querySelector(".ki-js-item:last-child");
 				}
 			}
 
-			if (item) {
-				item.focus();
+			if (next) {
+				next.focus();
 			}
 
 			event.preventDefault();
 		},
 		Home(event) {
-			let item = popupEl.querySelector(".ki-js-item:first-child");
+			let next = popupEl.querySelector(".ki-js-item:first-child");
 
-			if (item) {
-				item.focus();
+			if (next) {
+				next.focus();
 			}
 
 			event.preventDefault();
 		},
 		End(event) {
-			let item = popupEl.querySelector(".ki-js-item:last-child");
+			let next = popupEl.querySelector(".ki-js-item:last-child");
 
-			if (item) {
-				item.focus();
+			if (next) {
+				next.focus();
 			}
 
 			event.preventDefault();
@@ -2591,13 +2371,10 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	function handleBlur(event) {
-		if (!containsElement(event.relatedTarget)) {
-			console.log("BLUR", toggleEl);
+		if (event.sourceCapabilities && !containsElement(event.relatedTarget)) {
 			cancelFetch();
 			clearQuery();
 			closePopup(false);
-			closeInput(false);
-			syncFromReal();
 		}
 	}
 
@@ -2617,24 +2394,12 @@ function instance($$self, $$props, $$invalidate) {
 		handleEvent(event.code, inputKeyupHandlers, event);
 	}
 
-	function handleSelectionKeydown(event) {
-		handleEvent(event.code, toggleKeydownHandlers, event);
-	}
-
-	function handleSelectionClick(event) {
-		if (event.button === 0 && !hasModifier(event)) {
-			if (popupVisible) {
-				toggleEl.focus();
-				openInput(true);
-			} else {
-				openPopup();
-				fetchItems(false);
-			}
-		}
-	}
-
 	function handleToggleKeydown(event) {
 		handleEvent(event.code, toggleKeydownHandlers, event);
+	}
+
+	function handleToggleKeyup(event) {
+		handleEvent(event.code, toggleKeyupHandlers, event);
 	}
 
 	function handleToggleClick(event) {
@@ -2666,9 +2431,15 @@ function instance($$self, $$props, $$invalidate) {
 		fetchMoreIfneeded();
 	}
 
+	function button_binding($$value) {
+		binding_callbacks[$$value ? "unshift" : "push"](() => {
+			$$invalidate(4, toggleEl = $$value);
+		});
+	}
+
 	function input_input_handler() {
 		query = this.value;
-		$$invalidate(8, query);
+		$$invalidate(7, query);
 	}
 
 	function input_binding($$value) {
@@ -2677,33 +2448,15 @@ function instance($$self, $$props, $$invalidate) {
 		});
 	}
 
-	function div0_binding($$value) {
-		binding_callbacks[$$value ? "unshift" : "push"](() => {
-			$$invalidate(4, selectionEl = $$value);
-		});
-	}
-
-	function button_binding($$value) {
-		binding_callbacks[$$value ? "unshift" : "push"](() => {
-			$$invalidate(5, toggleEl = $$value);
-		});
-	}
-
-	function button_binding_1($$value) {
-		binding_callbacks[$$value ? "unshift" : "push"](() => {
-			$$invalidate(5, toggleEl = $$value);
-		});
-	}
-
 	function div_binding($$value) {
 		binding_callbacks[$$value ? "unshift" : "push"](() => {
-			$$invalidate(7, moreEl = $$value);
+			$$invalidate(6, moreEl = $$value);
 		});
 	}
 
-	function div0_binding_1($$value) {
+	function div0_binding($$value) {
 		binding_callbacks[$$value ? "unshift" : "push"](() => {
-			$$invalidate(6, popupEl = $$value);
+			$$invalidate(5, popupEl = $$value);
 		});
 	}
 
@@ -2714,20 +2467,20 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	$$self.$set = $$props => {
-		if ("real" in $$props) $$invalidate(36, real = $$props.real);
-		if ("fetcher" in $$props) $$invalidate(35, fetcher = $$props.fetcher);
-		if ("remote" in $$props) $$invalidate(37, remote = $$props.remote);
-		if ("queryMinLen" in $$props) $$invalidate(38, queryMinLen = $$props.queryMinLen);
-		if ("delay" in $$props) $$invalidate(39, delay = $$props.delay);
+		if ("real" in $$props) $$invalidate(32, real = $$props.real);
+		if ("fetcher" in $$props) $$invalidate(31, fetcher = $$props.fetcher);
+		if ("remote" in $$props) $$invalidate(33, remote = $$props.remote);
+		if ("queryMinLen" in $$props) $$invalidate(34, queryMinLen = $$props.queryMinLen);
+		if ("delay" in $$props) $$invalidate(35, delay = $$props.delay);
 		if ("extraClass" in $$props) $$invalidate(0, extraClass = $$props.extraClass);
 		if ("typeahead" in $$props) $$invalidate(1, typeahead = $$props.typeahead);
 	};
 
 	$$self.$$.update = () => {
-		if ($$self.$$.dirty[1] & /*mounted, selection*/ 9216) {
+		if ($$self.$$.dirty[1] & /*mounted*/ 64) {
 			 {
 				if (mounted) {
-					syncToReal(selection);
+					syncToReal();
 				}
 			}
 		}
@@ -2738,7 +2491,6 @@ function instance($$self, $$props, $$invalidate) {
 		typeahead,
 		containerEl,
 		inputEl,
-		selectionEl,
 		toggleEl,
 		popupEl,
 		moreEl,
@@ -2749,21 +2501,18 @@ function instance($$self, $$props, $$invalidate) {
 		hasMore,
 		selectionById,
 		selectionItems,
+		selectionDropdownItems,
 		showFetching,
-		fetchingMore,
 		fetchError,
-		inputVisible,
 		popupVisible,
-		activeFetch,
 		multiple,
 		handleBlur,
 		handleInputBlur,
 		handleInputKeypress,
 		handleInputKeydown,
 		handleInputKeyup,
-		handleSelectionKeydown,
-		handleSelectionClick,
 		handleToggleKeydown,
+		handleToggleKeyup,
 		handleToggleClick,
 		handleItemKeydown,
 		handleItemKeyup,
@@ -2778,22 +2527,18 @@ function instance($$self, $$props, $$invalidate) {
 		mounted,
 		fixedItems,
 		result,
-		selection,
+		fetchingMore,
+		activeFetch,
 		fetched,
 		previousFetch,
 		previousQuery,
 		wasDown,
 		isSyncToReal,
-		activeFocusRequest,
-		passEvents,
 		inlineFetcher,
 		fetchItems,
 		cancelFetch,
 		fetchMoreIfneeded,
 		clearQuery,
-		focusTarget,
-		openInput,
-		closeInput,
 		openPopup,
 		closePopup,
 		selectItemImpl,
@@ -2802,20 +2547,19 @@ function instance($$self, $$props, $$invalidate) {
 		syncFromReal,
 		syncToReal,
 		setupRemote,
+		toggleKeydownHandlers,
+		toggleKeyupHandlers,
 		inputKeypressHandlers,
 		inputKeydownHandlers,
 		inputKeyupHandlers,
-		toggleKeydownHandlers,
 		focusPreviousItem,
 		itemKeydownHandlers,
 		itemKeyupHandlers,
+		button_binding,
 		input_input_handler,
 		input_binding,
-		div0_binding,
-		button_binding,
-		button_binding_1,
 		div_binding,
-		div0_binding_1,
+		div0_binding,
 		div1_binding
 	];
 }
@@ -2823,7 +2567,7 @@ function instance($$self, $$props, $$invalidate) {
 class Select extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document_1.getElementById("svelte-1dukacc-style")) add_css();
+		if (!document_1.getElementById("svelte-pb1fqv-style")) add_css();
 
 		init(
 			this,
@@ -2832,21 +2576,21 @@ class Select extends SvelteComponent {
 			create_fragment,
 			safe_not_equal,
 			{
-				real: 36,
-				fetcher: 35,
-				remote: 37,
-				queryMinLen: 38,
-				delay: 39,
+				real: 32,
+				fetcher: 31,
+				remote: 33,
+				queryMinLen: 34,
+				delay: 35,
 				extraClass: 0,
 				typeahead: 1,
-				selectItem: 40
+				selectItem: 36
 			},
 			[-1, -1, -1]
 		);
 	}
 
 	get selectItem() {
-		return this.$$.ctx[40];
+		return this.$$.ctx[36];
 	}
 }
 
