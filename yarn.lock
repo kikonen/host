@@ -697,10 +697,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.12.0.tgz#8ceb9f09edfb85ea18a6c7bf098f6f5dd5ffd62b"
   integrity sha512-vKDJUuE2GAdBERaQWmmtsciAMzjwNrROXA5KTGSZvayAsmuTGjam5z6QNqNPCwDfVljLWuov1nEC3mEQf/n6fQ==
 
-"@kikonen/select_svelte@^0.0.44":
-  version "0.0.44"
-  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.0.44.tgz#1cc64d441ae0517dc5b68a639c903f2331d7d26d"
-  integrity sha512-QBuXcVtlqgTTDhtarAFoVa5dVrw2Stwhrt8XmuuiBhpyKjtG+kPCxqXAkjsbAkfIcH+BVDdLdHtRND4F3DOHAA==
+"@kikonen/select_svelte@^0.0.45":
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.0.45.tgz#937e1ef33e3f4359a95f6afcf8ab92a4d88e4b42"
+  integrity sha512-3Y9crrYDTLc58BHhqbDDc4UdMc1G3Zk0S0uO4VfdFLVa3GbDVjEc1eyR51vklP+VcZp/H0YMWRTTq7WP9CGUpA==
   dependencies:
     core-js "^3.4.1"
 
