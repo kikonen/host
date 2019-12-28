@@ -94,13 +94,27 @@ function setupSelect() {
       fetcher = fetcherRest;
     }
 
+    let styles = {};
+
+    if (input.id === 'select_style') {
+      styles = {
+        container_class: 'border-danger',
+        item_class: 'text-primary',
+        item_desc_class: 'text-warning',
+        blank_item_class: 'text-info',
+        typeahead_class: 'border-danger',
+        control_class: 'border-warning',
+      };
+    }
+
     const app = new Select({
       target: input.parentElement,
       props: {
         real: input,
         typeahead: ds.kiTypeahead === 'true',
         fetcher: fetcher,
-        remote: fetcher !== null
+        remote: fetcher !== null,
+        styles: styles
       }
     });
     if (input.id === 'select_brand') {
