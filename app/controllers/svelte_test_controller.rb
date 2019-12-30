@@ -1,5 +1,7 @@
 class SvelteTestController < ::WebController
 
+  protect_from_forgery with: :reset_session
+
   def hello
   end
 

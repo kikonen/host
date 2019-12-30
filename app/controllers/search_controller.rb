@@ -1,6 +1,9 @@
 class SearchController < ::RestController
   FAKE_LOCK = Mutex.new
 
+  protect_from_forgery with: :reset_session
+
+
   def search_xhr
     fetch_query = params[:fetch_query] || ''
     fetch_id = (params[:fetch_id] || '').to_i
