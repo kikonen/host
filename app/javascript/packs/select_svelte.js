@@ -124,6 +124,7 @@ function setupSelect() {
       props: {
         real: input,
         typeahead: ds.kiTypeahead === 'true',
+        maxItems: parseInt(ds.kiMaxItems || 100, 0),
         fetcher: fetcher,
         remote: fetcher !== null,
         styles: styles
