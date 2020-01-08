@@ -1,12 +1,5 @@
-import Select, { config} from '@kikonen/select_svelte/select_svelte';
+import Select from '@kikonen/select_svelte/select_svelte';
 
-config.trnslations = {
-  fetching: 'Etsitään..',
-  no_results: 'Ei tuloksia',
-  too_short: 'Too short',
-  has_more: 'Lisää...',
-  fetching_more: 'Etsitään lisää...',
-};
 
 function setupSelect() {
   document.querySelectorAll('.js-svelte-select').forEach(function(input) {
@@ -81,13 +74,36 @@ function setupSelect() {
       fetcher = fetcherRest;
     }
 
+    let styles = {};
+
+    if (input.id === 'select_style') {
+      styles = {
+        container_class: 'border-danger',
+        item_class: 'text-primary',
+        item_desc_class: 'text-warning',
+        blank_item_class: 'text-info',
+        typeahead_class: 'border-danger',
+        control_class: 'border-warning',
+      };
+    }
+
+    const translations = {
+      clear: 'Tyhjennä',
+      no_results: 'Ei tuloksia',
+      max_limit: 'Maksimi',
+    };
+
     const app = new Select({
       target: input.parentElement,
       props: {
         real: input,
-        typeahead: ds.kiTypeahead === 'true',
-        fetcher: fetcher,
-        remote: fetcher !== null
+        config: {
+          typeahead: ds.kiTypeahead === 'true',
+          fetcher: fetcher,
+          maxItems: parseInt(ds.kiMaxItems || 100, 0),
+          translations: translations,
+          styles: styles,
+        }
       }
     });
     if (input.id === 'sf_select_1') {

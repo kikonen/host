@@ -5,16 +5,7 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
-import Select, {config } from '@kikonen/select_svelte/src/select.svelte';
-
-config.translations = {
-  fetching: 'Etsitään..',
-  no_results: 'Ei tuloksia',
-  too_short: 'Too short',
-  has_more: 'Lisää...',
-  fetching_more: 'Etsitään lisää...',
-};
-
+import Select from '@kikonen/select_svelte/src/select.svelte';
 
 function setupSelect() {
   document.querySelectorAll('.js-svelte-select').forEach(function(input) {
@@ -119,15 +110,25 @@ function setupSelect() {
       };
     }
 
+
+    const translations = {
+      clear: 'Tyhjennä',
+      no_results: 'Ei tuloksia',
+      max_limit: 'Maksimi',
+    };
+
     const app = new Select({
       target: input.parentElement,
       props: {
         real: input,
-        typeahead: ds.kiTypeahead === 'true',
-        maxItems: parseInt(ds.kiMaxItems || 100, 0),
-        fetcher: fetcher,
-        remote: fetcher !== null,
-        styles: styles
+        config: {
+          fetcher: fetcher,
+          remote: fetcher !== null,
+          typeahead: ds.kiTypeahead === 'true',
+          maxItems: parseInt(ds.kiMaxItems || 100, 0),
+          translations: translations,
+          styles: styles,
+        },
       }
     });
     if (input.id === 'select_brand') {
