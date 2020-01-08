@@ -52,7 +52,7 @@
         class: 'js-svelte-select form-control',
         multiple: true,
         data: { ki_typeahead: 'true', ki_max_items: 3 } }
-        %option.text-muted{ selected: true, value: '' }
+        %option{ selected: true, value: '' }
           Optional
         %option{ value: 'style_1', data: { item_desc: 'Smooth' } }
           Yinky
@@ -106,6 +106,18 @@
         %option{ selected: true, value: selected[:id], data: { item_desc: selected[:desc] } }
           = selected[:text]
 
+    .form-group.col-12.col-sm-6.col-lg-3
+      %label{ for: 'select_opt_2' }
+        Plain Optional
+      %select{ id: 'select_opt_2',
+        name: 'select_opt_2',
+        class: 'js-svelte-select form-control' }
+        %option{ selected: true, value: nil }
+          Optional
+        %option{ value: 'true', data: { item_class: 'text-success' } }
+          Yes
+        %option{ value: 'false', data: { item_class: 'text-danger' } }
+          No
 
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_foo' }
