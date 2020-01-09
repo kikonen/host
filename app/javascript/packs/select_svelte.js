@@ -124,6 +124,7 @@ function setupSelect() {
         config: {
           fetcher: fetcher,
           remote: fetcher !== null,
+          placeholder: ds.kiPlaceholder,
           typeahead: ds.kiTypeahead === 'true',
           maxItems: parseInt(ds.kiMaxItems || 100, 0),
           translations: translations,

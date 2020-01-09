@@ -99,6 +99,7 @@ function setupSelect() {
         real: input,
         config: {
           typeahead: ds.kiTypeahead === 'true',
+          placeholder: ds.kiPlaceholder,
           fetcher: fetcher,
           maxItems: parseInt(ds.kiMaxItems || 100, 0),
           translations: translations,
