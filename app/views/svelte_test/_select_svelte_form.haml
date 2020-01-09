@@ -119,9 +119,13 @@
           No
 
     .form-group.col-12.col-sm-6.col-lg-3
-      %label{ for: 'select_foo' }
-        Zoo
-      %input.form-control{ id: 'select_foo', name: "select_foo" }
+      %label{ for: 'select_empty' }
+        Empty
+      %select{ id: 'select_empty',
+        name: 'select_empty',
+        class: 'js-svelte-select form-control' }
+        %option{ selected: true, value: nil }
+          Optional
 
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_foo_2' }
