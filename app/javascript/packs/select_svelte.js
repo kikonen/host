@@ -107,6 +107,8 @@ function setupSelect() {
         blank_item_class: 'text-info',
         typeahead_class: 'border-danger',
         control_class: 'border-warning',
+        control_blank_item_class: 'text-info',
+        control_selected_item_class: 'alert-success',
       };
     }
 
