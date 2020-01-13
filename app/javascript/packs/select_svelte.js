@@ -53,6 +53,17 @@ function setupSelect() {
       });
     }
 
+    function handleItemClick(event) {
+      setTimeout(function() {
+        let item = event.detail;
+        let el = document.activeElement;
+        alert("click: " + item.id + " - " + item.text);
+        if (el) {
+          el.focus();
+        }
+      });
+    }
+
     function handleSelect(event) {
       console.log("SELECTED", event.detail);
 
@@ -91,6 +102,7 @@ function setupSelect() {
     }
 //    input.addEventListener('select-select', handleSelect);
     input.addEventListener('select-action', handleAction);
+    input.addEventListener('select-click', handleItemClick);
 
     let fetcher = null;
     if (fetch_options.fetch_url) {
