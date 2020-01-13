@@ -106,6 +106,26 @@
           = selected[:text]
 
     .form-group.col-12.col-sm-6.col-lg-3
+      - selected = SearchController.fake_entries[20]
+
+      %label{ for: 'select_rest_2' }
+        REST multiselect
+      %select{ id: 'select_rest_2',
+        name: 'select_rest_2',
+        class: 'js-svelte-select form-control',
+        multiple: true,
+        data: { ki_fetch_url: search_xhr_search_index_path,
+          ki_fetch_limit: 20,
+          ki_fetch_query_min_len: 0,
+          ki_typeahead: 'true' } }
+        %option{ value: nil, data: { item_fixed: true } }
+          Optional
+        %option{ value: 'SELECT_POPUP', data: { item_fixed: true, item_action: 'select_popup' } }
+          Select...
+        %option{ selected: true, value: selected[:id], data: { item_desc: selected[:desc] } }
+          = selected[:text]
+
+    .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_opt_2' }
         Plain Optional
       %select{ id: 'select_opt_2',
