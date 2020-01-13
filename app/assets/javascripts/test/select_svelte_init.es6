@@ -36,6 +36,17 @@ function setupSelect() {
         });
     }
 
+    function handleAction(event) {
+      setTimeout(function() {
+        let item = event.detail;
+        let el = document.activeElement;
+        alert("action: " + item.action);
+        if (el) {
+          el.focus();
+        }
+      });
+    }
+
     function handleSelect(event) {
       console.log("SELECTED", event.detail);
 
@@ -46,6 +57,11 @@ function setupSelect() {
     function handleChange(event) {
       console.log("CHANGE", event);
 
+      let check = document.querySelector('#select_brand_sync');
+      if (!check || !check.checked) {
+        return;
+      }
+
       let selection = {};
       let selectedOptions = input.selectedOptions;
       for (let i = selectedOptions.length - 1; i >= 0; i--) {
@@ -54,7 +70,7 @@ function setupSelect() {
         selection[styleId] = true;
       }
 
-      let target = document.querySelector('#sf_select_2');
+      let target = document.querySelector('#select_style');
       let targetOptions = target.options;
       for (let i = targetOptions.length - 1; i >= 0; i--) {
         let el = targetOptions[i];
@@ -64,10 +80,11 @@ function setupSelect() {
       target.dispatchEvent(new Event('change'));
     }
 
-    if (input.id === 'sf_select_1') {
+    if (input.id === 'select_brand') {
       input.addEventListener('change', handleChange);
     }
 //    input.addEventListener('select-select', handleSelect);
+    input.addEventListener('select-action', handleAction);
 
     let fetcher = null;
     if (fetch_options.fetch_url) {
@@ -84,13 +101,17 @@ function setupSelect() {
         blank_item_class: 'text-info',
         typeahead_class: 'border-danger',
         control_class: 'border-warning',
+        control_blank_item_class: 'text-info',
+        control_selected_item_class: 'alert-success',
       };
     }
+
 
     const translations = {
       clear: 'Tyhjennä',
       no_results: 'Ei tuloksia',
       max_limit: 'Maksimi',
+      selected_count: 'valittua',
     };
 
     const app = new Select({
@@ -98,19 +119,21 @@ function setupSelect() {
       props: {
         real: input,
         config: {
-          typeahead: ds.kiTypeahead === 'true',
-          placeholder: ds.kiPlaceholder,
           fetcher: fetcher,
+          remote: fetcher !== null,
+          placeholder: ds.kiPlaceholder,
+          typeahead: ds.kiTypeahead === 'true',
           maxItems: parseInt(ds.kiMaxItems || 100, 0),
+          summaryLen: parseInt(ds.kiSummaryLen || 2, 0),
           translations: translations,
           styles: styles,
-        }
+        },
       }
     });
-    if (input.id === 'sf_select_1') {
+    if (input.id === 'select_brand') {
       app.selectItem(3);
     }
-    if (false && input.id === 'sf_rest_1') {
+    if (false && input.id === 'select_rest_1') {
       app.selectItem(1000);
     }
   });
