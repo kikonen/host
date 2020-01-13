@@ -115,6 +115,7 @@ function setupSelect() {
       clear: 'Tyhjennä',
       no_results: 'Ei tuloksia',
       max_limit: 'Maksimi',
+      selected_count: 'valittua',
     };
 
     const app = new Select({
@@ -127,6 +128,7 @@ function setupSelect() {
           placeholder: ds.kiPlaceholder,
           typeahead: ds.kiTypeahead === 'true',
           maxItems: parseInt(ds.kiMaxItems || 100, 0),
+          summaryLen: parseInt(ds.kiSummaryLen || 2, 0),
           translations: translations,
           styles: styles,
         },

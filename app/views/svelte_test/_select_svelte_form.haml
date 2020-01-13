@@ -52,7 +52,7 @@
         name: 'select_multi_1[]',
         class: 'js-svelte-select form-control',
         multiple: true,
-        data: { ki_typeahead: 'true', ki_placeholder: 'Optional', ki_max_items: 3 } }
+        data: { ki_typeahead: 'true', ki_placeholder: 'Optional', ki_max_items: 3, ki_summary_len: 3 } }
         %option{ value: 'style_1', data: { item_desc: 'Smooth' } }
           Yinky
         %option{ value: 'style_2', data: { item_desc: 'squeek, squeek' } }
@@ -118,8 +118,6 @@
           ki_fetch_limit: 20,
           ki_fetch_query_min_len: 0,
           ki_typeahead: 'true' } }
-        %option{ value: nil, data: { item_fixed: true } }
-          Optional
         %option{ value: 'SELECT_POPUP', data: { item_fixed: true, item_action: 'select_popup' } }
           Select...
         %option{ selected: true, value: selected[:id], data: { item_desc: selected[:desc] } }
