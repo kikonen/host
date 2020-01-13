@@ -20,7 +20,7 @@ class SearchController < ::RestController
       }
     else
       matcher = ->(item) {
-        query.empty? || item[:up_text].include?(query) || item[:up_desc].include?(query)
+        query.empty? || item[:up_text].include?(query) || (item[:up_desc] && item[:up_desc].include?(query))
       }
     end
 
@@ -73,23 +73,26 @@ class SearchController < ::RestController
     entries = []
     10000.times do |idx|
       name = Faker::Name.name
-      entries << {
+      entry = {
         id: idx + 1,
         text: name,
-        desc: Faker::Internet.email(name: name),
       }
+      entry[:desc] = Faker::Internet.email(name: name) if idx % 5 == 0
+      entries << entry
     end
 
     entries.each do |item|
       item[:up_text] ||= item[:text].upcase
-      item[:up_desc] ||= item[:desc].upcase
+      item[:up_desc] ||= item[:desc].upcase if item[:desc]
     end
 
     entries.sort! do |a, b|
       r = a[:up_text] <=> b[:up_text]
       r = a[:text] <=> b[:text] if r == 0
-      r = a[:up_desc] <=> b[:up_desc] if r == 0
-      r = a[:desc] <=> b[:desc] if r == 0
+      if a[:desc] && b[:desc]
+        r = a[:up_desc] <=> b[:up_desc] if r == 0
+        r = a[:desc] <=> b[:desc] if r == 0
+      end
       r = a[:id] <=> b[:id] if r == 0
       r
     end
