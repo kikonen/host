@@ -37,7 +37,8 @@ rvm gemset list
 
 echo "DEPLOY: ${RVM_RUBY} - ${BRANCH_TAG}"
 
-rvm "${RUBY_VERSION}@global" do gem install --no-ri --no-rdoc bundler
+#rvm "${RUBY_VERSION}@global" do gem install --no-rdoc bundler
+bundle update --bundler
 bundle install --without development test
 #cap production deploy && sudo service nginx restart
 cap production deploy
