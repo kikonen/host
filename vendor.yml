@@ -115,7 +115,7 @@ selectize:
   yarn: true
   assets:
   - dist/*.es6
-  - dist/*.css
+  - src/*.scss
 
 # bootstrap-switch:
 #   version: 3.3.2
