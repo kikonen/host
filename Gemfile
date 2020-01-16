@@ -74,9 +74,7 @@ group :development do
 #  gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 
-group :development, :test do
-  gem 'faker'
-end
+gem 'faker'
 
 gem 'oj'
 #gem 'ice_nine'
