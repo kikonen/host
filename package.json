@@ -20,7 +20,7 @@
     "popper.js": "^1.12.9",
     "select2": "^4.0.6-rc.1",
     "selectize": "^0.12.4",
-    "svelte": "3.17.0",
+    "svelte": "3.17.1",
     "svelte-loader": "^2.13.6",
     "systemjs": "^0.21.0",
     "webpack": "^4.41.2",

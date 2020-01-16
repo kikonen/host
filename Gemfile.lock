@@ -80,7 +80,6 @@ GEM
     bugsnag (6.12.2)
       concurrent-ruby (~> 1.0)
     builder (3.2.4)
-    bumbler (0.6.0)
     byebug (11.0.1)
     capistrano (3.11.2)
       airbrussh (>= 1.0.0)
@@ -362,7 +361,6 @@ DEPENDENCIES
   babel-transpiler
   bower_vendor
   bugsnag
-  bumbler
   capistrano
   capistrano-bundler (~> 1.1)
   capistrano-ext (~> 1.2)
