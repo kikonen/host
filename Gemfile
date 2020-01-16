@@ -10,6 +10,7 @@ gem 'webpacker', git: 'https://github.com/rails/webpacker'
 #gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
 
 
+#gem 'bumbler'
 
 gem 'puma'
 gem 'listen'
@@ -21,7 +22,7 @@ gem 'tzinfo-data'
 gem 'sqlite3'
 
 gem 'config'
-gem 'jbuilder'
+#gem 'jbuilder'
 
 #gem 'sass-rails', '~> 4.0.3'
 gem 'sassc-rails'
@@ -32,7 +33,7 @@ gem 'sprockets', '~> 4.0'
 gem 'babel-transpiler'
 
 gem 'uglifier'
-gem 'yui-compressor'
+#gem 'yui-compressor'
 
 gem 'bugsnag'
 
@@ -66,17 +67,19 @@ group :development do
   gem 'awesome_print'
 
 #  gem 'brakeman', require: false
-  gem 'scss_lint', require: false
+#  gem 'scss_lint', require: false
 
   # Updating assets is needed only in development mode
   gem 'bower_vendor'
 #  gem 'bower_vendor', path: '~/work/projects/ruby/bower_vendor'
 end
 
-gem 'faker'
+group :development, :test do
+  gem 'faker'
+end
 
 gem 'oj'
-gem 'ice_nine'
+#gem 'ice_nine'
 
 gem 'hamlit'
 
