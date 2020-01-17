@@ -174,7 +174,9 @@
         %option{ value: 'false' }
           No
         %option{ value: 'maybe' }
-          Maybe
+          Maybe 1
+        %option{ value: 'maybe' }
+          Maybe 2
         %option{ value: 'fish' }
           Fish
 
@@ -183,6 +185,36 @@
         Plain text
       %input{ id: 'plain_text', class: 'form-control' }
 
+    .form-group.col-12.col-sm-6.col-lg-3
+      %label{ for: 'select_key_1' }
+        Keyed type
+      %input{ type: 'hidden', name: 'select_key_1', value: nil }
+      %select{ id: 'select_key_1',
+        name: 'select_key_1',
+        class: 'js-svelte-select form-control',
+        data: { } }
+        %option{ value: '', selected: true }
+          Optional
+        %option{ value: 'style_1', data: { item_desc: 'Smooth' } }
+          Yinky
+        %option{ value: 'style_2', data: { item_desc: 'squeek, squeek' } }
+          Skueeky
+        %option{ value: 'style_3', data: { item_desc: 'For brave' } }
+          Bold
+        %option{ value: 'style_4', data: { item_desc: 'For mantzurian' } }
+          Bald
+        %option{ value: 'style_5', data: { item_desc: 'Bland' } }
+          Hairy 1
+        %option{ value: 'style_6', data: { item_desc: 'Bland' } }
+          Hairy 2
+        %option{ value: 'style_7', data: { item_desc: 'Bland' } }
+          Hairy 3
+        %option{ value: 'style_8', data: { item_desc: 'Bland' } }
+          Hairy 4
+        %option{ value: 'style_9', data: { item_desc: 'Bland' } }
+          Hairy 5
+        %option{ value: 'style_10', data: { item_desc: 'Bland' } }
+          Hairy 6
 
   - if local_assigns[:submit_url]
     %button.btn.btn-primary
