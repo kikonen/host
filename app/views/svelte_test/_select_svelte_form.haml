@@ -131,6 +131,25 @@
         Plain text
       %input{ id: 'plain_text', class: 'form-control' }
 
+    .form-group.col-12.col-sm-6.col-lg-3
+      %label{ for: 'select_rest_3' }
+        REST no cache
+      %select{ id: 'select_rest_3',
+        name: 'select_rest_3[]',
+        class: 'js-svelte-select form-control',
+        multiple: true,
+        data: { ki_fetch_url: search_xhr_search_index_path,
+          ki_placeholder: 'Optional',
+          ki_fetch_limit: 20,
+          ki_fetch_query_min_len: 0,
+          ki_summary_len: 5,
+          ki_keep_result: 'false',
+          ki_summary_wrap: 'true',
+          ki_typeahead: 'true' } }
+        %option{ value: 'SELECT_POPUP', data: { item_fixed: true, item_action: 'select_popup' } }
+          Select...
+        %option{ selected: true, value: selected[:id], data: { item_desc: selected[:desc] } }
+          = selected[:text]
 
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_opt_2' }

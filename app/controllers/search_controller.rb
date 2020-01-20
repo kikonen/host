@@ -39,7 +39,8 @@ class SearchController < ::RestController
         text: item[:text],
         desc: item[:desc],
         data: {
-          foo: item[:text],
+          foo_test_bar: item[:text],
+          foo_test_id: item[:id],
         }
       }
     end

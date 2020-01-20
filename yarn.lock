@@ -755,10 +755,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.12.0.tgz#8ceb9f09edfb85ea18a6c7bf098f6f5dd5ffd62b"
   integrity sha512-vKDJUuE2GAdBERaQWmmtsciAMzjwNrROXA5KTGSZvayAsmuTGjam5z6QNqNPCwDfVljLWuov1nEC3mEQf/n6fQ==
 
-"@kikonen/select_svelte@^0.2.7":
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.2.7.tgz#ce812991707fb43cbd9861e36044215c56556b9c"
-  integrity sha512-hEJNv6valA93fyppeFaNRetAZl3m0Iyb4aR9ESpe7Qo7CidUjLsjWRmhcYBbF5fTQCs4PvkSIYowQenY/oeSpQ==
+"@kikonen/select_svelte@^0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.2.9.tgz#79f11ad6ca5dd8818bcaf1ebe52808a2ddac3f52"
+  integrity sha512-dYEBhTctmDXqiHLTSZhIgu7XKUgc2fy9m/QDABXw6TswiLpNpo/3si7svtCrrl0a8omp1AuIBDp96Da+fkC26A==
   dependencies:
     core-js "^3.4.1"
     rollup-plugin-copy "^3.1.0"
