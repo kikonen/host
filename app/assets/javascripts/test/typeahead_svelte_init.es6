@@ -155,7 +155,7 @@ function setupTypeahead() {
         fetcher: fetcher,
         queryMinLen: fetch_options.fetch_query_min_len,
         styles: {
-          ss_container: 'js-marker-test'
+          container_class: 'js-marker-test'
         },
         translations: translations
       }

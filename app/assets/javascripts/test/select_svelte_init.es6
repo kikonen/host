@@ -96,13 +96,6 @@ function setupSelect() {
     if (input.id === 'select_style') {
       styles = {
         container_class: 'border-danger',
-        item_class: 'text-primary',
-        item_desc_class: 'text-warning',
-        blank_item_class: 'text-info',
-        typeahead_class: 'border-danger',
-        control_class: 'border-warning',
-        control_blank_item_class: 'text-info',
-        control_selected_item_class: 'alert-success',
       };
     }
 
