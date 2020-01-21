@@ -109,7 +109,7 @@ selectize:
   yarn: true
   assets:
   - dist/*.es6
-  - dist/*.css
+  - src/*.scss
 
 "@kikonen/select_svelte":
   yarn: true
