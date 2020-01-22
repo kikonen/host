@@ -10,7 +10,7 @@
         %select{ id: 'select_brand',
           name: 'select_brand',
           class: 'js-svelte-select form-control',
-          data: { ki_typeahead: 'true' } }
+          data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id' } }
           %option.text-muted{ selected: true, value: '' }
             Select...
           %option{ value: 1, data: { item_desc: 'jippo 1' } }

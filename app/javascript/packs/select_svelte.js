@@ -143,6 +143,7 @@ function setupSelect() {
           keepResult: ds.kiKeepResult !== 'false',
           translations: translations,
           styles: styles,
+          baseHref: ds.kiBaseHref,
         },
       }
     });
