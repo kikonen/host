@@ -46,8 +46,10 @@ function setupSelect() {
       setTimeout(function() {
         let item = event.detail;
         let el = document.activeElement;
+        console.log("WAS_ACTIVE", document.activeElement);
         alert("action: " + item.action);
-        if (el) {
+        if (el !== document.activeElement) {
+          console.log("NOW_ACTIVE", document.activeElement);
           el.focus();
         }
       });
