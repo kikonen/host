@@ -38,7 +38,7 @@ class SearchController < ::RestController
         id: item[:id],
         text: item[:text],
         desc: item[:desc],
-        href: "/people/#{item[:id]}",
+        href: "https://www.google.fi/?q=#{CGI.escape(item[:text])}",
         data: {
           foo_test_bar: item[:text],
           foo_test_id: item[:id],
