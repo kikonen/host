@@ -6,7 +6,8 @@
 systemjs:
   yarn: true
   assets:
-  - dist/system.js
+  - dist/s.js
+  - dist/extras/named-register.js
 
 # modernizr-min:
 #   version: 2.8.3

@@ -10,7 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require systemjs-0.21.6/system
+//= require systemjs/s
+//= require systemjs/named-register
 //
 //= require shared/gi
 //
