@@ -7,8 +7,8 @@
         .input-group-prepend
           .input-group-text
             %input{ id: 'select_brand_sync', type: "checkbox" }
-        %select{ id: 'select_brand',
-          name: 'select_brand',
+        %select{ id_NOPE: 'select_brand',
+          name_NOPE: 'select_brand',
           class: 'js-svelte-select form-control',
           data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id' } }
           %option.text-muted{ selected: true, value: '' }
