@@ -755,10 +755,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.12.1.tgz#2a98fea9fbb8a606ddc79a4680034e9d5591c550"
   integrity sha512-ZtjIIFplxncqxvogq148C3hBLQE+W3iJ8E4UvJ09zIJUgzwLcROsWwFDErVSXY2Plzao5J9KUYNHKHMEUYDMKw==
 
-"@kikonen/select_svelte@0.2.31":
-  version "0.2.31"
-  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.2.31.tgz#574a1230f2ff6f3ef9b36c8d6c7ad11ede2c02b5"
-  integrity sha512-5lxrnI1E9IIKU/YwLlCQPoVjoTm7vpL7eeJjdrUPyUOU3SKbXUQUmzPu/2qAWS83f4gSx50D1QDpda4nfP+cVA==
+"@kikonen/select_svelte@0.2.32":
+  version "0.2.32"
+  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.2.32.tgz#ab7f8d2aa980e0d7cb08f2a215aa9c139ce817c8"
+  integrity sha512-BDPLOQzmNtVJLm3sLz3PDPHP1Y9+2YuZNxaeZI2B9dyvcyzRamKmA4x7Sb9vP1u7abplTKBb09MXXjLVm1CWDw==
   dependencies:
     "@rollup/plugin-commonjs" "^11.0.1"
     "@rollup/plugin-node-resolve" "^7.0.0"
