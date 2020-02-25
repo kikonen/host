@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
-gem 'rack', '~> 2.1.0'
+gem 'rack', '~> 2.2.0'
 gem 'rails', '6.0.2.1'
 #gem 'jbuilder'
 
