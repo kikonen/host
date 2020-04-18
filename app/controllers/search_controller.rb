@@ -99,6 +99,8 @@ class SearchController < ::RestController
       r
     end
 
+    entries[1][:id] = 0
+
     entries
   end
 
