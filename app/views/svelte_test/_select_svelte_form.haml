@@ -61,7 +61,7 @@
           Bold
         %option{ value: 'style_4', data: { item_desc: 'For mantzurian' } }
           Bald
-        %option{ value: 'style_5', data: { item_desc: 'Bland' } }
+        %option{ value: 'style_5', data: { item_desc: 'Bland', item_desc_class: 'text-danger' } }
           Hairy 1
         %option{ value: 'style_6', data: { item_desc: 'Bland' } }
           Hairy 2
@@ -80,7 +80,7 @@
       %select{ id: 'select_enabled',
         name: 'select_enabled',
         class: 'js-svelte-select form-control' }
-        %option{ selected: true, value: 'true', data: { item_class: 'text-success' } }
+        %option{ selected: true, value: 'true', data: { item_text_class: 'text-success' } }
           Yes
         %option{ value: 'false', data: { item_class: 'text-danger' } }
           No
