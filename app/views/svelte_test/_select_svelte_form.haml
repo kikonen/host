@@ -31,9 +31,9 @@
         name: 'select_style',
         class: 'js-svelte-select form-control',
         data: { ki_typeahead: 'true' } }
-        %option.text-muted{ selected: true, value: '' }
+        %option.text-muted{ selected: true, value: '', data: { item_summary: '' } }
           Optional
-        %option{ value: 'style_1', data: { item_desc: 'Smooth' } }
+        %option{ value: 'style_1', data: { item_desc: 'Smooth', item_summary: 'Smooth summary' } }
           Yinky
         %option{ value: 'style_2', data: { item_desc: 'squeek, squeek', item_href: "https://www.wikipedia.org" } }
           Skueeky
