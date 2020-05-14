@@ -2,8 +2,8 @@
   "license": "SEE LICENSE IN silence_node_whining_wtf.txt",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "@kikonen/select_svelte": "^0.2.48",
-    "@kikonen/typeahead_svelte": "^0.3.7",
+    "@kikonen/select_svelte": "^0.2.49",
+    "@kikonen/typeahead_svelte": "^0.3.8",
     "@rails/webpacker": "5.1.1",
     "angular": "1.7.9",
     "angular-smart-table": "^2.1.11",

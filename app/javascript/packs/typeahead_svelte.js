@@ -89,7 +89,7 @@ function setupTypeahead() {
             items: JSON.parse(JSON.stringify(fetched)),
             more: true,
           });
-        }, 500);
+        }, 200);
       });
 
       return promise;

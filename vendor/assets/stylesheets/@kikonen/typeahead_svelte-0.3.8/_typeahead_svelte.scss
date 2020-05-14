@@ -1,0 +1,66 @@
+@mixin ts-no-click {
+  pointer-events: none;
+  user-select: none;
+}
+
+// NOTE KI MUST keep original select accessible, so that "focus" event can be catched
+// Basically borrowing logic from select2
+.ts-real-hidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.ts-container {
+  position: relative;
+  width: 100% !important;
+  height: unset;
+  border: 0;
+  padding: 0;
+}
+.ts-popup {
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 45vh;
+  max-width: 90vw;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.ts-popup-left {
+  right: 0;
+  left: unset;
+}
+.ts-popup-top {
+  top: unset;
+  bottom: 100%;
+}
+.ts-item {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.ts-item-text {
+  @include ts-no-click;
+}
+.ts-item-desc {
+  @include ts-no-click;
+  color: $text-muted;
+}
+.ts-item-disabled {
+  @include ts-no-click;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: $text-muted;
+}
+.ts-item-info {
+  @include ts-no-click;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: $text-muted;
+}
