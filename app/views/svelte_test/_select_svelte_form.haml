@@ -243,6 +243,85 @@
         %option{ value: 'style_10', data: { item_desc: 'Bland' } }
           Hairy 6
 
+
+  .form-row
+    .col-12
+      .border.border-primary{ style: 'width: 100%; overflow-y: hidden; overflow-x: auto;' }
+        %table.table.table-bordered.table-hover.table-striped.table-sm
+          %thhead
+            %tr
+              %th="case 1"
+              %th="Foobar"
+              %th="Ditto"
+              %th="Camel"
+          %body
+            %tr
+              %td{ style: 'min-width: 30vw;' }
+                1
+              %td{ style: 'min-width: 30vw;' }
+                2
+              %td{ style: 'min-width: 20vw;' }
+                3
+              %td{ style: 'min-width: 30vw;' }
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                3
+              %td
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                .input-group
+                  .input-group-prepend
+                    .input-group-text
+                      %input{ id: 'select_table_overflow', type: "checkbox" }
+                  %select{ id: 'table_overflow',
+                    name: 'table_overflow',
+                    class: 'js-svelte-select form-control',
+                    data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id' } }
+                    %option.text-muted{ selected: true, value: '' }
+                      Select...
+                    %option{ value: 0, data: { item_desc: 'jippo 1' } }
+                      Dickmish
+                    %option{ value: 'sep-1', data: { item_separator: true } }
+                    %option{ value: 2, data: { item_desc: 'Shut up!' } }
+                      Mashmish
+                    %option{ value: 3, data: { item_desc: 'WE are IT' } }
+                      EColish
+                    %option{ value: 'sep-2', data: { item_separator: :true } }
+                    %option{ value: 4, data: { item_desc: 'Yours truly' } }
+                      KamaSura
+                    %option{ value: 5, data: { item_desc: 'Not for everyone' } }
+                      Uberline
+              %td
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                3
+              %td
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                3
+              %td
+                4
+
   - if local_assigns[:submit_url]
     %button.btn.btn-primary
       Submit
