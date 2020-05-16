@@ -1,3 +1,5 @@
+%div{style: 'height: 200px;' }
+
 = form_with(url: local_assigns[:submit_url] ? submit_url : '', method: :post, local: true) do
   .form-row
     .form-group.col-12.col-sm-6.col-lg-3
@@ -244,6 +246,8 @@
           Hairy 6
 
 
+  %div{style: 'height: 200px;' }
+
   .form-row
     .col-12
       .border.border-primary{ style: 'width: 100%; overflow-y: hidden; overflow-x: auto;' }
@@ -264,6 +268,12 @@
                 3
               %td{ style: 'min-width: 30vw;' }
                 4
+              %td{ style: 'min-width: 30vw;' }
+                5
+              %td{ style: 'min-width: 30vw;' }
+                6
+              %td{ style: 'min-width: 30vw;' }
+                7
             %tr
               %td
                 1
@@ -286,7 +296,7 @@
                   %select{ id: 'table_overflow',
                     name: 'table_overflow',
                     class: 'js-svelte-select form-control',
-                    data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id' } }
+                    data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id', ss_popup_fixed: true } }
                     %option.text-muted{ selected: true, value: '' }
                       Select...
                     %option{ value: 0, data: { item_desc: 'jippo 1' } }
@@ -300,7 +310,7 @@
                     %option{ value: 4, data: { item_desc: 'Yours truly' } }
                       KamaSura
                     %option{ value: 5, data: { item_desc: 'Not for everyone' } }
-                      Uberline
+                      Uberline with very long name, cumbersomely so and very clearly
               %td
                 4
             %tr
@@ -330,3 +340,5 @@
   %hr
   %pre
     = Oj.dump(params.permit!.to_h, indent: 2, mode: :compat)
+
+%div{style: 'height: 600px;' }
