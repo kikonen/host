@@ -31,7 +31,7 @@
         %select{ id_NOPE: 'select_brand',
           name_NOPE: 'select_brand',
           class: 'js-svelte-select form-control',
-          data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id' } }
+          data: { ki_typeahead: true, ki_base_href: 'https://www.google.fi?q=:id' } }
           %option.text-muted{ selected: true, value: '' }
             Select...
           %option{ value: 0, data: { item_desc: 'jippo 1' } }
@@ -41,7 +41,7 @@
             Mashmish
           %option{ value: 3, data: { item_desc: 'WE are IT' } }
             EColish
-          %option{ value: 'sep-2', data: { item_separator: :true } }
+          %option{ value: 'sep-2', data: { item_separator: true } }
           %option{ value: 4, data: { item_desc: 'Yours truly' } }
             KamaSura
           %option{ value: 5, data: { item_desc: 'Not for everyone' } }
@@ -53,7 +53,7 @@
       %select{ id: 'select_style',
         name: 'select_style',
         class: 'js-svelte-select form-control',
-        data: { ki_typeahead: 'true' } }
+        data: { ki_typeahead: true } }
         %option.text-muted{ selected: true, value: '', data: { item_summary: '' } }
           Optional
         %option{ value: 'style_1', data: { item_desc: 'Smooth', item_summary: 'Smooth summary' } }
@@ -75,7 +75,7 @@
         name: 'select_multi_1[]',
         class: 'js-svelte-select form-control',
         multiple: true,
-        data: { ki_typeahead: 'true', ki_placeholder: 'Optional', ki_max_items: 3, ki_summary_len: 3 } }
+        data: { ki_typeahead: true, ki_placeholder: 'Optional', ki_max_items: 3, ki_summary_len: 3 } }
         %option{ value: 'style_1', data: { item_desc: 'Smooth' } }
           Yinky
         %option{ value: 'style_2', data: { item_desc: 'squeek, squeek' } }
@@ -120,7 +120,7 @@
         data: { ki_fetch_url: search_xhr_search_index_path,
           ki_fetch_limit: 20,
           ki_fetch_query_min_len: 0,
-          ki_typeahead: 'true' } }
+          ki_typeahead: true } }
         %option{ value: nil, data: { item_fixed: true } }
           Optional
         %option{ value: 'SELECT_POPUP', data: { item_fixed: true, item_action: 'select_popup' } }
@@ -142,8 +142,8 @@
           ki_fetch_limit: 20,
           ki_fetch_query_min_len: 0,
           ki_summary_len: 5,
-          ki_summary_wrap: 'true',
-          ki_typeahead: 'true' } }
+          ki_summary_wrap: true,
+          ki_typeahead: true } }
         %option{ value: 'SELECT_POPUP', data: { item_fixed: true, item_action: 'select_popup' } }
           Select...
         %option{ selected: true, value: selected[:id], data: { item_desc: selected[:desc] } }
@@ -166,9 +166,9 @@
           ki_fetch_limit: 20,
           ki_fetch_query_min_len: 0,
           ki_summary_len: 5,
-          ki_keep_result: 'false',
-          ki_summary_wrap: 'true',
-          ki_typeahead: 'true' } }
+          ki_no_cache: true,
+          ki_summary_wrap: true,
+          ki_typeahead: true } }
         %option{ value: 'SELECT_POPUP', data: { item_fixed: true, item_action: 'select_popup' } }
           Select...
         %option{ selected: true, value: selected[:id], data: { item_desc: selected[:desc] } }
@@ -334,7 +334,7 @@
                   %select{ id: 'table_overflow',
                     name: 'table_overflow',
                     class: 'js-svelte-select form-control',
-                    data: { ki_typeahead: 'true', ki_base_href: 'https://www.google.fi?q=:id', ss_popup_fixed: true } }
+                    data: { ki_typeahead: true, ki_base_href: 'https://www.google.fi?q=:id', ss_popup_fixed: true } }
                     %option.text-muted{ selected: true, value: '' }
                       Select...
                     %option{ value: 0, data: { item_desc: 'jippo 1' } }
@@ -344,7 +344,7 @@
                       Mashmish
                     %option{ value: 3, data: { item_desc: 'WE are IT' } }
                       EColish
-                    %option{ value: 'sep-2', data: { item_separator: :true } }
+                    %option{ value: 'sep-2', data: { item_separator: true } }
                     %option{ value: 4, data: { item_desc: 'Yours truly' } }
                       KamaSura
                     %option{ value: 5, data: { item_desc: 'Not for everyone' } }
