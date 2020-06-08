@@ -22,13 +22,13 @@
 = form_with(url: local_assigns[:submit_url] ? submit_url : '', method: :post, local: true) do
   .form-row
     .form-group.col-12.col-sm-6.col-lg-3
+      %label.sr-only{ for: 'select_brand_sync' }= "Sync"
       %label{ for: 'select_brand' }
         Brand
       .input-group
         .input-group-prepend
           .input-group-text
             %input{ id: 'select_brand_sync', type: "checkbox" }
-            %label.sr-only{ for: 'select_brand_sync' }= "Sync"
         %select{ id_NOPE: 'select_brand',
           name_NOPE: 'select_brand',
           aria: {label: 'Select brand' },
