@@ -1,6 +1,28 @@
+%div.border-bottom.mb-2{style: 'height: 400px; overflow: hidden;' }
+  %b
+    The standard Lorem Ipsum passage, used since the 1500s
+  %p
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+  %b
+    Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+  %p
+    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehen
+
+    %b
+      1914 translation by H. Rackham
+    %p
+      "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+
+    %b
+      Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+    %p
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
+
 %form
   .form-row
     .form-group.col-12.col-sm-6.col-lg-3
+      %label.sr-only{ for: 'select_brand_sync' }= "Sync"
       %label{ for: 'sf_quicksearch' }
         Search local
       .input-group
@@ -91,3 +113,129 @@
           Coo
         %option{ value: 5, data: { desc: 'jippo 5' } }
           Doo
+
+  %div.border-bottom.border-top.mt-2.mb-2{style: 'height: 400px; overflow: hidden;' }
+    %b
+      The standard Lorem Ipsum passage, used since the 1500s
+    %p
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+    %b
+      Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+    %p
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehen
+
+      %b
+        1914 translation by H. Rackham
+      %p
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+
+      %b
+        Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+      %p
+        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
+
+  .form-row
+    .col-12
+      .border.border-primary{ style: 'width: 100%; overflow-y: hidden; overflow-x: auto;' }
+        %table.table.table-bordered.table-hover.table-striped.table-sm
+          %thhead
+            %tr
+              %th="case 1"
+              %th="Foobar"
+              %th="Ditto"
+              %th="Camel"
+          %body
+            %tr
+              %td{ style: 'min-width: 20vw;' }
+                1
+              %td{ style: 'min-width: 20vw;' }
+                2
+              %td{ style: 'min-width: 40vw;' }
+                3
+              %td{ style: 'min-width: 30vw;' }
+                4
+              %td{ style: 'min-width: 30vw;' }
+                5
+              %td{ style: 'min-width: 30vw;' }
+                6
+              %td{ style: 'min-width: 30vw;' }
+                7
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                3
+              %td
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                .input-group
+                  .input-group-prepend
+                    .input-group-text
+                      %input{ id: 'typeahead_table_overflow_check', type: "checkbox" }
+                      %label.sr-only{ for: 'typeahead_table_overflow_check' }= "Sync"
+                  %input{ name: "typeahead_table_overflow",
+                    id: "typeahead_table_overflow",
+                    aria: { label: 'Dummy' },
+                    placeholder: 'type...',
+                    class: 'js-search-field form-control js-typeahead',
+                    data: { ts_show_toggle: true, ts_popup_fixed: true },
+                    value: '' }
+              %td
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                3
+              %td
+                4
+            %tr
+              %td
+                1
+              %td
+                2
+              %td
+                3
+              %td
+                4
+
+  - if local_assigns[:submit_url]
+    .p-2.pt-4
+      %button.btn.btn-outline-primary.text-dark
+        Submit
+
+- if local_assigns[:submit_url]
+  %hr
+  %pre
+    = Oj.dump(params.permit!.to_h, indent: 2, mode: :compat)
+
+%div.border-top.mt-2{style: 'height: 400px; overflow: hidden;' }
+  %b
+    The standard Lorem Ipsum passage, used since the 1500s
+  %p
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+  %b
+    Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+  %p
+    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehen
+
+    %b
+      1914 translation by H. Rackham
+    %p
+      "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+
+    %b
+      Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+    %p
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
