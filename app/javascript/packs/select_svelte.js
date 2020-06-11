@@ -133,6 +133,7 @@ function setupSelect() {
       props: {
         real: input,
         config: {
+          debugMode: false,
           fetcher: fetcher,
           remote: fetcher !== null,
           placeholder: ds.kiPlaceholder,
