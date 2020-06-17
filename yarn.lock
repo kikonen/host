@@ -809,10 +809,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
   integrity sha512-xKOeQEl5O47GPZYIMToj6uuA2syyFlq9EMSl2ui0uytjY9xbe8XS0pexNWmxrdcCyNGyDmLyYw5FtKsalBUeOg==
 
-"@kikonen/select_svelte@^0.5.4":
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.5.4.tgz#239da2b8d9f998a0d8cec5129314e18376d8c4b0"
-  integrity sha512-xxqFcVg9BvSviR/lgzxcfUeWV0Q0A86G2TP+gUEXcBEed8fe1Z5GRn6ZtH2mVq7ybzD7XxQUrvhOu2OswYmFnw==
+"@kikonen/select_svelte@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@kikonen/select_svelte/-/select_svelte-0.5.6.tgz#a0f7bff1a9f3fce02307cef5ea49096a4ca3fded"
+  integrity sha512-E70MrM3URBvRCR7aZkQee9D/yLD8ae14Txca6XMurpsQA6pCq0SaAcliHLS+NCa0q6J8NvYvU8Hk6c/bZLMqiw==
   dependencies:
     "@rollup/plugin-commonjs" "13.0.0"
     "@rollup/plugin-node-resolve" "8.0.1"
@@ -820,10 +820,10 @@
     rollup-plugin-copy "^3.1.0"
     rollup-plugin-scss "^2.1.0"
 
-"@kikonen/typeahead_svelte@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.4.1.tgz#d08bcf3b350817db79f159f9cbc4910141286d6b"
-  integrity sha512-52THnxEWNTG88IfmBriVAgrd3hf5eSlYQ0Pe7+dXB1IzAn7UGiLUk28gGVaOREtHDE5KB1ksuBIjcAKpRSEcHQ==
+"@kikonen/typeahead_svelte@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.4.2.tgz#d40020ee734dfbb010463b28b6a262a5829470e5"
+  integrity sha512-4uWngI+wuS4BunIOaUQaWKEPFxtlTdoV28Gc0a5NWu4n/os4YT7ptP6yNWQFXAN/HgxNxZ2oj0d/zbWPBJVVyg==
   dependencies:
     "@rollup/plugin-commonjs" "13.0.0"
     "@rollup/plugin-node-resolve" "8.0.1"
