@@ -159,6 +159,7 @@ function setupTypeahead() {
       target: input.parentElement,
       props: {
         real: input,
+        debugMode: false,
         query: input.value,
         fetcher: fetcher,
         queryMinLen: fetch_options.fetch_query_min_len,
