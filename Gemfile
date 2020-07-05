@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
 gem 'rack', '~> 2.2.0'
-gem 'rails', '6.0.3'
+gem 'rails', '6.0.3.2'
 #gem 'jbuilder'
 
 #gem 'webpacker'
