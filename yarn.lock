@@ -818,10 +818,10 @@
     rollup-plugin-copy "^3.1.0"
     rollup-plugin-scss "^2.1.0"
 
-"@kikonen/typeahead_svelte@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.5.0.tgz#b567884ab48659512d0561ac724368f2f4b481c9"
-  integrity sha512-BEZrniOcEFnkJcAnBnFJosuBbSLelnWztXMByeHqkHuYf1kzKWbfzk3sLyb3AuSykEnPJgaPYs7sUkrVdFkONg==
+"@kikonen/typeahead_svelte@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@kikonen/typeahead_svelte/-/typeahead_svelte-0.5.1.tgz#3bff69e2244fbbbabd5d714d02734c26f445ee6a"
+  integrity sha512-jRPrEQ0c5CxoTXyOZsRjfO5uYkf0V0WqbhHFZl7UkIenNdjXl8/Lz58akpzjlLy+tlHweHAG2ayIIUoDMW62IA==
   dependencies:
     "@rollup/plugin-commonjs" "^14.0.0"
     "@rollup/plugin-node-resolve" "8.4.0"
