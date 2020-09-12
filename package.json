@@ -2,7 +2,7 @@
   "license": "SEE LICENSE IN silence_node_whining_wtf.txt",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "@kikonen/select_svelte": "^0.6.5",
+    "@kikonen/select_svelte": "^0.6.6",
     "@kikonen/typeahead_svelte": "^0.5.4",
     "@rails/webpacker": "5.2.1",
     "angular": "1.8.0",
