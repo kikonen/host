@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
 gem 'rack', '~> 2.2.0'
-gem 'rails', '6.0.3.2'
+gem 'rails', '6.0.3.3'
 #gem 'jbuilder'
 
 #gem 'webpacker'
@@ -112,7 +112,7 @@ end
 
 group :deploy do
   gem 'capistrano-rails'
-  gem 'capistrano-bundler', '~> 1.1'
+  gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-nvm', require: false
   gem 'capistrano'
