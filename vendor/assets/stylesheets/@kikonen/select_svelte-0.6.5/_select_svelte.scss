@@ -115,25 +115,9 @@ $ss-text-muted: $text-muted !default;
   border-color: transparent;
 }
 .ss-caret {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 3px;
   margin-left: auto;
   color: $ss-caret-color;
-}
-.ss-caret-down {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 7px solid $ss-caret-color;
-}
-
-.ss-caret-wait {
-  width: 0;
-  height: 0;
-  border-left: 4px solid $ss-caret-color;
-  border-right: 4px solid $ss-caret-color;
-  border-top: 7px solid $ss-caret-color;
 }
 .ss-marker {
   color: $ss-text-muted;
