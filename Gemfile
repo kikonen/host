@@ -64,7 +64,7 @@ group :development do
 end
 
 group :development do
-  gem 'awesome_print'
+  gem 'amazing_print'
 
 #  gem 'brakeman', require: false
 #  gem 'scss_lint', require: false
