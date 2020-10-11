@@ -5,7 +5,7 @@
     "@kikonen/select_svelte": "0.6.5",
     "@kikonen/typeahead_svelte": "^0.5.4",
     "@rails/webpacker": "5.2.1",
-    "angular": "1.8.0",
+    "angular": "1.8.1",
     "angular-smart-table": "^2.1.11",
     "angular-touch": "^1.7.9",
     "angular-ui-router": "1.0.28",
@@ -22,12 +22,12 @@
     "selectize": "^0.12.4",
     "svelte": "^3.24.0",
     "svelte-loader": "^2.13.6",
-    "systemjs": "6.6.1",
-    "webpack": "^4.41.2",
+    "systemjs": "6.7.0",
+    "webpack": "5.0.0",
     "yarn": "^1.19.1"
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "4.0.0",
     "webpack-dev-server": "^3.11.0"
   }
 }
