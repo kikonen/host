@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/webpacker
-  revision: f9c29dd08268de6bddf4de50422258864938f75c
+  revision: b2a1fd4e29ce401df5928476e35b9743bd2fcf5d
   specs:
     webpacker (5.1.1)
       activesupport (>= 5.2)
@@ -70,7 +70,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
-    amazing_print (1.2.1)
+    amazing_print (1.2.2)
     autoprefixer-rails (10.0.1.0)
       execjs
     babel-source (5.8.35)
@@ -273,7 +273,7 @@ GEM
     redis (4.2.2)
     redis-namespace (1.8.0)
       redis (>= 3.0.4)
-    regexp_parser (1.8.1)
+    regexp_parser (1.8.2)
     resque (2.0.0)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
@@ -342,7 +342,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     vegas (0.1.11)
       rack (>= 1.0.0)
-    webmock (3.9.1)
+    webmock (3.9.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
