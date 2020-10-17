@@ -290,13 +290,14 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (944:4) {#if showToggle}
+// (946:4) {#if showToggle}
 function create_if_block_8(ctx) {
 	let div1;
 	let button;
 	let span;
 	let t1;
 	let div0;
+	let button_disabled_value;
 	let mounted;
 	let dispose;
 
@@ -320,6 +321,7 @@ function create_if_block_8(ctx) {
 			attr(span, "class", "sr-only");
 			attr(div0, "class", "ts-caret");
 			attr(button, "class", "btn btn-outline-secondary");
+			button.disabled = button_disabled_value = /*disabled*/ ctx[26] ? "disabled" : null;
 			attr(button, "type", "button");
 			attr(button, "tabindex", "-1");
 			attr(div1, "class", "input-group-append");
@@ -355,6 +357,10 @@ function create_if_block_8(ctx) {
 					if_block.m(div0, null);
 				}
 			}
+
+			if (dirty[0] & /*disabled*/ 67108864 && button_disabled_value !== (button_disabled_value = /*disabled*/ ctx[26] ? "disabled" : null)) {
+				button.disabled = button_disabled_value;
+			}
 		},
 		d(detaching) {
 			if (detaching) detach(div1);
@@ -366,7 +372,7 @@ function create_if_block_8(ctx) {
 	};
 }
 
-// (957:12) {:else}
+// (962:12) {:else}
 function create_else_block_2(ctx) {
 	let svg;
 	let polygon;
@@ -400,7 +406,7 @@ function create_else_block_2(ctx) {
 	};
 }
 
-// (953:12) {#if showFetching}
+// (958:12) {#if showFetching}
 function create_if_block_9(ctx) {
 	let svg;
 	let polygon;
@@ -434,7 +440,7 @@ function create_if_block_9(ctx) {
 	};
 }
 
-// (1014:10) {:else}
+// (1019:10) {:else}
 function create_else_block_1(ctx) {
 	let li;
 	let div;
@@ -507,7 +513,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (1003:54) 
+// (1008:54) 
 function create_if_block_5(ctx) {
 	let li;
 	let div;
@@ -559,7 +565,7 @@ function create_if_block_5(ctx) {
 	};
 }
 
-// (999:10) {#if item.separator}
+// (1004:10) {#if item.separator}
 function create_if_block_4(ctx) {
 	let li;
 	let li_data_index_value;
@@ -580,7 +586,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (1025:14) {#if item.desc}
+// (1030:14) {#if item.desc}
 function create_if_block_7(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[94].desc + "";
@@ -605,7 +611,7 @@ function create_if_block_7(ctx) {
 	};
 }
 
-// (1008:14) {#if item.desc}
+// (1013:14) {#if item.desc}
 function create_if_block_6(ctx) {
 	let div;
 	let t_value = /*item*/ ctx[94].desc + "";
@@ -630,7 +636,7 @@ function create_if_block_6(ctx) {
 	};
 }
 
-// (998:8) {#each items as item, index}
+// (1003:8) {#each items as item, index}
 function create_each_block(ctx) {
 	let if_block_anchor;
 
@@ -672,7 +678,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (1044:32) 
+// (1049:32) 
 function create_if_block_2(ctx) {
 	let div;
 
@@ -714,7 +720,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (1040:43) 
+// (1045:43) 
 function create_if_block_1(ctx) {
 	let div;
 
@@ -734,7 +740,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (1036:4) {#if fetchError}
+// (1041:4) {#if fetchError}
 function create_if_block(ctx) {
 	let div;
 	let t;
@@ -758,7 +764,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (1048:8) {:else}
+// (1053:8) {:else}
 function create_else_block(ctx) {
 	let t_value = /*translate*/ ctx[27]("no_results") + "";
 	let t;
@@ -777,7 +783,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (1046:8) {#if tooShort }
+// (1051:8) {#if tooShort }
 function create_if_block_3(ctx) {
 	let t_value = /*translate*/ ctx[27]("too_short") + "";
 	let t;
@@ -800,6 +806,7 @@ function create_fragment(ctx) {
 	let div3;
 	let div0;
 	let input;
+	let input_disabled_value;
 	let input_aria_controls_value;
 	let input_aria_activedescendant_value;
 	let input_data_target_value;
@@ -856,6 +863,7 @@ function create_fragment(ctx) {
 			attr(input, "autocorrect", "off");
 			attr(input, "autocapitalize", "off");
 			attr(input, "spellcheck", "off");
+			input.disabled = input_disabled_value = /*disabled*/ ctx[26] ? "disabled" : null;
 			attr(input, "role", "combobox");
 			attr(input, "aria-labelledby", /*labelId*/ ctx[13]);
 			attr(input, "aria-label", /*labelText*/ ctx[14]);
@@ -923,6 +931,10 @@ function create_fragment(ctx) {
 			}
 		},
 		p(ctx, dirty) {
+			if (dirty[0] & /*disabled*/ 67108864 && input_disabled_value !== (input_disabled_value = /*disabled*/ ctx[26] ? "disabled" : null)) {
+				input.disabled = input_disabled_value;
+			}
+
 			if (dirty[0] & /*labelId*/ 8192) {
 				attr(input, "aria-labelledby", /*labelId*/ ctx[13]);
 			}

@@ -3,7 +3,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@kikonen/select_svelte": "^0.6.9",
-    "@kikonen/typeahead_svelte": "^0.5.4",
+    "@kikonen/typeahead_svelte": "^0.5.5",
     "@rails/webpacker": "5.1.1",
     "angular": "1.8.1",
     "angular-smart-table": "^2.1.11",

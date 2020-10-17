@@ -109,10 +109,6 @@ $ts-text-muted: $text-muted !default;
   padding-right: 0.5rem;
 }
 
-.ts-toggle-disabled {
-  background-color: $ts-text-muted;
-}
-
 .ts-caret {
   color: $ts-caret-color;
   // NOTE KI "em" match to "container" font-size
