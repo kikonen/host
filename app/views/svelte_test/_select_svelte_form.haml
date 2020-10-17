@@ -37,13 +37,15 @@
           %option.text-muted{ selected: true, value: '' }
             Select...
           %option{ value: 0, data: { item_desc: 'jippo 1' } }
-            Dickmish
+            Duckmish
           %option{ value: 'sep-1', data: { item_separator: true } }
           %option{ value: 2, data: { item_desc: 'Shut up!' } }
             Mashmish
           %option{ value: 3, data: { item_desc: 'WE are IT' } }
-            EColish
+            Goosemish
           %option{ value: 'sep-2', data: { item_separator: true } }
+          %option{ value: 4, disabled: 'disabled', data: { item_desc: 'Yours disabled' } }
+            Disablemish
           %option{ value: 4, data: { item_desc: 'Yours truly' } }
             KamaSura
           %option{ value: 5, data: { item_desc: 'Not for everyone' } }
@@ -98,6 +100,8 @@
           Hairy 5
         %option{ value: 'style_10', data: { item_desc: 'Bland' } }
           Hairy 6
+        %option{ value: 'style_11', disabled: :disabled, data: { item_desc: 'Bland disabled' } }
+          Hairy 7 - nope
 
     .form-group.col-12.col-sm-6.col-lg-3
       %label{ for: 'select_enabled' }
