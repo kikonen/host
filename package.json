@@ -23,7 +23,9 @@
     "select2": "^4.0.6-rc.1",
     "selectize": "^0.12.4",
     "svelte": "^3.24.0",
+    "svelte-app": "kikonen/svelte_jumper",
     "svelte-loader": "^2.13.6",
+    "svelte_jumper": "kikonen/svelte_jumper",
     "systemjs": "6.7.1",
     "yarn": "^1.19.1"
   },

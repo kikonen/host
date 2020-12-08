@@ -10,14 +10,36 @@
 
   .collapse.navbar-collapse#main_navbar
     %ul.navbar-nav.mr-auto
+      %li.nav-item.dropdown
+        %a.text-dark.nav-link.dropdown-toggle{ href: "#", id: "nav_menu_demo", role: "button",
+          data: { toggle: "dropdown" },
+          'aria-haspopup': "true", 'aria-expanded': "false" }
+          Demo
+
+        .dropdown-menu{ 'aria-labelledby': "nav_menu_demo" }
+          %a.dropdown-item{ href: "/svelte_test/typeahead" }
+            Typeahead Svelte Demo
+
+          %a.dropdown-item{ href: "/svelte_test/select" }
+            Select Svelte Demo
 
       %li.nav-item.dropdown
-        %a.text-dark.nav-link.dropdown-toggle{ href: "#", id: "nav_menu_1", role: "button",
+        %a.text-dark.nav-link.dropdown-toggle{ href: "#", id: "nav_menu_experiment", role: "button",
           data: { toggle: "dropdown" },
           'aria-haspopup': "true", 'aria-expanded': "false" }
           Experiments
 
-        .dropdown-menu{ 'aria-labelledby': "nav_menu_1" }
+        .dropdown-menu{ 'aria-labelledby': "nav_menu_experiment" }
+          %a.dropdown-item{ href: "/experiments/svelte_jumper" }
+            Svelte Jumper
+
+      %li.nav-item.dropdown
+        %a.text-dark.nav-link.dropdown-toggle{ href: "#", id: "nav_menu_test", role: "button",
+          data: { toggle: "dropdown" },
+          'aria-haspopup': "true", 'aria-expanded': "false" }
+          Testing
+
+        .dropdown-menu{ 'aria-labelledby': "nav_menu_test" }
           %a.dropdown-item{ href: "/test" }
             Test
 
@@ -26,20 +48,18 @@
           %a.dropdown-item{ href: "/svelte_test/hello" }
             Svelte Hello world
 
-          %a.dropdown-item{ href: "/svelte_test/typeahead" }
-            Typeahead Svelte Demo
+      %li.nav-item.dropdown
+        %a.text-dark.nav-link.dropdown-toggle{ href: "#", id: "nav_menu_app", role: "button",
+          data: { toggle: "dropdown" },
+          'aria-haspopup': "true", 'aria-expanded': "false" }
+          Applications
 
-          %a.dropdown-item{ href: "/svelte_test/select" }
-            Select Svelte Demo
+        .dropdown-menu{ 'aria-labelledby': "nav_menu_app" }
+          %a.dropdown-item{ href: "/gi_raycaster" }
+            Raycast
 
-      %li.nav-item
-        %a.text-dark.nav-link{ href: "/gi_raycaster" }
-          Raycast
+          %a.dropdown-item{ href: "/gi_paint" }
+            Paint
 
-      %li.nav-item
-        %a.text-dark.nav-link{ href: "/gi_paint" }
-          Paint
-
-      %li.nav-item
-        %a.text-dark.nav-link{ href: "/gi_album" }
-          Album
+          %a.dropdown-item{ href: "/gi_album" }
+            Album

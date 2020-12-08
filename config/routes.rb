@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :experiments, only: [] do
+    collection do
+      get :svelte_jumper
+    end
+  end
+
   resources :search, only: [] do
     collection do
       post :search_xhr
