@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :experiments, only: [] do
     collection do
       get :svelte_jumper
+      get :cube3d
     end
   end
 

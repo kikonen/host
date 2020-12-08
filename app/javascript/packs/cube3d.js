@@ -5,7 +5,7 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
-import App from 'svelte_jumper/src/App.svelte';
+import App from 'cube3d/src/App.svelte';
 
 function setupApp() {
   let containerEl = document.querySelector('.js-svelte-app');
