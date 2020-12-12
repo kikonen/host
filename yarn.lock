@@ -2544,7 +2544,7 @@ csv-parse@^4.6.5:
 
 cube3d@kikonen/cube3d:
   version "1.0.1"
-  resolved "https://codeload.github.com/kikonen/cube3d/tar.gz/ac6c047ae060cfcb876162ef6997225ce28311ed"
+  resolved "https://codeload.github.com/kikonen/cube3d/tar.gz/5adfd95dfb344c79f62c80be40e7ca9024c56aa3"
   dependencies:
     sirv-cli "^1.0.0"
 
