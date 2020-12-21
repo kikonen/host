@@ -2543,8 +2543,8 @@ csv-parse@^4.6.5:
   integrity sha512-wPQl3H79vWLPI8cgKFcQXl0NBgYYEqVnT1i6/So7OjMpsI540oD7p93r3w6fDSyPvwkTepG05F69/7AViX2lXg==
 
 cube3d@kikonen/cube3d:
-  version "1.0.20"
-  resolved "https://codeload.github.com/kikonen/cube3d/tar.gz/9c168681d2e43cc36c876b16cf65096c8f2b3e94"
+  version "1.0.21"
+  resolved "https://codeload.github.com/kikonen/cube3d/tar.gz/2b75cffedd0a5e567ec4d8a12391d2dbaa615075"
   dependencies:
     sirv-cli "^1.0.0"
 
