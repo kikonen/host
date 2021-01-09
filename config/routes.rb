@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     collection do
       get :svelte_jumper
       get :cube3d
+      get :learnopengl
     end
   end
 
