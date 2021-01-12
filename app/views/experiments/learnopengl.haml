@@ -1,19 +1,30 @@
-%h1
-  Learn OpenGL
+- base_url = "https://www.ikari.fi/learnopengl"
 
-.h2
-  Cubes 1
+.pl-4
+  %h1
+    Learn OpenGL
 
-%video{ width: 320, height: 240, controls: true }
-  %source{ src: "https://www.ikari.fi/video/kuutiot.mp4", type: "video/mp4" }
-  Your browser does not support the video tag.
+  .h2
+    Cubes 1
 
-.h3
-  Cubes 2
+  .pl-1
+    %video{ width: 320, height: 240, controls: true }
+      %source{ src: "#{base_url}/kuutiot.mp4", type: "video/mp4" }
+      Your browser does not support the video tag.
 
-%video{ width: 320, height: 240, controls: true }
-  %source{ src: "https://www.ikari.fi/video/kuutiot2.mp4", type: "video/mp4" }
-  Your browser does not support the video tag.
+  .h3
+    Cubes 2
+
+  .pl-1
+    %video{ width: 320, height: 240, controls: true }
+      %source{ src: "#{base_url}/kuutiot2.mp4", type: "video/mp4" }
+      Your browser does not support the video tag.
+
+  .h3
+    Cubes 3
+
+  .pl-1
+    %img{ src: "#{base_url}/windows_skycube.jpg", width: 320, height: 240, controls: true }
 
 .fixed-bottom.border-top.bg-white
   .float-right
