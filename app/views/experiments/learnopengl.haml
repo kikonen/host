@@ -4,28 +4,38 @@
   %h1
     Learn OpenGL
 
-  .h2
-    Cubes 1
+  .h3.mb-1
+    Cubes 1 - The beginning
 
-  .pl-1
-    %video{ width: 320, height: 240, controls: true }
+  .pl-1.mb-2
+    %video.p-1.m-1.border.border-primary{ width: 320, height: 240, controls: true }
       %source{ src: "#{base_url}/kuutiot.mp4", type: "video/mp4" }
       Your browser does not support the video tag.
 
-  .h3
-    Cubes 2
+  .h3.mb-0
+    Cubes 2 - Textures
 
-  .pl-1
-    %video{ width: 320, height: 240, controls: true }
+  .pl-1.pb-1
+    %video.p-1.m-1.border.border-primary{ width: 320, height: 240, controls: true }
       %source{ src: "#{base_url}/kuutiot2.mp4", type: "video/mp4" }
       Your browser does not support the video tag.
 
-  .h3
-    Cubes 3
+  .h3.mb-0
+    Cubes 3 - Skybox
 
-  .pl-1
-    %img{ src: "#{base_url}/windows_skycube.jpg", width: 320, height: 240, controls: true }
+  .pl-1.mb-1
+    %a{ href: "#{base_url}/windows_skycube.jpg" }
+      %img.p-1.m-1.border.border-primary{ src: "#{base_url}/windows_skycube.jpg", width: 320, height: 240, controls: true }
 
+  .h3.mb-0
+    Cubes 4 - Shadows of the planet
+
+  .pl-1.mb-1
+    %video.p-1.m-1.border.border-primary{ width: 320, height: 240, controls: true }
+      %source{ src: "#{base_url}/blended_shadows_02.mp4", type: "video/mp4" }
+      Your browser does not support the video tag.
+
+.p-4
 .fixed-bottom.border-top.bg-white
   .float-right
     .m-2.mr-3
