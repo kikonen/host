@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
 gem 'rack', '~> 2.2.0'
-gem 'rails', '6.0.3.4'
+gem 'rails', '6.1.4.4'
 #gem 'jbuilder'
 
 gem 'webpacker', '~> 5.1.1'
@@ -44,9 +44,9 @@ gem 'ngannotate-rails', '>= 1.2.2'
 #gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
-#gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 gem 'libv8'#, '~> 5.0'
-gem 'mini_racer'#, '~> 0.1.4'
+#gem 'mini_racer'#, '~> 0.1.4'
 
 # HACK KI due to "mini_racer"
 #gem 'sprockets-babel-miniracer', '>= 0.0.9'
