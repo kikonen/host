@@ -32,8 +32,11 @@ module.exports = function(api) {
           corejs: 3,
           modules: false,
           bugfixes: true,
-          loose: true,
-          exclude: ['transform-typeof-symbol']
+          exclude: ['transform-typeof-symbol'],
+          // https://github.com/rails/webpacker/issues/3008
+          // assumptions: {
+          //   privateFieldsAsProperties: true,
+          // },
         }
       ]
     ].filter(Boolean),
@@ -42,7 +45,6 @@ module.exports = function(api) {
       [
         '@babel/plugin-proposal-class-properties',
         {
-          loose: true
         }
       ],
       [
