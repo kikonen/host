@@ -40,7 +40,7 @@ gem 'bugsnag'
 # NOTE KI nokogiri is notorious with library dependencies and horribly slow install
 gem 'nokogiri'
 
-gem 'ngannotate-rails', '>= 1.2.2'
+#gem 'ngannotate-rails', '>= 1.2.2'
 #gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
