@@ -62,7 +62,8 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store, 'localhost', { namespace: 'gi_host', expires_in: 1.day, compress: false }
+  config.cache_store = :mem_cache_store, 'localhost:11211', 'localhost:11211',
+  { namespace: 'gi_host', expires_in: 1.day, compress: false }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
