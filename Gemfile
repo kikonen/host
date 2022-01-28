@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
 gem 'rack', '~> 2.2.0'
-gem 'rails', '6.1.4.4'
+gem 'rails', '7.0.1'
 #gem 'jbuilder'
 
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.4.0'
 #gem 'webpacker', git: 'https://github.com/rails/webpacker'
 #gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
 
