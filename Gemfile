@@ -5,10 +5,11 @@ gem 'rack', '~> 2.2.0'
 gem 'rails', '7.0.1'
 #gem 'jbuilder'
 
-gem 'webpacker', '~> 5.4.0'
-#gem 'webpacker', git: 'https://github.com/rails/webpacker'
-#gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
-
+group :development, :test, :deploy do
+  gem 'webpacker', '~> 5.4.0'
+  #gem 'webpacker', git: 'https://github.com/rails/webpacker'
+  #gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
+end
 
 #gem 'bumbler'
 
@@ -26,14 +27,17 @@ gem 'config'
 
 #gem 'sass-rails', '~> 4.0.3'
 gem 'sassc-rails'
-gem 'autoprefixer-rails'
 
 # NOTE KI sass not working sprockets 4.0 beta
 gem 'sprockets', '~> 4.0'
-gem 'babel-transpiler'
 
-gem 'uglifier'
-#gem 'yui-compressor'
+group :development, :test, :deploy do
+  gem 'autoprefixer-rails'
+  gem 'babel-transpiler'
+
+  gem 'uglifier'
+  #gem 'yui-compressor'
+end
 
 gem 'bugsnag'
 
@@ -44,13 +48,15 @@ gem 'nokogiri'
 #gem 'ngannotate-rails', git: 'git@github.com:kikonen//ngannotate-rails.git', tag: 'v0.15.4.1b'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
-gem 'therubyracer',  platforms: :ruby
-gem 'libv8'#, '~> 5.0'
-#gem 'mini_racer'#, '~> 0.1.4'
+group :development, :test, :deploy do
+  gem 'therubyracer',  platforms: :ruby
+  gem 'libv8'#, '~> 5.0'
+  #gem 'mini_racer'#, '~> 0.1.4'
 
-# HACK KI due to "mini_racer"
-#gem 'sprockets-babel-miniracer', '>= 0.0.9'
-#gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
+  # HACK KI due to "mini_racer"
+  #gem 'sprockets-babel-miniracer', '>= 0.0.9'
+  #gem 'sprockets-babel-miniracer', path: '~/work/projects/ruby/sprockets-babel-miniracer'
+end
 
 gem 'ng_template'
 #gem 'ng_template', git: 'git@github.com:kikonen//ng_template.git', branch: 'master'

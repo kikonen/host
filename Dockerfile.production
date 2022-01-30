@@ -1,4 +1,4 @@
-FROM ruby:2.7.5
+FROM ruby:2.7.5 as builder
 WORKDIR /app
 
 ENV RAILS_ENV=production
@@ -31,5 +31,24 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends libpq-dev && \
     rm -rf /var/lib/apt/lists/*
 
-#RUN bundle install --without development,test
-#RUN rake assets:precompile
+RUN yarn install
+RUN bundle install --without development,test
+RUN rake assets:precompile
+
+####################
+FROM ruby:2.7.5
+WORKDIR /app
+
+ENV RAILS_ENV=production
+
+ENV BUNDLE_PATH=/bundle/vendor \
+    GEM_HOME=/bundle/vendor/ruby/2.7.0 \
+    GEM_PATH=/bundle/vendor/ruby/2.7.0/bin
+
+COPY . .
+COPY --from=builder /app/public/assets public/assets
+COPY --from=builder /bundle /bundle
+
+RUN rm -fr vendor
+
+ENTRYPOINT ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "--port", "3000"]
