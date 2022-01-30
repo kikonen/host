@@ -5,11 +5,11 @@ gem 'rack', '~> 2.2.0'
 gem 'rails', '7.0.1'
 #gem 'jbuilder'
 
-group :development, :test, :deploy do
-  gem 'webpacker', '~> 5.4.0'
-  #gem 'webpacker', git: 'https://github.com/rails/webpacker'
-  #gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
-end
+# NOTE KI REQUIRED in production due to
+# Error (undefined method `javascript_pack_tag' for #<ActionView::Base:0x0000000000cb20>
+gem 'webpacker', '~> 5.4.0'
+#gem 'webpacker', git: 'https://github.com/rails/webpacker'
+#gem 'webpacker', git: 'git@github.com:LuanGB/webpacker.git', branch: 'webpacker-clean_with_hashes_on_manifest'
 
 #gem 'bumbler'
 

@@ -5,7 +5,8 @@ ENV RAILS_ENV=production
 
 ENV BUNDLE_PATH=/bundle/vendor \
     GEM_HOME=/bundle/vendor/ruby/2.7.0 \
-    GEM_PATH=/bundle/vendor/ruby/2.7.0/bin
+    GEM_PATH=/bundle/vendor/ruby/2.7.0/bin \
+    PATH=/app/bin:$PATH
 
 #RUN mkdir -p /node_modules
 #RUN ln -sf /node_modules node_modules
@@ -43,12 +44,14 @@ ENV RAILS_ENV=production
 
 ENV BUNDLE_PATH=/bundle/vendor \
     GEM_HOME=/bundle/vendor/ruby/2.7.0 \
-    GEM_PATH=/bundle/vendor/ruby/2.7.0/bin
+    GEM_PATH=/bundle/vendor/ruby/2.7.0/bin \
+    PATH=/app/bin:$PATH
 
 COPY . .
 COPY --from=builder /app/public/assets public/assets
+COPY --from=builder /app/public/packs public/packs
 COPY --from=builder /bundle /bundle
 
-RUN rm -fr vendor
+#RUN rm -fr vendor
 
 ENTRYPOINT ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "--port", "3000"]
