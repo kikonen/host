@@ -1,0 +1,35 @@
+FROM ruby:2.7.5
+WORKDIR /app
+
+ENV RAILS_ENV=production
+
+ENV BUNDLE_PATH=/bundle/vendor \
+    GEM_HOME=/bundle/vendor/ruby/2.7.0 \
+    GEM_PATH=/bundle/vendor/ruby/2.7.0/bin
+
+#RUN mkdir -p /node_modules
+#RUN ln -sf /node_modules node_modules
+#ENV PATH="${PATH}:/node_modules/.bin"
+
+#COPY .yarnrc package.json yarn.lock ./
+#RUN yarn install
+
+#COPY Gemfile .
+#COPY Gemfile.lock .
+#COPY Rakefile .
+COPY . .
+
+# https://coolrequest.dev/2021/12/13/docker_image_rails_part2.html
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN npm install --global yarn
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+#RUN bundle install --without development,test
+#RUN rake assets:precompile
