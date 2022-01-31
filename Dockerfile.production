@@ -1,23 +1,15 @@
 FROM ruby:2.7.5 as builder
 WORKDIR /app
 
-ENV RAILS_ENV=production
+ENV RAILS_ENV=production \
+    RAILS_RELATIVE_URL_ROOT=/ui \
+    ORIGINAL_SCRIPT_NAME=/ui
 
 ENV BUNDLE_PATH=/bundle/vendor \
     GEM_HOME=/bundle/vendor/ruby/2.7.0 \
     GEM_PATH=/bundle/vendor/ruby/2.7.0/bin \
     PATH=/app/bin:$PATH
 
-#RUN mkdir -p /node_modules
-#RUN ln -sf /node_modules node_modules
-#ENV PATH="${PATH}:/node_modules/.bin"
-
-#COPY .yarnrc package.json yarn.lock ./
-#RUN yarn install
-
-#COPY Gemfile .
-#COPY Gemfile.lock .
-#COPY Rakefile .
 COPY . .
 
 # https://coolrequest.dev/2021/12/13/docker_image_rails_part2.html
@@ -52,6 +44,8 @@ COPY --from=builder /app/public/assets public/assets
 COPY --from=builder /app/public/packs public/packs
 COPY --from=builder /bundle /bundle
 
-#RUN rm -fr vendor
+RUN rm -fr vendor
+
+USER ${DOCKER_UID}:${DOCKER_GID}
 
 ENTRYPOINT ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "--port", "3000"]

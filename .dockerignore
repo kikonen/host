@@ -2,13 +2,25 @@
 Dockerfile*
 
 .gitignore
+.jshintrc
+.nvmrc
+.rspec
+.ruby-version
+.ruby-gemset
+.travis.yml
+Capfile
+README.md
+/vendor.yml
 /.bundle
 /.git
 /log
 /public/assets
 /shared
 /spec
+/scripts
+/templates
 /tmp
+/travis
 
 /public/packs
 /public/packs-test
