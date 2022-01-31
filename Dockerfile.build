@@ -25,8 +25,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN yarn install
-RUN bundle install --without development,test
+RUN bundle install --without " development test"
 RUN rake assets:precompile
+
+USER ${DOCKER_UID}:${DOCKER_GID}
 
 ####################
 FROM ruby:2.7.5
@@ -42,7 +44,8 @@ ENV BUNDLE_PATH=/bundle/vendor \
 COPY . .
 COPY --from=builder /app/public/assets public/assets
 COPY --from=builder /app/public/packs public/packs
-COPY --from=builder /bundle /bundle
+#COPY --from=builder /bundle /bundle
+RUN bundle install --without " development test deploy"
 
 RUN rm -fr vendor
 

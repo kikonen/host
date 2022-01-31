@@ -14,12 +14,15 @@ gem 'webpacker', '~> 5.4.0'
 #gem 'bumbler'
 
 gem 'puma'
-gem 'listen'
+
+group :development do
+  gem 'listen'
+end
 
 gem 'tzinfo-data'
 
 # TODO KI pg10 not working
-#gem 'pg'
+gem 'pg'
 gem 'sqlite3'
 
 gem 'config'
@@ -49,8 +52,8 @@ gem 'nokogiri'
 #gem 'ngannotate-rails', path: '~/work/projects/ruby/ngannotate-rails'
 
 group :development, :test, :deploy do
-  gem 'therubyracer',  platforms: :ruby
-  gem 'libv8'#, '~> 5.0'
+  #gem 'therubyracer',  platforms: :ruby
+  #gem 'libv8'#, '~> 5.0'
   #gem 'mini_racer'#, '~> 0.1.4'
 
   # HACK KI due to "mini_racer"
