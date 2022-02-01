@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-sm.navbar-light.bg-light
-  %a.navbar-brand{ href: '/' }
+  %a.navbar-brand{ href: Rails.application.config.relative_url_root }
     %span.sr-only= "Home"
     %span.fas.fa-home
 
@@ -17,10 +17,10 @@
           Demo
 
         .dropdown-menu{ 'aria-labelledby': "nav_menu_demo" }
-          %a.dropdown-item{ href: "/svelte_test/typeahead" }
+          %a.dropdown-item{ href: typeahead_svelte_test_index_path }
             Typeahead Svelte Demo
 
-          %a.dropdown-item{ href: "/svelte_test/select" }
+          %a.dropdown-item{ href: select_svelte_test_index_path }
             Select Svelte Demo
 
       %li.nav-item.dropdown
@@ -30,13 +30,13 @@
           Experiments
 
         .dropdown-menu{ 'aria-labelledby': "nav_menu_experiment" }
-          %a.dropdown-item{ href: "/experiments/svelte_jumper" }
+          %a.dropdown-item{ href: svelte_jumper_experiments_path }
             Svelte Jumper
 
-          %a.dropdown-item{ href: "/experiments/cube3d" }
+          %a.dropdown-item{ href: cube3d_experiments_path }
             Cube 3D
 
-          %a.dropdown-item{ href: "/experiments/learnopengl" }
+          %a.dropdown-item{ href: learnopengl_experiments_path }
             Learn OpenGL
 
       %li.nav-item.dropdown
@@ -46,12 +46,12 @@
           Testing
 
         .dropdown-menu{ 'aria-labelledby': "nav_menu_test" }
-          %a.dropdown-item{ href: "/test" }
+          %a.dropdown-item{ href: test_path }
             Test
 
           .dropdown-divider
 
-          %a.dropdown-item{ href: "/svelte_test/hello" }
+          %a.dropdown-item{ href: hello_svelte_test_index_path }
             Svelte Hello world
 
       %li.nav-item.dropdown
@@ -61,11 +61,11 @@
           Applications
 
         .dropdown-menu{ 'aria-labelledby': "nav_menu_app" }
-          %a.dropdown-item{ href: "/gi_raycaster" }
+          %a.dropdown-item{ href: gi_raycaster_path }
             Raycast
 
-          %a.dropdown-item{ href: "/gi_paint" }
+          %a.dropdown-item{ href: gi_paint_root_path }
             Paint
 
-          %a.dropdown-item{ href: "/gi_album" }
+          %a.dropdown-item{ href: gi_album_ui_path }
             Album

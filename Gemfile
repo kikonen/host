@@ -15,7 +15,7 @@ gem 'webpacker', '~> 5.4.0'
 
 gem 'puma'
 
-group :development do
+group :development, :test do
   gem 'listen'
 end
 
@@ -23,13 +23,15 @@ gem 'tzinfo-data'
 
 # TODO KI pg10 not working
 gem 'pg'
-gem 'sqlite3'
+#gem 'sqlite3'
 
 gem 'config'
 #gem 'jbuilder'
 
-#gem 'sass-rails', '~> 4.0.3'
-gem 'sassc-rails'
+group :development, :test, :deploy do
+  #gem 'sass-rails', '~> 4.0.3'
+  gem 'sassc-rails'
+end
 
 # NOTE KI sass not working sprockets 4.0 beta
 gem 'sprockets', '~> 4.0'
