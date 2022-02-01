@@ -15,7 +15,7 @@ ENV BUNDLE_PATH=/bundle/vendor \
 ####################
 COPY . .
 
-mkdir -p /node_modules
+RUN mkdir -p /node_modules
 
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - && \
     apt-get update && \
