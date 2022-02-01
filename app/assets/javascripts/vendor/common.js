@@ -1,4 +1,7 @@
 //
+//= require systemjs/s
+//= require systemjs/named-register
+//
 //= require lodash/lodash
 //
 //= require moment/moment

@@ -1,7 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: <%= ENV['RAILS_DB_HOST'] %>
   timeout: 5000
   pool: 5
   username: <%= ENV['POSTGRES_USER'] %>
@@ -9,12 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: development
+  database: <%= "development#{ENV['RAILS_DB_SUFFIX'] ? '_' : ''}#{ENV['RAILS_DB_SUFFIX']}" %>
 
 test:
   <<: *default
-  database: test
+  database: <%= "test#{ENV['RAILS_DB_SUFFIX'] ? '_' : ''}#{ENV['RAILS_DB_SUFFIX']}" %>
 
 production:
   <<: *default
-  database: production
+  database: <%= "production#{ENV['RAILS_DB_SUFFIX'] ? '_' : ''}#{ENV['RAILS_DB_SUFFIX']}" %>

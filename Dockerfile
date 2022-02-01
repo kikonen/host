@@ -28,7 +28,7 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - && \
 RUN npm install --global yarn
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends libpq-dev socat sudo grep less && \
+    apt-get install -y --no-install-recommends libpq-dev postgresql-client socat sudo grep less && \
     rm -rf /var/lib/apt/lists/*
 
 ####################

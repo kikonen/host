@@ -12,15 +12,15 @@
       .catch(function(err) {
         console.error("module not found: " + name);
 
-        console.log(err);
-        console.log(err.message);
-        console.log(err.stack);
+        console.warn(err);
+        console.warn(err.message);
+        console.warn(err.stack);
 
         var err2 = err.originalErr;
         if (err2) {
-          console.log(err2);
-          console.log(err2.message);
-          console.log(err2.stack);
+          console.warn(err2);
+          console.warn(err2.message);
+          console.warn(err2.stack);
         }
 
         throw err;
