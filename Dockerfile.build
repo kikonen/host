@@ -59,6 +59,10 @@ ENV BUNDLE_PATH=/bundle/vendor \
     NODE_PATH=/node_modules \
     PATH=$PATH:/app/bin:/node_modules/.bin
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libpq-dev sudo && \
+    rm -rf /var/lib/apt/lists/*
+
 ####################
 COPY . .
 COPY --from=builder /app/public/assets public/assets
