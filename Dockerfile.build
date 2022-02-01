@@ -82,4 +82,4 @@ RUN echo "docker ALL=(ALL:ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/docker
 USER ${DOCKER_UID}:${DOCKER_GID}
 
 ####################
-ENTRYPOINT ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "--port", "3000"]
+ENTRYPOINT ["docker/docker-entrypoint-production.sh"]
