@@ -35,6 +35,7 @@ end
 
 # NOTE KI sass not working sprockets 4.0 beta
 gem 'sprockets', '~> 4.0'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test, :deploy do
   gem 'autoprefixer-rails'
