@@ -54,4 +54,7 @@ yarn-debug.log*
 Dockerfile*
 docker
 
+.*env
+.*secrets
+
 !.keep
