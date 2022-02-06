@@ -31,6 +31,7 @@ gem 'config'
 group :development, :test, :deploy do
   #gem 'sass-rails', '~> 4.0.3'
   gem 'sassc-rails'
+  gem 'sassc', '2.4.0'
 end
 
 # NOTE KI sass not working sprockets 4.0 beta
