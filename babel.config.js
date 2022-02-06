@@ -28,31 +28,53 @@ module.exports = function(api) {
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
+          forceAllTransforms: true,
           useBuiltIns: 'entry',
           corejs: 3,
           modules: false,
-          bugfixes: true,
-          exclude: ['transform-typeof-symbol'],
-          // https://github.com/rails/webpacker/issues/3008
-          // assumptions: {
-          //   privateFieldsAsProperties: true,
-          // },
+          exclude: ['transform-typeof-symbol']
         }
       ]
     ].filter(Boolean),
     plugins: [
       'babel-plugin-macros',
+      '@babel/plugin-syntax-dynamic-import',
+      isTestEnv && 'babel-plugin-dynamic-import-node',
+      '@babel/plugin-transform-destructuring',
       [
         '@babel/plugin-proposal-class-properties',
         {
+          loose: true
+        }
+      ],
+      [
+        '@babel/plugin-proposal-object-rest-spread',
+        {
+          useBuiltIns: true
+        }
+      ],
+      [
+        '@babel/plugin-proposal-private-methods',
+        {
+          loose: true
+        }
+      ],
+      [
+        '@babel/plugin-proposal-private-property-in-object',
+        {
+          loose: true
         }
       ],
       [
         '@babel/plugin-transform-runtime',
         {
-          helpers: false,
-          regenerator: true,
-          corejs: false
+          helpers: false
+        }
+      ],
+      [
+        '@babel/plugin-transform-regenerator',
+        {
+          async: false
         }
       ]
     ].filter(Boolean)

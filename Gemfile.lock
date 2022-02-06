@@ -172,7 +172,7 @@ GEM
       raabro (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    hamlit (2.15.2)
+    hamlit (2.16.0)
       temple (>= 0.8.2)
       thor
       tilt
@@ -276,7 +276,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    rb-fsevent (0.11.0)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.6.0)
