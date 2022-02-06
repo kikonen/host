@@ -38,6 +38,7 @@ node_modules/*
 
 .emacs*
 
+.yarnrc
 /node_modules
 
 package-lock.json
