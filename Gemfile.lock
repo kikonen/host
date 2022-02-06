@@ -406,6 +406,7 @@ DEPENDENCIES
   rake (~> 13.0.0)
   resque (~> 2.0.0)
   rspec-rails
+  sassc (= 2.4.0)
   sassc-rails
   sprockets (~> 4.0)
   sprockets-rails
