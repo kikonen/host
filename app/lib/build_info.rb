@@ -3,7 +3,7 @@ module BuildInfo
 
   def self.build_info
     @build_info ||= begin
-      { build_tag: ENV['BUILD_TAG'] || 'na' }.merge!(read_build_info)
+      { container_version: ENV['CONTAINER_VERSION']}.merge!(read_build_info)
     end
   end
 
@@ -15,13 +15,24 @@ module BuildInfo
       {
         build_date: 'na',
         build_cset: 'na',
-        build_revision: 'na',
+        build_tag: 'na',
+        build_branch: 'na',
       }
     end
   end
 
   def self.render_build_info
     info = self.build_info
-    "#{info[:build_tag]} - #{info[:build_date]} - #{info[:build_revision]} (#{info[:build_cset]})"
+    parts = [
+      info[:container_version],
+      info[:build_date],
+      info[:build_tag],
+    ]
+    unless info[:build_tag]
+      parts << info[:build_branch]
+      parts << info[:build_cset]
+    end
+
+    parts.compact.join(" - ")
   end
 end
