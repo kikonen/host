@@ -3,7 +3,7 @@ module BuildInfo
 
   def self.build_info
     @build_info ||= begin
-      { build_tag: ENV['BUILD_TAG'] }.merge!(read_build_info)
+      { build_tag: ENV['BUILD_TAG'] || 'na' }.merge!(read_build_info)
     end
   end
 
@@ -18,5 +18,10 @@ module BuildInfo
         build_revision: 'na',
       }
     end
+  end
+
+  def self.render_build_info
+    info = self.build_info
+    "#{info[:build_tag]} - #{info[:build_date]} - #{info[:build_revision]} (#{info[:build_cset]})"
   end
 end
