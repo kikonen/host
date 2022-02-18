@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SvelteTestController < ::WebController
 
   protect_from_forgery with: :reset_session
