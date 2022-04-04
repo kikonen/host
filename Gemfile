@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
 gem 'rack', '~> 2.2.0'
-gem 'rails', '7.0.1'
+gem 'rails', '7.0.2.3'
 #gem 'jbuilder'
 
 # NOTE KI REQUIRED in production due to
@@ -106,7 +106,7 @@ gem 'kgio'
 
 # http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
 # => resque doesn't require thread safety
-gem 'resque', '~> 2.0.0'
+gem 'resque', '~> 2.2.0'
 #gem 'resque-web', require: 'resque_web'
 
 #
