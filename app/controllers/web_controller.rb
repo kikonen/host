@@ -4,6 +4,7 @@ class WebController < ApplicationController
   include JsEnvHelper
 
   helper JsEnvHelper
+  helper IconHelper
   helper NgTemplate::TemplateHelper
 
   before_action :require_basic_setup

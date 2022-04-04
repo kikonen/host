@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Pass environment info from rails to js side
 #

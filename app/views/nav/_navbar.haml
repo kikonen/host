@@ -1,7 +1,7 @@
 %nav.navbar.navbar-expand-sm.navbar-light.bg-light
   %a.navbar-brand{ href: Rails.application.config.relative_url_root }
     %span.sr-only= "Home"
-    %span.fas.fa-home
+    = ki_icon(Icon::HOME, :large)
 
   %button.navbar-toggler{ type: "button",
     data: { toggle: "collapse", target: "#main_navbar" },

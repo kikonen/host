@@ -88,11 +88,13 @@ bootstrap:
 "@fortawesome/fontawesome-free":
   yarn: true
   assets:
-    - webfonts/fa-solid*.woff
-    - webfonts/fa-solid*.woff2
-    - webfonts/fa-regular*.woff
-    - webfonts/fa-regular*.woff2
-    - scss/*.scss
+    - solid:
+      - svgs/solid/calendar.svg
+      - svgs/solid/caret-down.svg
+      - svgs/solid/house.svg
+      - svgs/solid/plus.svg
+      - svgs/solid/minus.svg
+      - svgs/solid/user.svg
 
 select2:
   yarn: true
