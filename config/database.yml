@@ -3,18 +3,18 @@ default: &default
   encoding: unicode
   host: <%= ENV['DB_HOST'] %>
   timeout: 5000
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= Rails.application.credentials.dig(:db, :user) %>
   password: <%= Rails.application.credentials.dig(:db, :password) %>
 
 development:
   <<: *default
-  database: <%= "development#{ENV['DB_SUFFIX'].present? ? '_' : ''}#{ENV['DB_SUFFIX']}" %>
+  database: <%= "#{ENV['DB_PREFIX']}development" %>
 
 test:
   <<: *default
-  database: <%= "test#{ENV['DB_SUFFIX'].present? ? '_' : ''}#{ENV['DB_SUFFIX']}" %>
+  database: <%= "#{ENV['DB_PREFIX']}test" %>
 
 production:
   <<: *default
-  database: <%= "production#{ENV['DB_SUFFIX'].present? ? '_' : ''}#{ENV['DB_SUFFIX']}" %>
+  database: <%= "#{ENV['DB_PREFIX']}production" %>
