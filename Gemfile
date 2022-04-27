@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '~> 13.0.0'
 gem 'rack', '~> 2.2.0'
-gem 'rails', '7.0.1'
+gem 'rails', '7.0.2.4'
 #gem 'jbuilder'
 
 # NOTE KI REQUIRED in production due to
@@ -29,7 +29,7 @@ gem 'config'
 #gem 'jbuilder'
 
 # NOTE KI You have already activated strscan 1.0.3, but your Gemfile requires strscan 3.0.1. Since strscan is a default gem, you can either remove your dependency on it or try updating to a newer version of bundler that supports strscan as a default gem
-gem 'strscan', '~> 1.0.3'
+#gem 'strscan', '~> 1.0.3'
 
 group :development, :test, :deploy do
   #gem 'sass-rails', '~> 4.0.3'
@@ -106,7 +106,7 @@ gem 'kgio'
 
 # http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
 # => resque doesn't require thread safety
-gem 'resque', '~> 2.0.0'
+gem 'resque', '~> 2.2.0'
 #gem 'resque-web', require: 'resque_web'
 
 #
