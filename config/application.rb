@@ -6,6 +6,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative '../app/lib/local_store'
+
 module Host
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -21,5 +23,7 @@ module Host
 
     # NOTE KI don't auto include helpers
     config.action_controller.include_all_helpers = false
+
+    config.middleware.use LocalStore
   end
 end
