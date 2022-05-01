@@ -21,6 +21,17 @@ end
 
 gem 'tzinfo-data'
 
+# NOTE KI https://stackoverflow.com/questions/67773514/getting-warning-already-initialized-constant-on-assets-precompile-at-the-time
+# --------------------
+# /usr/local/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+# /usr/local/bundle/gems/net-protocol-0.1.3/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+# /usr/local/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+# /usr/local/bundle/gems/net-protocol-0.1.3/lib/net/protocol.rb:208: warning: previous definition of BUFSIZE was here
+# /usr/local/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+# /usr/local/bundle/gems/net-protocol-0.1.3/lib/net/protocol.rb:504: warning: previous definition of Socket was here
+# --------------------
+gem "net-http"
+
 # TODO KI pg10 not working
 gem 'pg'
 #gem 'sqlite3'
