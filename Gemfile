@@ -32,9 +32,9 @@ gem 'config'
 #gem 'strscan', '~> 1.0.3'
 
 group :development, :test, :deploy do
-  #gem 'sass-rails', '~> 4.0.3'
-  gem 'sassc-rails'
-  gem 'sassc', '2.4.0'
+  gem 'sass-rails' #, '~> 4.0.3'
+#  gem 'sassc-rails'
+#  gem 'sassc', '2.4.0'
 end
 
 # NOTE KI sass not working sprockets 4.0 beta
@@ -72,7 +72,7 @@ gem 'ng_template'
 #gem 'ng_template', git: 'git@github.com:kikonen//ng_template.git', branch: 'master'
 #gem 'ng_template', path: '~/work/projects/ruby/ng_template'
 
-group :development do
+group :development, :test do
 #  gem 'pry', '~> 0.10'
   gem 'pry-rails'#, '~> 0.3'
 #  gem 'pry-doc', '~> 0.9'
@@ -104,6 +104,9 @@ gem 'hamlit'
 gem 'dalli'
 gem 'kgio'
 
+# TODO KI discard memcached and use redis for session
+gem 'redis'
+
 # http://stackoverflow.com/questions/11580954/resque-vs-sidekiq
 # => resque doesn't require thread safety
 gem 'resque', '~> 2.2.0'
@@ -126,15 +129,16 @@ end
 # NOTE KI http://docs.travis-ci.com/user/build-configuration/
 # - MUST use travis compatible repository access
 
-group :deploy do
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler', '~> 2.0'
-  gem 'capistrano-rvm', '~> 0.1.2'
-  gem 'capistrano-nvm', require: false
-  gem 'capistrano'
-  gem 'capistrano-ext', '~> 1.2'
-  gem 'capistrano-resque', '~> 0.2', require: false
-end
+# NOTE KI deploy using docker *ONLY*
+# group :deploy do
+#   gem 'capistrano-rails'
+#   gem 'capistrano-bundler', '~> 2.0'
+#   gem 'capistrano-rvm', '~> 0.1.2'
+#   gem 'capistrano-nvm', require: false
+#   gem 'capistrano'
+#   gem 'capistrano-ext', '~> 1.2'
+#   gem 'capistrano-resque', '~> 0.2', require: false
+# end
 
 #gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
