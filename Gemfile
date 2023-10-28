@@ -87,7 +87,8 @@ group :development, :test do
 #  gem 'pry', '~> 0.10'
   gem 'pry-rails'#, '~> 0.3'
 #  gem 'pry-doc', '~> 0.9'
-  gem 'pry-byebug', '~> 3.4'
+#  gem 'pry-byebug', '~> 3.4'
+  gem 'debug'
 end
 
 group :development do
