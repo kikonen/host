@@ -8,7 +8,7 @@ module BuildInfo
   end
 
   def self.read_build_info
-    if File.exists?(BUILD_INFO_FILE)
+    if File.exist?(BUILD_INFO_FILE)
       data = File.read(BUILD_INFO_FILE)
       JSON.parse(data).symbolize_keys
     else

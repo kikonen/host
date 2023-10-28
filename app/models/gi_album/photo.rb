@@ -74,7 +74,7 @@ class GiAlbum::Photo < GiAlbum::Element
 
   def create_thumb(size)
     target_path = full_thumb_path(size)
-    return if File.exists?(target_path)
+    return if File.exist?(target_path)
 
     logger.info "creating thumb: #{full_path} => #{target_path}"
 

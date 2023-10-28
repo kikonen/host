@@ -6,7 +6,7 @@ module Secret
   def self.[](key)
     @cache[key] ||= begin
       filename = "/var/run/secrets/#{key}"
-      File.read(filename).chomp if File.exists?(filename)
+      File.read(filename).chomp if File.exist?(filename)
     end
   end
 end

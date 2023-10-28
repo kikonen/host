@@ -3,7 +3,7 @@ class GiAlbum::Album
 
   def initialize
     @root_dir = GiAlbumSupport.config.album.root_dir
-    unless File.exists?(work_dir)
+    unless File.exist?(work_dir)
       FileUtils.mkdir_p(work_dir)
     end
   end

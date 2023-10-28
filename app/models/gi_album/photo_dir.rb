@@ -33,7 +33,7 @@ class GiAlbum::PhotoDir < GiAlbum::Element
 
     logger.debug "FULL_PATH: #{full_path}"
 
-    unless File.exists?(full_path)
+    unless File.exist?(full_path)
       raise "Path missing: #{full_path}"
     end
 

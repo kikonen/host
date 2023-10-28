@@ -59,7 +59,7 @@ namespace :deploy do
     on roles(:app) do
       FileUtils.mkdir_p(File.join(shared_path, 'config'))
       secrets_file = File.join(shared_path, 'config', 'secrets.yml')
-      if !File.exists?(secrets_file)
+      if !File.exist?(secrets_file)
         secret = %x(bundle exec rake secret).chomp
         secrets = {
           'production' => {
