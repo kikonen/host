@@ -142,15 +142,6 @@ end
 # - MUST use travis compatible repository access
 
 # NOTE KI deploy using docker *ONLY*
-# group :deploy do
-#   gem 'capistrano-rails'
-#   gem 'capistrano-bundler', '~> 2.0'
-#   gem 'capistrano-rvm', '~> 0.1.2'
-#   gem 'capistrano-nvm', require: false
-#   gem 'capistrano'
-#   gem 'capistrano-ext', '~> 1.2'
-#   gem 'capistrano-resque', '~> 0.2', require: false
-# end
 
 #gem 'gi_test_engine', git: 'git@github.com:kikonen/gi_test_engine.git', branch: 'master'
 #gem 'gi_test_engine', path: '~/work/projects/ruby/gi_test_engine'
